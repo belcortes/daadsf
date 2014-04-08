@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  margin-top: 15px;
+  font-family: 'helvetica'
+}
+a, p, div, h1, h2, h3 {
+  font-family: 'helvetica'
+}
+a {
+  text-decoration: none;
+}
+
+#nav {
+  height: 80px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#nav-img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin: 15px 20px 0 30px;
+}
+#logo-name {
+  font-size: 30px;
+  font-family: helvetica;
+  font-weight: lighter;
+  position: relative;
+  top: 10px;
+}
+#subnav {
+  height: 50px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  text-align: justify;
+  margin-left: 20px;
+}
+li #main-search {
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 25px;
+}
+#subnav li {
+  display: inline-block;
+  /*margin-right: 0.5%;*/
+}
+#search-button {
+  height: 30px;
+  width: 50px;
+}
+.button_to {
+  height: 37.8px;
+  font-size: 14px;
+  font-weight: lighter;
+  position: relative;
+  bottom: 2px;
+}
+#button {
+  padding-right: 2%;
+}
+.login {
+  padding: 0 2% 0 2%;
+  font-size: 20px;
+  font-weight: lighter;
+  border-left: 1px solid black;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;  
+}
+
+:-ms-input-placeholder {  
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;  
+}
+
+#sign_up_form {
+  width: 20%;
+  margin: 0 auto;
+  position: relative;
+  bottom: 450px;
+  margin-bottom: -400px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.signup_password {
+  line-height: 25px !important;
+}

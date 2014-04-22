@@ -12,31 +12,74 @@
     
 
   %body
-
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
     #nav
-      =image_tag asset_path('seal.jpg'), :id => 'nav-img'
-      #logo-name DISASTER ASSESSMENT AND ASSISTANCY DASHBOARD
+      =image_tag asset_path('AppaLogo.png'), :id => 'nav-img'
+      #logo-name DISASTER ASSESSMENT AND ASSISTANCE DASHBOARD
       %ul#subnav
         %li 
-          %input#main-search{placeholder: 'Search by Landlord, Address, Neighborhood or County', type: 'text'}
+          %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
+          / .search 
+          /   = link_to 'Advanved Search'
         %li#button
-          =button_to 'Search', :id => 'search-button'
+          %button#search
+            =image_tag asset_path("search.png")
         %li.login
-          %a(href='#') San Francisco Building Codes
-        %li.login#login_form
-          LOGIN
+          %a(href='#') Prepare for a Disaster
         %li.login
-          = link_to "SIGN-UP", new_user_registration_path, :remote => true, "data-toggle" => "modal"
+          %a(href='#') Recovery Resources
+        %li.login
+          - if current_user
+            = link_to current_user.email, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
+          - else
+            = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
+        %li.login
+          - if current_user
+            = link_to "Logout", destroy_user_session_path, :method => :delete
+          - else
+            = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
+        %li#advanced-search
+          = link_to 'Advanved Search'
+          / = link_to "SIGN-UP", new_user_registration_path, :remote => true #, "data-toggle" => "modal"
+        
 
-    #main{role: "dialog"}
+    = render "home/login_modal"
+    = render "home/sign_up_modal"
+    = render "home/edit_modal"
+
+    #page-body
     
           
                    
 
-    #map
-    %a(href='#')
-      #violations All Violations Nearby
-    = yield
+      #map
+
+      #container 
+        =image_tag asset_path('x.png'), :id => 'close'
+        Prepare for a Disaster
+
+
+      %a(href='#')
+        .map-buttons#neighbor Neighborhoods
+      %a(href='#')
+        .map-buttons#busi Businesses
+      %a(href='#')
+        .map-buttons#disaster Disaster Potential
+
+      %a(href='#')
+        .map-buttons#damage Damage
+      %a(href='#')
+        .map-buttons#hazard Hazardous Materials
+      %a(href='#')
+        .map-buttons#roads Roads
+
+      %a(href='http://appallicious.com/')
+        =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
+        
+      = yield
     
 
 

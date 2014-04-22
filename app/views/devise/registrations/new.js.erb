@@ -1,4 +1,4 @@
-// $(function() {
-  $("#main").html("<%= escape_javascript(render 'devise/registrations/new') %>");
-  $("#sign-up").modal().show();
-// }
+$(function() {
+  $("#main").html("<%= escape_javascript(render './layouts/devise/registrations/new.html.erb') %>");
+  $("#sign-up").modal('show');
+}

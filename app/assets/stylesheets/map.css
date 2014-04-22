@@ -4,10 +4,14 @@
   position: absolute;
   top: 120px;
   bottom: 0;
+  /*z-index: -10;*/
 }
-#violations {
-  width: 180px;
-  height: 40px;
+
+.map-buttons {
+  height: 40px
+}
+#hazard {
+  padding: 0 10px 0 10px;
   line-height: 40px;
   font-size: 16px;
   font-weight: bold;
@@ -20,5 +24,115 @@
   margin-bottom: 20px; 
   text-align: center;
   border: 2px solid black;
-  margin-right: 8%;
+  margin-right: 55px;
+  box-shadow: 5px 5px 5px grey
+}
+
+#damage {
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  float: right;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px; 
+  text-align: center;
+  border: 2px solid black;
+  margin-right: 240px;
+  box-shadow: 5px 5px 5px grey
+}
+
+#roads {
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  float: right;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px; 
+  text-align: center;
+  border: 2px solid black;
+  margin-right: 333px;
+  box-shadow: 5px 5px 5px grey
+}
+
+#neighbor {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  float: right;
+  text-align: center;
+  border: 2px solid black;
+  margin-right: 386px;
+  margin-top: 25px;
+  box-shadow: 5px 5px 5px grey
+}
+#busi {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  float: right;
+  text-align: center;
+  border: 2px solid black;
+  margin-right: 265px;
+  margin-top: 25px;
+  box-shadow: 5px 5px 5px grey
+}
+#disaster {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  float: right;
+  text-align: center;
+  border: 2px solid black;
+  margin-right: 100px;
+  margin-top: 25px;
+  box-shadow: 5px 5px 5px grey
+}
+
+#container {
+  height: 300px;
+  width: 500px;
+  margin-left:  30px;
+  margin-top: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.9);;
+  box-shadow: 5px 5px 5px grey;
+  display: inline-block;
+  z-index: 10;
+  position: relative;
+}
+#close {
+  float: right;
+  width: 20px;
+  border: 1px solid black;
+  margin: 5px;
+  cursor: pointer;
+}
+.active {
+  color: red;
 }

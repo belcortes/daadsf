@@ -136,3 +136,9 @@
 .active {
   color: red;
 }
+.dropdown-menu {
+  position: fixed !important;
+  top: 162px !important; 
+  left: auto !important; 
+  right: 100px !important;
+}

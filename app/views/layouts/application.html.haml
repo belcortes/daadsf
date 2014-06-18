@@ -64,11 +64,27 @@
 
       %a(href='#')
         .map-buttons#neighbor Neighborhoods
-      %a(href='#')
-        .map-buttons#busi Businesses
-      %a(href='#')
-        .map-buttons#disaster Disaster Potential
-
+      %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
+        Businesses
+        %b.caret
+      %ul#menu2.dropdown-menu
+        %li
+          %input{type: "checkbox"} example4
+        %li
+          %input{type: "checkbox"} example5
+        %li
+          %input{type: "checkbox"} example6
+      / .dropdown
+      %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
+        Disaster Potential
+        %b.caret
+      %ul#menu1.dropdown-menu
+        %li
+          %input{type: "checkbox"} example1
+        %li
+          %input{type: "checkbox"} example2
+        %li
+          %input{type: "checkbox"} example3
       %a(href='#')
         .map-buttons#damage Damage
       %a(href='#')

@@ -1,0 +1,35 @@
+- if notice
+  %p.alert.alert-success= notice
+- if alert
+  %p.alert.alert-danger= alert
+#nav
+  =image_tag asset_path('AppaLogo.png'), :id => 'nav-img'
+  #upper-nav
+    #logo-name DISASTER ASSESSMENT AND ASSISTANCE DASHBOARD
+    %ul#logo-nav
+      %li
+        - if current_user
+          = link_to current_user.email, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
+        - else
+          = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
+      %li
+        - if current_user
+          = link_to "Logout", destroy_user_session_path, :method => :delete
+        - else
+          = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
+  %ul#subnav
+    %li 
+      %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
+    %li#button
+      %button#search
+        =image_tag asset_path("search.png")
+    %li#advanced-search
+      %a(href='#') Advanced Search
+    %li.login#prepare
+      %a(href='#') Prepare for a Disaster
+    %li.login#recovery
+      %a(href='#') Recovery Resources
+      
+= render "home/login_modal"
+= render "home/sign_up_modal"
+= render "home/edit_modal"

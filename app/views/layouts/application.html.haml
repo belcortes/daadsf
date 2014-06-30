@@ -1,101 +1,75 @@
-!!!
-%html
-  %head
-    %title DAAD
-    = stylesheet_link_tag    "application", media: "all" #, "data-turbolinks-track" => true
-    = javascript_include_tag "application" #, "data-turbolinks-track" => true
-    = csrf_meta_tags
-    %script{src: "http://code.jquery.com/jquery.min.js", type: "text/javascript"}
-    %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB60U-cs_Addv1qCRMC6OMs4ug8Ags8n-M&sensor=false", type: "text/javascript"}
-    %link{href: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css", rel: "stylesheet"}/
-    / %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"}
+
+= render 'layouts/header'
+= render 'layouts/nav'
+      
+#page-body
+  #map 
+
+  .container#neighbor-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/neighborhoods'
+  .container#prepare-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/prepare'
+  .container#advanced-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/advanced'
+      
+      
+  / .container#container-prepare
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   %h3 Prepare for a Disaster
+  /   %p San Francisco County, California
+
+  / .container#neighborhoodshood-container
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   %h3 Neighborhoods
+  /   %p San Francisco County, California
+  /   .height
+  /     = render 'layouts/neighborhoods'
+  / = link_to "Neighborhoods", "/neighborhoods", :remote => true
     
 
-  %body
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
-    #nav
-      =image_tag asset_path('AppaLogo.png'), :id => 'nav-img'
-      #logo-name DISASTER ASSESSMENT AND ASSISTANCE DASHBOARD
-      %ul#subnav
-        %li 
-          %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
-          / .search 
-          /   = link_to 'Advanved Search'
-        %li#button
-          %button#search
-            =image_tag asset_path("search.png")
-        %li.login
-          %a(href='#') Prepare for a Disaster
-        %li.login
-          %a(href='#') Recovery Resources
-        %li.login
-          - if current_user
-            = link_to current_user.email, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
-          - else
-            = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
-        %li.login
-          - if current_user
-            = link_to "Logout", destroy_user_session_path, :method => :delete
-          - else
-            = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
-        %li#advanced-search
-          = link_to 'Advanved Search'
-          / = link_to "SIGN-UP", new_user_registration_path, :remote => true #, "data-toggle" => "modal"
+  %a(href='#')
+    .map-buttons#neighbor Neighborhoods 
+  .dropdown
+    %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
+      Businesses
+      %b.caret
+    %ul#menu2.dropdown-menu
+      %li
+        %input{type: "checkbox"} example4
+      %li
+        %input{type: "checkbox"} example5
+      %li
+        %input{type: "checkbox"} example6
+  .dropdown
+    %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
+      Disaster Potential
+      %b.caret
+    %ul#menu1.dropdown-menu
+      %li
+        %input{type: "checkbox"} example1
+      %li
+        %input{type: "checkbox"} example2
+      %li
+        %input{type: "checkbox"} example3
+  %a(href='#')
+    .map-buttons#resources Resources
+  %a(href='#')
+    .map-buttons#roads Roads
+  %a(href='#')
+    .map-buttons#damage Damage
+  %a(href='#')
+    .map-buttons#hazard Hazards
+  %a(href='http://appallicious.com/')
+    =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
+
+  = yield
+
+
         
-
-    = render "home/login_modal"
-    = render "home/sign_up_modal"
-    = render "home/edit_modal"
-
-    #page-body
-    
-          
-                   
-
-      #map
-
-      #container 
-        =image_tag asset_path('x.png'), :id => 'close'
-        Prepare for a Disaster
-
-
-      %a(href='#')
-        .map-buttons#neighbor Neighborhoods
-      %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
-        Businesses
-        %b.caret
-      %ul#menu2.dropdown-menu
-        %li
-          %input{type: "checkbox"} example4
-        %li
-          %input{type: "checkbox"} example5
-        %li
-          %input{type: "checkbox"} example6
-      / .dropdown
-      %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
-        Disaster Potential
-        %b.caret
-      %ul#menu1.dropdown-menu
-        %li
-          %input{type: "checkbox"} example1
-        %li
-          %input{type: "checkbox"} example2
-        %li
-          %input{type: "checkbox"} example3
-      %a(href='#')
-        .map-buttons#damage Damage
-      %a(href='#')
-        .map-buttons#hazard Hazardous Materials
-      %a(href='#')
-        .map-buttons#roads Roads
-
-      %a(href='http://appallicious.com/')
-        =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
-        
-      = yield
+      
     
 
 

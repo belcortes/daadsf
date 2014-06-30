@@ -1,0 +1,48 @@
+.container h3 {
+  text-align: center;
+  padding-left: 35px;
+}
+
+.container p {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.neighbor-name {
+  display: block;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.height {
+  overflow-y: scroll;
+  max-height: 350px;
+  margin-bottom: 15px;
+}
+
+.italic {
+  font-style: italic;
+  font-size: 14px; 
+  font-weight: 500;
+}
+#preparation li {
+  margin-bottom: 20px;
+}
+
+#advanced-search li {
+  list-style-type: none;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 15px;
+}
+/*#advanced-search input{
+  font-weight: 500;
+}*/
+.center {
+  text-align: center;
+}
+/*#advanced-search input {
+  display: inherit;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}*/

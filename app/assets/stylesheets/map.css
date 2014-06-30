@@ -2,122 +2,88 @@
   height: auto;
   width: 100%;
   position: absolute;
-  top: 120px;
+  top: 100px;
   bottom: 0;
-  /*z-index: -10;*/
 }
-
 .map-buttons {
-  height: 40px
-}
-#hazard {
+  height: 40px;
   padding: 0 10px 0 10px;
   line-height: 40px;
   font-size: 16px;
   font-weight: bold;
   background-color: white;
+  text-align: center;
+  border: 2px solid black;
+  /*box-shadow: 5px 5px 5px grey;*/
+}
+#hazard {
   float: right;
   position: absolute;
   z-index: 10;
   right: 0;
   bottom: 0;
   margin-bottom: 20px; 
-  text-align: center;
-  border: 2px solid black;
   margin-right: 55px;
-  box-shadow: 5px 5px 5px grey
+}
+#resources {
+  float: right;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px; 
+  margin-right: 313px;
 }
 
 #damage {
-  padding: 0 10px 0 10px;
-  line-height: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: white;
   float: right;
   position: absolute;
   z-index: 10;
   right: 0;
   bottom: 0;
   margin-bottom: 20px; 
-  text-align: center;
-  border: 2px solid black;
-  margin-right: 240px;
-  box-shadow: 5px 5px 5px grey
+  margin-right: 145px;
 }
 
 #roads {
-  padding: 0 10px 0 10px;
-  line-height: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: white;
   float: right;
   position: absolute;
   z-index: 10;
   right: 0;
   bottom: 0;
-  margin-bottom: 20px; 
-  text-align: center;
-  border: 2px solid black;
-  margin-right: 333px;
-  box-shadow: 5px 5px 5px grey
+  margin-bottom: 20px;
+  margin-right: 235px;
 }
 
 #neighbor {
   position: absolute;
   right: 0;
   top: 100px;
-  padding: 0 10px 0 10px;
-  line-height: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: white;
   float: right;
-  text-align: center;
-  border: 2px solid black;
-  margin-right: 386px;
-  margin-top: 25px;
-  box-shadow: 5px 5px 5px grey
+  margin-right: 406px;
+  margin-top: 10px;
 }
 #busi {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 100px;
-  padding: 0 10px 0 10px;
-  line-height: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: white;
   float: right;
-  text-align: center;
-  border: 2px solid black;
-  margin-right: 265px;
-  margin-top: 25px;
-  box-shadow: 5px 5px 5px grey
+  margin-right: 275px;
+  margin-top: 10px;
 }
 #disaster {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 100px;
-  padding: 0 10px 0 10px;
-  line-height: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: white;
   float: right;
-  text-align: center;
-  border: 2px solid black;
   margin-right: 100px;
-  margin-top: 25px;
-  box-shadow: 5px 5px 5px grey
+  margin-top: 10px;
 }
 
-#container {
-  height: 300px;
+.container {
   width: 500px;
-  margin-left:  30px;
-  margin-top: 50px;
+  margin-left: 20px !important;
+  margin-top: 20px;
   font-size: 16px;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.9);;
@@ -126,7 +92,7 @@
   z-index: 10;
   position: relative;
 }
-#close {
+.close {
   float: right;
   width: 20px;
   border: 1px solid black;
@@ -136,9 +102,13 @@
 .active {
   color: red;
 }
-.dropdown-menu {
-  position: fixed !important;
-  top: 162px !important; 
+#menu1 {
+  top: 47px !important; 
   left: auto !important; 
   right: 100px !important;
+}
+#menu2 {
+  top: 47px !important; 
+  left: auto !important; 
+  right: 230px !important;
 }

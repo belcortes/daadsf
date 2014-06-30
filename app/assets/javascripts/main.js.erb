@@ -1,4 +1,4 @@
-var layers = [];
+// var layers = [];
 // -------------- FUNCTIONS ------------
 
 function maps() {
@@ -22,6 +22,9 @@ function maps() {
       map = new google.maps.Map(document.getElementById("map"),
           mapOptions);
 
+      // var kmlLayer = new google.maps.KmlLayer({
+      //   url: 'https://dl.dropboxusercontent.com/u/22757148/San%20Francisco%20Neighborhood%20Maps.kml'
+      // });
       var kmlLayer = new google.maps.KmlLayer({
         url: 'https://maps.google.com/maps/ms?dg=feature&ie=UTF8&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f137271f66502f6'
       });
@@ -30,40 +33,59 @@ function maps() {
       });
     
       $('#neighbor').on('click', function(){
-        
-          kmlLayer.setMap(map);
-          kmlLayer.set('preserveViewport', true);
-          kmlLayer2.setMap(map);
-          kmlLayer2.set('preserveViewport', true);
-      //     $('#neighbor').addClass('active');
-          
-      //     //   
-      //     // }
-      //   // $('#container').show();
-      //   // $('#neighbor').on('click', function(){
-      //   //   kmlLayer.setMap(null);
-      //   //   kmlLayer2.setMap(null);
-        
+        $('.container').hide();
+        $('#neighbor-container').show();
+        kmlLayer.setMap(map);
+        kmlLayer.set('preserveViewport', true);
+        kmlLayer2.setMap(map);
+        kmlLayer2.set('preserveViewport', true);
       })
-      // if($('#neighbor').hasClass('active')){
-      //   $('#neighbor').removeClass('active');
-      //   kmlLayer.setMap(null);
-      //   kmlLayer2.setMap(null);
-      // })
-      
     }
     
     google.maps.event.addDomListener(window, 'load', initialize);
 }
 
+function button_clicks() {
+  // $('.map-buttons').on('click', function(){
+  //   if ($(this) == $('#neighbor')) {
+  //     $('#neighbor-container').show();
+  //     console.log($(this))
+  //   }
+  // })
+  $('#prepare').on('click', function(){
+    $('.container').hide();
+    $('#prepare-container').show();
+  })
+  $('#advanced-search').on('click', function(){
+    $('.container').hide();
+    $('#advanced-container').show();
+  })
+  // $('#neighbor').on('click', function(){
+  //   $('#neighbor-container').show();
+  // })
+}
+
 
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
-  $('#container').hide();
-  $('#close').on('click', function() {
-    $('#container').css('display', 'none');
+  $('.container').hide();
+  $('.close').on('click', function() {
+    $('.container').css('display', 'none');
   })
+  // $('#prepare').on('click', function(){
+  //   $('.container').show();
+  // })
   maps();
+  button_clicks();
+  $('.map-buttons').on('click', function() {
+    $(this).toggleClass('active');
+    // $('#container').show();
+  })
+
+  // d3.json("planning_neighborhoods.json", function(error, sf) {
+  //   if (error) return console.error(error);
+  //   console.log(sf);
+  // });
   // function toggleLayer(i)
   //   {
 

@@ -103,12 +103,14 @@
   color: red;
 }
 #menu1 {
-  top: 47px !important; 
+  top: 147px !important; 
   left: auto !important; 
   right: 100px !important;
+  position: fixed !important;
 }
 #menu2 {
-  top: 47px !important; 
+  top: 147px !important; 
   left: auto !important; 
-  right: 230px !important;
+  right: 243px !important;
+  position: fixed !important;
 }

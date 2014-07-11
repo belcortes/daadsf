@@ -1,6 +1,5 @@
 // var layers = [];
 // -------------- FUNCTIONS ------------
-
 function maps() {
   var map;
     function initialize() {
@@ -19,28 +18,118 @@ function maps() {
           position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
       };
+
       map = new google.maps.Map(document.getElementById("map"),
           mapOptions);
 
+      // $.get("http://weather.yahooapis.com/forecastrss?w=12765839", function(xml) {
+      //   $('weather', xml).each(function(i){
+      //     lat = $(this).find('geo:lat').text();
+      //     console.log(lat)
+      //   })
+      // })
+      // var zips = [20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012]
+      // // console.log(zips)
+      // for (var i = 0; i < zips.length; i++) {
+      //    $.ajax({
+      //       url : "http://api.wunderground.com/api/4c540d9ac42d77e1/geolookup/conditions/q/"+zips[i]+".json",
+      //       dataType : "jsonp",
+      //       success : function(parsed_json) { 
+      //       var temp_f = parsed_json['current_observation']['temp_f'];
+      //       var heatmap_data = new google.maps.LatLng(parsed_json['location']['lat'], parsed_json['location']['lon'])
+
+      //     } 
+      //    });
+      // }
+
+      // heatmap = new google.maps.visualization.HeatmapLayer({
+      //         data: heatmap_data
+      //       });
+      //       heatmap.setMap(map);
+          
+          
+
+      
+      
+
+      var flood_kml = new google.maps.KmlLayer({
+        url: 'https://dl.dropboxusercontent.com/u/22757148/floodmap.kml'
+      });
       // var kmlLayer = new google.maps.KmlLayer({
       //   url: 'https://dl.dropboxusercontent.com/u/22757148/San%20Francisco%20Neighborhood%20Maps.kml'
       // });
-      var kmlLayer = new google.maps.KmlLayer({
+      var neighborhood_kml = new google.maps.KmlLayer({
         url: 'https://maps.google.com/maps/ms?dg=feature&ie=UTF8&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f137271f66502f6'
       });
-      var kmlLayer2 = new google.maps.KmlLayer({
+      var neighborhood_kml2 = new google.maps.KmlLayer({
         url: 'https://maps.google.com/maps/ms?ie=UTF8&hl=en&source=embed&dg=feature&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f13b9644a6edc2f'
       });
+
+      var zip_kmz = new google.maps.KmlLayer({
+        url: 'https://dl.dropboxusercontent.com/u/22757148/DC_Zipcodes.KML'
+      });
+
+      var weatherLayer = new google.maps.weather.WeatherLayer();
+      weatherLayer.setMap(map);
     
       $('#neighbor').on('click', function(){
         $('.container').hide();
         $('#neighbor-container').show();
-        kmlLayer.setMap(map);
-        kmlLayer.set('preserveViewport', true);
-        kmlLayer2.setMap(map);
-        kmlLayer2.set('preserveViewport', true);
+        if ( neighborhood_kml.getMap() != null && neighborhood_kml2.getMap() != null) {
+            neighborhood_kml.setMap(null);
+            neighborhood_kml2.setMap(null);
+        }
+        else {
+            neighborhood_kml.setMap(map);
+            neighborhood_kml2.setMap(map);
+        }
+      })
+      $('#roads').on('click', function(){
+        flood_kml.setMap(map);
+      })
+      $('#hazard').on('click', function(){
+        zip_kmz.setMap(map);
+        // zip_kmz.set('preserveViewport', true);
+      })
+      markers();
+      
+
+    }
+    function markers() {
+      var icon = "<%= asset_path 'cooling.png' %>"
+      var bounds = new google.maps.LatLngBounds();
+
+      $.getJSON("/cooling", function(json) {
+        $.each(json, function(key, data) {
+          var contentInfo = (data.name +" "+ data.address)
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon,
+            title: 'hello'
+          });
+          marker.setMap(null);
+
+          bounds.extend(marker.position);
+
+          $('#resources').on('click', function(){
+            if ($(this).attr('class') == 'map-buttons active') {
+              marker.setMap(map);
+              map.fitBounds(bounds);
+            } else {
+              marker.setMap(null);
+            }
+          })
+          var infowindow = new google.maps.InfoWindow({
+              content: contentInfo
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+          });
+        })
       })
     }
+    
     
     google.maps.event.addDomListener(window, 'load', initialize);
 }
@@ -60,6 +149,20 @@ function button_clicks() {
     $('.container').hide();
     $('#advanced-container').show();
   })
+  $('#recovery').on('click', function(){
+    $('.container').hide();
+    $('#recovery-container').show();
+  })
+  $('#myaccount').on('click', function(){
+    $('.container').hide();
+    $('#account-container').show();
+  })
+  $('#contact-info').on('click', function(){
+    $(this).children().show();
+  })
+  $('#certifications').on('click', function(){
+    $(this).children().show();
+  })
   // $('#neighbor').on('click', function(){
   //   $('#neighbor-container').show();
   // })
@@ -68,6 +171,7 @@ function button_clicks() {
 
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
+  $('.account-box').hide();
   $('.container').hide();
   $('.close').on('click', function() {
     $('.container').css('display', 'none');
@@ -82,21 +186,6 @@ $(function() {
     // $('#container').show();
   })
 
-  // d3.json("planning_neighborhoods.json", function(error, sf) {
-  //   if (error) return console.error(error);
-  //   console.log(sf);
-  // });
-  // function toggleLayer(i)
-  //   {
-
-  //     if(layers[i].getMap()==null) {
-  //        layers[i].setMap(map);
-  //     }
-  //     else {
-  //        layers[i].setMap(null);
-  //     }
-  //     document.getElementById('neighbor').innerHTML += "toggleLayers("+i+") [setMap("+layers[i].getMap()+"] returns status: "+layers[i].getStatus()+"<br>";
-  //   }
 
   // $("#myModal").modal({show:false });
 });

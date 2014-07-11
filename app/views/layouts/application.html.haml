@@ -14,6 +14,12 @@
   .container#advanced-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/advanced'
+  .container#recovery-container
+    %span.glyphicon.glyphicon-remove
+    = render 'layouts/recover'
+  .container#account-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'users/personal'
       
       
   / .container#container-prepare

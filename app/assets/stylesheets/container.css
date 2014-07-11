@@ -35,6 +35,15 @@
   font-weight: 500;
   font-size: 15px;
 }
+.container input {
+  height: 25px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+label {
+  color: black;
+  font-size: 14px;
+}
 /*#advanced-search input{
   font-weight: 500;
 }*/
@@ -46,3 +55,7 @@
   margin: 0 auto;
   margin-bottom: 20px;
 }*/
+.personal {
+  cursor: pointer;
+  color: #1371bb;
+}

@@ -1,7 +1,3 @@
-- if notice
-  %p.alert.alert-success= notice
-- if alert
-  %p.alert.alert-danger= alert
 #nav
   =image_tag asset_path('AppaLogo.png'), :id => 'nav-img'
   #upper-nav
@@ -17,6 +13,9 @@
           = link_to "Logout", destroy_user_session_path, :method => :delete
         - else
           = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
+      - if current_user
+        %li#myaccount
+          %a(href='#') My Account
   %ul#subnav
     %li 
       %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}

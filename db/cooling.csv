@@ -1,0 +1,107 @@
+id,name,address,city,state,zipcode,phone,center_type,accessibility,latitude,longitude
+1,One Judiciary Square,441 4th St. NW,Washington,DC,20001,202-724-8613,General Weekday Cooling Center,,38.895198,-77.016212
+2,Frank D. Reeves Center (Lobby),2000 14th St. NW,Washington,DC,20009,202-671-0576,General Weekday Cooling Center,,38.917407,-77.032331
+3,King Office Building (Lobby),3720 Martin Luther King Ave. SE,Washington,DC,20032,202-279-1800,General Weekday Cooling Center,,38.837065,-77.006189
+4,Open Door Shelter for Women,425 2nd St. NW,Washington,DC,20001,,Department of Human Services Emergency Homeless Cooling Facility,,38.895564,-77.013232
+5,Catholic Charities 801 East Men's Shelter,"801 East Building, 2700 Martin Luther King Jr. Ave. SE",Washington,DC,20032,,Department of Human Services Emergency Homeless Cooling Facility,,38.849842,-76.996017
+6,House of Ruth Madison/Empowerment Center (Women),651 10th St. NE,Washington,DC,20001,,Department of Human Services Emergency Homeless Cooling Facility,,38.898642,-76.992228
+7,New York Avenue Men's Emergency Shelter,1355 New York Ave. NE,Washington,DC,20002,,Department of Human Services Emergency Homeless Cooling Facility,,38.914995,-76.985796
+8,Adam's Place Emergency Shelter (Men),2210 Adam's Pl. NE,Washington,DC,20018,,Department of Human Services Emergency Homeless Cooling Facility,,38.919709,-76.974905
+9,John L. Young Center for Women,425 D St. NW,Washington,DC,20001,,Department of Human Services Emergency Homeless Cooling Facility,,38.894767,-77.016185
+10,DC General Building #9 (Women),1900 Massachusetts Ave. SE,Washington,DC,20003,,Department of Human Services Emergency Homeless Cooling Facility,,38.885392,-76.97269
+11,Arthur Capper,900 5th St. SE,Washington,DC,20003,202-546-1024,Public Housing Cooling Centers for Senior Citizens,,38.878877,-76.999495
+12,Carroll Apartments,410 M St. SE,Washington,DC,20003,202-727-4069,Public Housing Cooling Centers for Senior Citizens,,38.876618,-76.999981
+13,Fort Lincoln,2855 Bladensburg Rd. NE,Washington,DC,20018,202-576-6370,Public Housing Cooling Centers for Senior Citizens,,38.925224,-76.964982
+14,Garfield,2301 11th St. NW,Washington,DC,20001,202-362-7452,Public Housing Cooling Centers for Senior Citizens,,38.920749,-77.027002
+15,Horizon House,1150 12th St. NW,Washington,DC,20005,202-682-9395,Public Housing Cooling Centers for Senior Citizens,,38.905286,-77.028309
+16,James Apartments,1425 N St. NW,Washington,DC,20005,202-673-2387,Public Housing Cooling Centers for Senior Citizens,,38.907514,-77.033027
+17,Knox Hill,2700 Jasper St. SE,Washington,DC,20020,202-727-4005,Public Housing Cooling Centers for Senior Citizens,,38.852247,-76.969273
+18,LaDroit,2125 4th St. NW,Washington,DC,20001,202-238-0438,Public Housing Cooling Centers for Senior Citizens,,38.918799,-77.017786
+19,Sibley Plaza,1140 North Capitol St. NW,Washington,DC,20002,202-289-0095,Public Housing Cooling Centers for Senior Citizens,,38.905086,-77.00915
+20,Regency House,5201 Connecticut Ave. NW,Washington,DC,20015,202-362-4445,Public Housing Cooling Centers for Senior Citizens,,38.957845,-77.070998
+21,Marie Reed Aquatic Center,2200 Champlain St. NW,Washington,DC,20009,202-673-7771 & 202-316-2291,Indoor Pools,,38.919,-77.040713
+22,William H. Rumsey Aquatic Center,635 North Carolina Ave. SE,Washington,DC,20003,202-724-4495,Indoor Pools,,38.886543,-76.997011
+23,Wilson Aquatic Center,4551 Fort Dr. NW,Washington,DC,20016,202-730-0583,Indoor Pools,,38.94924,-77.077941
+24,Takoma Aquatic Center,300 Van Buren St. NW,Washington,DC,20012,202-576-9284,Indoor Pools,,38.969926,-77.017645
+25,Turkey Thicket,1100 Michigan Ave. NE,Washington,DC,20017,202-576-9235,Indoor Pools,,38.938174,-76.992799
+26,Therapeutic Recreation Center,3030 G St. SE,Washington,DC,20019,202-645-5708 & 202-698-1794,Indoor Pools,,38.880255,-76.964152
+27,Ferebee-Hope Aquatic Center,3999 8th St. SE,Washington,DC,20032,202-645-3916,Indoor Pools,,38.831996,-76.994651
+28,Anacostia Pool,1800 Anacostia Dr. SE,Washington,DC,20020,202-725-1441,Outdoor Pools,,38.869266,-77.000203
+29,Banneker Pool,2500 Georgia Ave. NW,Washington,DC,20001,202-673-2121,Outdoor Pools,,38.922503,-77.022905
+30,Barry Farm Recreation Center,1230 Sumner Rd. SE,Washington,DC,20020,202-730-0572,Outdoor Pools,,38.860665,-76.996681
+31,Benning Park Pool,Southern Ave. and Fable St. SE,Washington,DC,20019,202-645-5044,Outdoor Pools,,38.88012,-76.926066
+32,Douglass Pool,1921 Frederick Douglass Ct. SE,Washington,DC,20020,202-645-5045,Outdoor Pools,,38.851992,-76.977177
+33,East Potomac Pool,972 Ohio Dr. SW,Washington,DC,20024,202-727-6523,Outdoor Pools,,38.874571,-77.026281
+34,Fort Dupont Pool,830 Ridge Rd. SE,Washington,DC,20019,202-645-5046,Outdoor Pools,,38.876017,-76.94036
+35,Theodor Hagan Pool,3201 Fort Lincoln Dr. NE,Washington,DC,20018,202-576-6389,Outdoor Pools,,38.927608,-76.958686
+36,Fort Stanton Pool,1800 Erie St. SE,Washington,DC,20020,202-678-1798,Outdoor Pools,,38.857329,-76.979282
+37,Francis Pool,2435 N St. NW,Washington,DC,20037,202-727-3285,Outdoor Pools,,38.90722,-77.053194
+38,Kelly Miller Pool,4900 Brooks St. NE,Washington,DC,20019,202-724-5056,Outdoor Pools,,38.892643,-76.932886
+39,Jellef Recreation Center Pool,3265 S St. NW,Washington,DC,20007,202-462-1317,Outdoor Pools,,38.915749,-77.066748
+40,Langdon Park Pool,2860 Mills Ave. NE,Washington,DC,20018,202-576-8955,Outdoor Pools,,38.927116,-76.973025
+41,Oxon Run Pool,501 Mississippi Ave. SE,Washington,DC,20032,202-645-5042,Outdoor Pools,,38.836925,-76.99959
+42,Randall Pool,25 I St. SW,Washington,DC,20024,202-727-1420,Outdoor Pools,,38.879304,-77.010327
+43,Rosedale Pool,1701 Gales St. NE,Washington,DC,20002,202-727-1315,Outdoor Pools,,38.898103,-76.979646
+44,Upshur Pool,4300 Arkansas St. NW,Washington,DC,20011,202-576-8661,Outdoor Pools,,38.944119,-77.031629
+45,Harry Thomas Sr. Pool,1743 Lincoln Rd. NE,Washington,DC,20002,202-541-7499,Outdoor Pools,,38.913296,-77.008297
+46,Volta Park Pool,1555 34th St. NW,Washington,DC,20007,202-645-5669,Outdoor Pools,,38.910036,-77.067096
+47,Park View Children's Pool,693 Otis Pl. NW,Washington,DC,20010,202-576-8658,Walk to Learn Swimming Pools,,38.934939,-77.021366
+48,Lincoln Capper Children's Pool,555 L St. SE,Washington,DC,20003,202-727-1080,Walk to Learn Swimming Pools,,38.877049,-76.998432
+49,Watkins Children's Pool,420 12th St. SE,Washington,DC,20003,202-727-1504,Walk to Learn Swimming Pools,,38.883853,-76.990205
+50,Happy Hollow Children's Pool,2200 Champlain St. NW,Washington,DC,20009,202-673-2123,Walk to Learn Swimming Pools,,38.919009,-77.040706
+51,Girard Street Park Spray Park,1480 Girard St. NW,Washington,DC,20009,,Spray Parks,,38.92522,-77.034949
+52,Guy Mason Recreation Center,3600 Calvert St. NW,Washington,DC,20008,,Spray Parks,,38.922511,-77.070948
+53,Fort Davis Spray Park,1400 41st St. SE,Washington,DC,20020,,Spray Parks,,38.870452,-76.944939
+54,Fort Greble Spray Park,Martin Luther King Jr. Ave. and Elmira St. SW,Washington,DC,20032,,Spray Parks,,38.826047,-77.012581
+55,Fort Stevens Recreation Center,1327 Van Buren St. NE,Washington,DC,20012,,Spray Parks,,38.969946,-77.03064
+56,Friendship Spray Park,4500 Van Ness St. NW,Washington,DC,20016,,Spray Parks,,38.942745,-77.087704
+57,Harrison Recreation Center Spreay Park,1330 V St. NW,Washington,DC,20009,,Spray Parks,,38.91802,-77.030886
+58,Palisades Spray Park,5200 Sherrier Pl. NW,Washington,DC,20016,,Spray Parks,,38.924874,-77.104661
+59,Petworth Spray Park,801 Taylor St. NW,Washington,DC,20011,,Spray Parks,,38.940865,-77.023321
+60,Lafayette Spray Park,5900 33rd St. NW,Washington,DC,20015,,Spray Parks,,38.967632,-77.066427
+61,Riggs LaSalle Recreation Center,501 Riggs Rd. NE,Washington,DC,20011,,Spray Parks,,38.959867,-77.000015
+62,14th and Girard Street Spray Park,14th and Girard St. NW,Washington,DC,20009,,Spray Parks,,38.925734,-77.032323
+63,14th and Park Road Park,14th St. and Park Rd. NW,Washington,DC,20010,,Spray Parks,,38.930229,-77.032741
+64,Macomb Recreation Center Spray Park,3409 Macomb St. NW,Washington,DC,20016,,Spray Parks,,38.933634,-77.067456
+65,Joseph H. Cole Spray Park,1299 Neal St. NE,Washington,DC,20002,,Spray Parks,,38.904284,-76.988437
+66,Takoma Community Center Spray Park,4300 Van Buren St. NW,Washington,DC,20010,,Spray Parks,,38.969907,-77.019853
+67,Turkey Thicket Aquatic Center,1100 Michigan Ave. NE,Washington,DC,20017,,Spray Parks,,38.938161,-76.992788
+68,Hillcrest Recreation Center,3100 Denver St. SE,Washington,DC,20020,,Spray Parks,,38.858379,-76.961955
+69,Kennedy Recreation Center,1401 7th St. NW,Washington,DC,20001,,Spray Parks,,38.908569,-77.021907
+70,VIDA Spanish Senior Center,1842 Calvert St. NW,Washington,DC,20009,202-483-1508,Senior Service Network Centers,"Handicapped Accessible, Bilingual Services Available, Facility Near Metrorail or Bus Line",38.923083,-77.04438
+71,Bernice Fonteneau Senior Wellness Center,3531 Georgia Ave. NW,Washington,DC,20010,202-727-0338,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line",38.933768,-77.023742
+72,Asian Senior Center,417 G Place NW,Washington,DC,20001,202-842-4376,Senior Service Network Centers,"Handicapped Accessible, Bilingual Services Available, Facility Near Metrorail or Bus Line",38.899082,-77.018381
+73,Senior Center for the Homeless Elderly at Luther Place Church,1226 Vermont Ave. NW,Washington,DC,20005,202-265-2017,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line",38.906879,-77.031466
+74,IONA,4125 Albemarle St. NW,Washington,DC,20016,202-966-1055,Senior Service Network Centers,,38.948225,-77.081642
+75,Hattie Holmes Senior Wellness Center,324 Kennedy St. NW,Washington,DC,20011,202-291-6170,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line",38.956232,-77.016928
+76,Ft. Stevens Recreation Center,1327 Van Buren St. NW,Washington,DC,20012,202-576-6916,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line",38.96994,-77.030632
+77,Model Cities Senior Wellness Center,1901 Evarts St. NE,Washington,DC,20018,202-635-1900,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line",38.924226,-76.976694
+78,Hayes Senior Wellness Center,500 K St. NE,Washington,DC,20002,202-727-0357,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line, Identification Required to Enter",38.902878,-76.999206
+79,Washington Seniors Wellness Center,3001 Alabama Ave. SE,Washington,DC,20020,202-581-9355,Senior Service Network Centers,,38.859038,-76.963262
+80,Congress Heights Senior Wellness Center,3500 Martin Luther King Ave. SE,Washington,DC,20032,202-563-7725,Senior Service Network Centers,"Handicapped Accessible, Facility Near Metrorail or Bus Line",38.840071,-77.004436
+81,Mt. Pleasant Library,3160 16th St. NW,Washington,DC,20010,,Libraries,,38.930533,-77.037186
+82,Watha T. Daniel/Shaw Library,1630 7th St. NW,Washington,DC,20001,,Libraries,,38.912405,-77.021934
+83,West End Interim Library,2522 Virginia Ave. NW,Washington,DC,20037,,Libraries,,38.899382,-77.054391
+84,Georgetown Library,3260 R St. NW,Washington,DC,20007,,Libraries,,38.913391,-77.066032
+85,Martin Luther King Jr. Memorial Library,901 G St. NW,Washington,DC,20001,,Libraries,,38.898711,-77.024812
+86,Chevy Chase Library,5625 Connecticut Ave. NW,Washington,DC,20015,,Libraries,,38.965127,-77.075081
+87,Cleveland Park Library,3310 Connecticut Ave. NW,Washington,DC,20008,,Libraries,,38.933779,-77.05792
+88,Palisades Library,4901 V St. NW,Washington,DC,20007,,Libraries,,38.918439,-77.097174
+89,Tenley-Friendship Library,4450 Wisconsin Ave. NW,Washington,DC,20016,,Libraries,,38.947638,-77.079974
+90,Juanita E. Thornton/Shepherd Park Library,7420 Georgia Ave. NW,Washington,DC,20012,,Libraries,,38.980307,-77.026943
+91,Petworth Library,4200 Kansas Ave. NW,Washington,DC,20011,,Libraries,,38.941937,-77.025907
+92,Takoma Park Library,416 Cedar St. NW,Washington,DC,20012,,Libraries,,38.974492,-77.020155
+93,Dorothy I. Height/Benning Library,3935 Benning Rd. NE,Washington,DC,20019,,Libraries,,38.894099,-76.947767
+94,Lamond-Riggs Library,5401 South Dakota Ave. NE,Washington,DC,20011,,Libraries,,38.954995,-76.999753
+95,Woodridge Library,1790 Douglas St. NE,Washington,DC,20018,,Libraries,,38.923448,-76.979089
+96,Northeast Library,330 7th St. NE,Washington,DC,20002,,Libraries,,38.89437,-76.996446
+97,Northeast One Library,155 L St. NW,Washington,DC,20001,,Libraries,,38.904033,-77.013409
+98,Rosedale Library,1701 Gales St. NE,Washington,DC,20002,,Libraries,,38.898088,-76.979652
+99,Southeast Library,403 7th St. SE,Washington,DC,20003,,Libraries,,38.884335,-76.996194
+100,Southwest Library,900 Wesley Pl. SW,Washington,DC,20024,,Libraries,,38.878679,-77.015855
+101,Anacostia Library,1800 Good Hope Rd. SE,Washington,DC,20020,,Libraries,,38.865673,-76.978991
+102,Capitol View Library,5001 Central Ave. SE,Washington,DC,20019,,Libraries,,38.888908,-76.929506
+103,Deanwood Library,1350 49th Ave. NE,Washington,DC,20019,,Libraries,,38.908465,-76.932244
+104,Francis A. Gregory Library,3660 Alabama Ave. SE,Washington,DC,20020,,Libraries,,38.865652,-76.954893
+105,Parklands-Turner Library,1547 Alabama Ave. SE,Washington,DC,20032,,Libraries,,38.846562,-76.9814
+106,William O. Lockridge/Bellevue Library,115 Atlantic St. SW,Washington,DC,20032,,Libraries,,38.831426,-77.009471

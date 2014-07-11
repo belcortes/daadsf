@@ -1,0 +1,22 @@
+%h3 
+  = current_user.name 
+  's Account
+%a(href='#')
+  Contact Information
+
+  .account-box
+    = form_for (resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.label :name
+      = f.text_field :name
+      = f.label :email
+      = f.email_field :email
+      = f.submit
+%br
+%a(href='#')
+  Certifications
+%br
+%a(href='#')
+  Buildings
+%br
+%a(href='#')
+  Resources

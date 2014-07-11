@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619215158) do
+ActiveRecord::Schema.define(version: 20140709214708) do
+
+  create_table "cooling_centers", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "phone"
+    t.string   "center_type"
+    t.decimal  "latitude",      precision: 15, scale: 12
+    t.decimal  "longitude",     precision: 15, scale: 12
+    t.string   "accessibility"
+    t.integer  "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "neighborhoods", force: true do |t|
     t.string   "name"
@@ -22,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140619215158) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -32,14 +47,31 @@ ActiveRecord::Schema.define(version: 20140619215158) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "nert"
+    t.boolean  "cert"
+    t.boolean  "gov_employee"
+    t.string   "organizations"
+    t.string   "birth"
+    t.integer  "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "user_type"
     t.boolean  "admin"
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "zip"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "zipcodes", force: true do |t|
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,7 +1,7 @@
 require 'csv'
 
 desc "Import teams from csv file"
-task :import => [:environment] do
+task :import => [:production] do
 
   file = "db/cooling.csv"
 

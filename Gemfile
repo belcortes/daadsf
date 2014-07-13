@@ -29,6 +29,7 @@ gem 'haml'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'wicked'
+gem 'taps'
 
 group :production do
   gem 'pg'

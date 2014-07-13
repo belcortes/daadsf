@@ -8,6 +8,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
 
+  def facebook
+    # You need to implement the method below in your model (e.g. app/models/user.rb)
+    @user = User.from_omniauth(request.env["omniauth.auth"])
+
+    if @user.persisted?
+      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+    else
+      session["devise.facebook_data"] = request.env["omniauth.auth"]
+      redirect_to new_user_registration_url
+    end
+  end
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
@@ -44,6 +57,11 @@ class User < ActiveRecord::Base
 
     clean_up_passwords
     result
+  end
+   searchable do
+    string :name
+    # text :address
+    # integer :zip
   end
 
 end

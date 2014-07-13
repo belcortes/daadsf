@@ -1,0 +1,11 @@
+#facets
+  %h3 Published
+  %ul
+    - for row in @search.facet(:publish_month).rows
+      %li
+        - if params[:month].blank?
+          = link_to row.value, :month => row.value
+          (#{row.count})
+        - else
+          %strong= row.value
+          (#{link_to "remove", :month => nil})

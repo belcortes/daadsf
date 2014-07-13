@@ -1,0 +1,8 @@
+.results
+  - @search
+  / .each_hit_with_result do |hit, zip|
+  /   .result
+  /     %h2= h zip.zip_number
+  /     %h2= h zip.city
+  /     %h2= h zip.state
+  /     / # %p= h truncate(zip.body, :length => 100)

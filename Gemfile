@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'sunspot_rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -33,6 +34,10 @@ gem 'haml'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'wicked'
+
+group :development do
+  gem 'sunspot_solr'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

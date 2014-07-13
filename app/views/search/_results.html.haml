@@ -1,0 +1,23 @@
+/ - if @search != ' '
+#results.container2
+  =image_tag asset_path('x.png'), :class => 'close'
+  %h3
+    Results
+  .height
+    - @results.each do |r|
+      %h4
+        = r.name
+      %br
+      Address:
+      = r.address
+      %br
+      City:
+      = r.city
+      %br
+      State:
+      = r.state
+      %br
+      Center Type:
+      = r.center_type
+      %br
+      %br

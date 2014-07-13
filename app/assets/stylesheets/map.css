@@ -92,6 +92,19 @@
   z-index: 10;
   position: relative;
 }
+.container2 {
+  width: 500px;
+  margin-left: 20px !important;
+  margin-top: 20px;
+  /*font-size: 16px;*/
+  /*font-weight: bold;*/
+  background-color: rgba(255, 255, 255, 0.9);;
+  box-shadow: 5px 5px 5px grey;
+  display: inline-block;
+  z-index: 10;
+  position: relative;
+  padding: 0 20px 20px 20px;
+}
 .close {
   float: right;
   width: 20px;

@@ -76,3 +76,5 @@ n67 = Neighborhood.create(name: "Western Addition")
 n68 = Neighborhood.create(name: "West Portal")
 n69 = Neighborhood.create(name: "Westwood Highlands")
 
+z1 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20001')
+

@@ -18,10 +18,14 @@
           %a(href='#') My Account
   %ul#subnav
     %li 
-      %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
-    %li#button
-      %button#search
-        =image_tag asset_path("search.png")
+      / %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
+      = form_tag '/search', :method => :get do
+        = text_field_tag :search, params[:search], placeholder:'SEARCH A ZIPCODE'
+        %button#search
+          = image_submit_tag("search.png") #, :name => nil
+    / %li#button
+    /   %button#search
+    /     =image_tag asset_path("search.png")
     %li#advanced-search
       %a(href='#') Advanced Search
     %li.login#prepare

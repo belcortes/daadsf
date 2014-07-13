@@ -20,6 +20,9 @@
   .container#account-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'users/personal'
+  / .container#results
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   = render 'search/results'
       
       
   / .container#container-prepare
@@ -37,37 +40,37 @@
     
 
   %a(href='#')
-    .map-buttons#neighbor Neighborhoods 
-  .dropdown
-    %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
-      Businesses
-      %b.caret
-    %ul#menu2.dropdown-menu
-      %li
-        %input{type: "checkbox"} example4
-      %li
-        %input{type: "checkbox"} example5
-      %li
-        %input{type: "checkbox"} example6
-  .dropdown
-    %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
-      Disaster Potential
-      %b.caret
-    %ul#menu1.dropdown-menu
-      %li
-        %input{type: "checkbox"} example1
-      %li
-        %input{type: "checkbox"} example2
-      %li
-        %input{type: "checkbox"} example3
+    .map-buttons#neighbor SF Neighborhoods 
+  / .dropdown
+  /   %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
+  /     Businesses
+  /     %b.caret
+  /   %ul#menu2.dropdown-menu
+  /     %li
+  /       %input{type: "checkbox"} example4
+  /     %li
+  /       %input{type: "checkbox"} example5
+  /     %li
+  /       %input{type: "checkbox"} example6
+  / .dropdown
+  /   %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
+  /     Disaster Potential
+  /     %b.caret
+  /   %ul#menu1.dropdown-menu
+  /     %li
+  /       %input{type: "checkbox"} example1
+  /     %li
+  /       %input{type: "checkbox"} example2
+  /     %li
+  /       %input{type: "checkbox"} example3
   %a(href='#')
-    .map-buttons#resources Resources
+    .map-buttons#resources DC-Cooling Centers
   %a(href='#')
     .map-buttons#roads Roads
   %a(href='#')
     .map-buttons#damage Damage
   %a(href='#')
-    .map-buttons#hazard Hazards
+    .map-buttons#hazard DC Zips
   %a(href='http://appallicious.com/')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
 

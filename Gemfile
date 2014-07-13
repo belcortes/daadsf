@@ -3,11 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-
-# Use postgresql as the database for Active Record
-# gem 'pg'
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -35,8 +30,12 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'wicked'
 
+group :production do
+  gem 'pg'
+end
 group :development do
   gem 'sunspot_solr'
+  gem 'sqlite3'
 end
 
 group :doc do
@@ -52,6 +51,3 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

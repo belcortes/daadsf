@@ -98,10 +98,10 @@ function maps() {
         // zip_kmz.set('preserveViewport', true);
       })
       markers();
-       // $('button#search').on('click', function(){
-          // cooling_markers()
-        // })
-      
+      // $('button#search').on('click', function(){
+        cooling_markers();
+      // })
+          
 
     }
     function markers() {
@@ -142,14 +142,10 @@ function maps() {
     function cooling_markers() {
       var icon = "<%= asset_path 'cooling.png' %>"
       var bounds = new google.maps.LatLngBounds();
-      // var search_zips = [20001, 20009, 20032, 20002, 20018, 20003, 20005, 20020, 20015, 20016, 20012, 20017, 20019, 20024, 20037, 20007, 20011, 20010, 20008]
-      // for (var i = 0; i < search_zips.length; i++) {
-        // console.log(search_zips[i]);
 
-        // $.getJSON("/search?utf8=✓&search="+'<%= @search %>' , function(json) {
-        $.getJSON("/search", function(json) {
+        $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
           $.each(json, function(key, data) {
-            console.log(data.zip)
+            console.log(data.name)
             var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
             var marker = new google.maps.Marker({
               position: new google.maps.LatLng(data.latitude, data.longitude),
@@ -160,9 +156,9 @@ function maps() {
 
             bounds.extend(marker.position);
 
-            $('button#search').on('click', function(){
+            $('#search').on('click', function(){
               // if ($(this).attr('class') == 'map-buttons active') {
-              //   marker.setMap(map);
+              marker.setMap(map);
               map.fitBounds(bounds);
               // } else {
               //   marker.setMap(null);
@@ -212,9 +208,7 @@ function button_clicks() {
   $('#certifications').on('click', function(){
     $(this).children().show();
   })
-  // $('.button#search').on('click', function(){
-  //   $('.container#results').show();
-  // })
+  
   // $('#neighbor').on('click', function(){
   //   $('#neighbor-container').show();
   // })
@@ -224,7 +218,6 @@ function button_clicks() {
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
   
-  console.log('helloooo')
   $('.account-box').hide();
   $('.container').hide();
   $('.close').on('click', function() {

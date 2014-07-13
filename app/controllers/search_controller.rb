@@ -8,7 +8,8 @@ class SearchController < ApplicationController
       format.json { render json: @results }
       format.html { render '_results', layout: true }
     end
-    p @search[:q]
+    p params[:search_text]
+    p (params[:query])
     p '^^^^ search text'
     # p @results
     # p fulltext params[:search]

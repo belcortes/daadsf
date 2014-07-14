@@ -53,7 +53,10 @@ function maps() {
       
 
       var flood_kml = new google.maps.KmlLayer({
-        url: 'https://dl.dropboxusercontent.com/u/22757148/ModeratePoly1.kml'
+        url: 'https://dl.dropboxusercontent.com/u/22757148/ModeratePoly.kml'
+      });
+      var flood_kml2 = new google.maps.KmlLayer({
+        url: 'https://dl.dropboxusercontent.com/u/22757148/HighPoly.kml'
       });
       // var kmlLayer = new google.maps.KmlLayer({
       //   url: 'https://dl.dropboxusercontent.com/u/22757148/San%20Francisco%20Neighborhood%20Maps.kml'
@@ -87,8 +90,20 @@ function maps() {
         }
       })
       $('#roads').on('click', function(){
-        flood_kml.setMap(map);
+        $('.container').hide();
+        $('.container2').hide();
+        if ( flood_kml.getMap() != null && flood_kml2.getMap() != null) {
+          flood_kml.setMap(null);
+          flood_kml2.setMap(null);
+        }
+        else {
+          flood_kml.setMap(map);
+          flood_kml2.setMap(map);
+        }
       })
+      // $('#roads').on('click', function(){
+      //   flood_kml.setMap(map);
+      // })
       $('#hazard').on('click', function(){
         $('.container').hide();
         $('.container2').hide();

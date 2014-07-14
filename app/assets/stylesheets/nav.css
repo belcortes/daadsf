@@ -80,6 +80,11 @@ li #main-search {
 }
 #search {
   height: 30px;
+  /*line-height: 3;*/
+}
+#search input {
+  position: relative;
+  top: 2px;
 }
 /*#advanced-search {
   display: block !important;

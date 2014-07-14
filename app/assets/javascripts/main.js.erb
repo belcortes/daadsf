@@ -21,31 +21,6 @@ function maps() {
 
       map = new google.maps.Map(document.getElementById("map"),
           mapOptions);
-
-      // $.get("http://weather.yahooapis.com/forecastrss?w=12765839", function(xml) {
-      //   $('weather', xml).each(function(i){
-      //     lat = $(this).find('geo:lat').text();
-      //     console.log(lat)
-      //   })
-      // })
-      // var zips = [20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012]
-      // // console.log(zips)
-      // for (var i = 0; i < zips.length; i++) {
-      //    $.ajax({
-      //       url : "http://api.wunderground.com/api/4c540d9ac42d77e1/geolookup/conditions/q/"+zips[i]+".json",
-      //       dataType : "jsonp",
-      //       success : function(parsed_json) { 
-      //       var temp_f = parsed_json['current_observation']['temp_f'];
-      //       var heatmap_data = new google.maps.LatLng(parsed_json['location']['lat'], parsed_json['location']['lon'])
-
-      //     } 
-      //    });
-      // }
-
-      // heatmap = new google.maps.visualization.HeatmapLayer({
-      //         data: heatmap_data
-      //       });
-      //       heatmap.setMap(map);
           
           
 
@@ -58,9 +33,6 @@ function maps() {
       var flood_kml2 = new google.maps.KmlLayer({
         url: 'https://dl.dropboxusercontent.com/u/22757148/HighPoly.kml'
       });
-      // var kmlLayer = new google.maps.KmlLayer({
-      //   url: 'https://dl.dropboxusercontent.com/u/22757148/San%20Francisco%20Neighborhood%20Maps.kml'
-      // });
       var neighborhood_kml = new google.maps.KmlLayer({
         url: 'https://maps.google.com/maps/ms?dg=feature&ie=UTF8&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f137271f66502f6'
       });
@@ -69,12 +41,21 @@ function maps() {
       });
 
       var zip_kmz = new google.maps.KmlLayer({
-        // url: 'https://dl.dropboxusercontent.com/u/22757148/DC_Zipcodes.KML'
         url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml"
       });
 
       var weatherLayer = new google.maps.weather.WeatherLayer();
-      weatherLayer.setMap(map);
+      
+
+      $('#busi').on('click', function(){
+        // weatherLayer.setMap(map);
+        if (weatherLayer.getMap() != null) {
+          weatherLayer.setMap(null);
+        }
+        else {
+          weatherLayer.setMap(map);
+        }
+      })
     
       $('#neighbor').on('click', function(){
         $('.container').hide();
@@ -239,11 +220,6 @@ function maps() {
             if (data.name == 'Knox Hill') {
                   console.log('namez')
                 }
-            // $('.result-item').on('click', function(){
-            //   for (var j = 0; j < json.length; j++) {
-                
-            //   }
-            // })
 
             var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
             var marker = new google.maps.Marker({

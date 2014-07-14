@@ -70,8 +70,15 @@
   /       %input{type: "checkbox"} example3
   %a(href='#')
     .map-buttons#resources DC - Cooling Centers
-  %a(href='#')
-    .map-buttons#roads DC - Flooding
+  .dropdown
+    %a.dropdown-toggle.map-buttons#roads{"data-toggle" => "dropdown"}(href='#')
+      DC - Flooding
+      %b.caret
+    %ul#menu1.dropdown-menu
+      %li
+        %input.checkbox#high_flood_kml{type: "checkbox"} High Level
+      %li
+        %input.checkbox#medium_flood_kml{type: "checkbox"} Medium Level
 
   / %a(href='#')
   /   .map-buttons#damage Damage

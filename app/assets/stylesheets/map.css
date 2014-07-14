@@ -32,7 +32,7 @@
   right: 0;
   bottom: 0;
   margin-bottom: 20px; 
-  margin-right: 313px;
+  margin-right: 328px;
 }
 
 #damage {
@@ -47,7 +47,7 @@
 
 #roads {
   float: right;
-  position: absolute;
+  position: fixed;
   z-index: 10;
   right: 0;
   bottom: 0;
@@ -116,10 +116,12 @@
   color: red;
 }
 #menu1 {
-  top: 147px !important; 
-  left: auto !important; 
-  right: 100px !important;
+  top: auto;
+  left: auto !important;
+  right: 165px !important;
   position: fixed !important;
+  bottom: 60px !important;
+  padding-left: 5px;
 }
 #menu2 {
   top: 147px !important; 

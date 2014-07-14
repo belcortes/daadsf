@@ -5,7 +5,7 @@ function maps() {
     function initialize() {
       var mapOptions = {
         center: new google.maps.LatLng(37.769884, -122.459793),
-        zoom: 10,
+        zoom: 11,
         mapTypeId: google.maps.MapTypeId.SATELLITE,
         mapTypeControlOptions: {
           style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -16,7 +16,7 @@ function maps() {
         },
         panControlOptions: {
           position: google.maps.ControlPosition.RIGHT_BOTTOM
-        },
+        }
       };
 
       map = new google.maps.Map(document.getElementById("map"),
@@ -27,10 +27,10 @@ function maps() {
       
       
 
-      var flood_kml = new google.maps.KmlLayer({
+      var medium_flood_kml = new google.maps.KmlLayer({
         url: 'https://dl.dropboxusercontent.com/u/22757148/ModeratePoly.kml'
       });
-      var flood_kml2 = new google.maps.KmlLayer({
+      var high_flood_kml = new google.maps.KmlLayer({
         url: 'https://dl.dropboxusercontent.com/u/22757148/HighPoly.kml'
       });
       var neighborhood_kml = new google.maps.KmlLayer({
@@ -41,7 +41,8 @@ function maps() {
       });
 
       var zip_kmz = new google.maps.KmlLayer({
-        url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml"
+        url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml",
+        zip: 11
       });
 
       var weatherLayer = new google.maps.weather.WeatherLayer();
@@ -70,18 +71,7 @@ function maps() {
             neighborhood_kml2.setMap(map);
         }
       })
-      $('#roads').on('click', function(){
-        $('.container').hide();
-        $('.container2').hide();
-        if ( flood_kml.getMap() != null && flood_kml2.getMap() != null) {
-          flood_kml.setMap(null);
-          flood_kml2.setMap(null);
-        }
-        else {
-          flood_kml.setMap(map);
-          flood_kml2.setMap(map);
-        }
-      })
+      
       // $('#roads').on('click', function(){
       //   flood_kml.setMap(map);
       // })
@@ -90,21 +80,62 @@ function maps() {
         $('.container2').hide();
         $('#zip-container').show();
         if ( zip_kmz.getMap() != null) {
-            zip_kmz.setMap(null);
+          zip_kmz.setMap(null);
         }
         else {
-            zip_kmz.setMap(map);
+          zip_kmz.setMap(map);
+          zip_kmz.set('preserveViewport', true);
+          map.panTo(new google.maps.LatLng(38.899851,-77.101761));
+          map.setZoom(12); 
         }
         // zip_kmz.set('preserveViewport', true);
       })
       markers();
       // $('button#search').on('click', function(){
         cooling_markers();
-        zipcode_pan()
+        zipcode_pan();
+        checkbox_toggle();
       // })
           
+      function checkbox_toggle() {
+        $('.checkbox').on('click', function(){
 
+          var flood_id = $(this).attr('id')
+          $('.container').hide();
+          $('.container2').hide();
+          if ($('#'+flood_id).is(':checked') == false) {
+            switch (flood_id) {
+              case 'medium_flood_kml':
+              medium_flood_kml.setMap(null);
+              break;
+              case 'high_flood_kml':
+              high_flood_kml.setMap(null);
+              break;
+            }
+            // console.log('dont show layer')
+          } else {
+            switch (flood_id) {
+              case 'medium_flood_kml':
+              medium_flood_kml.setMap(map);
+              break;
+              case 'high_flood_kml':
+              high_flood_kml.setMap(map);
+              break;
+            }
+          }
+             
+          // if ( flood_kml.getMap() != null && flood_kml2.getMap() != null) {
+          //   flood_kml.setMap(null);
+          //   flood_kml2.setMap(null);
+          // }
+          // else {
+          //   flood_kml.setMap(map);
+          //   flood_kml2.setMap(map);
+          // }
+        })
+      }
     }
+    
     function zipcode_pan() {
       $('.zip-number').on('click', function(){
 
@@ -214,11 +245,11 @@ function maps() {
       
       
         $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
-          console.log(json)
+          // console.log(json)
 
           $.each(json, function(key, data) {
             if (data.name == 'Knox Hill') {
-                  console.log('namez')
+                  // console.log('namez')
                 }
 
             var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)

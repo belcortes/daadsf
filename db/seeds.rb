@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
+Neighborhood.delete_all
+Zipcode.delete_all
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
@@ -77,4 +78,22 @@ n68 = Neighborhood.create(name: "West Portal")
 n69 = Neighborhood.create(name: "Westwood Highlands")
 
 z1 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20001')
+z2 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20009')
+z3 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20007')
+z4 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20032')
+z5 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20002')
+z6 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20018')
+z7 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20003')
+z8 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20005')
+z9 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20020')
+z10 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20015')
+z11 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20016')
+z12 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20012')
+z13 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20017')
+z14 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20019')
+z15 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20024')
+z16 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20037')
+z17 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20011')
+z18 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20010')
+z19 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20008')
 

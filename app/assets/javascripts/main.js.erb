@@ -67,7 +67,7 @@ function maps() {
 
       var zip_kmz = new google.maps.KmlLayer({
         // url: 'https://dl.dropboxusercontent.com/u/22757148/DC_Zipcodes.KML'
-        url:"https://dl.dropboxusercontent.com/u/22757148/DC%20Zipcodes.kml"
+        url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml"
       });
 
       var weatherLayer = new google.maps.weather.WeatherLayer();
@@ -75,6 +75,7 @@ function maps() {
     
       $('#neighbor').on('click', function(){
         $('.container').hide();
+        $('.container2').hide();
         $('#neighbor-container').show();
         if ( neighborhood_kml.getMap() != null && neighborhood_kml2.getMap() != null) {
             neighborhood_kml.setMap(null);
@@ -89,6 +90,9 @@ function maps() {
         flood_kml.setMap(map);
       })
       $('#hazard').on('click', function(){
+        $('.container').hide();
+        $('.container2').hide();
+        $('#zip-container').show();
         if ( zip_kmz.getMap() != null) {
             zip_kmz.setMap(null);
         }
@@ -100,9 +104,78 @@ function maps() {
       markers();
       // $('button#search').on('click', function(){
         cooling_markers();
+        zipcode_pan()
       // })
           
 
+    }
+    function zipcode_pan() {
+      $('.zip-number').on('click', function(){
+
+        var zip_poly = $.trim($(this).text())
+
+        switch(zip_poly) {
+          case '20012':
+            map.panTo(new google.maps.LatLng(38.9788275877771, -77.0309234620041));
+            break;
+          case '20015':
+            map.panTo(new google.maps.LatLng(38.9684230094137, -77.0594931426629));
+            break;
+          case '20011':
+            map.panTo(new google.maps.LatLng(38.9519409110223, -77.0218775516082));
+            break;
+          case '20008':
+            map.panTo(new google.maps.LatLng(38.9374111954207, -77.0582482619923));
+            break;
+          case '20016':
+            map.panTo(new google.maps.LatLng(38.9380889572704, -77.0916502078458));
+            break;
+          case '20010':
+            map.panTo(new google.maps.LatLng(38.9328345960274, -77.0317063884396));
+            break;
+          case '20017':
+            map.panTo(new google.maps.LatLng(38.9381245342819, -76.9928183807848));
+            break;
+          case '20007':
+            map.panTo(new google.maps.LatLng(38.9134172045297, -77.0783482683977));
+            break;
+          case '20037':
+            map.panTo(new google.maps.LatLng(38.8994548375764, -77.05468073330481));
+            break;
+          case '20009':
+            map.panTo(new google.maps.LatLng(38.9200133314859, -77.0377892543388));
+            break;
+          case '20001':
+            map.panTo(new google.maps.LatLng(38.910125073458, -77.01812740376739));
+            break;
+          case '20002':
+            map.panTo(new google.maps.LatLng(38.9065902052553, -76.9843156365678));
+            break;
+          case '20018':
+            map.panTo(new google.maps.LatLng(38.9262641938938, -76.97304749116989));
+            break;
+          case '20036':
+            map.panTo(new google.maps.LatLng(38.9069874153696, -77.0414223519634));
+            break;
+          case '20006':
+            map.panTo(new google.maps.LatLng(38.8987700859643, -77.0411719130644));
+            break;
+          case '20005':
+            map.panTo(new google.maps.LatLng(38.9039630381347, -77.03175651719469));
+            break;
+          case '20004':
+            map.panTo(new google.maps.LatLng(38.8893700522451, -77.03448889956699));
+            break;
+          case '20019':
+            map.panTo(new google.maps.LatLng(38.8922002764888, -76.94255372966551));
+            break;
+          case '20003':
+            map.panTo(new google.maps.LatLng(38.880954594056, -76.9900839070893));
+            break;
+          default:
+            console.log('nothing')
+        }
+      })
     }
     function markers() {
       var icon = "<%= asset_path 'cooling.png' %>"
@@ -142,33 +215,43 @@ function maps() {
     function cooling_markers() {
       var icon = "<%= asset_path 'cooling.png' %>"
       var bounds = new google.maps.LatLngBounds();
-
+      
+      
         $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
+          console.log(json)
+
           $.each(json, function(key, data) {
-            console.log(data.name)
+            if (data.name == 'Knox Hill') {
+                  console.log('namez')
+                }
+            // $('.result-item').on('click', function(){
+            //   for (var j = 0; j < json.length; j++) {
+                
+            //   }
+            // })
+
             var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
             var marker = new google.maps.Marker({
               position: new google.maps.LatLng(data.latitude, data.longitude),
               map: map,
               icon: icon
             });
-            // marker.setMap(null);
 
             bounds.extend(marker.position);
 
-            $('#search').on('click', function(){
-              // if ($(this).attr('class') == 'map-buttons active') {
+            if ($('#search').val().length === 0) {
+              marker.setMap(null);
+            } else {
               marker.setMap(map);
               map.fitBounds(bounds);
-              // } else {
-              //   marker.setMap(null);
-              // }
-            })
+            }
+            
             var infowindow = new google.maps.InfoWindow({
                 content: contentInfo
             });
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.open(map,marker);
+              console.log(contentInfo)
             });
           })
         })
@@ -188,18 +271,22 @@ function button_clicks() {
   // })
   $('#prepare').on('click', function(){
     $('.container').hide();
+    $('.container2').hide();
     $('#prepare-container').show();
   })
   $('#advanced-search').on('click', function(){
     $('.container').hide();
+    $('.container2').hide();
     $('#advanced-container').show();
   })
   $('#recovery').on('click', function(){
     $('.container').hide();
+    $('.container2').hide();
     $('#recovery-container').show();
   })
   $('#myaccount').on('click', function(){
     $('.container').hide();
+    $('.container2').hide();
     $('#account-container').show();
   })
   $('#contact-info').on('click', function(){
@@ -215,9 +302,12 @@ function button_clicks() {
 }
 
 
+
+
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
-  
+  // marker.setMap(null);
+  // zipcode_pan();
   $('.account-box').hide();
   $('.container').hide();
   $('.close').on('click', function() {

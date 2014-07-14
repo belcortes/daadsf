@@ -5,19 +5,20 @@
     Results
   .height
     - @results.each do |r|
-      %h4
-        = r.name
-      %br
-      Address:
-      = r.address
-      %br
-      City:
-      = r.city
-      %br
-      State:
-      = r.state
-      %br
-      Center Type:
-      = r.center_type
-      %br
-      %br
+      .result-item
+        %a(href='#')
+          %h4.result-name
+            = r.name
+        Address:
+        = r.address
+        %br
+        City:
+        = r.city
+        %br
+        State:
+        = r.state
+        %br
+        Center Type:
+        = r.center_type
+        %br
+        %br

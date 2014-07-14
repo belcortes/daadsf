@@ -1,6 +1,6 @@
 class ZipcodesController < ApplicationController
 
-  def index
+  def search
     @search = Zipcode.search do
       fulltext params[:search]
     end
@@ -11,6 +11,10 @@ class ZipcodesController < ApplicationController
     p @search
     p @zip
     p 'helllllloooooooooooo'
+  end
+
+  def index
+    @zipcodes = Zipcode.all
   end
   
 end

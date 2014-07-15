@@ -5,20 +5,23 @@
     Results
   .height
     - @results.each do |r|
-      .result-item
-        %a(href='#')
+      - case r.class.name
+        - when 'User'
+          = r.name
+          = r.zip
+        - when 'CoolingCenters'
           %h4.result-name
             = r.name
-        Address:
-        = r.address
-        %br
-        City:
-        = r.city
-        %br
-        State:
-        = r.state
-        %br
-        Center Type:
-        = r.center_type
-        %br
-        %br
+          Address:
+          = r.address
+          %br
+          City:
+          = r.city
+          %br
+          State:
+          = r.state
+          %br
+          Center Type:
+          = r.center_type
+          %br
+          %br

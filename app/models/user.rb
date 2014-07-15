@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
+  searchable do
+    text :zip
+  end
+
 
   # def facebook
   #   # You need to implement the method below in your model (e.g. app/models/user.rb)

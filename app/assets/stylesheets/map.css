@@ -76,7 +76,7 @@
   right: 0;
   top: 100px;
   float: right;
-  margin-right: 100px;
+  margin-right: 370px;
   margin-top: 10px;
 }
 
@@ -114,6 +114,11 @@
 }
 .active {
   color: red;
+}
+.checkbox {
+  display: inline-block !important;
+  margin-top: 0 !important;
+  margin-right: 5px !important;
 }
 #menu1 {
   top: auto;

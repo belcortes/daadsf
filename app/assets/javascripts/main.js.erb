@@ -141,7 +141,7 @@ function maps() {
 
 function codeAddress() {
   // var address = document.getElementById('address').value;
-  var icon = "<%= asset_path 'cooling.png' %>"
+  // var icon = "<%= asset_path 'cooling.png' %>"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
@@ -154,26 +154,21 @@ function codeAddress() {
               map: map,
               position: results[0].geometry.location
           });
+
+          bounds.extend(marker.position);
+
+          if ($('#search').val().length === 0) {
+            marker.setMap(null);
+          } else {
+            marker.setMap(map);
+            map.fitBounds(bounds);
+          }
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
       });
 
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.latitude, data.longitude),
-        map: map,
-        icon: icon
-      });
-
-      bounds.extend(marker.position);
-
-      if ($('#search').val().length === 0) {
-        marker.setMap(null);
-      } else {
-        marker.setMap(map);
-        map.fitBounds(bounds);
-      }
       
       var infowindow = new google.maps.InfoWindow({
           content: contentInfo

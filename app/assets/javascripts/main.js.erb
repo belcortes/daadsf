@@ -1,8 +1,9 @@
-
+var geocoder;
 var map;
 // -------------- FUNCTIONS ------------
 function maps() {
   function initialize() {
+    geocoder = new google.maps.Geocoder();
     var mapOptions = {
       center: new google.maps.LatLng(37.769884, -122.459793),
       zoom: 11,
@@ -238,15 +239,16 @@ function markers() {
   })
 }
 
+
 function cooling_markers() {
   var icon = "<%= asset_path 'cooling.png' %>"
   var bounds = new google.maps.LatLngBounds();
   
   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
 
-    if (json[0].state == 'DC'){
+    
       $.each(json, function(key, data) {
-        
+        if (data.state == 'DC'){
           console.log('COOLING CENTERS')
           var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
           var marker = new google.maps.Marker({
@@ -271,11 +273,23 @@ function cooling_markers() {
             infowindow.open(map,marker);
             console.log(contentInfo)
           });
+        } else {
+          console.log('ZIPCODE DATA NOT COOLING CENTERS')
+          geocoder.geocode( { 'address': data.address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              map.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+              });
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
        
       })
-    } else {
-      console.log('ZIPCODE DATA NOT COOLING CENTERS')
-    }
+    
   })
   // } 
 }

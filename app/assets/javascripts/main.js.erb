@@ -242,6 +242,7 @@ function markers() {
 
 function cooling_markers() {
   var icon = "<%= asset_path 'cooling.png' %>"
+  var icon2 = "<%= asset_path 'person.png' %>"
   var bounds = new google.maps.LatLngBounds();
   
   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
@@ -280,7 +281,8 @@ function cooling_markers() {
               map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
                   map: map,
-                  position: results[0].geometry.location
+                  position: results[0].geometry.location,
+                  icon: icon2
               });
             } else {
               alert('Geocode was not successful for the following reason: ' + status);
@@ -319,6 +321,9 @@ function button_clicks() {
     $(this).children().show();
   })
   $('#certifications').on('click', function(){
+    $(this).children().show();
+  })
+  $('#user-resources').on('click', function(){
     $(this).children().show();
   })
 }

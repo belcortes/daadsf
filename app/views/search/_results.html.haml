@@ -7,9 +7,11 @@
     - @results.each do |r|
       - case r.class.name
         - when 'User'
-          = r.zip
-          = r.name
+          %h4.result-name
+            = r.name
           = r.address
+          %br
+          %br
         - when 'CoolingCenters'
           %h4.result-name
             = r.name

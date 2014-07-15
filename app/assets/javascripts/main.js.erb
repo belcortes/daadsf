@@ -132,7 +132,7 @@ function maps() {
     cooling_markers();
     zipcode_pan();
     checkbox_toggle();
-    codeAddress()
+    
   }
     
     
@@ -143,42 +143,48 @@ function codeAddress() {
   // var address = document.getElementById('address').value;
   // var icon = "<%= asset_path 'cooling.png' %>"
   var bounds = new google.maps.LatLngBounds();
+  var search_input = $('#search').val()
+ 
+  $('button#search').on('click', function(){
+    console.log( $('#search').val())
+    $.getJSON("/search?utf8=✓&search="+search_input, function(json) {
+      console.log(json)
+      $.each(json, function(key, data) {
+        // console.log(data.address)
+        
+          geocoder.geocode( { 'address': data.address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              var marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+              });
+              bounds.extend(marker.position);
+              if ($('#search').val().length === 0) {
+                marker.setMap(null);
+              } else {
+                map.setCenter(results[0].geometry.location);
+                marker.setMap(map);
+                map.fitBounds(bounds);
 
-  $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
-    $.each(json, function(key, data) {
-      console.log(data.address)
-      geocoder.geocode( { 'address': data.address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          map.setCenter(results[0].geometry.location);
-          var marker = new google.maps.Marker({
-              map: map,
-              position: results[0].geometry.location
-          });
+                var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
+          
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentInfo
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.open(map,marker);
+                  console.log(contentInfo)
+                });
+              }
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          })
 
-          bounds.extend(marker.position);
 
-          if ($('#search').val().length === 0) {
-            marker.setMap(null);
-          } else {
-            marker.setMap(map);
-            map.fitBounds(bounds);
-          }
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      });
-
-      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
-      
-      var infowindow = new google.maps.InfoWindow({
-          content: contentInfo
-      });
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-        console.log(contentInfo)
-      });
-    })
-  }) 
+      })
+    }) 
+  })
 }
 
 function zipcode_pan() {
@@ -372,6 +378,7 @@ $(function() {
   // })
   maps();
   button_clicks();
+  codeAddress()
   $('.map-buttons').on('click', function() {
     $(this).toggleClass('active');
     // $('#container').show();

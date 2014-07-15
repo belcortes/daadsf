@@ -291,7 +291,9 @@ function cooling_markers() {
           });
         } else {
           var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
-          console.log('ZIPCODE DATA NOT COOLING CENTERS')
+          // console.log('ZIPCODE DATA NOT COOLING CENTERS')
+          // var address2 = data.address+' '+data.city+' '+data.state
+          // console.log(address2)
           geocoder.geocode( { 'address': data.address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
               map.setCenter(results[0].geometry.location);

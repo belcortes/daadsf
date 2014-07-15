@@ -1,0 +1,7 @@
+%h3 Zipcodes -DC
+%p Washington DC
+.height
+  - @zipcodes.each do |n|
+    %a.zip-number(href='#') 
+      = n.zip_number\
+    %br

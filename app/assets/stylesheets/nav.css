@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  margin-top: 15px;
+  font-family: 'helvetica'
+}
+a, p, div, h1, h2, h3 {
+  font-family: 'helvetica'
+}
+a {
+  text-decoration: none;
+}
+.alert {
+ padding: 0 !important; 
+ margin-bottom: 0 !important; 
+}
+#nav {
+  height: 80px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#upper-nav {
+  width: 100%;
+  height: 40px;
+}
+#logo-nav {
+  float: right;
+  margin-right: 2%;
+  margin-top: 15px;
+}
+#logo-nav li {
+  display: inline-block;
+}
+#nav-img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin: 10px 20px 0 30px;
+}
+#logo-name {
+  font-size: 30px;
+  font-family: helvetica;
+  font-weight: lighter;
+  position: relative;
+  top: 10px;
+  float: left;
+}
+#subnav {
+  height: 30px;
+  /*margin-bottom: 15px;*/
+  margin-top: 20px;
+  text-align: justify;
+  margin-left: 20px;
+}
+li #main-search {
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 25px;
+}
+#subnav li {
+  display: inline-block;
+  /*margin-right: 0.5%;*/
+}
+#search-button {
+  height: 30px;
+  width: 50px;
+}
+.button_to {
+  height: 37.8px;
+  font-size: 14px;
+  font-weight: lighter;
+  position: relative;
+  bottom: 2px;
+}
+#button {
+  /*padding-right: 2%;*/
+  height: 30px;
+  position: relative;
+  bottom: 2px;
+}
+#search {
+  height: 30px;
+  /*line-height: 3;*/
+}
+#search input {
+  position: relative;
+  top: 2px;
+}
+/*#advanced-search {
+  display: block !important;
+}*/
+.login {
+  padding: 0 1% 0 1%;
+  font-size: 20px;
+  font-weight: lighter;
+  border-left: 1px solid black;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+#login_form {
+  font-size: 12px;
+}
+
+::-webkit-input-placeholder {
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;  
+}
+
+:-ms-input-placeholder {  
+   color: lightgray;
+   font-size: 15px;
+   line-height: 25px;  
+}
+
+#sign_up_form {
+  width: 20%;
+  margin: 0 auto;
+  position: relative;
+  bottom: 450px;
+  margin-bottom: -400px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.signup_password {
+  line-height: 25px !important;
+}
+.modal {
+  width: 30%;
+  margin: 0 auto;
+  background: white;
+  overflow-y: hidden !important; 
+  position: relative !important;
+}
+#appalogo {
+  position: absolute;
+  /*z-index: 100;*/
+  height: 20px;
+  /*float: left;*/
+  left: 10px;
+  bottom: 10px;
+}

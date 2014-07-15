@@ -1,0 +1,136 @@
+#map {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+}
+.map-buttons {
+  height: 40px;
+  padding: 0 10px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  text-align: center;
+  border: 2px solid black;
+  /*box-shadow: 5px 5px 5px grey;*/
+}
+#hazard {
+  float: right;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px; 
+  margin-right: 55px;
+}
+#resources {
+  float: right;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px; 
+  margin-right: 328px;
+}
+
+#damage {
+  float: right;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px; 
+  margin-right: 145px;
+}
+
+#roads {
+  float: right;
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px;
+  margin-right: 181px;
+}
+
+#neighbor {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  float: right;
+  margin-right: 106px;
+  margin-top: 10px;
+}
+#busi {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  float: right;
+  margin-right: 279px;
+  margin-top: 10px;
+}
+#disaster {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  float: right;
+  margin-right: 370px;
+  margin-top: 10px;
+}
+
+.container {
+  width: 400px;
+  margin-left: 20px !important;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.9);;
+  box-shadow: 5px 5px 5px grey;
+  display: inline-block;
+  z-index: 10;
+  position: relative;
+}
+.container2 {
+  width: 400px;
+  margin-left: 20px !important;
+  margin-top: 20px;
+  /*font-size: 16px;*/
+  /*font-weight: bold;*/
+  background-color: rgba(255, 255, 255, 0.9);;
+  box-shadow: 5px 5px 5px grey;
+  display: inline-block;
+  z-index: 10;
+  position: relative;
+  padding: 0 20px 20px 20px;
+}
+.close {
+  float: right;
+  width: 20px;
+  border: 1px solid black;
+  margin: 5px;
+  cursor: pointer;
+}
+.active {
+  color: red;
+}
+.checkbox {
+  display: inline-block !important;
+  margin-top: 0 !important;
+  margin-right: 5px !important;
+}
+#menu1 {
+  top: auto;
+  left: auto !important;
+  right: 165px !important;
+  position: fixed !important;
+  bottom: 60px !important;
+  padding-left: 5px;
+}
+#menu2 {
+  top: 147px !important; 
+  left: auto !important; 
+  right: 243px !important;
+  position: fixed !important;
+}

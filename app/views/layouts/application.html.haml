@@ -1,0 +1,99 @@
+
+= render 'layouts/header'
+= render 'layouts/nav'
+      
+#page-body
+  #map 
+
+  .container#neighbor-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/neighborhoods'
+  .container#zip-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/zipcodes'
+  .container#prepare-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/prepare'
+  .container#advanced-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/advanced'
+  .container#recovery-container
+    %span.glyphicon.glyphicon-remove
+    = render 'layouts/recover'
+  .container#account-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'users/personal'
+  / .container#results
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   = render 'search/results'
+      
+      
+  / .container#container-prepare
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   %h3 Prepare for a Disaster
+  /   %p San Francisco County, California
+
+  / .container#neighborhoodshood-container
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   %h3 Neighborhoods
+  /   %p San Francisco County, California
+  /   .height
+  /     = render 'layouts/neighborhoods'
+  / = link_to "Neighborhoods", "/neighborhoods", :remote => true
+    
+
+  %a(href='#')
+    .map-buttons#neighbor SF Neighborhoods
+  %a(href='#')
+    .map-buttons#busi Weather 
+  %a(href='#')
+    .map-buttons#disaster SF Zipcodes
+  / .dropdown
+  /   %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
+  /     Businesses
+  /     %b.caret
+  /   %ul#menu2.dropdown-menu
+  /     %li
+  /       %input{type: "checkbox"} example4
+  /     %li
+  /       %input{type: "checkbox"} example5
+  /     %li
+  /       %input{type: "checkbox"} example6
+  / .dropdown
+  /   %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
+  /     Disaster Potential
+  /     %b.caret
+  /   %ul#menu1.dropdown-menu
+  /     %li
+  /       %input{type: "checkbox"} example1
+  /     %li
+  /       %input{type: "checkbox"} example2
+  /     %li
+  /       %input{type: "checkbox"} example3
+  %a(href='#')
+    .map-buttons#resources DC - Cooling Centers
+  .dropdown
+    %a.dropdown-toggle.map-buttons#roads{"data-toggle" => "dropdown"}(href='#')
+      DC - Flooding
+      %b.caret
+    %ul#menu1.dropdown-menu
+      %li
+        %input.checkbox#high_flood_kml{type: "checkbox"} High Level
+      %li
+        %input.checkbox#medium_flood_kml{type: "checkbox"} Medium Level
+
+  / %a(href='#')
+  /   .map-buttons#damage Damage
+  %a(href='#')
+    .map-buttons#hazard DC Zipcodes
+  %a(href='http://appallicious.com/')
+    =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
+
+  = yield
+
+
+        
+      
+    
+
+

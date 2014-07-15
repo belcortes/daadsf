@@ -1,0 +1,40 @@
+#advanced-search
+  %h3 Advanced Search
+  .center
+    %input
+    %button#search
+      =image_tag asset_path("search.png")
+  .height
+    %ul
+      %li 
+        %h4 Area
+        %input{type: "checkbox"} State
+        %select
+          %option California
+        %br
+        %input{type: "checkbox"} County
+        %input{placeholder: 'San Francisco'}
+        %br
+        %input{type: "checkbox"} Zipcode
+        %input
+      %li 
+        %h4 Disaster Declaration
+        %input{type: "checkbox"}
+        %select
+          %option California
+      %li 
+        %h4 Businesses
+        %input{type: "checkbox"} Retail
+        %br
+        %input{type: "checkbox"} Service
+        %br
+        %input{type: "checkbox"} Government Certified
+      %li 
+        %h4 Supplies
+        %input{type: "checkbox"} Food
+        %br
+        %input{type: "checkbox"} Medical
+        %br
+        %input{type: "checkbox"} Industrial
+
+

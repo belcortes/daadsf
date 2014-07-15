@@ -135,56 +135,6 @@ function maps() {
     
     google.maps.event.addDomListener(window, 'load', initialize);
 }
-
-function codeAddress() {
-  // var address = document.getElementById('address').value;
-  // var icon = "<%= asset_path 'cooling.png' %>"
-  var bounds = new google.maps.LatLngBounds();
-  var search_input = $('#search').val()
- 
-  $('button#search').on('click', function(){
-    console.log( $('#search').val())
-    $.getJSON("/search?utf8=✓&search="+search_input, function(json) {
-      console.log(json)
-      $.each(json, function(key, data) {
-        // console.log(data.address)
-        
-          geocoder.geocode( { 'address': data.address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              var marker = new google.maps.Marker({
-                  map: map,
-                  position: results[0].geometry.location
-              });
-              bounds.extend(marker.position);
-              if ($('#search').val().length === 0) {
-                marker.setMap(null);
-              } else {
-                map.setCenter(results[0].geometry.location);
-                marker.setMap(map);
-                map.fitBounds(bounds);
-
-                var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
-          
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentInfo
-                });
-                google.maps.event.addListener(marker, 'click', function() {
-                  infowindow.open(map,marker);
-                  console.log(contentInfo)
-                });
-              }
-            } else {
-              alert('Geocode was not successful for the following reason: ' + status);
-            }
-          })
-
-
-      })
-    }) 
-  })
-}
-
->>>>>>> 6c9a7623700f10af00a4ace1019fea673d5f3887
 function zipcode_pan() {
   $('.zip-number').on('click', function(){
 
@@ -377,7 +327,6 @@ $(function() {
   // })
   maps();
   button_clicks();
-  codeAddress()
   $('.map-buttons').on('click', function() {
     $(this).toggleClass('active');
     // $('#container').show();

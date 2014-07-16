@@ -14,9 +14,6 @@ class CoolingCentersController < ApplicationController
     respond_to do |format|
       format.json { render json: @cooling }
     end
-    p @search
-    p @cooling
-    p 'helllllloooooooooooo'
   end
 
 

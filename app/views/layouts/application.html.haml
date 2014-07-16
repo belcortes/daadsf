@@ -23,6 +23,9 @@
   .container#account-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'users/personal'
+  .container#users
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'users/all'
   / .container#results
   /   =image_tag asset_path('x.png'), :class => 'close'
   /   = render 'search/results'

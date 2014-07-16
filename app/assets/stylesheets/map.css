@@ -66,9 +66,9 @@
 
 
 #neighbor {
-  position: absolute;
+  position: fixed;
   right: 0;
-  /*top: 100px;*/
+  top: 100px;
   float: right;
   margin-right: 207px;
   margin-top: 10px;

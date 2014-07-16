@@ -1,0 +1,29 @@
+
+%h3
+  Community Resources
+.height
+  - @users.each do |u|
+    = u.name
+    %br
+    Address:
+    = u.address
+    %br
+    Available Resources:
+    %br
+    - u.attributes.each do |attr_name, attr_value|
+      - if attr_value == true
+        = attr_name
+        ,
+    %br
+    %br
+    / = u.nert
+    / %br
+    / = u.cert
+    / %br
+    / = u.cpr
+    / %br
+    / = u.safe
+    / %br
+    / = u.oxygen
+    / %br
+    / %br

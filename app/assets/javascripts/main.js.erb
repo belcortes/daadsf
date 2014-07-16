@@ -138,7 +138,7 @@ function maps() {
     data_markers();
     resource_markers()
     // })
-    
+    user_data()
     zipcode_pan();
     checkbox_toggle();
   }
@@ -234,11 +234,13 @@ function resource_markers() {
           title: 'hello'
         });
         police_marker.setMap(null);
+        bounds.extend(police_marker.position);
         $('.checkbox').on('click', function(){
           if ($('#police-check').is(':checked') == false) {
             police_marker.setMap(null);
           } else {
             police_marker.setMap(map);
+            map.fitBounds(bounds);
           }
           google.maps.event.addListener(police_marker, 'click', function() {
             infowindow.open(map,police_marker);
@@ -252,11 +254,13 @@ function resource_markers() {
           title: 'hello'
         });
         fire_marker.setMap(null);
+        bounds.extend(fire_marker.position);
         $('.checkbox').on('click', function(){
           if ($('#fire-check').is(':checked') == false) {
             fire_marker.setMap(null);
           } else {
             fire_marker.setMap(map);
+            map.fitBounds(bounds);
           }
           google.maps.event.addListener(fire_marker, 'click', function() {
             infowindow.open(map,fire_marker);
@@ -289,12 +293,13 @@ function cooling_markers() {
       });
       marker.setMap(null);
 
-      // bounds.extend(marker.position);
+      bounds.extend(marker.position);
       $('.checkbox').on('click', function(){
           if ($('#cooling').is(':checked') == false) {
             marker.setMap(null);
           } else {
             marker.setMap(map);
+            map.fitBounds(bounds);
           }
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker);
@@ -310,6 +315,48 @@ function cooling_markers() {
   })
 }
 
+function user_data() {
+  // var bounds = new google.maps.LatLngBounds();
+  var icon = "<%= asset_path 'person.png' %>"
+  $.getJSON("/users", function(json) {
+    $.each(json, function(key, data) {
+      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone)
+
+      geocoder.geocode( { 'address': data.address}, function(results, status) {
+        console.log(results)
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+          var marker;
+          $('#community').on('click', function() {
+            if ($(this).attr('class') == 'map-buttons active') {
+              $('#users').show();
+              marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                icon: icon
+              });
+
+              var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+              });
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+              });
+            } else {
+              $('#users').hide();
+              marker.setMap(null);
+            }
+            
+          })
+          
+        } else {
+          console.log('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+
+    });
+  })
+}
 
 function data_markers() {
   var icon = "<%= asset_path 'cooling.png' %>"
@@ -480,7 +527,7 @@ $(function() {
   })
   maps();
   button_clicks();
-  // $('.map-buttons').on('click', function() {
-  //   $(this).toggleClass('active');
-  // })
+  $('#community').on('click', function() {
+    $(this).toggleClass('active');
+  })
 });

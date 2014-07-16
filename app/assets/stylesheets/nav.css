@@ -80,7 +80,9 @@ li #main-search {
 }
 #search {
   height: 30px;
-  /*line-height: 3;*/
+  /* line-height: 3; */
+  position: relative;
+  bottom: 3px;
 }
 #search input {
   position: relative;

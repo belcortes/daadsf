@@ -218,13 +218,13 @@ function zipcode_pan() {
 }
 
 function resource_markers() {
-  var icon = "<%= asset_path 'policemarker.png' %>"
-  var icon2 = "<%= asset_path 'firemanmarker.png' %>"
+  var icon = "<%= asset_path 'policemarkercolored.png' %>"
+  var icon2 = "<%= asset_path 'firemanmarkercolored.png' %>"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON("/resource", function(json) {
     $.each(json, function(key, data) {
-      var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_name)
+      var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
 
       
       if (data.station_type == 'Police Station') {
@@ -277,7 +277,7 @@ function resource_markers() {
               map.setZoom(12); 
             }
           } else {
-            console.log($(this).parent().parent().parent())
+            // console.log($(this).parent().parent().parent())
             fire_marker.setMap(null);
             
             // map.fitBounds(bounds);
@@ -343,7 +343,6 @@ function user_data() {
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone)
 
       geocoder.geocode( { 'address': data.address}, function(results, status) {
-        console.log(results)
         if (status == google.maps.GeocoderStatus.OK) {
           map.setCenter(results[0].geometry.location);
           var marker;
@@ -408,14 +407,14 @@ function data_markers() {
         });
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map,marker);
-          console.log(contentInfo)
+          // console.log(contentInfo)
         });
       } else {
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
         // $('button#search').on('click', function(){
           geocoder.geocode( { 'address': data.address}, function(results, status) {
 
-            console.log(status)
+            console.log(results)
             if (status == google.maps.GeocoderStatus.OK) {
               map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
@@ -428,7 +427,7 @@ function data_markers() {
               });
               google.maps.event.addListener(marker, 'click', function() {
                 infowindow.open(map,marker);
-                console.log(contentInfo)
+                // console.log(contentInfo)
               });
             } else {
               // alert('Geocode was not successful for the following reason: ' + status);

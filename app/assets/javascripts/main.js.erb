@@ -236,46 +236,46 @@ function zipcode_pan() {
 }
 
 function resource_markers() {
-  var icon = "<%= asset_path 'cooling.png' %>"
-  var bounds = new google.maps.LatLngBounds();
+  // var icon = "<%= asset_path 'cooling.png' %>"
+  // var bounds = new google.maps.LatLngBounds();
 
-  $.getJSON("/resource", function(json) {
-    $.each(json, function(key, data) {
-      var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_name)
+  // $.getJSON("/resource", function(json) {
+  //   $.each(json, function(key, data) {
+  //     var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_name)
 
       
-      if (data.station_type == 'Police Station') {
-        var police_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon,
-          title: 'hello'
-        });
-        $('#police-check').on('click', function(){
-        if ($('#police-check').is(':checked') == false) {
-          police_marker.setMap(null);
-        } else {
+  //     if (data.station_type == 'Police Station') {
+  //       var police_marker = new google.maps.Marker({
+  //         position: new google.maps.LatLng(data.lat, data.lng),
+  //         map: map,
+  //         icon: icon,
+  //         title: 'hello'
+  //       });
+  //       $('#police-check').on('click', function(){
+  //       if ($('#police-check').is(':checked') == false) {
+  //         police_marker.setMap(null);
+  //       } else {
           
-            marker.setMap(map);
+  //         police_marker.setMap(map);
           
-        }
-      })
-        console.log(position)
-      }
-      marker.setMap(null);
-      // bounds.extend(marker.position);
+  //       }
+  //     })
+  //       console.log(position)
+  //     }
+  //     marker.setMap(null);
+  //     // bounds.extend(marker.position);
       
   
-      var infowindow = new google.maps.InfoWindow({
-          content: contentInfo
-      });
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });
+  //     var infowindow = new google.maps.InfoWindow({
+  //         content: contentInfo
+  //     });
+  //     google.maps.event.addListener(marker, 'click', function() {
+  //       infowindow.open(map,marker);
+  //     });
       
       
-    })
-  })
+  //   })
+  // })
 }
 
 

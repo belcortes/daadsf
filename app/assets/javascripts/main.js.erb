@@ -220,6 +220,7 @@ function zipcode_pan() {
 function resource_markers() {
   var icon = "<%= asset_path 'policemarkercolored.png' %>"
   var icon2 = "<%= asset_path 'firemanmarkercolored.png' %>"
+  var icon3 = "<%= asset_path 'hospitalmarkercolored.png' %>"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON("/resource", function(json) {
@@ -255,7 +256,7 @@ function resource_markers() {
             infowindow.open(map,police_marker);
           });
         });
-      } else {
+      } else if (data.station_type == 'Fire Station'){
         var fire_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
@@ -266,6 +267,37 @@ function resource_markers() {
         bounds.extend(fire_marker.position);
         $('.checkbox').on('click', function(){
           if ($('.fire-check').is(':checked') == true) {
+            
+            if ($(this).parent().parent().attr('id') == 'menu3') {
+              fire_marker.setMap(map);
+              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              map.setZoom(12); 
+            } else {
+              fire_marker.setMap(map);
+              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+              map.setZoom(12); 
+            }
+          } else {
+            // console.log($(this).parent().parent().parent())
+            fire_marker.setMap(null);
+            
+            // map.fitBounds(bounds);
+          }
+          google.maps.event.addListener(fire_marker, 'click', function() {
+            infowindow.open(map,fire_marker);
+          });
+        });
+      } else {
+        var fire_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.lng),
+          map: map,
+          icon: icon3,
+          title: 'hello'
+        });
+        fire_marker.setMap(null);
+        bounds.extend(fire_marker.position);
+        $('.checkbox').on('click', function(){
+          if ($('.hosp-check').is(':checked') == true) {
             
             if ($(this).parent().parent().attr('id') == 'menu3') {
               fire_marker.setMap(map);

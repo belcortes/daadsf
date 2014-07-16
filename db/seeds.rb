@@ -132,7 +132,7 @@ z47 = Zipcode.create(city:'San Francisco', state:'CA', zip_number:'94110')
 z48 = Zipcode.create(city:'San Francisco', state:'CA', zip_number:'94134')
 z49 = Zipcode.create(city:'San Francisco', state:'CA', zip_number:'94130')
 
-# San Francisco Police and Fire Stations
+# San Francisco Police Stations, Fire Stations and Hospitals
 
 r1 = Resource.create(street_number: 935, street_name:'Folsom', street_type:'ST', station_type:'Fire Station', lat:37.779453, lng:-122.404066)
 r2 = Resource.create(street_number: 1340, street_name:'POWELL', street_type:'ST', station_type:'Fire Station', lat:37.797032, lng:-122.40999)
@@ -188,8 +188,10 @@ r51 = Resource.create(street_number: 461, street_name:'6TH', street_type:'AVE', 
 r52 = Resource.create(street_number: 1, street_name:'JOHN YOUNG', street_type:'LN', station_type:'Police Station', lat: 37.724678 , lng: -122.446214)
 r53 = Resource.create(street_number: 2345, street_name:'24TH', street_type:'AVE', station_type:'Police Station', lat: 37.743745 , lng: -122.481477)
 r54 = Resource.create(street_number: 301, street_name:'EDDY', street_type:'ST', station_type:'Police Station', lat: 37.783665 , lng: -122.412901)
+r108 = Resource.create(street_number: 1001, street_name:'Potrero', street_type:'AVE', station_type:'Hospital', lat: 37.755413 , lng: -122.404625)
+r109 = Resource.create(street_number: 900, street_name:'Hyde', street_type:'ST', station_type:'Hospital', lat: 37.789630 , lng: -122.417004)
 
-# DC Police and Fire Stations
+# DC Police Stations, Fire Stations and Hospitals
 
 r55 = Resource.create(street_number: 101, street_name:'Atlantic', street_type:'ST SE', station_type:'Fire Station', lat: 38.8309331, lng: -77.00524451)
 r56 = Resource.create(street_number: 2225, street_name:'M', street_type:'ST NW', station_type:'Fire Station', lat: 38.90549429, lng: -77.04979813)
@@ -244,12 +246,14 @@ r104 = Resource.create(street_number: 1500, street_name:'Eckington', street_type
 r105 = Resource.create(street_number: 801, street_name:'Shepherd', street_type:'ST NW', station_type:'Police Station', lat: 38.94008893, lng: -77.02381045)
 r106 = Resource.create(street_number: 3320, street_name:'Idaho', street_type:'AVE NW', station_type:'Police Station', lat: 38.93484583, lng: -77.07483806)
 r107 = Resource.create(street_number: 2455, street_name:'Alabama', street_type:'AVE SE', station_type:'Police Station', lat: 38.85335576, lng: -76.9695214)
+r110 = Resource.create(street_number: 900, street_name:'23rd', street_type:'ST NW', station_type:'Hospital', lat: 38.901172, lng: -77.050928)
+r111 = Resource.create(street_number: 110, street_name:'Irving', street_type:'ST NW', station_type:'Hospital', lat: 38.929406, lng: -77.014786)
 
 # SF Zip Code Connector
 
 z20.resources << r1 << r7 << r34
 z21.resources << r2 << r26 << r45
-z22.resources << r3 << r38
+z22.resources << r3 << r38 << r109
 z23.resources << r4 << r35 << r49 << r9
 z33.resources << r8 << r24
 z28.resources << r10 << r11 << r25
@@ -272,6 +276,7 @@ z41.resources << r33 << r54
 z48.resources << r39 << r41
 z49.resources << r42
 z27.resources << r44
+z25.resources << r108
 
 # DC Zip Code Connector
 
@@ -282,7 +287,7 @@ z4.resources << r70
 z5.resources << r60 << r83
 z6.resources << r82 << r85
 z7.resources << r64 << r75 << r92 << r96
-z8.resources << r66
+z8.resources << r66 << r111
 z9.resources << r68 << r76 << r78 << r102 << r105
 z12.resources << r74 << r106
 z13.resources << r71
@@ -291,5 +296,5 @@ z15.resources << r81 << r84 << r90
 z16.resources << r69 << r73 << r86 << r91 << r97 << r100 << r107
 z17.resources << r62 << r89 << r101
 z18.resources << r55 << r79
-z19.resources << r56
+z19.resources << r56 << r110
 z53.resources << r87 

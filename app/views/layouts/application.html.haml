@@ -42,50 +42,76 @@
   / = link_to "Neighborhoods", "/neighborhoods", :remote => true
     
 
+  / %a(href='#')
+  /   .map-buttons#neighbor Police and Fire
+   
+  / %a(href='#')
+  /   .map-buttons#disaster SF Zipcodes
+  .dropdown
+    %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
+      San Francisco
+      %b.caret
+    %ul#menu2.dropdown-menu
+      %li
+        %input.checkbox#zip-check{type: "checkbox"} Zipcodes
+      %li
+        %input.checkbox#neighbor-check{type: "checkbox"} Neighborhoods
   %a(href='#')
-    .map-buttons#neighbor SF Neighborhoods
+    .map-buttons#disaster Resiliency
+  .dropdown
+    %a.dropdown-toggle.map-buttons#neighbor{"data-toggle" => "dropdown"}(href='#')
+      Resources
+      %b.caret
+    %ul#menu3.dropdown-menu
+      %li
+        %input.checkbox#police-check{type: "checkbox"} Police
+      %li
+        %input.checkbox#fire-check{type: "checkbox"} Fire
+  .dropdown
+    %a.dropdown-toggle.map-buttons#dc-resources{"data-toggle" => "dropdown"}(href='#')
+      Resources
+      %b.caret
+    %ul#menu3.dropdown-menu
+      %li
+        %input.checkbox{type: "checkbox"} Police
+      %li
+        %input.checkbox{type: "checkbox"} Fire
+  / %a(href='#')
+  /   .map-buttons#resources DC - Cooling Centers
   %a(href='#')
-    .map-buttons#busi Weather 
-  %a(href='#')
-    .map-buttons#disaster SF Zipcodes
-  / .dropdown
-  /   %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
-  /     Businesses
-  /     %b.caret
-  /   %ul#menu2.dropdown-menu
-  /     %li
-  /       %input{type: "checkbox"} example4
-  /     %li
-  /       %input{type: "checkbox"} example5
-  /     %li
-  /       %input{type: "checkbox"} example6
-  / .dropdown
-  /   %a.dropdown-toggle.map-buttons#disaster{"data-toggle" => "dropdown"}(href='#')
-  /     Disaster Potential
-  /     %b.caret
-  /   %ul#menu1.dropdown-menu
-  /     %li
-  /       %input{type: "checkbox"} example1
-  /     %li
-  /       %input{type: "checkbox"} example2
-  /     %li
-  /       %input{type: "checkbox"} example3
-  %a(href='#')
-    .map-buttons#resources DC - Cooling Centers
+    .map-buttons#community Community Resources
+  .dropdown
+    %a.dropdown-toggle.map-buttons#sf-eh{"data-toggle" => "dropdown"}(href='#')
+      Environmental Hazards
+      %b.caret
+    %ul#menu4.dropdown-menu
+      %li
+        %input.checkbox{type: "checkbox"} LIQUIFACTIONHigh Level
+      %li
+        %input.checkbox{type: "checkbox"} LIQUIFACTIONMedium Level
   .dropdown
     %a.dropdown-toggle.map-buttons#roads{"data-toggle" => "dropdown"}(href='#')
-      DC - Flooding
+      Environmental Hazards
       %b.caret
     %ul#menu1.dropdown-menu
       %li
         %input.checkbox#high_flood_kml{type: "checkbox"} High Level
       %li
         %input.checkbox#medium_flood_kml{type: "checkbox"} Medium Level
+  .dropdown
+    %a.dropdown-toggle.map-buttons#hazard{"data-toggle" => "dropdown"}(href='#')
+      Washington
+      %b.caret
+    %ul#menu5.dropdown-menu
+      %li
+        %input.checkbox{type: "checkbox"} High Level
+      %li
+        %input.checkbox{type: "checkbox"} Medium Level
 
   / %a(href='#')
   /   .map-buttons#damage Damage
-  %a(href='#')
-    .map-buttons#hazard DC Zipcodes
+  / %a(href='#')
+  /   .map-buttons#hazard DC Zipcodes
   %a(href='http://appallicious.com/')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
 

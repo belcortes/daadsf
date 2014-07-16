@@ -22,7 +22,8 @@
       / %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
       = form_tag '/search', :method => :get do
         = text_field_tag :search, params[:search], placeholder:'SEARCH'
-        %button#search
+        / %input#search{onclick: "codeAddress()", type: "button"}
+        %button#search{onclick: "data_markers()"}
           = image_submit_tag("search.png") #, :name => nil
     %li#button
       %a{href:'/'}
@@ -32,7 +33,14 @@
     / %li#advanced-search
     /   %a(href='#') Advanced Search
     %li.login#prepare
-      %a(href='#') Prepare for a Disaster
+      %a(href='#') 
+        .map-buttons Prepare for a Disaster
+    %li.login.city#sf
+      %a(href='#')
+        .map-buttons SF
+    %li.login.city#dc
+      %a(href='#')
+        .map-buttons DC
     / %li.login#recovery
     /   %a(href='#') Recovery Resources
       

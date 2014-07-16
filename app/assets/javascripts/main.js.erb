@@ -50,7 +50,7 @@ function maps() {
     
 
     //  ---------------- KML CALLS ---------------- 
-    $('#busi').on('click', function(){
+    $('#disaster').on('click', function(){
       if (weatherLayer.getMap() != null) {
         weatherLayer.setMap(null);
       }
@@ -58,91 +58,86 @@ function maps() {
         weatherLayer.setMap(map);
       }
     })
-  
-    $('#neighbor').on('click', function(){
-      $('.container').hide();
-      $('.container2').hide();
-      if ($('#neighbor').is('.active')) {
-        $('#neighbor-container').show();
-      }
-      
-      if ( neighborhood_kml.getMap() != null && neighborhood_kml2.getMap() != null) {
-          neighborhood_kml.setMap(null);
-          neighborhood_kml2.setMap(null);
-      }
-      else {
-          neighborhood_kml.setMap(map);
-          neighborhood_kml2.setMap(map);
-      }
-    })
-
-    $('#disaster').on('click', function(){
-      if (sf_zipcodes.getMap() != null) {
-        sf_zipcodes.setMap(null);
-      }
-      else {
-        sf_zipcodes.setMap(map);
-        sf_zipcodes.set('preserveViewport', true);
-        map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-        map.setZoom(12); 
-      }
-    })
     
-    $('#hazard').on('click', function(){
-      $('.container').hide();
-      $('.container2').hide();
-      if ($('#hazard').is('.active')) {
-        $('#zip-container').show();
-      }
-      if ( zip_kmz.getMap() != null) {
-        zip_kmz.setMap(null);
-      }
-      else {
-        zip_kmz.setMap(map);
-        zip_kmz.set('preserveViewport', true);
-        map.panTo(new google.maps.LatLng(38.899851,-77.101761));
-        map.setZoom(12); 
-      }
-      // zip_kmz.set('preserveViewport', true);
-    })
+    // $('#hazard').on('click', function(){
+    //   $('.container').hide();
+    //   $('.container2').hide();
+    //   if ($('#hazard').is('.active')) {
+    //     $('#zip-container').show();
+    //   }
+    //   if ( zip_kmz.getMap() != null) {
+    //     zip_kmz.setMap(null);
+    //   }
+    //   else {
+    //     zip_kmz.setMap(map);
+    //     zip_kmz.set('preserveViewport', true);
+    //     map.panTo(new google.maps.LatLng(38.899851,-77.101761));
+    //     map.setZoom(12); 
+    //   }
+    //   // zip_kmz.set('preserveViewport', true);
+    // })
     
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){
 
-        var flood_id = $(this).attr('id')
+        var check_id = $(this).attr('id')
         $('.container').hide();
         $('.container2').hide();
-        if ($('#'+flood_id).is(':checked') == false) {
-          switch (flood_id) {
+        if ($('#'+check_id).is(':checked') == false) {
+          switch (check_id) {
             case 'medium_flood_kml':
-            medium_flood_kml.setMap(null);
-            break;
+              medium_flood_kml.setMap(null);
+              break;
             case 'high_flood_kml':
-            high_flood_kml.setMap(null);
-            break;
+              high_flood_kml.setMap(null);
+              break;
+            case 'zip-check':
+              sf_zipcodes.setMap(null);
+              break;
+            case 'neighbor-check':
+              neighborhood_kml.setMap(null);
+              neighborhood_kml2.setMap(null);
+              break;
           }
         } else {
-          switch (flood_id) {
+          switch (check_id) {
             case 'medium_flood_kml':
-            medium_flood_kml.setMap(map);
-            medium_flood_kml.set('preserveViewport', true);
-            map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-            map.setZoom(12); 
-            break;
+              medium_flood_kml.setMap(map);
+              medium_flood_kml.set('preserveViewport', true);
+              map.panTo(new google.maps.LatLng(38.857926, -77.029506));
+              map.setZoom(12); 
+              break;
             case 'high_flood_kml':
-            high_flood_kml.setMap(map);
-            high_flood_kml.set('preserveViewport', true);
-            map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-            map.setZoom(12); 
-            break;
+              high_flood_kml.setMap(map);
+              high_flood_kml.set('preserveViewport', true);
+              map.panTo(new google.maps.LatLng(38.857926, -77.029506));
+              map.setZoom(12); 
+              break;
+            case 'zip-check':
+              sf_zipcodes.setMap(map);
+              sf_zipcodes.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
+              // map.setZoom(12); 
+              break;
+            case 'neighbor-check':
+              neighborhood_kml.setMap(map);
+              neighborhood_kml2.setMap(map);
+              // high_flood_kml.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
+              // map.setZoom(12); 
+              break;
           }
         }
       })
     }
     
-    markers();
     cooling_markers();
+    // $('button#search').on('click', function(){
+    data_markers();
+    // resource_markers()
+    // })
+    
     zipcode_pan();
     checkbox_toggle();
   }
@@ -218,7 +213,57 @@ function zipcode_pan() {
     }
   })
 }
-function markers() {
+// function resource_markers() {
+//   var icon = "<%= asset_path 'cooling.png' %>"
+//   var bounds = new google.maps.LatLngBounds();
+
+//   $.getJSON("/resource", function(json) {
+//     console.log(json)
+//     $.each(json, function(key, data) {
+//       console.log(data.station_type)
+//       var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_name)
+//       var marker2 = new google.maps.Marker({
+//         position: new google.maps.LatLng(data.lat, data.lng),
+//         map: map,
+//         // icon: icon,
+//         title: 'hello'
+//       });
+//       var marker1 = new google.maps.Marker({
+//         position: new google.maps.LatLng(data.lat, data.lng),
+//         map: map,
+//         icon: icon,
+//         title: 'hello'
+//       });
+//       $('.checkbox').on('click', function(){
+//         var check_id = $(this).attr('id')
+  
+//       })
+      
+      
+//       marker.setMap(null);
+
+//       bounds.extend(marker.position);
+
+//       $('#neighbor').on('click', function(){
+//         if ($(this).attr('class') == 'map-buttons active') {
+//           marker.setMap(map);
+//           // map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+//           // map.setZoom(12); 
+//           map.fitBounds(bounds);
+//         } else {
+//           marker.setMap(null);
+//         }
+//       })
+//       var infowindow = new google.maps.InfoWindow({
+//           content: contentInfo
+//       });
+//       google.maps.event.addListener(marker, 'click', function() {
+//         infowindow.open(map,marker);
+//       });
+//     })
+//   })
+// }
+function cooling_markers() {
   var icon = "<%= asset_path 'cooling.png' %>"
   var bounds = new google.maps.LatLngBounds();
 
@@ -256,45 +301,44 @@ function markers() {
 }
 
 
-function cooling_markers() {
+function data_markers() {
   var icon = "<%= asset_path 'cooling.png' %>"
   var icon2 = "<%= asset_path 'person.png' %>"
   var bounds = new google.maps.LatLngBounds();
   
   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
     
-      $.each(json, function(key, data) {
-        if (data.state == 'DC'){
-          console.log('COOLING CENTERS')
-          var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data.latitude, data.longitude),
-            map: map,
-            icon: icon
-          });
+    $.each(json, function(key, data) {
+      console.log(data.name)
+      if (data.state == 'DC'){
+        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.latitude, data.longitude),
+          map: map,
+          icon: icon
+        });
 
-          bounds.extend(marker.position);
+        bounds.extend(marker.position);
 
-          if ($('#search').val().length === 0) {
-            marker.setMap(null);
-          } else {
-            marker.setMap(map);
-            map.fitBounds(bounds);
-          }
-          
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-            console.log(contentInfo)
-          });
+        if ($('#search').val().length === 0) {
+          marker.setMap(null);
         } else {
-          var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
-          // console.log('ZIPCODE DATA NOT COOLING CENTERS')
-          // var address2 = data.address+' '+data.city+' '+data.state
-          // console.log(address2)
+          marker.setMap(map);
+          map.fitBounds(bounds);
+        }
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: contentInfo
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+          console.log(contentInfo)
+        });
+      } else {
+        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
+        // $('button#search').on('click', function(){
           geocoder.geocode( { 'address': data.address}, function(results, status) {
+            console.log(results)
             if (status == google.maps.GeocoderStatus.OK) {
               map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
@@ -302,7 +346,6 @@ function cooling_markers() {
                   position: results[0].geometry.location,
                   icon: icon2
               });
-
               var infowindow = new google.maps.InfoWindow({
                   content: contentInfo
               });
@@ -314,15 +357,40 @@ function cooling_markers() {
               alert('Geocode was not successful for the following reason: ' + status);
             }
           });
-        }
-       
-      })
-    
+        // })
+        
+      }
+    }) 
   })
   // } 
 }
 
 function button_clicks() {
+  $('.city').on('click', function(){
+    console.log($(this).attr('id'))
+    if($(this).attr('id') == 'sf') {
+      
+      $('#resources').hide();
+      $('#roads').hide();
+      $('#hazard').hide();
+      $('#dc-resources').hide();
+      $('#busi').show();
+      $('#neighbor').show();
+      $('#community').show();
+      $('#sf-eh').show();
+    } else {
+      console.log('dc')
+      $('#busi').hide();
+      $('#sf-eh').hide();
+      $('#neighbor').hide();
+      $('#community').hide();
+      $('#resources').show();
+      $('#roads').show();
+      $('#hazard').show();
+      $('#dc-resources').show();
+    }
+  })
+
   $('#prepare').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
@@ -361,19 +429,24 @@ function button_clicks() {
 $(function() {
   // marker.setMap(null);
   // zipcode_pan();
+  $('#busi').hide();
+  $('#neighbor').hide();
+  $('#resources').hide();
+  $('#roads').hide();
+  $('#hazard').hide();
+  $('#community').hide();
+  $('#sf-eh').hide();
+  $('#dc-resources').hide();
+
   $('.account-box').hide();
   $('.container').hide();
   $('.close').on('click', function() {
     $('.container').css('display', 'none');
     $('.container2').css('display', 'none');
   })
-  // $('#prepare').on('click', function(){
-  //   $('.container').show();
-  // })
   maps();
   button_clicks();
   $('.map-buttons').on('click', function() {
     $(this).toggleClass('active');
-    // $('#container').show();
   })
 });

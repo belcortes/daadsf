@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
   searchable do
-    text :zip, :name, :email
+    text :zip, :name, :email, :other
     boolean :nert
     boolean :cert
     boolean :cpr

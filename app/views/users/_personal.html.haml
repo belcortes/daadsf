@@ -65,6 +65,9 @@
           = f.check_box :mechanic, value: current_user.mechanic
           = f.label :mechanic
           %br
+          = f.label :other
+          = f.text_field :other, value: current_user.other
+          %br
           = f.submit 'Update'
     %br
     .personal#user-resources(href='#')
@@ -153,5 +156,8 @@
           %br
           = f.check_box :shovel, value: current_user.shovel
           = f.label :shovel
+          %br
+          = f.label :other
+          = f.text_field :other, value: current_user.other
           %br
           = f.submit 'Update'

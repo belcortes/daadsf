@@ -111,15 +111,16 @@ function maps() {
               break;
             case 'zip-check':
               sf_zipcodes.setMap(map);
-              sf_zipcodes.set('preserveViewport', true);
+              // sf_zipcodes.set('preserveViewport', true);
               // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
               // map.setZoom(12); 
               break;
             case 'neighbor-check':
               neighborhood_kml.setMap(map);
               neighborhood_kml2.setMap(map);
-              // high_flood_kml.set('preserveViewport', true);
-              // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
+              // neighborhood_kml.set('preserveViewport', true);
+              // neighborhood_kml2.set('preserveViewport', true);
+              
               // map.setZoom(12); 
               break;
             case 'high_liq':
@@ -264,10 +265,8 @@ function resource_markers() {
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
         $('.checkbox').on('click', function(){
-          if ($('.fire-check').is(':checked') == false) {
-            fire_marker.setMap(null);
-          } else {
-            console.log($(this).parent().parent().parent())
+          if ($('.fire-check').is(':checked') == true) {
+            
             if ($(this).parent().parent().attr('id') == 'menu3') {
               fire_marker.setMap(map);
               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
@@ -277,6 +276,9 @@ function resource_markers() {
               map.panTo(new google.maps.LatLng(38.898528, -77.031564));
               map.setZoom(12); 
             }
+          } else {
+            console.log($(this).parent().parent().parent())
+            fire_marker.setMap(null);
             
             // map.fitBounds(bounds);
           }

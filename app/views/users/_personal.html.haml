@@ -34,22 +34,17 @@
       Certifications
       .account-box
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
-          = f.check_box :cert, value: current_user.cert
-          = f.label :cert
+          = check_box_tag :cert, value: current_user.cert
+          = f.label 'CERT'
           %br
-          - p current_user.nert
-          - p current_user.cert
           = f.check_box :nert, value: current_user.nert
-          = f.label :nert
+          = f.label 'NERT'
           %br
           = f.check_box :cpr, value: current_user.cpr
-          = f.label :cpr
+          = f.label 'CPR'
           %br
           = f.check_box :safe, value: current_user.safe
           = f.label 'SAFE'
-          %br
-          = f.check_box :gov_employee, value: current_user.gov_employee
-          = f.label 'Government Employee'
           %br
           = f.check_box :first_aid, value: current_user.first_aid
           = f.label 'First Aid'
@@ -62,21 +57,52 @@
     .personal#user-buildings(href='#')
       Skills
       .account-box
-        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-          = f.label :name
-          = f.text_field :name
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
+          = f.check_box :engineer, value: current_user.engineer
+          = f.label :engineer
           %br
-          = f.label :email
-          = f.email_field :email
+          = f.check_box :contractor, value: current_user.contractor
+          = f.label :contractor
           %br
-          = f.label :password
-          = f.password_field :password
-          = f.submit
+          = f.check_box :healthcare, value: current_user.healthcare
+          = f.label :healthcare
+          %br
+          = f.check_box :mechanic, value: current_user.mechanic
+          = f.label :mechanic
+          %br
+          = f.submit 'Update'
     %br
     .personal#user-resources(href='#')
       Resources
       .account-box
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          Facilities
+          %br
+          = f.check_box :church, value: current_user.church
+          = f.label :church
+          %br
+          = f.check_box :school, value: current_user.school
+          = f.label :school
+          %br
+          = f.check_box :bomb_shelter, value: current_user.bomb_shelter
+          = f.label :bomb_shelter
+          %br
+          = f.check_box :hurricane_shelter, value: current_user.hurricane_shelter
+          = f.label :hurricane_shelter
+          %br
+          Medical
+          %br
+          = f.check_box :oxygen, value: current_user.oxygen
+          = f.label :oxygen
+          %br
+          = f.check_box :wheel_chair, value: current_user.wheel_chair
+          = f.label :wheel_chair
+          %br
+          = f.check_box :defibrillation, value: current_user.defibrillation
+          = f.label :defibrillation
+          %br
+          Heavy Equipment
+          %br
           = f.check_box :dump_truck, value: current_user.dump_truck
           = f.label :dump_truck
           %br
@@ -115,6 +141,8 @@
           %br
           = f.check_box :jack_hammer, value: current_user.jack_hammer
           = f.label :jack_hammer
+          %br
+          Light Equipment
           %br
           = f.check_box :emergency_kit, value: current_user.emergency_kit
           = f.label :emergency_kit

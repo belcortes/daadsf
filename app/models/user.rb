@@ -9,6 +9,29 @@ class User < ActiveRecord::Base
 
   searchable do
     text :zip, :name, :email
+    boolean :nert
+    boolean :cert
+    boolean :cpr
+    boolean :safe
+    boolean :first_aid
+    boolean :dump_truck
+    boolean :back_hoe
+    boolean :crane
+    boolean :fork_lift
+    boolean :truck
+    boolean :fuel
+    boolean :air_compressor
+    boolean :power_generator
+    boolean :bus
+    boolean :saw
+    boolean :lathe
+    boolean :plow
+    boolean :jack_hammer
+    boolean :emergency_kit
+    boolean :drill
+    boolean :hammer
+    boolean :survival_kit
+    boolean :shovel
   end
 
 
@@ -17,7 +40,8 @@ class User < ActiveRecord::Base
   #   @user = User.from_omniauth(request.env["omniauth.auth"])
 
   #   if @user.persisted?
-  #     sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+  #     sign_in_and_redirect @user
+   #    :event => :authentication #this will throw if @user is not activated
   #     set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
   #   else
   #     session["devise.facebook_data"] = request.env["omniauth.auth"]

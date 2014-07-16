@@ -46,18 +46,15 @@ function maps() {
       zip: 11
     });
 
-    var weatherLayer = new google.maps.weather.WeatherLayer();
+    var weatherLayer = new google.maps.weather.WeatherLayer({
+      temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+    });
     
 
     //  ---------------- KML CALLS ---------------- 
-    $('#disaster').on('click', function(){
-      if (weatherLayer.getMap() != null) {
-        weatherLayer.setMap(null);
-      }
-      else {
-        weatherLayer.setMap(map);
-      }
-    })
+   
+    weatherLayer.setMap(map);
+
     
     // $('#hazard').on('click', function(){
     //   $('.container').hide();
@@ -99,6 +96,9 @@ function maps() {
               neighborhood_kml.setMap(null);
               neighborhood_kml2.setMap(null);
               break;
+            case 'dc-zip':
+              zip_kmz.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -107,6 +107,9 @@ function maps() {
               medium_flood_kml.set('preserveViewport', true);
               map.panTo(new google.maps.LatLng(38.857926, -77.029506));
               map.setZoom(12); 
+              break;
+            case 'dc-zip':
+              zip_kmz.setMap(map);
               break;
             case 'high_flood_kml':
               high_flood_kml.setMap(map);
@@ -338,7 +341,8 @@ function data_markers() {
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
         // $('button#search').on('click', function(){
           geocoder.geocode( { 'address': data.address}, function(results, status) {
-            console.log(results)
+
+            console.log(status)
             if (status == google.maps.GeocoderStatus.OK) {
               map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
@@ -354,7 +358,7 @@ function data_markers() {
                 console.log(contentInfo)
               });
             } else {
-              alert('Geocode was not successful for the following reason: ' + status);
+              // alert('Geocode was not successful for the following reason: ' + status);
             }
           });
         // })
@@ -378,6 +382,7 @@ function button_clicks() {
       $('#neighbor').show();
       $('#community').show();
       $('#sf-eh').show();
+      $('#disaster').show();
     } else {
       console.log('dc')
       $('#busi').hide();
@@ -388,6 +393,7 @@ function button_clicks() {
       $('#roads').show();
       $('#hazard').show();
       $('#dc-resources').show();
+      $('#disaster').show();
     }
   })
 
@@ -412,14 +418,31 @@ function button_clicks() {
     $('#account-container').show();
   })
   $('#contact-info').on('click', function(){
+    $('#user-buildings').children().hide()
+    $('#user-resources').children().hide()
+    $('#certifications').children().hide()
     $(this).children().show();
   })
   $('#certifications').on('click', function(){
+    $('#user-buildings').children().hide()
+    $('#user-resources').children().hide()
+    $('#contact-info').children().hide()
     $(this).children().show();
   })
   $('#user-resources').on('click', function(){
+    $('#user-buildings').children().hide()
+    $('#certifications').children().hide()
+    $('#contact-info').children().hide()
     $(this).children().show();
   })
+  $('#user-buildings').on('click', function(){
+    $('#user-resources').children().hide()
+    $('#certifications').children().hide()
+    $('#contact-info').children().hide()
+    // $('.personal').children.hide();
+    $(this).children().show();
+  })
+  
 }
 
 
@@ -437,6 +460,7 @@ $(function() {
   $('#community').hide();
   $('#sf-eh').hide();
   $('#dc-resources').hide();
+  $('#disaster').hide();
 
   $('.account-box').hide();
   $('.container').hide();

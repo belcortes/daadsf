@@ -34,6 +34,12 @@ function maps() {
     var high_flood_kml = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/HighPoly.kml'
     });
+    var low_liq_kml = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/modlowSFLiqui.kml'
+    });
+    var high_liq_kml = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/vhighhighSFLiqui.kml'
+    });
     var neighborhood_kml = new google.maps.KmlLayer({
       url: 'https://maps.google.com/maps/ms?dg=feature&ie=UTF8&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f137271f66502f6'
     });
@@ -99,6 +105,12 @@ function maps() {
             case 'dc-zip':
               zip_kmz.setMap(null);
               break;
+            case 'high_liq':
+              low_liq_kml.setMap(null);
+              break;
+            case 'low_liq':
+              high_liq_kml.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -130,6 +142,12 @@ function maps() {
               // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
               // map.setZoom(12); 
               break;
+            case 'high_liq':
+              low_liq_kml.setMap(map);
+              break;
+            case 'low_liq':
+              high_liq_kml.setMap(map);
+              break;
           }
         }
       })
@@ -147,6 +165,7 @@ function maps() {
     
     
     google.maps.event.addDomListener(window, 'load', initialize);
+    
 }
 function zipcode_pan() {
   $('.zip-number').on('click', function(){
@@ -371,9 +390,8 @@ function data_markers() {
 
 function button_clicks() {
   $('.city').on('click', function(){
-    console.log($(this).attr('id'))
     if($(this).attr('id') == 'sf') {
-      
+      map.panTo(new google.maps.LatLng(37.769884, -122.459793));
       $('#resources').hide();
       $('#roads').hide();
       $('#hazard').hide();
@@ -384,7 +402,8 @@ function button_clicks() {
       $('#sf-eh').show();
       $('#disaster').show();
     } else {
-      console.log('dc')
+      map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+      map.setZoom(12); 
       $('#busi').hide();
       $('#sf-eh').hide();
       $('#neighbor').hide();

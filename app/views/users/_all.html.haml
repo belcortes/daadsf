@@ -8,11 +8,172 @@
     Address:
     .user-attr
       = u.address
-    Available Resources:
+    Certifications
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
-        - if attr_value == true
-          = attr_name
+      
+        - if attr_value == true && attr_name == 'cert'
+          &nbsp;&nbsp; - CERT
           %br
+        - if attr_value == true && attr_name == 'nert'
+          &nbsp;&nbsp; - NERT
+          %br
+        - if attr_value == true && attr_name == 'cpr'
+          &nbsp;&nbsp; - CPR
+          %br
+        - if attr_value == true && attr_name == 'safe'
+          &nbsp;&nbsp; - SAFE
+          %br
+        - if attr_value == true && attr_name == 'first_aid'
+          &nbsp;&nbsp; - First Aid
+          %br
+    Skills
+    .user-attr
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true && attr_name == 'contractor'
+          &nbsp;&nbsp; - Contractor
+          %br
+        - if attr_value == true && attr_name == 'engineer'
+          &nbsp;&nbsp; - Engineer
+          %br
+        - if attr_value == true && attr_name == 'mechanic'
+          &nbsp;&nbsp; - Mechanic
+          %br
+        - if attr_value == true && attr_name == 'healthcare'
+          &nbsp;&nbsp; - Healthcare
+          %br
+    Resources
+    .user-attr
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true && attr_name == 'church'
+          &nbsp;&nbsp; - Church
+          %br
+        - if attr_value == true && attr_name == 'school'
+          &nbsp;&nbsp; - School
+          %br
+        - if attr_value == true && attr_name == 'bomb_shelter'
+          &nbsp;&nbsp; - Bomb Shelter
+          %br
+        - if attr_value == true && attr_name == 'hurricane_shelter'
+          &nbsp;&nbsp; - Hurricane Shelter
+          %br
+    Medical
+    .user-attr
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true && attr_name == 'oxygen'
+          &nbsp;&nbsp; - Oxygen
+          %br
+        - if attr_value == true && attr_name == 'wheel_chair'
+          &nbsp;&nbsp; - Wheel Chair
+          %br
+        - if attr_value == true && attr_name == 'defibrillation'
+          &nbsp;&nbsp; - Defibrillation
+          %br
+    Equipment - Heavy
+    .user-attr
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true && attr_name == 'dump_truck'
+          &nbsp;&nbsp; - Dump Truck
+          %br
+        - if attr_value == true && attr_name == 'back_hoe'
+          &nbsp;&nbsp; - Back Hoe
+          %br
+        - if attr_value == true && attr_name == 'crane'
+          &nbsp;&nbsp; - Crane
+          %br
+        - if attr_value == true && attr_name == 'fork_lift'
+          &nbsp;&nbsp; - Fork Lift
+          %br
+        - if attr_value == true && attr_name == 'fuel'
+          &nbsp;&nbsp; - Fuel
+          %br
+        - if attr_value == true && attr_name == 'air_compressor'
+          &nbsp;&nbsp; - Air Compressor
+          %br
+        - if attr_value == true && attr_name == 'truck'
+          &nbsp;&nbsp; - Truck
+          %br
+        - if attr_value == true && attr_name == 'power_generator'
+          &nbsp;&nbsp; - Power Generator
+          %br
+        - if attr_value == true && attr_name == 'bus'
+          &nbsp;&nbsp; - Bus
+          %br
+        - if attr_value == true && attr_name == 'saw'
+          &nbsp;&nbsp; - Saw
+          %br
+        - if attr_value == true && attr_name == 'lathe'
+          &nbsp;&nbsp; - Lathe
+          %br
+        - if attr_value == true && attr_name == 'plow'
+          &nbsp;&nbsp; - Plow
+          %br
+        - if attr_value == true && attr_name == 'jack_hammer'
+          &nbsp;&nbsp; - Jack Hammer
+          %br
+    Equipment - Heavy
+    .user-attr
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true && attr_name == 'emergency_kit'
+          &nbsp;&nbsp; - Emergency Kit
+          %br
+        - if attr_value == true && attr_name == 'drill'
+          &nbsp;&nbsp; - Drill
+          %br
+        - if attr_value == true && attr_name == 'hammer'
+          &nbsp;&nbsp; - Hammer
+          %br
+        - if attr_value == true && attr_name == 'survival_kit'
+          &nbsp;&nbsp; - Survival Kit
+          %br
+        - if attr_value == true && attr_name == 'shovel'
+          &nbsp;&nbsp; - Shovel
+          %br
+
     %br
+
+  / .blue Lowell High School
+  / Address: 
+  / .user-attr
+  /   &nbsp;&nbsp; 1101 Eucalyptus Dr., San Francisco, CA, 94132
+  / Certifications
+  / .user-attr
+  /   &nbsp;&nbsp; - First aid
+  / .user-attr
+  /   &nbsp;&nbsp; - NERT
+  / .user-attr
+  /   &nbsp;&nbsp; - CERT
+  / .user-attr
+  /   &nbsp;&nbsp; - First Aid
+
+  / Skills:
+  / .user-attr
+  /   &nbsp;&nbsp; - Chef/Cook
+  / .user-attr
+  /   &nbsp;&nbsp; - Contractor
+
+  / Resources:
+  / .user-attr
+  /   &nbsp;&nbsp; - School
+  / .user-attr
+  /   &nbsp;&nbsp; - Centralized Heating
+  / .user-attr
+  /   &nbsp;&nbsp; - Bomb Shelter
+
+  / Medical:
+  / .user-attr
+  /   &nbsp;&nbsp; - Wheel Chair
+  / .user-attr
+  /   &nbsp;&nbsp; - Difibrullation
+
+  / Equipment - Heavy:
+  / .user-attr
+  /   &nbsp;&nbsp; - Van (2)
+
+  / Equipment - Light:
+  / .user-attr
+  /   &nbsp;&nbsp; - Emergency Kit (7 days)
+  / .user-attr
+  /   &nbsp;&nbsp; - Advanced Toolkit
+  
   

@@ -140,9 +140,12 @@
 }
 .blue {
   color: #428bca;
+  font-size: 19px;
+  text-decoration: underline;
 }
 .user-attr {
   font-weight: normal;
+  /*text-decoration: underline;*/
 }
 #menu1 {
   top: auto;

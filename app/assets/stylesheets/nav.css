@@ -96,6 +96,8 @@ li #main-search {
   border-left: 1px solid black;
   cursor: pointer;
   font-size: 16px;
+  position: relative;
+  bottom: 5px;
   
 }
 #login_form {
@@ -154,4 +156,8 @@ li #main-search {
   /*float: left;*/
   left: 10px;
   bottom: 10px;
+}
+.nav_toggle_red {
+  background-color: #f85d2b;
+  color: white;
 }

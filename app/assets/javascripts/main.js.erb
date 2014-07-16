@@ -217,7 +217,8 @@ function zipcode_pan() {
 }
 
 function resource_markers() {
-  var icon = "<%= asset_path 'cooling.png' %>"
+  var icon = "<%= asset_path 'policemarker.png' %>"
+  var icon2 = "<%= asset_path 'firemanmarker.png' %>"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON("/resource", function(json) {
@@ -229,16 +230,14 @@ function resource_markers() {
         var police_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
-          // icon: icon,
+          icon: icon,
           title: 'hello'
         });
         police_marker.setMap(null);
         $('.checkbox').on('click', function(){
           if ($('#police-check').is(':checked') == false) {
             police_marker.setMap(null);
-            console.log('not checked')
           } else {
-            console.log('checked')
             police_marker.setMap(map);
           }
           google.maps.event.addListener(police_marker, 'click', function() {
@@ -249,16 +248,14 @@ function resource_markers() {
         var fire_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
-          // icon: icon,
+          icon: icon2,
           title: 'hello'
         });
         fire_marker.setMap(null);
         $('.checkbox').on('click', function(){
           if ($('#fire-check').is(':checked') == false) {
             fire_marker.setMap(null);
-            console.log('not checked')
           } else {
-            console.log('checked')
             fire_marker.setMap(map);
           }
           google.maps.event.addListener(fire_marker, 'click', function() {
@@ -270,8 +267,6 @@ function resource_markers() {
       var infowindow = new google.maps.InfoWindow({
           content: contentInfo
       });
-      
-      
       
     })
   })
@@ -383,6 +378,8 @@ function data_markers() {
 function button_clicks() {
   $('.city').on('click', function(){
     if($(this).attr('id') == 'sf') {
+      $(this).children().children().addClass('nav_toggle_red')
+      $('#dc').children().children().removeClass('nav_toggle_red')
       map.panTo(new google.maps.LatLng(37.769884, -122.459793));
       $('#resources').hide();
       $('#roads').hide();
@@ -394,6 +391,8 @@ function button_clicks() {
       $('#sf-eh').show();
       $('#disaster').show();
     } else {
+      $(this).children().children().addClass('nav_toggle_red')
+      $('#sf').children().children().removeClass('nav_toggle_red')
       map.panTo(new google.maps.LatLng(38.898528, -77.031564));
       map.setZoom(12); 
       $('#busi').hide();
@@ -481,7 +480,7 @@ $(function() {
   })
   maps();
   button_clicks();
-  $('.map-buttons').on('click', function() {
-    $(this).toggleClass('active');
-  })
+  // $('.map-buttons').on('click', function() {
+  //   $(this).toggleClass('active');
+  // })
 });

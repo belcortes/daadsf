@@ -16,17 +16,12 @@
           = f.label :phone
           = f.text_field :phone, value: current_user.phone
           %br
-          = f.label :zip
-          = f.text_field :zip, value: current_user.zip
-          %br
-          = f.label :city
-          = f.text_field :city, value: current_user.city
-          %br
-          = f.label :state
-          = f.text_field :state, value: current_user.state
-          %br
           = f.label :address
           = f.text_field :address, value: current_user.address
+          %br
+          = f.label :zip
+          = f.text_field :zip, value: current_user.zip
+          
           %br
           = f.submit 'Update'
     %br

@@ -3,18 +3,17 @@
   Community Resources
 .height
   - @users.each do |u|
-    = u.name
-    %br
+    .blue
+      = u.name
     Address:
-    = u.address
-    %br
+    .user-attr
+      = u.address
     Available Resources:
-    %br
-    - u.attributes.each do |attr_name, attr_value|
-      - if attr_value == true
-        = attr_name
-        ,
-    %br
+    .user-attr
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true
+          = attr_name
+          %br
     %br
     / = u.nert
     / %br

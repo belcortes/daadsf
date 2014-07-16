@@ -18,9 +18,9 @@
 }
 
 #dc-resources {
-  position: absolute;
+  position: fixed;
   right: 0;
-  /*top: 100px;*/
+  top: 100px;
   float: right;
   margin-right: 207px;
   margin-top: 10px;
@@ -137,6 +137,12 @@
   display: inline-block !important;
   margin-top: 0 !important;
   margin-right: 5px !important;
+}
+.blue {
+  color: #428bca;
+}
+.user-attr {
+  font-weight: normal;
 }
 #menu1 {
   top: auto;

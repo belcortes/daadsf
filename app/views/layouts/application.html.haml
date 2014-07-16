@@ -1,16 +1,16 @@
-
+/ = devise_error_messages!
 = render 'layouts/header'
 = render 'layouts/nav'
       
 #page-body
   #map 
 
-  .container#neighbor-container
-    =image_tag asset_path('x.png'), :class => 'close'
-    = render 'layouts/neighborhoods'
-  .container#zip-container
-    =image_tag asset_path('x.png'), :class => 'close'
-    = render 'layouts/zipcodes'
+  / .container#neighbor-container
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   = render 'layouts/neighborhoods'
+  / .container#zip-container
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   = render 'layouts/zipcodes'
   .container#prepare-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/prepare'
@@ -67,18 +67,18 @@
       %b.caret
     %ul#menu3.dropdown-menu
       %li
-        %input.checkbox#police-check{type: "checkbox"} Police
+        %input.checkbox.police-check{type: "checkbox"} Police
       %li
-        %input.checkbox#fire-check{type: "checkbox"} Fire
+        %input.checkbox.fire-check{type: "checkbox"} Fire
   .dropdown
     %a.dropdown-toggle.map-buttons#dc-resources{"data-toggle" => "dropdown"}(href='#')
       Resources
       %b.caret
-    %ul#menu3.dropdown-menu
+    %ul#menu6.dropdown-menu
       %li
-        %input.checkbox#dc-police{type: "checkbox"} Police
+        %input.checkbox.police-check{type: "checkbox"} Police
       %li
-        %input.checkbox#dc-fire{type: "checkbox"} Fire
+        %input.checkbox.fire-check{type: "checkbox"} Fire
       %li
         %input.checkbox#cooling{type: "checkbox"} Cooling Centers
   / %a(href='#')

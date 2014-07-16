@@ -2,6 +2,7 @@ class SearchController < ApplicationController
   def search
     @neighborhoods = Neighborhood.all
     @zipcodes = Zipcode.all
+    @users = User.all
     @search = Sunspot.search(User, CoolingCenters) do
       fulltext params[:search]
       # keywords 'cert'

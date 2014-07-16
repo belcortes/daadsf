@@ -236,11 +236,19 @@ function resource_markers() {
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
         $('.checkbox').on('click', function(){
-          if ($('#police-check').is(':checked') == false) {
+          if ($('.police-check').is(':checked') == false) {
             police_marker.setMap(null);
           } else {
-            police_marker.setMap(map);
-            map.fitBounds(bounds);
+            if ($(this).parent().parent().attr('id') == 'menu3') {
+              police_marker.setMap(map);
+              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              map.setZoom(12); 
+            } else {
+              police_marker.setMap(map);
+              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+              map.setZoom(12); 
+            }
+            // map.fitBounds(bounds);
           }
           google.maps.event.addListener(police_marker, 'click', function() {
             infowindow.open(map,police_marker);
@@ -256,11 +264,21 @@ function resource_markers() {
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
         $('.checkbox').on('click', function(){
-          if ($('#fire-check').is(':checked') == false) {
+          if ($('.fire-check').is(':checked') == false) {
             fire_marker.setMap(null);
           } else {
-            fire_marker.setMap(map);
-            map.fitBounds(bounds);
+            console.log($(this).parent().parent().parent())
+            if ($(this).parent().parent().attr('id') == 'menu3') {
+              fire_marker.setMap(map);
+              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              map.setZoom(12); 
+            } else {
+              fire_marker.setMap(map);
+              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+              map.setZoom(12); 
+            }
+            
+            // map.fitBounds(bounds);
           }
           google.maps.event.addListener(fire_marker, 'click', function() {
             infowindow.open(map,fire_marker);
@@ -374,13 +392,13 @@ function data_markers() {
           icon: icon
         });
 
-        bounds.extend(marker.position);
+        // bounds.extend(marker.position);
 
         if ($('#search').val().length === 0) {
           marker.setMap(null);
         } else {
           marker.setMap(map);
-          map.fitBounds(bounds);
+          // map.fitBounds(bounds);
         }
         
         var infowindow = new google.maps.InfoWindow({

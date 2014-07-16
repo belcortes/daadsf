@@ -228,7 +228,7 @@ function resource_markers() {
       var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
 
       
-      if (data.station_type == 'Police Station') {
+      if (data.station_type == 'Police Station' && data.location == 'SF') {
         var police_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
@@ -237,26 +237,50 @@ function resource_markers() {
         });
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
-        $('.checkbox').on('click', function(){
-          if ($('.police-check').is(':checked') == false) {
-            police_marker.setMap(null);
-          } else {
-            if ($(this).parent().parent().attr('id') == 'menu3') {
-              police_marker.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
-            } else {
-              police_marker.setMap(map);
-              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-              map.setZoom(12); 
-            }
-            // map.fitBounds(bounds);
-          }
-          google.maps.event.addListener(police_marker, 'click', function() {
-            infowindow.open(map,police_marker);
-          });
+        // if (data.location == 'SF') {
+
+            $('.checkbox').on('click', function(){
+
+              if ($('#sf-police').is(':checked') == true) {
+                 police_marker.setMap(map);
+                 map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+                 map.setZoom(12); 
+              } else {
+
+                police_marker.setMap(null);
+              }
+              google.maps.event.addListener(police_marker, 'click', function() {
+                infowindow.open(map,police_marker);
+              });
+            });
+        
+      } else if (data.station_type == 'Police Station' && data.location == 'DC'){
+        var police_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.lng),
+          map: map,
+          icon: icon,
+          title: 'hello'
         });
-      } else if (data.station_type == 'Fire Station'){
+        police_marker.setMap(null);
+        bounds.extend(police_marker.position);
+        // if (data.location == 'SF') {
+
+            $('.checkbox').on('click', function(){
+
+              if ($('#dc-police').is(':checked') == true) {
+                 police_marker.setMap(map);
+                 map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+                 map.setZoom(12); 
+              } else {
+
+                police_marker.setMap(null);
+              }
+              google.maps.event.addListener(police_marker, 'click', function() {
+                infowindow.open(map,police_marker);
+              });
+            });
+        
+      } else if (data.station_type == 'Fire Station' && data.location == 'SF'){
         var fire_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
@@ -265,64 +289,122 @@ function resource_markers() {
         });
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
-        $('.checkbox').on('click', function(){
-          if ($('.fire-check').is(':checked') == true) {
-            
-            if ($(this).parent().parent().attr('id') == 'menu3') {
-              fire_marker.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
-            } else {
-              fire_marker.setMap(map);
-              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-              map.setZoom(12); 
-            }
-          } else {
-            // console.log($(this).parent().parent().parent())
-            fire_marker.setMap(null);
-            
-            // map.fitBounds(bounds);
-          }
-          google.maps.event.addListener(fire_marker, 'click', function() {
-            infowindow.open(map,fire_marker);
-          });
-        });
-      } else {
+        // if (data.location == 'SF') {
+
+            $('.checkbox').on('click', function(){
+
+              if ($('#sf-fire').is(':checked') == true) {
+                 fire_marker.setMap(map);
+                 map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+                 map.setZoom(12); 
+              } else {
+
+                fire_marker.setMap(null);
+              }
+              google.maps.event.addListener(fire_marker, 'click', function() {
+                infowindow.open(map,fire_marker);
+              });
+            });
+        
+      }  else if (data.station_type == 'Fire Station' && data.location == 'DC'){
         var fire_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.lng),
+          map: map,
+          icon: icon2,
+          title: 'hello'
+        });
+        fire_marker.setMap(null);
+        bounds.extend(fire_marker.position);
+        // if (data.location == 'SF') {
+
+            $('.checkbox').on('click', function(){
+
+              if ($('#dc-fire').is(':checked') == true) {
+                 fire_marker.setMap(map);
+                map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+                map.setZoom(12); 
+              } else {
+
+                fire_marker.setMap(null);
+              }
+              google.maps.event.addListener(fire_marker, 'click', function() {
+                infowindow.open(map,fire_marker);
+              });
+            });
+
+           
+          // } else if(data.location == 'DC') {
+          //   $('.checkbox').on('click', function(){
+
+          //     if ($('.fire-check').is(':checked') == true) {
+          //        fire_marker.setMap(map);
+          //       map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+          //       map.setZoom(12);  
+          //     } else {
+
+          //       fire_marker.setMap(null);
+          //     }
+          //     google.maps.event.addListener(fire_marker, 'click', function() {
+          //       infowindow.open(map,fire_marker);
+          //     });
+          //   });
+      }else if (data.station_type == 'Hospital' && data.location == 'SF') {
+        var hosp_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
           icon: icon3,
           title: 'hello'
         });
-        fire_marker.setMap(null);
-        bounds.extend(fire_marker.position);
-        $('.checkbox').on('click', function(){
-          if ($('.hosp-check').is(':checked') == true) {
-            
-            if ($(this).parent().parent().attr('id') == 'menu3') {
-              fire_marker.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
-            } else {
-              fire_marker.setMap(map);
-              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-              map.setZoom(12); 
-            }
-          } else {
-            // console.log($(this).parent().parent().parent())
-            fire_marker.setMap(null);
-            
-            // map.fitBounds(bounds);
-          }
-          google.maps.event.addListener(fire_marker, 'click', function() {
-            infowindow.open(map,fire_marker);
-          });
+        hosp_marker.setMap(null);
+        bounds.extend(hosp_marker.position);
+        // if (data.location == 'SF') {
+
+            $('.checkbox').on('click', function(){
+
+              if ($('#sf-hosp').is(':checked') == true) {
+                 hosp_marker.setMap(map);
+                map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+                map.setZoom(12); 
+              } else {
+
+                hosp_marker.setMap(null);
+              }
+              google.maps.event.addListener(hosp_marker, 'click', function() {
+                infowindow.open(map,hosp_marker);
+              });
+            });
+
+      } else if (data.station_type == 'Hospital' && data.location == 'DC') {
+        var hosp_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.lng),
+          map: map,
+          icon: icon3,
+          title: 'hello'
         });
-      }
+        hosp_marker.setMap(null);
+        bounds.extend(hosp_marker.position);
+        // if (data.location == 'SF') {
+
+            $('.checkbox').on('click', function(){
+
+              if ($('#dc-hosp').is(':checked') == true) {
+                 hosp_marker.setMap(map);
+                map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+                map.setZoom(12); 
+              } else {
+
+                hosp_marker.setMap(null);
+              }
+              google.maps.event.addListener(hosp_marker, 'click', function() {
+                infowindow.open(map,hosp_marker);
+              });
+            });
+            
   
       var infowindow = new google.maps.InfoWindow({
           content: contentInfo
       });
+    }
       
     })
   })

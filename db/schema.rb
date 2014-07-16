@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716071928) do
+ActiveRecord::Schema.define(version: 20140716142338) do
 
   create_table "cooling_centers", force: true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140716071928) do
     t.integer  "zipcode_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "location"
   end
 
   create_table "users", force: true do |t|

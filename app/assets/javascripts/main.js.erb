@@ -237,7 +237,6 @@ function resource_markers() {
         });
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
-        // if (data.location == 'SF') {
 
             $('.checkbox').on('click', function(){
 
@@ -249,6 +248,9 @@ function resource_markers() {
 
                 police_marker.setMap(null);
               }
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentInfo
+              });
               google.maps.event.addListener(police_marker, 'click', function() {
                 infowindow.open(map,police_marker);
               });
@@ -275,6 +277,9 @@ function resource_markers() {
 
                 police_marker.setMap(null);
               }
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentInfo
+              });
               google.maps.event.addListener(police_marker, 'click', function() {
                 infowindow.open(map,police_marker);
               });
@@ -301,6 +306,9 @@ function resource_markers() {
 
                 fire_marker.setMap(null);
               }
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentInfo
+              });
               google.maps.event.addListener(fire_marker, 'click', function() {
                 infowindow.open(map,fire_marker);
               });
@@ -327,27 +335,14 @@ function resource_markers() {
 
                 fire_marker.setMap(null);
               }
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentInfo
+              });
               google.maps.event.addListener(fire_marker, 'click', function() {
                 infowindow.open(map,fire_marker);
               });
             });
 
-           
-          // } else if(data.location == 'DC') {
-          //   $('.checkbox').on('click', function(){
-
-          //     if ($('.fire-check').is(':checked') == true) {
-          //        fire_marker.setMap(map);
-          //       map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-          //       map.setZoom(12);  
-          //     } else {
-
-          //       fire_marker.setMap(null);
-          //     }
-          //     google.maps.event.addListener(fire_marker, 'click', function() {
-          //       infowindow.open(map,fire_marker);
-          //     });
-          //   });
       }else if (data.station_type == 'Hospital' && data.location == 'SF') {
         var hosp_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
@@ -357,7 +352,6 @@ function resource_markers() {
         });
         hosp_marker.setMap(null);
         bounds.extend(hosp_marker.position);
-        // if (data.location == 'SF') {
 
             $('.checkbox').on('click', function(){
 
@@ -369,6 +363,9 @@ function resource_markers() {
 
                 hosp_marker.setMap(null);
               }
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentInfo
+              });
               google.maps.event.addListener(hosp_marker, 'click', function() {
                 infowindow.open(map,hosp_marker);
               });
@@ -383,7 +380,6 @@ function resource_markers() {
         });
         hosp_marker.setMap(null);
         bounds.extend(hosp_marker.position);
-        // if (data.location == 'SF') {
 
             $('.checkbox').on('click', function(){
 
@@ -395,15 +391,16 @@ function resource_markers() {
 
                 hosp_marker.setMap(null);
               }
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentInfo
+              });
               google.maps.event.addListener(hosp_marker, 'click', function() {
                 infowindow.open(map,hosp_marker);
               });
             });
             
   
-      var infowindow = new google.maps.InfoWindow({
-          content: contentInfo
-      });
+      
     }
       
     })
@@ -450,42 +447,69 @@ function cooling_markers() {
 }
 
 function user_data() {
-  // var bounds = new google.maps.LatLngBounds();
+  var bounds = new google.maps.LatLngBounds();
   var icon = "<%= asset_path 'person.png' %>"
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone)
 
-      geocoder.geocode( { 'address': data.address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          map.setCenter(results[0].geometry.location);
-          var marker;
-          $('#community').on('click', function() {
-            if ($(this).attr('class') == 'map-buttons active') {
-              $('#users').show();
-              marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location,
-                icon: icon
-              });
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data.latitude, data.longitude),
+        map: map,
+        icon: icon,
+        title: 'hello'
+      });
+      marker.setMap(null);
 
-              var infowindow = new google.maps.InfoWindow({
-                content: contentInfo
-              });
-              google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map,marker);
-              });
-            } else {
-              $('#users').hide();
-              marker.setMap(null);
-            }
-            
-          })
+      bounds.extend(marker.position);
+      $('#community').on('click', function(){
+         if ($(this).attr('class') == 'map-buttons active') {
+          $('#users').show();
+          marker.setMap(map);
+          map.fitBounds(bounds);
           
         } else {
-          console.log('Geocode was not successful for the following reason: ' + status);
+          $('#users').hide();
+          marker.setMap(null);
         }
+        var infowindow = new google.maps.InfoWindow({
+          content: contentInfo
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
       });
+
+      // geocoder.geocode( { 'address': data.address}, function(results, status) {
+      //   if (status == google.maps.GeocoderStatus.OK) {
+      //     map.setCenter(results[0].geometry.location);
+      //     var marker;
+      //     $('#community').on('click', function() {
+      //       if ($(this).attr('class') == 'map-buttons active') {
+      //         $('#users').show();
+      //         marker = new google.maps.Marker({
+      //           map: map,
+      //           position: results[0].geometry.location,
+      //           icon: icon
+      //         });
+
+      //         var infowindow = new google.maps.InfoWindow({
+      //           content: contentInfo
+      //         });
+      //         google.maps.event.addListener(marker, 'click', function() {
+      //           infowindow.open(map,marker);
+      //         });
+      //       } else {
+      //         $('#users').hide();
+      //         marker.setMap(null);
+      //       }
+            
+      //     })
+          
+      //   } else {
+      //     console.log('Geocode was not successful for the following reason: ' + status);
+      //   }
+      // });
 
     });
   })
@@ -496,46 +520,42 @@ function data_markers() {
   var icon2 = "<%= asset_path 'person.png' %>"
   var bounds = new google.maps.LatLngBounds();
   
-  $.getJSON("/search?utf8=✓&search="+$('#search').val(), function(json) {
+  $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
     
     $.each(json, function(key, data) {
       if (data.state == 'DC'){
-        console.log(data)
+        console.log('dc')
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.latitude, data.longitude),
           map: map,
           icon: icon
         });
 
-          // bounds.extend(marker.position);
+        bounds.extend(marker.position);
 
-          if ($('#search').val().length === 0) {
-            marker.setMap(null);
-          } else {
-            marker.setMap(map);
-            map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-            map.setZoom(12); 
-          // map.fitBounds(bounds);
-          }
-          
-          // var infowindow = new google.maps.InfoWindow({
-          //     content: contentInfo
-          // });
-          // google.maps.event.addListener(marker, 'click', function() {
-          //   infowindow.open(map,marker);
-          // });
+        if ($('#search').val().length === 0) {
+          marker.setMap(null);
+        } else {
+          marker.setMap(map);
+        // map.panTo(marker, (38.898528, -77.031564));
+        // map.setZoom(12); 
+          map.fitBounds(bounds);
+        }
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: contentInfo
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
       } else {
-        console.log('SF DATA')
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
         // $('button#search').on('click', function(){
-
           geocoder.geocode( { 'address': data.address}, function(results, status) {
-
-            console.log(results)
             if (status == google.maps.GeocoderStatus.OK) {
-              map.setCenter(results[0].geometry.location);
 
+              map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
                   map: map,
                   position: results[0].geometry.location,
@@ -544,12 +564,16 @@ function data_markers() {
               var infowindow = new google.maps.InfoWindow({
                   content: contentInfo
               });
-              google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map,marker);
-                // console.log(contentInfo)
-              });
+              if ($('#search').val().length === 0) {
+                marker.setMap(null);
+              } else {
+                google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.open(map,marker);
+                });
+              }
+              
             } else {
-              alert('Geocode was not successful for the following reason: ' + status);
+              // alert('Geocode was not successful for the following reason: ' + status);
             }
           });
         // })

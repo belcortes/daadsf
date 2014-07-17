@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :validatable
   has_and_belongs_to_many :neighborhoods
   has_one :zipcode
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]

@@ -46,6 +46,15 @@ function maps() {
     var neighborhood_kml2 = new google.maps.KmlLayer({
       url: 'https://maps.google.com/maps/ms?ie=UTF8&hl=en&source=embed&dg=feature&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f13b9644a6edc2f'
     });
+    var cert = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/SFCertUsersLayer.kml'
+    });
+    var contractor = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/SFSkills_Contractor_UserLayer.kml'
+    });
+    var heavy = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/SFHeavyEquipment_Chainsaw_UsersLayer.kml'
+    });
     var zip_kmz = new google.maps.KmlLayer({
       url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml",
       zip: 11
@@ -60,6 +69,15 @@ function maps() {
    
     // weatherLayer.setMap(map);
     
+    $('#cert').on('click', function(){
+      cert.setMap(map);
+    })
+    $('#contractor').on('click', function(){
+      contractor.setMap(map);
+    })
+    $('#backhoe').on('click', function(){
+      heavy.setMap(map);
+    })
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){

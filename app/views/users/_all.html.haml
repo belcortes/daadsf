@@ -12,7 +12,8 @@
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'cert'
-          &nbsp;&nbsp; - CERT
+          #cert
+            &nbsp;&nbsp; - CERT
           %br
         - if attr_value == true && attr_name == 'nert'
           &nbsp;&nbsp; - NERT
@@ -30,7 +31,8 @@
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'contractor'
-          &nbsp;&nbsp; - Contractor
+          #contractor
+            &nbsp;&nbsp; - Contractor
           %br
         - if attr_value == true && attr_name == 'engineer'
           &nbsp;&nbsp; - Engineer
@@ -77,7 +79,8 @@
           &nbsp;&nbsp;&nbsp; - Dump Truck
           %br
         - if attr_value == true && attr_name == 'back_hoe'
-          &nbsp;&nbsp;&nbsp; - Back Hoe
+          #backhoe
+            &nbsp;&nbsp;&nbsp; - Back Hoe
           %br
         - if attr_value == true && attr_name == 'crane'
           &nbsp;&nbsp;&nbsp; - Crane

@@ -163,3 +163,7 @@ li #main-search {
   background-color: #f85d2b;
   color: white;
 }
+
+#print img {
+  width: 25px;
+}

@@ -464,6 +464,7 @@ function cooling_markers() {
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
   var icon;
+  console.log($('#user_name').val())
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone)
@@ -471,9 +472,10 @@ function user_data() {
         icon = "<%= asset_path 'SchoolIcon.png' %>"
       } else if (data.church == true) {
         icon = "<%= asset_path 'churchicon.png' %>"
-      } else {
+      }else {
         icon = "<%= asset_path 'person.png' %>"
       }
+      // console.log(current_user)
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.latitude, data.longitude),
         map: map,
@@ -500,37 +502,6 @@ function user_data() {
           infowindow.open(map,marker);
         });
       });
-
-      // geocoder.geocode( { 'address': data.address}, function(results, status) {
-      //   if (status == google.maps.GeocoderStatus.OK) {
-      //     map.setCenter(results[0].geometry.location);
-      //     var marker;
-      //     $('#community').on('click', function() {
-      //       if ($(this).attr('class') == 'map-buttons active') {
-      //         $('#users').show();
-      //         marker = new google.maps.Marker({
-      //           map: map,
-      //           position: results[0].geometry.location,
-      //           icon: icon
-      //         });
-
-      //         var infowindow = new google.maps.InfoWindow({
-      //           content: contentInfo
-      //         });
-      //         google.maps.event.addListener(marker, 'click', function() {
-      //           infowindow.open(map,marker);
-      //         });
-      //       } else {
-      //         $('#users').hide();
-      //         marker.setMap(null);
-      //       }
-            
-      //     })
-          
-      //   } else {
-      //     console.log('Geocode was not successful for the following reason: ' + status);
-      //   }
-      // });
 
     });
   })

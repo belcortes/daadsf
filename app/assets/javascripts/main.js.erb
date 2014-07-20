@@ -1,5 +1,7 @@
 var geocoder;
 var map;
+
+
 // -------------- FUNCTIONS ------------
 function maps() {
   function initialize() {
@@ -22,6 +24,58 @@ function maps() {
 
     map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
+
+
+    var heatMapData = [
+      {location: new google.maps.LatLng(38.98387, -77.038997), weight:3},
+      {location: new google.maps.LatLng(38.97266, -77.024835), weight:4},
+      {location: new google.maps.LatLng(38.971338, -77.057374), weight:2},
+      {location: new google.maps.LatLng(38.96086, -77.073596), weight:5},
+      {location: new google.maps.LatLng(38.961905, -77.021692), weight:4},
+      {location: new google.maps.LatLng(38.947421, -77.026499), weight:6},
+      {location: new google.maps.LatLng(38.93634, -77.1038), weight:4},
+      {location: new google.maps.LatLng(38.946087, -77.078652), weight:5},
+      {location: new google.maps.LatLng(38.946951, -77.064901), weight:5},
+      {location: new google.maps.LatLng(38.928725, -77.056318), weight:6},
+      {location: new google.maps.LatLng(38.933084, -77.030186), weight:6},
+      {location: new google.maps.LatLng(38.947811, -76.990611), weight:5},
+      {location: new google.maps.LatLng(38.930921, -76.994473), weight:6},
+      {location: new google.maps.LatLng(38.916716, -76.994508), weight:7},
+      {location: new google.maps.LatLng(38.931139, -76.960434), weight:5},
+      {location: new google.maps.LatLng(38.919102, -77.094634), weight:5},
+      {location: new google.maps.LatLng(38.909486, -77.061975), weight:6},
+      {location: new google.maps.LatLng(38.893917, -76.925801), weight:7},
+      {location: new google.maps.LatLng(38.889908, -76.953095), weight:6},
+      {location: new google.maps.LatLng(38.909583, -76.973605), weight:6},
+      {location: new google.maps.LatLng(38.902904, -77.003302), weight:8},
+      {location: new google.maps.LatLng(38.919469, -77.037202), weight:7},
+      {location: new google.maps.LatLng(38.91705, -77.020558), weight:7},
+      {location: new google.maps.LatLng(38.90209, -77.01824), weight:8},
+      {location: new google.maps.LatLng(38.903374, -77.050826), weight:6},
+      {location: new google.maps.LatLng(38.906785, -77.042058), weight:8},
+      {location: new google.maps.LatLng(38.90562, -77.031714), weight:9},
+      {location: new google.maps.LatLng(38.900223, -77.041737), weight:8},
+      {location: new google.maps.LatLng(38.889446, -77.03511), weight:6},
+      {location: new google.maps.LatLng(38.884557, -76.996775), weight:7},
+      {location: new google.maps.LatLng(38.878744, -76.981068), weight:5},
+      {location: new google.maps.LatLng(38.881697, -77.019294), weight:6},
+      {location: new google.maps.LatLng(38.864858, -77.014531), weight:5},
+      {location: new google.maps.LatLng(38.858988, -76.965941), weight:6},
+      {location: new google.maps.LatLng(38.871218, -76.980962), weight:6},
+      {location: new google.maps.LatLng(38.84482, -77.002942), weight:6},
+      {location: new google.maps.LatLng(38.824361, -77.012212), weight:5},
+    ];
+
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+      data: heatMapData,
+      radius: 50
+    });
+
+    // heatmap.set('radius', heatmap.get('radius' =  20));
+    $('#dc').on('click', function(){
+      heatmap.setMap(map);
+    })
+    
         
         
     // ---------------- KML FILES ---------------- 
@@ -69,13 +123,13 @@ function maps() {
    
     weatherLayer.setMap(map);
     
-    $('#cert').on('click', function(){
+    $('#resource_cert').on('click', function(){
       cert.setMap(map);
     })
-    $('#contractor').on('click', function(){
+    $('#resource_contractor').on('click', function(){
       contractor.setMap(map);
     })
-    $('#backhoe').on('click', function(){
+    $('#resource_backhoe').on('click', function(){
       heavy.setMap(map);
     })
         
@@ -121,8 +175,6 @@ function maps() {
             case 'dc-zip':
               zip_kmz.setMap(map);
               zip_kmz.set('preserveViewport', true);
-              // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-              // map.setZoom(12);
               break;
             case 'high_flood_kml':
               high_flood_kml.setMap(map);
@@ -133,28 +185,19 @@ function maps() {
             case 'zip-check':
               sf_zipcodes.setMap(map);
               sf_zipcodes.set('preserveViewport', true);
-              // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-              // map.setZoom(13); 
               break;
             case 'neighbor-check':
               neighborhood_kml.setMap(map);
               neighborhood_kml2.setMap(map);
-              // neighborhood_kml.set('preserveViewport', true);
-              // neighborhood_kml2.set('preserveViewport', true);
-              
-              // map.setZoom(12); 
               break;
             case 'high_liq':
               low_liq_kml.setMap(map);
               low_liq_kml.set('preserveViewport', true);
-              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              // map.setZoom(12); 
               break;
             case 'low_liq':
               high_liq_kml.setMap(map);
               high_liq_kml.set('preserveViewport', true);
-              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              // map.setZoom(12); 
+ 
               break;
           }
         }

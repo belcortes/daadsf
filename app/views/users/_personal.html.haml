@@ -27,7 +27,7 @@
       Certifications
       .account-box
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
-          = check_box_tag :cert, value: current_user.cert
+          = f.check_box :cert, value: current_user.cert
           = f.label 'CERT'
           %br
           = f.check_box :nert, value: current_user.nert

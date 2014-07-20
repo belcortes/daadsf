@@ -30,8 +30,8 @@
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'contractor'
-          #resource_contractor
-            &nbsp;&nbsp; - Contractor
+          &nbsp;&nbsp; - Contractor
+          %br
         - if attr_value == true && attr_name == 'engineer'
           &nbsp;&nbsp; - Engineer
           %br
@@ -64,9 +64,9 @@
         - if attr_value == true && attr_name == 'oxygen'
           &nbsp;&nbsp; - Oxygen
           %br
-        - if attr_value == true && attr_name == 'wheel_chair'
-          &nbsp;&nbsp; - Wheel Chair
-          %br
+        #resource_contractor
+          - if attr_value == true && attr_name == 'wheel_chair'
+            &nbsp;&nbsp; - Wheel Chair
         - if attr_value == true && attr_name == 'defibrillation'
           &nbsp;&nbsp; - Defibrillation
           %br

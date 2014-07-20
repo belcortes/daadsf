@@ -513,6 +513,7 @@ function cooling_markers() {
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
   var icon;
+  console.log( document.cookies )
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone)
@@ -592,20 +593,10 @@ function data_markers() {
       } else {
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
         // $('button#search').on('click', function(){
-            // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-            // $('button#search').on('click', function(){
-            //   $('#sf').children().children().addClass('nav_toggle_red')
-            // })
+            // 
             
-            // $('#resources').hide();
-            // $('#roads').hide();
-            // $('#hazard').hide();
-            // $('#dc-resources').hide();
-            // $('#busi').show();
-            // $('#neighbor').show();
-            // $('#community').show();
-            // $('#sf-eh').show();
-            // $('#disaster').show();
+            
+            
           geocoder.geocode( { 'address': data.address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
 
@@ -621,6 +612,18 @@ function data_markers() {
               if ($('#search').val().length === 0) {
                 marker.setMap(null);
               } else {
+                $('#sf').children().children().addClass('nav_toggle_red')
+                $('#resources').hide();
+                $('#roads').hide();
+                $('#hazard').hide();
+                $('#dc-resources').hide();
+                $('#busi').show();
+                $('#neighbor').show();
+                $('#community').show();
+                $('#sf-eh').show();
+                $('#disaster').show();
+                map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+                map.setZoom(12);
                 google.maps.event.addListener(marker, 'click', function() {
                   infowindow.open(map,marker);
                 });

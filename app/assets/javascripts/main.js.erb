@@ -516,7 +516,7 @@ function user_data() {
   console.log( document.cookies )
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
-      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone)
+      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"<div style='color:blue;'>Contact this owner</div>")
       if (data.school == true) {
         icon = "<%= asset_path 'SchoolIcon.png' %>"
       } else if (data.church == true) {

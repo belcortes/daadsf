@@ -5,8 +5,8 @@ function maps() {
   function initialize() {
     geocoder = new google.maps.Geocoder();
     var mapOptions = {
-      center: new google.maps.LatLng(37.769884, -122.459793),
-      zoom: 11,
+      center: new google.maps.LatLng(40.654266, -96.995427),
+      zoom: 5,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
       mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -67,7 +67,7 @@ function maps() {
 
     //  ---------------- KML CALLS ---------------- 
    
-    // weatherLayer.setMap(map);
+    weatherLayer.setMap(map);
     
     $('#cert').on('click', function(){
       cert.setMap(map);
@@ -120,18 +120,21 @@ function maps() {
               break;
             case 'dc-zip':
               zip_kmz.setMap(map);
+              zip_kmz.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
+              // map.setZoom(12);
               break;
             case 'high_flood_kml':
               high_flood_kml.setMap(map);
-              high_flood_kml.set('preserveViewport', true);
+              // high_flood_kml.set('preserveViewport', true);
               map.panTo(new google.maps.LatLng(38.857926, -77.029506));
               map.setZoom(12); 
               break;
             case 'zip-check':
               sf_zipcodes.setMap(map);
-              // sf_zipcodes.set('preserveViewport', true);
+              sf_zipcodes.set('preserveViewport', true);
               // map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-              // map.setZoom(12); 
+              // map.setZoom(13); 
               break;
             case 'neighbor-check':
               neighborhood_kml.setMap(map);
@@ -143,13 +146,15 @@ function maps() {
               break;
             case 'high_liq':
               low_liq_kml.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
+              low_liq_kml.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              // map.setZoom(12); 
               break;
             case 'low_liq':
               high_liq_kml.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
+              high_liq_kml.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              // map.setZoom(12); 
               break;
           }
         }
@@ -445,7 +450,9 @@ function cooling_markers() {
             marker.setMap(null);
           } else {
             marker.setMap(map);
-            map.fitBounds(bounds);
+            map.panTo(new google.maps.LatLng(38.898528, -77.031564));
+            map.setZoom(12);
+            // map.fitBounds(bounds);
           }
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker);
@@ -544,6 +551,20 @@ function data_markers() {
       } else {
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
         // $('button#search').on('click', function(){
+            // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+            // $('button#search').on('click', function(){
+            //   $('#sf').children().children().addClass('nav_toggle_red')
+            // })
+            
+            // $('#resources').hide();
+            // $('#roads').hide();
+            // $('#hazard').hide();
+            // $('#dc-resources').hide();
+            // $('#busi').show();
+            // $('#neighbor').show();
+            // $('#community').show();
+            // $('#sf-eh').show();
+            // $('#disaster').show();
           geocoder.geocode( { 'address': data.address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
 
@@ -582,6 +603,7 @@ function button_clicks() {
       $(this).children().children().addClass('nav_toggle_red')
       $('#dc').children().children().removeClass('nav_toggle_red')
       map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+      map.setZoom(12); 
       $('#resources').hide();
       $('#roads').hide();
       $('#hazard').hide();

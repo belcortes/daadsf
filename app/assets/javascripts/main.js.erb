@@ -102,7 +102,7 @@ function maps() {
     var cert = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/SFCertUsersLayer.kml'
     });
-    var contractor = new google.maps.KmlLayer({
+    var wheelchair = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/SFSkills_Contractor_UserLayer.kml'
     });
     var heavy = new google.maps.KmlLayer({
@@ -125,8 +125,8 @@ function maps() {
     $('#resource_cert').on('click', function(){
       cert.setMap(map);
     })
-    $('#resource_contractor').on('click', function(){
-      contractor.setMap(map);
+    $('#resource_wheelchair').on('click', function(){
+      wheelchair.setMap(map);
     })
     $('#resource_backhoe').on('click', function(){
       heavy.setMap(map);

@@ -97,6 +97,17 @@
   margin-right: 100px;
   margin-top: 10px;
 }
+#heat {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  float: right;
+  margin-right: 500px;
+  margin-top: 10px;
+  color: red;
+  font-weight: bolder;
+  font-size: 30px;
+}
 
 .container {
   width: 400px;

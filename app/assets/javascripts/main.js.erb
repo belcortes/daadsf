@@ -647,6 +647,7 @@ function button_clicks() {
       $('#dc').children().children().removeClass('nav_toggle_red')
       map.panTo(new google.maps.LatLng(37.769884, -122.459793));
       map.setZoom(12); 
+      $('#heat').hide();
       $('#resources').hide();
       $('#roads').hide();
       $('#hazard').hide();
@@ -670,6 +671,7 @@ function button_clicks() {
       $('#hazard').show();
       $('#dc-resources').show();
       $('#disaster').show();
+      $('#heat').show();
     }
   })
 
@@ -737,6 +739,7 @@ $(function() {
   $('#sf-eh').hide();
   $('#dc-resources').hide();
   $('#disaster').hide();
+  $('#heat').hide();
 
   $('.account-box').hide();
   $('.container').hide();

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @users = User.all
+    gon.current_user = current_user
     respond_to do |format|
       format.json { render json: @users }
     end

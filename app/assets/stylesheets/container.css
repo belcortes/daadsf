@@ -55,7 +55,7 @@ label {
   margin: 0 auto;
   margin-bottom: 20px;
 }*/
-.personal {
+.personal, .resource_links {
   cursor: pointer;
   color: #1371bb;
 }

@@ -71,7 +71,6 @@ function maps() {
       radius: 50
     });
 
-    // heatmap.set('radius', heatmap.get('radius' =  20));
     $('#dc').on('click', function(){
       heatmap.setMap(map);
     })
@@ -525,7 +524,7 @@ function user_data() {
       }else {
         icon = "<%= asset_path 'person.png' %>"
       }
-      // console.log(current_user)
+      // console.log(gon.current_user)
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.latitude, data.longitude),
         map: map,

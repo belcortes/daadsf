@@ -8,11 +8,11 @@
     Address:
     .user-attr
       = u.address
-    Certifications
+    Certifications:
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'cert'
-          #resource_cert
+          .resource_links#resource_cert
             &nbsp;&nbsp; - CERT
         - if attr_value == true && attr_name == 'nert'
           &nbsp;&nbsp; - NERT
@@ -26,7 +26,7 @@
         - if attr_value == true && attr_name == 'first_aid'
           &nbsp;&nbsp; - First Aid
           %br
-    Skills
+    Skills:
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'contractor'
@@ -64,7 +64,7 @@
         - if attr_value == true && attr_name == 'oxygen'
           &nbsp;&nbsp; - Oxygen
           %br
-        #resource_contractor
+        .resource_links#resource_contractor
           - if attr_value == true && attr_name == 'wheel_chair'
             &nbsp;&nbsp; - Wheel Chair
         - if attr_value == true && attr_name == 'defibrillation'
@@ -77,7 +77,7 @@
           &nbsp;&nbsp;&nbsp; - Dump Truck
           %br
         - if attr_value == true && attr_name == 'back_hoe'
-          #resource_backhoe
+          .resource_links#resource_backhoe
             &nbsp;&nbsp;&nbsp; - Back Hoe
         - if attr_value == true && attr_name == 'crane'
           &nbsp;&nbsp;&nbsp; - Crane

@@ -653,6 +653,7 @@ function button_clicks() {
       $('#roads').hide();
       $('#hazard').hide();
       $('#dc-resources').hide();
+      // $('#resiliency-box').show();
       $('#busi').show();
       $('#neighbor').show();
       $('#community').show();
@@ -680,6 +681,11 @@ function button_clicks() {
     $('.container').hide();
     $('.container2').hide();
     $('#prepare-container').show();
+  })
+  $('#disaster').on('click', function(){
+    $('.container').hide();
+    $('.container2').hide();
+    $('#resilience-container').show();
   })
   $('#advanced-search').on('click', function(){
     $('.container').hide();
@@ -731,6 +737,7 @@ function button_clicks() {
 $(function() {
   // marker.setMap(null);
   // zipcode_pan();
+  // $('#resiliency-box').hide();
   $('#busi').hide();
   $('#neighbor').hide();
   $('#resources').hide();

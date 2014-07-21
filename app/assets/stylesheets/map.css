@@ -16,7 +16,12 @@
   border: 2px solid black;
   /*box-shadow: 5px 5px 5px grey;*/
 }
-
+.stars {
+  width: 90px;
+}
+#marina {
+  text-align: center;
+}
 #dc-resources {
   position: fixed;
   right: 0;
@@ -97,6 +102,14 @@
   margin-right: 100px;
   margin-top: 10px;
 }
+#resiliency {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  float: right;
+  margin-right: 100px;
+  margin-top: 10px;
+}
 #heat {
   position: fixed;
   right: 0;
@@ -143,6 +156,9 @@
 }
 .active {
   color: red;
+}
+.height {
+  line-height: 26px;
 }
 .checkbox {
   display: inline-block !important;

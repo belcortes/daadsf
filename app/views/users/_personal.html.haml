@@ -27,19 +27,19 @@
       Certifications
       .account-box
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
-          = f.check_box :cert, value: current_user.cert
+          = f.check_box :cert, {:checked=>current_user.cert}
           = f.label(:cert, 'CERT')
           %br
-          = f.check_box :nert, value: current_user.nert
+          = f.check_box :nert, {:checked=>current_user.nert}
           = f.label(:nert, 'NERT')
           %br
-          = f.check_box :cpr, value: current_user.cpr
+          = f.check_box :cpr, {:checked=>current_user.cpr}
           = f.label(:cpr, 'CPR')
           %br
-          = f.check_box :safe, value: current_user.safe
+          = f.check_box :safe, {:checked=>current_user.safe}
           = f.label(:safe, 'SAFE')
           %br
-          = f.check_box :first_aid, value: current_user.first_aid
+          = f.check_box :first_aid, {:checked=>current_user.first_aid}
           = f.label 'First Aid'
           %br
           = f.label :organizations
@@ -51,16 +51,16 @@
       Skills
       .account-box
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
-          = f.check_box :engineer, value: current_user.engineer
+          = f.check_box :engineer,{:checked=>current_user.engineer}
           = f.label :engineer
           %br
-          = f.check_box :contractor, value: current_user.contractor
+          = f.check_box :contractor,{:checked=>current_user.contractor}
           = f.label :contractor
           %br
-          = f.check_box :healthcare, value: current_user.healthcare
+          = f.check_box :healthcare,{:checked=>current_user.healthcare}
           = f.label :healthcare
           %br
-          = f.check_box :mechanic, value: current_user.mechanic
+          = f.check_box :mechanic,{:checked=>current_user.mechanic}
           = f.label :mechanic
           %br
           = f.label :other
@@ -74,85 +74,85 @@
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
           Facilities
           %br
-          = f.check_box :church, value: current_user.church
+          = f.check_box :church, {:checked=>current_user.church}
           = f.label :church
           %br
-          = f.check_box :school, value: current_user.school
+          = f.check_box :school, {:checked=>current_user.school}
           = f.label :school
           %br
-          = f.check_box :bomb_shelter, value: current_user.bomb_shelter
+          = f.check_box :bomb_shelter, {:checked=>current_user.bomb_shelter}
           = f.label :bomb_shelter
           %br
-          = f.check_box :hurricane_shelter, value: current_user.hurricane_shelter
+          = f.check_box :hurricane_shelter, {:checked=>current_user.hurricane_shelter}
           = f.label :hurricane_shelter
           %br
           Medical
           %br
-          = f.check_box :oxygen, value: current_user.oxygen
+          = f.check_box :oxygen, {:checked=>current_user.oxygen}
           = f.label :oxygen
           %br
-          = f.check_box :wheel_chair, value: current_user.wheel_chair
+          = f.check_box :wheel_chair, {:checked=>current_user.wheel_chair}
           = f.label :wheel_chair
           %br
-          = f.check_box :defibrillation, value: current_user.defibrillation
+          = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
           = f.label :defibrillation
           %br
           Heavy Equipment
           %br
-          = f.check_box :dump_truck, value: current_user.dump_truck
+          = f.check_box :dump_truck, {:checked=>current_user.dump_truck}
           = f.label :dump_truck
           %br
-          = f.check_box :back_hoe, value: current_user.back_hoe
+          = f.check_box :back_hoe, {:checked=>current_user.back_hoe}
           = f.label :back_hoe
           %br
-          = f.check_box :crane, value: current_user.crane
+          = f.check_box :crane, {:checked=>current_user.crane}
           = f.label :crane
           %br
-          = f.check_box :fork_lift, value: current_user.fork_lift
+          = f.check_box :fork_lift, {:checked=>current_user.fork_lift}
           = f.label :fork_lift
           %br
-          = f.check_box :truck, value: current_user.truck
+          = f.check_box :truck, {:checked=>current_user.truck}
           = f.label :truck
           %br
-          = f.check_box :fuel, value: current_user.fuel
+          = f.check_box :fuel, {:checked=>current_user.fuel}
           = f.label :fuel
           %br
-          = f.check_box :air_compressor, value: current_user.air_compressor
+          = f.check_box :air_compressor, {:checked=>current_user.air_compressor}
           = f.label :air_compressor
           %br
-          = f.check_box :power_generator, value: current_user.power_generator
+          = f.check_box :power_generator, {:checked=>current_user.power_generator}
           = f.label :power_generator
           %br
-          = f.check_box :bus, value: current_user.bus
+          = f.check_box :bus, {:checked=>current_user.bus}
           = f.label :bus
           %br
-          = f.check_box :saw, value: current_user.saw
+          = f.check_box :saw, {:checked=>current_user.saw}
           = f.label :saw
           %br
-          = f.check_box :lathe, value: current_user.lathe
+          = f.check_box :lathe, {:checked=>current_user.lathe}
           = f.label :lathe
           %br
-          = f.check_box :plow, value: current_user.plow
+          = f.check_box :plow, {:checked=>current_user.plow}
           = f.label :plow
           %br
-          = f.check_box :jack_hammer, value: current_user.jack_hammer
+          = f.check_box :jack_hammer, {:checked=>current_user.jack_hammer}
           = f.label :jack_hammer
           %br
           Light Equipment
           %br
-          = f.check_box :emergency_kit, value: current_user.emergency_kit
+          = f.check_box :emergency_kit, {:checked=>current_user.emergency_kit}
           = f.label :emergency_kit
           %br
-          = f.check_box :drill, value: current_user.drill
+          = f.check_box :drill, {:checked=>current_user.drill}
           = f.label :drill
           %br
-          = f.check_box :hammer, value: current_user.hammer
+          = f.check_box :hammer, {:checked=>current_user.hammer}
           = f.label :hammer
           %br
-          = f.check_box :survival_kit, value: current_user.survival_kit
+          = f.check_box :survival_kit, {:checked=>current_user.survival_kit}
           = f.label :survival_kit
           %br
-          = f.check_box :shovel, value: current_user.shovel
+          = f.check_box :shovel, {:checked=>current_user.shovel}
           = f.label :shovel
           %br
           = f.label :other

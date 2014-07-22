@@ -21,23 +21,23 @@
           = f.text_field :zip, value: current_user.zip
           
           %br
-          = f.submit 'Update'
+          = f.submit 'Update', :remote => true
     %br
     .personal#certifications(href='#')
       Certifications
       .account-box
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
           = f.check_box :cert, value: current_user.cert
-          = f.label 'CERT'
+          = f.label(:cert, 'CERT')
           %br
           = f.check_box :nert, value: current_user.nert
-          = f.label 'NERT'
+          = f.label(:nert, 'NERT')
           %br
           = f.check_box :cpr, value: current_user.cpr
-          = f.label 'CPR'
+          = f.label(:cpr, 'CPR')
           %br
           = f.check_box :safe, value: current_user.safe
-          = f.label 'SAFE'
+          = f.label(:safe, 'SAFE')
           %br
           = f.check_box :first_aid, value: current_user.first_aid
           = f.label 'First Aid'
@@ -45,7 +45,7 @@
           = f.label :organizations
           = f.text_field :organizations, value: current_user.organizations
           %br
-          = f.submit 'Update'
+          = f.submit 'Update', :remote => true
     %br
     .personal#user-buildings(href='#')
       Skills
@@ -66,7 +66,7 @@
           = f.label :other
           = f.text_field :other, value: current_user.other
           %br
-          = f.submit 'Update'
+          = f.submit 'Update', :remote => true
     %br
     .personal#user-resources(href='#')
       Resources

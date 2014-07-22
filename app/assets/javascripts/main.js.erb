@@ -445,7 +445,7 @@ function resource_markers() {
         hosp_marker.setMap(null);
         // bounds.extend(hosp_marker.position);
         $('#dc').click(function(){
-          fire_marker.setMap(null);
+          hosp_marker.setMap(null);
           $('#sf-hosp').prop('checked', false);
         })
 
@@ -478,7 +478,7 @@ function resource_markers() {
         bounds.extend(hosp_marker.position);
 
         $('#sf').click(function(){
-          fire_marker.setMap(null);
+          hosp_marker.setMap(null);
           $('#dc-hosp').prop('checked', false);
         })
 

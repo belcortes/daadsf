@@ -116,11 +116,15 @@ function maps() {
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
+
+    var cloudLayer = new google.maps.weather.CloudLayer();
     
 
     //  ---------------- KML CALLS ---------------- 
    
     weatherLayer.setMap(map);
+
+    cloudLayer.setMap(map);
     
     $('#resource_cert').on('click', function(){
       cert.setMap(map);

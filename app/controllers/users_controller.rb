@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to root
+      render :partial => 'users/personal'
     else
       render 'home/edit'
     end

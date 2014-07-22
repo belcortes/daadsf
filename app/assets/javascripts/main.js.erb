@@ -112,6 +112,13 @@ function maps() {
       url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml",
       zip: 11
     });
+    var defib_kml = new google.maps.KmlLayer({
+      url:"https://dl.dropboxusercontent.com/u/22757148/SFResource_Defib_UserLayer.kml",
+    });
+
+    var first_aid = new google.maps.KmlLayer({
+      url:"https://dl.dropboxusercontent.com/u/22757148/SFSkills_FirstAid_UserLayer.kml",
+    });
 
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
@@ -134,6 +141,12 @@ function maps() {
     })
     $('#resource_backhoe').on('click', function(){
       heavy.setMap(map);
+    })
+    $('#resource_defib').on('click', function(){
+      defib_kml.setMap(map);
+    })
+    $('#resource_first').on('click', function(){
+      first_aid.setMap(map);
     })
         
     function checkbox_toggle() {

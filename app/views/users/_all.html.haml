@@ -24,8 +24,8 @@
           &nbsp;&nbsp; - SAFE
           %br
         - if attr_value == true && attr_name == 'first_aid'
-          &nbsp;&nbsp; - First Aid
-          %br
+          .resource_links#resource_first
+            &nbsp;&nbsp; - First Aid
     Skills:
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
@@ -68,8 +68,8 @@
           .resource_links#resource_wheelchair
             &nbsp;&nbsp; - Wheel Chair
         - if attr_value == true && attr_name == 'defibrillation'
-          &nbsp;&nbsp; - Defibrillation
-          %br
+          .resource_links#resource_defib
+            &nbsp;&nbsp; - Defibrillation
     &nbsp;&nbsp; Equipment - Heavy
     .user-attr
       - u.attributes.each do |attr_name, attr_value|

@@ -546,12 +546,18 @@ function cooling_markers() {
   })
 }
 
+function map_list() {
+  
+}
+
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
   var icon;
-  console.log( document.cookies )
+
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
+      // console.log(data.name)
+      // console.log($('.name').val())
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>")
       // if (data.name == user) {
       //   icon = "<%= asset_path 'me.png' %>"
@@ -563,6 +569,12 @@ function user_data() {
       }else {
         icon = "<%= asset_path 'person.png' %>"
       }
+
+      // $('.name').on('hover', function(){
+      //   if($(this).text().trim() == data.name) {
+      //     icon = "<%= asset_path 'me.png' %>"
+      //   }
+      // })
       // console.log(gon.current_user)
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.latitude, data.longitude),
@@ -571,6 +583,8 @@ function user_data() {
         title: 'hello'
       });
       marker.setMap(null);
+
+      
 
       bounds.extend(marker.position);
       $('#community').on('click', function(){
@@ -792,6 +806,7 @@ $(function() {
     $('.container2').css('display', 'none');
   })
   maps();
+  map_list()
   button_clicks();
   $('#community').on('click', function() {
     $(this).toggleClass('active');

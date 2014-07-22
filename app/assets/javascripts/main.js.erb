@@ -195,15 +195,15 @@ function maps() {
               break;
             case 'high_liq':
               low_liq_kml.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
-              // low_liq_kml.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              // map.setZoom(12); 
+              low_liq_kml.set('preserveViewport', true);
               break;
             case 'low_liq':
               high_liq_kml.setMap(map);
-              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              map.setZoom(12); 
-              // high_liq_kml.set('preserveViewport', true);
+              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+              // map.setZoom(12); 
+              high_liq_kml.set('preserveViewport', true);
  
               break;
           }

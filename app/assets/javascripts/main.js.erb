@@ -313,6 +313,10 @@ function resource_markers() {
         });
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
+        $('#dc').click(function(){
+          police_marker.setMap(null);
+          $('#sf-police').prop('checked', false);
+        })
 
         $('.checkbox').on('click', function(){
 
@@ -342,6 +346,11 @@ function resource_markers() {
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
 
+        $('#sf').click(function(){
+          police_marker.setMap(null);
+          $('#dc-police').prop('checked', false);
+        })
+
         $('.checkbox').on('click', function(){
 
           if ($('#dc-police').is(':checked') == true) {
@@ -369,6 +378,11 @@ function resource_markers() {
         });
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
+
+        $('#dc').click(function(){
+          fire_marker.setMap(null);
+          $('#sf-fire').prop('checked', false);
+        })
 
         $('.checkbox').on('click', function(){
 
@@ -398,6 +412,11 @@ function resource_markers() {
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
 
+        $('#sf').click(function(){
+          fire_marker.setMap(null);
+          $('#dc-fire').prop('checked', false);
+        })
+
         $('.checkbox').on('click', function(){
 
           if ($('#dc-fire').is(':checked') == true) {
@@ -425,6 +444,10 @@ function resource_markers() {
         });
         hosp_marker.setMap(null);
         // bounds.extend(hosp_marker.position);
+        $('#dc').click(function(){
+          fire_marker.setMap(null);
+          $('#sf-hosp').prop('checked', false);
+        })
 
         $('.checkbox').on('click', function(){
 
@@ -453,6 +476,11 @@ function resource_markers() {
         });
         hosp_marker.setMap(null);
         bounds.extend(hosp_marker.position);
+
+        $('#sf').click(function(){
+          fire_marker.setMap(null);
+          $('#dc-hosp').prop('checked', false);
+        })
 
         $('.checkbox').on('click', function(){
 
@@ -743,9 +771,6 @@ function button_clicks() {
 
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
-  // marker.setMap(null);
-  // zipcode_pan();
-  // $('#resiliency-box').hide();
   $('#busi').hide();
   $('#neighbor').hide();
   $('#resources').hide();

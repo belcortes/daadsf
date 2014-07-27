@@ -50,6 +50,9 @@ label {
 .center {
   text-align: center;
 }
+#account-container {
+  width: 100%;
+}
 /*#advanced-search input {
   display: inherit;
   margin: 0 auto;

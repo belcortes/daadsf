@@ -1,10 +1,10 @@
 - if current_user
   %h3 My Account
   .height
-    .personal#contact-info(href='#')
-      Personal Information
-      .account-box
-        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      .personal.col-md-3#contact-info 
+        Personal Information
+        .account-box
           = f.label :name
           = f.text_field :name, value: current_user.name
           %br
@@ -19,14 +19,9 @@
           %br
           = f.label :zip
           = f.text_field :zip, value: current_user.zip
-          
-          %br
-          = f.submit 'Update', :remote => true
-    %br
-    .personal#certifications(href='#')
-      Certifications
-      .account-box
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
+      .personal.col-md-3#certifications 
+        Certifications
+        .account-box
           = f.check_box :cert, {:checked=>current_user.cert}
           = f.label(:cert, 'CERT')
           %br
@@ -44,13 +39,9 @@
           %br
           = f.label :organizations
           = f.text_field :organizations, value: current_user.organizations
-          %br
-          = f.submit 'Update', :remote => true
-    %br
-    .personal#user-buildings(href='#')
-      Skills
-      .account-box
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { method: :put }) do |f|
+      .personal.col-md-3#user-buildings 
+        Skills
+        .account-box
           = f.check_box :engineer,{:checked=>current_user.engineer}
           = f.label :engineer
           %br
@@ -65,13 +56,9 @@
           %br
           = f.label :other
           = f.text_field :other, value: current_user.other
-          %br
-          = f.submit 'Update', :remote => true
-    %br
-    .personal#user-resources(href='#')
-      Resources
-      .account-box
-        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      .personal.col-md-3#user-resources 
+        Resources
+        .account-box
           Facilities
           %br
           = f.check_box :church, {:checked=>current_user.church}

@@ -17,8 +17,8 @@ class SearchController < ApplicationController
       # with(:fork_lift, true)
     end
     @results = @search.results
-    p @results
-    p '-----------------------------------'
+    # p @results
+    # p '-----------------------------------'
     respond_to do |format|
       format.json { render json: @results }
       format.html { render '_results', layout: true }

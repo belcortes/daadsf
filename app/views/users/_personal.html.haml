@@ -2,147 +2,153 @@
   %h3 My Account
   .height
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      .personal.col-md-3#contact-info 
-        Personal Information
-        .account-box
-          = f.label :name
-          = f.text_field :name, value: current_user.name
-          %br
-          = f.label :email
-          = f.email_field :email, value: current_user.email
-          %br
-          = f.label :phone
-          = f.text_field :phone, value: current_user.phone
-          %br
-          = f.label :address
-          = f.text_field :address, value: current_user.address
-          %br
-          = f.label :zip
-          = f.text_field :zip, value: current_user.zip
-      .personal.col-md-3#certifications 
-        Certifications
-        .account-box
-          = f.check_box :cert, {:checked=>current_user.cert}
-          = f.label(:cert, 'CERT')
-          %br
-          = f.check_box :nert, {:checked=>current_user.nert}
-          = f.label(:nert, 'NERT')
-          %br
-          = f.check_box :cpr, {:checked=>current_user.cpr}
-          = f.label(:cpr, 'CPR')
-          %br
-          = f.check_box :safe, {:checked=>current_user.safe}
-          = f.label(:safe, 'SAFE')
-          %br
-          = f.check_box :first_aid, {:checked=>current_user.first_aid}
-          = f.label 'First Aid'
-          %br
-          = f.label :organizations
-          = f.text_field :organizations, value: current_user.organizations
-      .personal.col-md-3#user-buildings 
-        Skills
-        .account-box
-          = f.check_box :engineer,{:checked=>current_user.engineer}
-          = f.label :engineer
-          %br
-          = f.check_box :contractor,{:checked=>current_user.contractor}
-          = f.label :contractor
-          %br
-          = f.check_box :healthcare,{:checked=>current_user.healthcare}
-          = f.label :healthcare
-          %br
-          = f.check_box :mechanic,{:checked=>current_user.mechanic}
-          = f.label :mechanic
-          %br
-          = f.label :other
-          = f.text_field :other, value: current_user.other
-      .personal.col-md-3#user-resources 
+      .row
+        .personal.col-md-4#contact-info 
+          Personal Information
+          .account-box
+            = f.label :name
+            = f.text_field :name, value: current_user.name
+            %br
+            = f.label :email
+            = f.email_field :email, value: current_user.email
+            %br
+            = f.label :phone
+            = f.text_field :phone, value: current_user.phone
+            %br
+            = f.label :address
+            = f.text_field :address, value: current_user.address
+            %br
+            = f.label :zip
+            = f.text_field :zip, value: current_user.zip
+        .personal.col-md-4#certifications 
+          Certifications
+          .account-box
+            = f.check_box :cert, {:checked=>current_user.cert}
+            = f.label(:cert, 'CERT')
+            %br
+            = f.check_box :nert, {:checked=>current_user.nert}
+            = f.label(:nert, 'NERT')
+            %br
+            = f.check_box :cpr, {:checked=>current_user.cpr}
+            = f.label(:cpr, 'CPR')
+            %br
+            = f.check_box :safe, {:checked=>current_user.safe}
+            = f.label(:safe, 'SAFE')
+            %br
+            = f.check_box :first_aid, {:checked=>current_user.first_aid}
+            = f.label 'First Aid'
+            %br
+            = f.label :organizations
+            = f.text_field :organizations, value: current_user.organizations
+        .personal.col-md-4#user-buildings 
+          Skills
+          .account-box
+            = f.check_box :engineer,{:checked=>current_user.engineer}
+            = f.label :engineer
+            %br
+            = f.check_box :contractor,{:checked=>current_user.contractor}
+            = f.label :contractor
+            %br
+            = f.check_box :healthcare,{:checked=>current_user.healthcare}
+            = f.label :healthcare
+            %br
+            = f.check_box :mechanic,{:checked=>current_user.mechanic}
+            = f.label :mechanic
+            %br
+            = f.label :other
+            = f.text_field :other, value: current_user.other
+      %br
+      .personal#user-resources 
         Resources
-        .account-box
-          Facilities
-          %br
-          = f.check_box :church, {:checked=>current_user.church}
-          = f.label :church
-          %br
-          = f.check_box :school, {:checked=>current_user.school}
-          = f.label :school
-          %br
-          = f.check_box :bomb_shelter, {:checked=>current_user.bomb_shelter}
-          = f.label :bomb_shelter
-          %br
-          = f.check_box :hurricane_shelter, {:checked=>current_user.hurricane_shelter}
-          = f.label :hurricane_shelter
-          %br
-          Medical
-          %br
-          = f.check_box :oxygen, {:checked=>current_user.oxygen}
-          = f.label :oxygen
-          %br
-          = f.check_box :wheel_chair, {:checked=>current_user.wheel_chair}
-          = f.label :wheel_chair
-          %br
-          = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
-          = f.label :defibrillation
-          %br
-          Heavy Equipment
-          %br
-          = f.check_box :dump_truck, {:checked=>current_user.dump_truck}
-          = f.label :dump_truck
-          %br
-          = f.check_box :back_hoe, {:checked=>current_user.back_hoe}
-          = f.label :back_hoe
-          %br
-          = f.check_box :crane, {:checked=>current_user.crane}
-          = f.label :crane
-          %br
-          = f.check_box :fork_lift, {:checked=>current_user.fork_lift}
-          = f.label :fork_lift
-          %br
-          = f.check_box :truck, {:checked=>current_user.truck}
-          = f.label :truck
-          %br
-          = f.check_box :fuel, {:checked=>current_user.fuel}
-          = f.label :fuel
-          %br
-          = f.check_box :air_compressor, {:checked=>current_user.air_compressor}
-          = f.label :air_compressor
-          %br
-          = f.check_box :power_generator, {:checked=>current_user.power_generator}
-          = f.label :power_generator
-          %br
-          = f.check_box :bus, {:checked=>current_user.bus}
-          = f.label :bus
-          %br
-          = f.check_box :saw, {:checked=>current_user.saw}
-          = f.label :saw
-          %br
-          = f.check_box :lathe, {:checked=>current_user.lathe}
-          = f.label :lathe
-          %br
-          = f.check_box :plow, {:checked=>current_user.plow}
-          = f.label :plow
-          %br
-          = f.check_box :jack_hammer, {:checked=>current_user.jack_hammer}
-          = f.label :jack_hammer
-          %br
-          Light Equipment
-          %br
-          = f.check_box :emergency_kit, {:checked=>current_user.emergency_kit}
-          = f.label :emergency_kit
-          %br
-          = f.check_box :drill, {:checked=>current_user.drill}
-          = f.label :drill
-          %br
-          = f.check_box :hammer, {:checked=>current_user.hammer}
-          = f.label :hammer
-          %br
-          = f.check_box :survival_kit, {:checked=>current_user.survival_kit}
-          = f.label :survival_kit
-          %br
-          = f.check_box :shovel, {:checked=>current_user.shovel}
-          = f.label :shovel
-          %br
-          = f.label :other
-          = f.text_field :other, value: current_user.other
-          %br
-          = f.submit 'Update'
+        .account-box.row
+          .col-md-3
+            Facilities
+            %br
+            = f.check_box :church, {:checked=>current_user.church}
+            = f.label :church
+            %br
+            = f.check_box :school, {:checked=>current_user.school}
+            = f.label :school
+            %br
+            = f.check_box :bomb_shelter, {:checked=>current_user.bomb_shelter}
+            = f.label :bomb_shelter
+            %br
+            = f.check_box :hurricane_shelter, {:checked=>current_user.hurricane_shelter}
+            = f.label :hurricane_shelter
+            %br
+          .col-md-3
+            Medical
+            %br
+            = f.check_box :oxygen, {:checked=>current_user.oxygen}
+            = f.label :oxygen
+            %br
+            = f.check_box :wheel_chair, {:checked=>current_user.wheel_chair}
+            = f.label :wheel_chair
+            %br
+            = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
+            = f.label :defibrillation
+            %br
+          .col-md-3
+            Heavy Equipment
+            %br
+            = f.check_box :dump_truck, {:checked=>current_user.dump_truck}
+            = f.label :dump_truck
+            %br
+            = f.check_box :back_hoe, {:checked=>current_user.back_hoe}
+            = f.label :back_hoe
+            %br
+            = f.check_box :crane, {:checked=>current_user.crane}
+            = f.label :crane
+            %br
+            = f.check_box :fork_lift, {:checked=>current_user.fork_lift}
+            = f.label :fork_lift
+            %br
+            = f.check_box :truck, {:checked=>current_user.truck}
+            = f.label :truck
+            %br
+            = f.check_box :fuel, {:checked=>current_user.fuel}
+            = f.label :fuel
+            %br
+            = f.check_box :air_compressor, {:checked=>current_user.air_compressor}
+            = f.label :air_compressor
+            %br
+            = f.check_box :power_generator, {:checked=>current_user.power_generator}
+            = f.label :power_generator
+            %br
+            = f.check_box :bus, {:checked=>current_user.bus}
+            = f.label :bus
+            %br
+            = f.check_box :saw, {:checked=>current_user.saw}
+            = f.label :saw
+            %br
+            = f.check_box :lathe, {:checked=>current_user.lathe}
+            = f.label :lathe
+            %br
+            = f.check_box :plow, {:checked=>current_user.plow}
+            = f.label :plow
+            %br
+            = f.check_box :jack_hammer, {:checked=>current_user.jack_hammer}
+            = f.label :jack_hammer
+            %br
+          .col-md-3
+            Light Equipment
+            %br
+            = f.check_box :emergency_kit, {:checked=>current_user.emergency_kit}
+            = f.label :emergency_kit
+            %br
+            = f.check_box :drill, {:checked=>current_user.drill}
+            = f.label :drill
+            %br
+            = f.check_box :hammer, {:checked=>current_user.hammer}
+            = f.label :hammer
+            %br
+            = f.check_box :survival_kit, {:checked=>current_user.survival_kit}
+            = f.label :survival_kit
+            %br
+            = f.check_box :shovel, {:checked=>current_user.shovel}
+            = f.label :shovel
+            %br
+            = f.label :other
+            = f.text_field :other, value: current_user.other
+            %br
+            = f.submit 'Update'

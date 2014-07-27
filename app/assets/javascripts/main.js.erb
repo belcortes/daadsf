@@ -71,9 +71,15 @@ function maps() {
       radius: 50
     });
 
-    $('#dc').on('click', function(){
-      heatmap.setMap(map);
-    })
+    $('#heatmap').on('click', function(){
+      if ($(this).attr('class') == 'active') {
+        heatmap.setMap(map);
+        $('#heat').show()
+      } else {
+        heatmap.setMap(null);
+        $('#heat').hide()
+      }
+    });
     
         
         
@@ -665,11 +671,12 @@ function button_clicks() {
       $('#neighbor').hide();
       $('#community').hide();
       $('#resources').show();
+      $('#heatmap').show();
       $('#roads').show();
       $('#hazard').show();
       $('#dc-resources').show();
       $('#disaster').show();
-      $('#heat').show();
+      // $('#heat').show();
     }
   })
 
@@ -741,6 +748,8 @@ $(function() {
   $('#dc-resources').hide();
   $('#disaster').hide();
   $('#heat').hide();
+  $('#heatmap').hide();
+
 
   // $('.account-box').hide();
   $('.container').hide();
@@ -751,6 +760,9 @@ $(function() {
   maps();
   map_list()
   button_clicks();
+  $('#heatmap').on('click', function() {
+    $(this).toggleClass('active');
+  })
   $('#community').on('click', function() {
     $(this).toggleClass('active');
   })

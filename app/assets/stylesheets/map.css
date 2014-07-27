@@ -22,6 +22,14 @@
 #marina {
   text-align: center;
 }
+#heatmap {
+  position: fixed;
+  right: 0;
+  top: 110px;
+  float: right;
+  margin-right: 470px;
+  margin-top: 10px;
+}
 #dc-resources {
   position: fixed;
   right: 0;
@@ -115,7 +123,7 @@
   right: 0;
   top: 100px;
   float: right;
-  margin-right: 500px;
+  margin-right: 550px;
   margin-top: 10px;
   color: red;
   font-weight: bolder;

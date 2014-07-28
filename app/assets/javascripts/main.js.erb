@@ -140,7 +140,6 @@ function maps() {
     cloudLayer.setMap(map);
     
     $('.resource_cert').on('click', function(){
-      console.log($(this).attr('class'))
       $(this).toggleClass('active');
       if($(this).attr('class') == 'resource_links resource_cert active'){
         cert.setMap(map);

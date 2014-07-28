@@ -154,6 +154,20 @@ function maps() {
     $('#resource_first').on('click', function(){
       first_aid.setMap(map);
     })
+    $('#disaster').on('click', function(){
+      $('.container').hide();
+      $('.container2').hide();
+      $(this).toggleClass('active');
+      console.log($(this).attr('class'))
+      if($(this).attr('class') == 'map-buttons active'){
+        $('#resilience-container').show();
+        map.panTo(new google.maps.LatLng(37.800740, -122.439785));
+        map.setZoom(15); 
+      } else {
+        $('#resilience-container').hide();
+      }
+      
+    })
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){
@@ -653,7 +667,9 @@ function button_clicks() {
       $('#heat').hide();
       $('#resources').hide();
       $('#roads').hide();
+      $('#heatmap').hide();
       $('#hazard').hide();
+      $('#resiliency').hide();
       $('#dc-resources').hide();
       // $('#resiliency-box').show();
       $('#busi').show();
@@ -668,6 +684,7 @@ function button_clicks() {
       map.setZoom(12); 
       $('#busi').hide();
       $('#sf-eh').hide();
+      $('#disaster').hide();
       $('#neighbor').hide();
       $('#community').hide();
       $('#resources').show();
@@ -675,7 +692,7 @@ function button_clicks() {
       $('#roads').show();
       $('#hazard').show();
       $('#dc-resources').show();
-      $('#disaster').show();
+      $('#resiliency').show();
       // $('#heat').show();
     }
   })
@@ -685,11 +702,7 @@ function button_clicks() {
     $('.container2').hide();
     $('#prepare-container').show();
   })
-  // $('#disaster').on('click', function(){
-  //   $('.container').hide();
-  //   $('.container2').hide();
-  //   $('#resilience-container').show();
-  // })
+  
   $('#advanced-search').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
@@ -747,6 +760,7 @@ $(function() {
   $('#sf-eh').hide();
   $('#dc-resources').hide();
   $('#disaster').hide();
+  $('#resiliency').hide();
   $('#heat').hide();
   $('#heatmap').hide();
 
@@ -760,6 +774,7 @@ $(function() {
   maps();
   map_list()
   button_clicks();
+
   $('#heatmap').on('click', function() {
     $(this).toggleClass('active');
   })

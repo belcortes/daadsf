@@ -5,6 +5,11 @@ class SearchController < ApplicationController
     @users = User.all
     @search = Sunspot.search(User, CoolingCenters, Resource) do
       fulltext params[:search]
+      # if params[:search] = 'cert' || 'nert' || 'cpr'
+      #   with(:cert, true)
+      # end
+      p params[:search]
+      p '-----------------------------------'
       # if fulltext 'cert'
       #   fulltext params[:search]
       #   with(:cert, true)

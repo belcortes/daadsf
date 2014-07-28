@@ -188,10 +188,12 @@ function maps() {
         $('#resilience-container').show();
         map.panTo(new google.maps.LatLng(37.800740, -122.439785));
         map.setZoom(15); 
+        sf_zipcodes.setMap(map);
+        sf_zipcodes.set('preserveViewport', true);
       } else {
         $('#resilience-container').hide();
+        sf_zipcodes.setMap(null);
       }
-      
     })
         
     function checkbox_toggle() {
@@ -340,7 +342,6 @@ function resource_markers() {
         })
 
         $('.checkbox').on('click', function(){
-
           if ($('#dc-police').is(':checked') == true) {
              police_marker.setMap(map);
              map.panTo(new google.maps.LatLng(38.898528, -77.031564));
@@ -632,10 +633,7 @@ function data_markers() {
           infowindow.open(map,marker);
         });
       } else {
-        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address)
-        // $('button#search').on('click', function(){
-            // 
-            
+        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address) 
             
             
           geocoder.geocode( { 'address': data.address}, function(results, status) {

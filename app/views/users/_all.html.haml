@@ -11,7 +11,7 @@
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'cert'
-          .resource_links#resource_cert
+          .resource_links.resource_cert
             &nbsp;&nbsp; - CERT
         - if attr_value == true && attr_name == 'nert'
           &nbsp;&nbsp; - NERT
@@ -23,7 +23,7 @@
           &nbsp;&nbsp; - SAFE
           %br
         - if attr_value == true && attr_name == 'first_aid'
-          .resource_links#resource_first
+          .resource_links.resource_first
             &nbsp;&nbsp; - First Aid
     Skills:
     .user-attr
@@ -64,7 +64,7 @@
           &nbsp;&nbsp; - Oxygen
           %br
         - if attr_value == true && attr_name == 'wheel_chair'
-          .resource_links#resource_wheelchair
+          .resource_links.resource_wheelchair
             &nbsp;&nbsp; - Wheel Chair
         - if attr_value == true && attr_name == 'defibrillation'
           .resource_links#resource_defib
@@ -76,7 +76,7 @@
           &nbsp;&nbsp;&nbsp; - Dump Truck
           %br
         - if attr_value == true && attr_name == 'back_hoe'
-          .resource_links#resource_backhoe
+          .resource_links.resource_backhoe
             &nbsp;&nbsp;&nbsp; - Back Hoe
         - if attr_value == true && attr_name == 'crane'
           &nbsp;&nbsp;&nbsp; - Crane

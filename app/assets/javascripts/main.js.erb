@@ -139,20 +139,46 @@ function maps() {
 
     cloudLayer.setMap(map);
     
-    $('#resource_cert').on('click', function(){
-      cert.setMap(map);
+    $('.resource_cert').on('click', function(){
+      console.log($(this).attr('class'))
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'resource_links resource_cert active'){
+        cert.setMap(map);
+      } else {
+        cert.setMap(null);
+      }
     })
-    $('#resource_wheelchair').on('click', function(){
-      wheelchair.setMap(map);
+    $('.resource_wheelchair').on('click', function(){
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'resource_links resource_wheelchair active'){
+        wheelchair.setMap(map);
+      } else {
+        wheelchair.setMap(null);
+      }
     })
-    $('#resource_backhoe').on('click', function(){
-      heavy.setMap(map);
+    $('.resource_backhoe').on('click', function(){
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'resource_links resource_backhoe active'){
+        heavy.setMap(map);
+      } else {
+        heavy.setMap(null);
+      }
     })
-    $('#resource_defib').on('click', function(){
-      defib_kml.setMap(map);
+    $('.resource_defib').on('click', function(){
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'resource_links resource_defib active'){
+        defib_kml.setMap(map);
+      } else {
+        defib_kml.setMap(null);
+      }
     })
-    $('#resource_first').on('click', function(){
-      first_aid.setMap(map);
+    $('.resource_first').on('click', function(){
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'resource_links resource_first active'){
+        first_aid.setMap(map);
+      } else {
+        first_aid.setMap(null);
+      }
     })
     $('#disaster').on('click', function(){
       $('.container').hide();

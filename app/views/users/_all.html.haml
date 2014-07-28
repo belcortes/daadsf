@@ -5,9 +5,8 @@
   - @users.each do |u|
     .blue.name
       = u.name
-    Address:
-    .user-attr
-      = u.address
+    %span.italic{:style => "color:#1371bb" } Contact this owner
+    %br
     Certifications:
     .user-attr
       - u.attributes.each do |attr_name, attr_value|

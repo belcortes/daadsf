@@ -7,9 +7,9 @@
     - @results.each do |r|
       - case r.class.name
         - when 'User'
-          %h4.result-name
+          %h4.result-name.blue.name
             = r.name
-          = r.address
+          %span.italic{:style => "color:#1371bb" } Contact this owner
           / .user-attr
           %br
           %h4 Certifications:

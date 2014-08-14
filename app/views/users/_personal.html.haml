@@ -20,6 +20,12 @@
             %br
             = f.label :zip
             = f.text_field :zip, value: current_user.zip
+            %br
+            = f.check_box :church, {:checked=>current_user.church}
+            = f.label :church
+            %br
+            = f.check_box :school, {:checked=>current_user.school}
+            = f.label :school
         .personal.col-md-4#certifications 
           Certifications
           .account-box
@@ -64,12 +70,7 @@
           .col-md-3
             Facilities
             %br
-            = f.check_box :church, {:checked=>current_user.church}
-            = f.label :church
-            %br
-            = f.check_box :school, {:checked=>current_user.school}
-            = f.label :school
-            %br
+            
             = f.check_box :bomb_shelter, {:checked=>current_user.bomb_shelter}
             = f.label :bomb_shelter
             %br

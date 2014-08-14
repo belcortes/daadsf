@@ -105,9 +105,9 @@ function maps() {
     var neighborhood_kml2 = new google.maps.KmlLayer({
       url: 'https://maps.google.com/maps/ms?ie=UTF8&hl=en&source=embed&dg=feature&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f13b9644a6edc2f'
     });
-    var cert = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/SFCertUsersLayer.kml'
-    });
+    // var cert = new google.maps.KmlLayer({
+    //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFCertUsersLayer.kml'
+    // });
     var wheelchair = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/SFSkills_Contractor_UserLayer.kml'
     });
@@ -141,11 +141,11 @@ function maps() {
     
     $('.resource_cert').on('click', function(){
       $(this).toggleClass('active');
-      if($(this).attr('class') == 'resource_links resource_cert active'){
-        cert.setMap(map);
-      } else {
-        cert.setMap(null);
-      }
+      // if($(this).attr('class') == 'resource_links resource_cert active'){
+      //   cert.setMap(map);
+      // } else {
+      //   cert.setMap(null);
+      // }
     })
     $('.resource_wheelchair').on('click', function(){
       $(this).toggleClass('active');
@@ -551,20 +551,34 @@ function user_data() {
       // if (data.name == user) {
       //   icon = "<%= asset_path 'me.png' %>"
       // } else 
-      if (data.school == true) {
-        icon = "<%= asset_path 'SchoolIcon.png' %>"
-      } else if (data.church == true) {
-        icon = "<%= asset_path 'churchicon.png' %>"
-      }else {
+      //  if (data.school == true) {
+      //   icon = "<%= asset_path 'SchoolIcon.png' %>"
+      // } else if (data.church == true) {
+      //   icon = "<%= asset_path 'churchicon.png' %>"
+      // }else {
+      //   icon = "<%= asset_path 'person.png' %>"
+      // }
+
+  
+      if (data.cert == true) {
+        console.log(icon)
+       // $('.resource_cert').on('click', function() {
+          icon = "<%= asset_path 'cert.png' %>"
+          console.log('cert')
+          console.log(icon)
+        // })
+       } else {
         icon = "<%= asset_path 'person.png' %>"
-      }
+       }
+
+      
 
       // $('.name').on('hover', function(){
       //   if($(this).text().trim() == data.name) {
       //     icon = "<%= asset_path 'me.png' %>"
       //   }
       // })
-      // console.log(gon.current_user)
+
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.latitude, data.longitude),
         map: map,
@@ -758,6 +772,12 @@ $(function() {
   $('#resiliency').hide();
   $('#heat').hide();
   $('#heatmap').hide();
+
+  // if (user) {
+  //   console.log(user)
+  // } else {
+  //   console.log('no sessions')
+  // }
 
 
   $('.container').hide();

@@ -9,32 +9,32 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
-  searchable do
-    text :zip, :name, :email
-    boolean :nert
-    boolean :cert
-    boolean :cpr
-    boolean :safe
-    boolean :first_aid
-    boolean :dump_truck
-    boolean :back_hoe
-    boolean :crane
-    boolean :fork_lift
-    boolean :truck
-    boolean :fuel
-    boolean :air_compressor
-    boolean :power_generator
-    boolean :bus
-    boolean :saw
-    boolean :lathe
-    boolean :plow
-    boolean :jack_hammer
-    boolean :emergency_kit
-    boolean :drill
-    boolean :hammer
-    boolean :survival_kit
-    boolean :shovel
-  end
+  # searchable do
+  #   text :zip, :name, :email
+  #   boolean :nert
+  #   boolean :cert
+  #   boolean :cpr
+  #   boolean :safe
+  #   boolean :first_aid
+  #   boolean :dump_truck
+  #   boolean :back_hoe
+  #   boolean :crane
+  #   boolean :fork_lift
+  #   boolean :truck
+  #   boolean :fuel
+  #   boolean :air_compressor
+  #   boolean :power_generator
+  #   boolean :bus
+  #   boolean :saw
+  #   boolean :lathe
+  #   boolean :plow
+  #   boolean :jack_hammer
+  #   boolean :emergency_kit
+  #   boolean :drill
+  #   boolean :hammer
+  #   boolean :survival_kit
+  #   boolean :shovel
+  # end
 
 
   # def facebook
@@ -88,10 +88,10 @@ class User < ActiveRecord::Base
     clean_up_passwords
     result
   end
-   searchable do
-    string :name
-    # text :address
-    # integer :zip
-  end
+  #  searchable do
+  #   string :name
+  #   # text :address
+  #   # integer :zip
+  # end
 
 end

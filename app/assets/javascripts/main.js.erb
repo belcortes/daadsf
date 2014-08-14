@@ -7,8 +7,8 @@ function maps() {
   function initialize() {
     geocoder = new google.maps.Geocoder();
     var mapOptions = {
-      center: new google.maps.LatLng(40.654266, -96.995427),
-      zoom: 5,
+      center: new google.maps.LatLng(37.754307, -122.437772),
+      zoom: 12,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
       mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -24,75 +24,12 @@ function maps() {
 
     map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
-
-
-    var heatMapData = [
-      {location: new google.maps.LatLng(38.98387, -77.038997), weight:3},
-      {location: new google.maps.LatLng(38.97266, -77.024835), weight:4},
-      {location: new google.maps.LatLng(38.971338, -77.057374), weight:2},
-      {location: new google.maps.LatLng(38.96086, -77.073596), weight:5},
-      {location: new google.maps.LatLng(38.961905, -77.021692), weight:4},
-      {location: new google.maps.LatLng(38.947421, -77.026499), weight:6},
-      {location: new google.maps.LatLng(38.93634, -77.1038), weight:4},
-      {location: new google.maps.LatLng(38.946087, -77.078652), weight:5},
-      {location: new google.maps.LatLng(38.946951, -77.064901), weight:5},
-      {location: new google.maps.LatLng(38.928725, -77.056318), weight:6},
-      {location: new google.maps.LatLng(38.933084, -77.030186), weight:6},
-      {location: new google.maps.LatLng(38.947811, -76.990611), weight:5},
-      {location: new google.maps.LatLng(38.930921, -76.994473), weight:6},
-      {location: new google.maps.LatLng(38.916716, -76.994508), weight:7},
-      {location: new google.maps.LatLng(38.931139, -76.960434), weight:5},
-      {location: new google.maps.LatLng(38.919102, -77.094634), weight:5},
-      {location: new google.maps.LatLng(38.909486, -77.061975), weight:6},
-      {location: new google.maps.LatLng(38.893917, -76.925801), weight:7},
-      {location: new google.maps.LatLng(38.889908, -76.953095), weight:6},
-      {location: new google.maps.LatLng(38.909583, -76.973605), weight:6},
-      {location: new google.maps.LatLng(38.902904, -77.003302), weight:8},
-      {location: new google.maps.LatLng(38.919469, -77.037202), weight:7},
-      {location: new google.maps.LatLng(38.91705, -77.020558), weight:7},
-      {location: new google.maps.LatLng(38.90209, -77.01824), weight:8},
-      {location: new google.maps.LatLng(38.903374, -77.050826), weight:6},
-      {location: new google.maps.LatLng(38.906785, -77.042058), weight:8},
-      {location: new google.maps.LatLng(38.90562, -77.031714), weight:9},
-      {location: new google.maps.LatLng(38.900223, -77.041737), weight:8},
-      {location: new google.maps.LatLng(38.889446, -77.03511), weight:6},
-      {location: new google.maps.LatLng(38.884557, -76.996775), weight:7},
-      {location: new google.maps.LatLng(38.878744, -76.981068), weight:5},
-      {location: new google.maps.LatLng(38.881697, -77.019294), weight:6},
-      {location: new google.maps.LatLng(38.864858, -77.014531), weight:5},
-      {location: new google.maps.LatLng(38.858988, -76.965941), weight:6},
-      {location: new google.maps.LatLng(38.871218, -76.980962), weight:6},
-      {location: new google.maps.LatLng(38.84482, -77.002942), weight:6},
-      {location: new google.maps.LatLng(38.824361, -77.012212), weight:5},
-    ];
-
-    var heatmap = new google.maps.visualization.HeatmapLayer({
-      data: heatMapData,
-      radius: 50
-    });
-
-    $('#heatmap').on('click', function(){
-      if ($(this).attr('class') == 'active') {
-        heatmap.setMap(map);
-        $('#heat').show()
-      } else {
-        heatmap.setMap(null);
-        $('#heat').hide()
-      }
-    });
     
         
         
     // ---------------- KML FILES ---------------- 
-    var sf_zipcodes = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/sfzipcodes.kml'
-    });
-    var medium_flood_kml = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/ModeratePoly.kml'
-    });
-    var high_flood_kml = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/HighPoly.kml'
-    });
+
+
     var low_liq_kml = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/modlowSFLiqui.kml'
     });
@@ -114,10 +51,7 @@ function maps() {
     var heavy = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/SFHeavyEquipment_Chainsaw_UsersLayer.kml'
     });
-    var zip_kmz = new google.maps.KmlLayer({
-      url:"https://dl.dropboxusercontent.com/u/22757148/DCzipcodeclean.kml",
-      zip: 11
-    });
+
     var defib_kml = new google.maps.KmlLayer({
       url:"https://dl.dropboxusercontent.com/u/22757148/SFResource_Defib_UserLayer.kml",
     });
@@ -204,12 +138,7 @@ function maps() {
         $('.container2').hide();
         if ($('#'+check_id).is(':checked') == false) {
           switch (check_id) {
-            case 'medium_flood_kml':
-              medium_flood_kml.setMap(null);
-              break;
-            case 'high_flood_kml':
-              high_flood_kml.setMap(null);
-              break;
+            
             case 'zip-check':
               sf_zipcodes.setMap(null);
               break;
@@ -217,9 +146,7 @@ function maps() {
               neighborhood_kml.setMap(null);
               neighborhood_kml2.setMap(null);
               break;
-            case 'dc-zip':
-              zip_kmz.setMap(null);
-              break;
+          
             case 'high_liq':
               low_liq_kml.setMap(null);
               break;
@@ -229,22 +156,7 @@ function maps() {
           }
         } else {
           switch (check_id) {
-            case 'medium_flood_kml':
-              medium_flood_kml.setMap(map);
-              medium_flood_kml.set('preserveViewport', true);
-              map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-              map.setZoom(12); 
-              break;
-            case 'dc-zip':
-              zip_kmz.setMap(map);
-              zip_kmz.set('preserveViewport', true);
-              break;
-            case 'high_flood_kml':
-              high_flood_kml.setMap(map);
-              // high_flood_kml.set('preserveViewport', true);
-              map.panTo(new google.maps.LatLng(38.857926, -77.029506));
-              map.setZoom(12); 
-              break;
+
             case 'zip-check':
               sf_zipcodes.setMap(map);
               sf_zipcodes.set('preserveViewport', true);
@@ -271,7 +183,6 @@ function maps() {
       })
     }
     
-    cooling_markers();
     data_markers();
     resource_markers()
     user_data()
@@ -303,48 +214,12 @@ function resource_markers() {
         });
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
-        $('#dc').click(function(){
-          police_marker.setMap(null);
-          $('#sf-police').prop('checked', false);
-        })
 
         $('.checkbox').on('click', function(){
 
           if ($('#sf-police').is(':checked') == true) {
              police_marker.setMap(map);
              map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             map.setZoom(12); 
-          } else {
-
-            police_marker.setMap(null);
-          }
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(police_marker, 'click', function() {
-            infowindow.open(map,police_marker);
-          });
-        });
-        
-      } else if (data.station_type == 'Police Station' && data.location == 'DC'){
-        var police_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon,
-          title: 'hello'
-        });
-        police_marker.setMap(null);
-        bounds.extend(police_marker.position);
-
-        $('#sf').click(function(){
-          police_marker.setMap(null);
-          $('#dc-police').prop('checked', false);
-        })
-
-        $('.checkbox').on('click', function(){
-          if ($('#dc-police').is(':checked') == true) {
-             police_marker.setMap(map);
-             map.panTo(new google.maps.LatLng(38.898528, -77.031564));
              map.setZoom(12); 
           } else {
 
@@ -368,10 +243,6 @@ function resource_markers() {
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
 
-        $('#dc').click(function(){
-          fire_marker.setMap(null);
-          $('#sf-fire').prop('checked', false);
-        })
 
         $('.checkbox').on('click', function(){
 
@@ -391,40 +262,7 @@ function resource_markers() {
           });
         });
         
-      }  else if (data.station_type == 'Fire Station' && data.location == 'DC'){
-        var fire_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon2,
-          title: 'hello'
-        });
-        fire_marker.setMap(null);
-        bounds.extend(fire_marker.position);
-
-        $('#sf').click(function(){
-          fire_marker.setMap(null);
-          $('#dc-fire').prop('checked', false);
-        })
-
-        $('.checkbox').on('click', function(){
-
-          if ($('#dc-fire').is(':checked') == true) {
-             fire_marker.setMap(map);
-            map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-            map.setZoom(12); 
-          } else {
-
-            fire_marker.setMap(null);
-          }
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(fire_marker, 'click', function() {
-            infowindow.open(map,fire_marker);
-          });
-        });
-
-      }else if (data.station_type == 'Hospital' && data.location == 'SF') {
+      } else if (data.station_type == 'Hospital' && data.location == 'SF') {
         var hosp_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
@@ -433,10 +271,6 @@ function resource_markers() {
         });
         hosp_marker.setMap(null);
         // bounds.extend(hosp_marker.position);
-        $('#dc').click(function(){
-          hosp_marker.setMap(null);
-          $('#sf-hosp').prop('checked', false);
-        })
 
         $('.checkbox').on('click', function(){
 
@@ -456,88 +290,12 @@ function resource_markers() {
           });
         });
 
-      } else if (data.station_type == 'Hospital' && data.location == 'DC') {
-        var hosp_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon3,
-          title: 'hello'
-        });
-        hosp_marker.setMap(null);
-        bounds.extend(hosp_marker.position);
-
-        $('#sf').click(function(){
-          hosp_marker.setMap(null);
-          $('#dc-hosp').prop('checked', false);
-        })
-
-        $('.checkbox').on('click', function(){
-
-          if ($('#dc-hosp').is(':checked') == true) {
-             hosp_marker.setMap(map);
-            map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-            map.setZoom(12); 
-          } else {
-
-            hosp_marker.setMap(null);
-          }
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(hosp_marker, 'click', function() {
-            infowindow.open(map,hosp_marker);
-          });
-        });
-    }
+      }
       
     })
   })
 }
 
-
-function cooling_markers() {
-  var icon = "<%= asset_path 'cooling.png' %>"
-  var bounds = new google.maps.LatLngBounds();
-
-  $.getJSON("/cooling", function(json) {
-
-    $.each(json, function(key, data) {
-      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.latitude, data.longitude),
-        map: map,
-        icon: icon,
-        title: 'hello'
-      });
-      marker.setMap(null);
-
-      bounds.extend(marker.position);
-      $('.checkbox').on('click', function(){
-          if ($('#cooling').is(':checked') == false) {
-            marker.setMap(null);
-          } else {
-            marker.setMap(map);
-            map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-            map.setZoom(12);
-            // map.fitBounds(bounds);
-          }
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-          });
-        });
-      var infowindow = new google.maps.InfoWindow({
-          content: contentInfo
-      });
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });
-    })
-  })
-}
-
-function map_list() {
-  
-}
 
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
@@ -695,42 +453,6 @@ function data_markers() {
 }
 
 function button_clicks() {
-  $('.city').on('click', function(){
-    if($(this).attr('id') == 'sf') {
-      $(this).children().children().addClass('nav_toggle_red')
-      $('#dc').children().children().removeClass('nav_toggle_red')
-      map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-      map.setZoom(12); 
-      $('#heat').hide();
-      $('#resources').hide();
-      $('#roads').hide();
-      $('#heatmap').hide();
-      $('#hazard').hide();
-      $('#resiliency').hide();
-      $('#dc-resources').hide();
-      $('#busi').show();
-      $('#neighbor').show();
-      $('#community').show();
-      $('#sf-eh').show();
-      $('#disaster').show();
-    } else {
-      $(this).children().children().addClass('nav_toggle_red')
-      $('#sf').children().children().removeClass('nav_toggle_red')
-      map.panTo(new google.maps.LatLng(38.898528, -77.031564));
-      map.setZoom(12); 
-      $('#busi').hide();
-      $('#sf-eh').hide();
-      $('#disaster').hide();
-      $('#neighbor').hide();
-      $('#community').hide();
-      $('#resources').show();
-      $('#heatmap').show();
-      $('#roads').show();
-      $('#hazard').show();
-      $('#dc-resources').show();
-      $('#resiliency').show();
-    }
-  })
 
   $('#prepare').on('click', function(){
     $('.container').hide();
@@ -760,18 +482,6 @@ function button_clicks() {
 
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
-  $('#busi').hide();
-  $('#neighbor').hide();
-  $('#resources').hide();
-  $('#roads').hide();
-  $('#hazard').hide();
-  $('#community').hide();
-  $('#sf-eh').hide();
-  $('#dc-resources').hide();
-  $('#disaster').hide();
-  $('#resiliency').hide();
-  $('#heat').hide();
-  $('#heatmap').hide();
 
   // if (user) {
   //   console.log(user)
@@ -786,12 +496,8 @@ $(function() {
     $('.container2').css('display', 'none');
   })
   maps();
-  map_list()
   button_clicks();
 
-  $('#heatmap').on('click', function() {
-    $(this).toggleClass('active');
-  })
   $('#community').on('click', function() {
     $(this).toggleClass('active');
   })

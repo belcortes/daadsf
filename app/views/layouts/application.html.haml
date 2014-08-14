@@ -67,7 +67,6 @@
     .map-buttons#disaster Resiliency
   %a(href='#')
     .map-buttons#resiliency Resiliency
-  #heat HEAT WARNING
   .dropdown
     %a.dropdown-toggle.map-buttons#neighbor{"data-toggle" => "dropdown"}(href='#')
       Resources
@@ -80,21 +79,6 @@
       %li
         %input.checkbox#sf-hosp{type: "checkbox"} Hospitals
 
-  .dropdown
-    %a.dropdown-toggle.map-buttons#dc-resources{"data-toggle" => "dropdown"}(href='#')
-      Resources
-      %b.caret
-    %ul#menu6.dropdown-menu
-      %li
-        %input.checkbox#dc-police{type: "checkbox"} Police
-      %li
-        %input.checkbox#dc-fire{type: "checkbox"} Fire
-      %li
-        %input.checkbox#dc-hosp{type: "checkbox"} Hospitals
-      %li
-        %input.checkbox#cooling{type: "checkbox"} Cooling Centers
-  / %a(href='#')
-  /   .map-buttons#resources DC - Cooling Centers
   %a(href='#')
     .map-buttons#community Community Resources
   .dropdown
@@ -106,29 +90,7 @@
         %input.checkbox#high_liq{type: "checkbox"} Low Liquifaction Level
       %li
         %input.checkbox#low_liq{type: "checkbox"} High Liquifaction Level
-  #heatmap
-    %button Heatmap
-  .dropdown
-    %a.dropdown-toggle.map-buttons#roads{"data-toggle" => "dropdown"}(href='#')
-      Environmental Hazards
-      %b.caret
-    %ul#menu1.dropdown-menu
-      %li
-        %input.checkbox#high_flood_kml{type: "checkbox"} High Flood Level
-      %li
-        %input.checkbox#medium_flood_kml{type: "checkbox"} Medium Flood Level
-  .dropdown
-    %a.dropdown-toggle.map-buttons#hazard{"data-toggle" => "dropdown"}(href='#')
-      Washington
-      %b.caret
-    %ul#menu5.dropdown-menu
-      %li
-        %input.checkbox#dc-zip{type: "checkbox"} Zipcodes
 
-  / %a(href='#')
-  /   .map-buttons#damage Damage
-  / %a(href='#')
-  /   .map-buttons#hazard DC Zipcodes
   %a(href='http://appallicious.com/')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
 

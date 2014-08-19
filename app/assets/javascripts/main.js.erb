@@ -319,53 +319,39 @@ function user_data() {
       //   icon = "<%= asset_path 'person.png' %>"
       // }
       // console.log($('.resource_links'))
+
       icon = "<%= asset_path 'person.png' %>"
+
       $('.resource_links').on('click', function(){
-        // console.log($(this).attr('class').split(' ')[1].split('_')[1])
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
         console.log(data.cert)
-        var icon2
-        // if (data.r_name == true) {
+        // var icon2
           switch(r_name) {
             case 'wheelchair':
-              data.wheel_chair == true ? icon2 = "<%= asset_path 'wheel.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              data.wheel_chair == true ? icon = "<%= asset_path 'wheel.png' %>" : icon = "<%= asset_path 'person.png' %>"
               break;
             case 'cert':
-              data.cert == true ? icon2 = "<%= asset_path 'cert.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              data.cert == true ? icon = "<%= asset_path 'cert.png' %>" : icon = "<%= asset_path 'person.png' %>"
               break;
             case 'defib':
-              data.defibrillation == true ? icon2 = "<%= asset_path 'defib.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              data.defibrillation == true ? icon = "<%= asset_path 'defib.png' %>" : icon = "<%= asset_path 'person.png' %>"
               break;
             case 'first':
-              data.first_aid == true ? icon2 = "<%= asset_path 'medical.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              data.first_aid == true ? icon = "<%= asset_path 'medical.png' %>" : icon = "<%= asset_path 'person.png' %>"
               break;
             case 'backhoe':
-              data.back_hoe == true ? icon2 = "<%= asset_path 'greaicon.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              data.back_hoe == true ? icon = "<%= asset_path 'greaicon.png' %>" : icon = "<%= asset_path 'person.png' %>"
               break;
           }
+          // return icon
            var marker = new google.maps.Marker({
               position: new google.maps.LatLng(data.latitude, data.longitude),
               map: map,
-              icon: icon2,
+              icon: icon,
               title: 'hello'
             });
-        // } else {
-          // icon = "<%= asset_path 'person.png' %>"
-        // }
       })
-      // 
-      //   console.log(icon)
-       // $('.resource_cert').on('click', function() {
-       //    if (data.cert == true) {
-       //      icon2 = "<%= asset_path 'cert.png' %>"
-       //       var marker = new google.maps.Marker({
-       //        position: new google.maps.LatLng(data.latitude, data.longitude),
-       //        map: map,
-       //        icon: icon2,
-       //        title: 'hello'
-       //      });
-       //    }
-       //  })
+
      
 
       
@@ -385,14 +371,12 @@ function user_data() {
       marker.setMap(null);
 
       
-
       bounds.extend(marker.position);
       $('#community').on('click', function(){
          if ($(this).attr('class') == 'map-buttons active') {
           $('#users').show();
           marker.setMap(map);
           map.fitBounds(bounds);
-          
         } else {
           $('#users').hide();
           marker.setMap(null);

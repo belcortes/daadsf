@@ -29,7 +29,9 @@ function maps() {
         
     // ---------------- KML FILES ---------------- 
 
-
+    var sf_zipcodes = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sfzipcodes.kml'
+    });
     var low_liq_kml = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/modlowSFLiqui.kml'
     });
@@ -81,39 +83,39 @@ function maps() {
       //   cert.setMap(null);
       // }
     })
-    $('.resource_wheelchair').on('click', function(){
-      $(this).toggleClass('active');
-      if($(this).attr('class') == 'resource_links resource_wheelchair active'){
-        wheelchair.setMap(map);
-      } else {
-        wheelchair.setMap(null);
-      }
-    })
-    $('.resource_backhoe').on('click', function(){
-      $(this).toggleClass('active');
-      if($(this).attr('class') == 'resource_links resource_backhoe active'){
-        heavy.setMap(map);
-      } else {
-        heavy.setMap(null);
-      }
-    })
-    $('.resource_defib').on('click', function(){
-      $(this).toggleClass('active');
-      if($(this).attr('class') == 'resource_links resource_defib active'){
-        defib_kml.setMap(map);
-      } else {
-        defib_kml.setMap(null);
-      }
-    })
-    $('.resource_first').on('click', function(){
-      $(this).toggleClass('active');
-      if($(this).attr('class') == 'resource_links resource_first active'){
-        first_aid.setMap(map);
-      } else {
-        first_aid.setMap(null);
-      }
-    })
-    $('#disaster').on('click', function(){
+    // $('.resource_wheelchair').on('click', function(){
+    //   $(this).toggleClass('active');
+    //   if($(this).attr('class') == 'resource_links resource_wheelchair active'){
+    //     wheelchair.setMap(map);
+    //   } else {
+    //     wheelchair.setMap(null);
+    //   }
+    // })
+    // $('.resource_backhoe').on('click', function(){
+    //   $(this).toggleClass('active');
+    //   if($(this).attr('class') == 'resource_links resource_backhoe active'){
+    //     heavy.setMap(map);
+    //   } else {
+    //     heavy.setMap(null);
+    //   }
+    // })
+    // $('.resource_defib').on('click', function(){
+    //   $(this).toggleClass('active');
+    //   if($(this).attr('class') == 'resource_links resource_defib active'){
+    //     defib_kml.setMap(map);
+    //   } else {
+    //     defib_kml.setMap(null);
+    //   }
+    // })
+    // $('.resource_first').on('click', function(){
+    //   $(this).toggleClass('active');
+    //   if($(this).attr('class') == 'resource_links resource_first active'){
+    //     first_aid.setMap(map);
+    //   } else {
+    //     first_aid.setMap(null);
+    //   }
+    // })
+    $('#resiliency').on('click', function(){
       $('.container').hide();
       $('.container2').hide();
       $(this).toggleClass('active');
@@ -303,7 +305,7 @@ function user_data() {
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
-      // console.log(data.name)
+      console.log(data)
       // console.log($('.name').val())
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>")
       // if (data.name == user) {
@@ -316,18 +318,55 @@ function user_data() {
       // }else {
       //   icon = "<%= asset_path 'person.png' %>"
       // }
-
-  
-      if (data.cert == true) {
-        console.log(icon)
+      // console.log($('.resource_links'))
+      icon = "<%= asset_path 'person.png' %>"
+      $('.resource_links').on('click', function(){
+        // console.log($(this).attr('class').split(' ')[1].split('_')[1])
+        r_name = $(this).attr('class').split(' ')[1].split('_')[1]
+        console.log(data.cert)
+        var icon2
+        // if (data.r_name == true) {
+          switch(r_name) {
+            case 'wheelchair':
+              icon2 = 'cert.png'
+              break;
+            case 'cert':
+              data.cert == true ? icon2 = "<%= asset_path 'cert.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              break;
+            case 'defib':
+              icon2 = 'cert.png'
+              break;
+            case 'first':
+              data.first_aid == true ? icon2 = "<%= asset_path 'medical.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
+              break;
+            case 'backhoe':
+              data.back_hoe == true ? icon2 = "<%= asset_path 'medical.png' %>" : icon2 = "<%= asset_path 'greaicon.png' %>"
+              break;
+          }
+           var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(data.latitude, data.longitude),
+              map: map,
+              icon: icon2,
+              title: 'hello'
+            });
+        // } else {
+          // icon = "<%= asset_path 'person.png' %>"
+        // }
+      })
+      // 
+      //   console.log(icon)
        // $('.resource_cert').on('click', function() {
-          icon = "<%= asset_path 'cert.png' %>"
-          console.log('cert')
-          console.log(icon)
-        // })
-       } else {
-        icon = "<%= asset_path 'person.png' %>"
-       }
+       //    if (data.cert == true) {
+       //      icon2 = "<%= asset_path 'cert.png' %>"
+       //       var marker = new google.maps.Marker({
+       //        position: new google.maps.LatLng(data.latitude, data.longitude),
+       //        map: map,
+       //        icon: icon2,
+       //        title: 'hello'
+       //      });
+       //    }
+       //  })
+     
 
       
 

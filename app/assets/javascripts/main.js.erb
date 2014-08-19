@@ -328,19 +328,19 @@ function user_data() {
         // if (data.r_name == true) {
           switch(r_name) {
             case 'wheelchair':
-              icon2 = 'cert.png'
+              data.wheel_chair == true ? icon2 = "<%= asset_path 'wheel.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
               break;
             case 'cert':
               data.cert == true ? icon2 = "<%= asset_path 'cert.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
               break;
             case 'defib':
-              icon2 = 'cert.png'
+              data.defibrillation == true ? icon2 = "<%= asset_path 'medical.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
               break;
             case 'first':
               data.first_aid == true ? icon2 = "<%= asset_path 'medical.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
               break;
             case 'backhoe':
-              data.back_hoe == true ? icon2 = "<%= asset_path 'medical.png' %>" : icon2 = "<%= asset_path 'greaicon.png' %>"
+              data.back_hoe == true ? icon2 = "<%= asset_path 'greaicon.png' %>" : icon2 = "<%= asset_path 'person.png' %>"
               break;
           }
            var marker = new google.maps.Marker({

@@ -311,16 +311,21 @@ function user_data() {
       // if (data.name == user) {
       //   icon = "<%= asset_path 'me.png' %>"
       // } else 
-      //  if (data.school == true) {
-      //   icon = "<%= asset_path 'SchoolIcon.png' %>"
-      // } else if (data.church == true) {
-      //   icon = "<%= asset_path 'churchicon.png' %>"
-      // }else {
-      //   icon = "<%= asset_path 'person.png' %>"
-      // }
+       if (data.school == true) {
+        icon = "<%= asset_path 'SchoolIcon.png' %>"
+      } else if (data.church == true) {
+        icon = "<%= asset_path 'churchicon.png' %>"
+      }else {
+        icon = "<%= asset_path 'person.png' %>"
+      }
       // console.log($('.resource_links'))
-
-      icon = "<%= asset_path 'person.png' %>"
+      // icon = "<%= asset_path 'person.png' %>"
+       var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data.latitude, data.longitude),
+        map: map,
+        icon: icon,
+        title: 'hello'
+      });
 
       $('.resource_links').on('click', function(){
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
@@ -328,28 +333,21 @@ function user_data() {
         // var icon2
           switch(r_name) {
             case 'wheelchair':
-              data.wheel_chair == true ? icon = "<%= asset_path 'wheel.png' %>" : icon = "<%= asset_path 'person.png' %>"
+              if(data.wheel_chair == true) {marker.setIcon("<%= asset_path 'wheel.png' %>")}
               break;
             case 'cert':
-              data.cert == true ? icon = "<%= asset_path 'cert.png' %>" : icon = "<%= asset_path 'person.png' %>"
+              if(data.cert == true) {marker.setIcon("<%= asset_path 'cert.png' %>")}
               break;
             case 'defib':
-              data.defibrillation == true ? icon = "<%= asset_path 'defib.png' %>" : icon = "<%= asset_path 'person.png' %>"
+              if(data.defibrillation == true) {marker.setIcon("<%= asset_path 'defib.png' %>")}
               break;
             case 'first':
-              data.first_aid == true ? icon = "<%= asset_path 'medical.png' %>" : icon = "<%= asset_path 'person.png' %>"
+              if(data.first_aid == true) {marker.setIcon("<%= asset_path 'medical.png' %>")}
               break;
             case 'backhoe':
-              data.back_hoe == true ? icon = "<%= asset_path 'greaicon.png' %>" : icon = "<%= asset_path 'person.png' %>"
+              if(data.back_hoe == true) {marker.setIcon("<%= asset_path 'greaicon.png' %>")}
               break;
           }
-          // return icon
-           var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(data.latitude, data.longitude),
-              map: map,
-              icon: icon,
-              title: 'hello'
-            });
       })
 
      
@@ -362,12 +360,7 @@ function user_data() {
       //   }
       // })
 
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.latitude, data.longitude),
-        map: map,
-        icon: icon,
-        title: 'hello'
-      });
+     
       marker.setMap(null);
 
       

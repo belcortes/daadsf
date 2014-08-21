@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722190150) do
+ActiveRecord::Schema.define(version: 20140821151452) do
 
   create_table "cooling_centers", force: true do |t|
     t.string   "name"
@@ -62,16 +62,12 @@ ActiveRecord::Schema.define(version: 20140722190150) do
     t.string   "last_sign_in_ip"
     t.boolean  "nert"
     t.boolean  "cert"
-    t.boolean  "gov_employee"
-    t.string   "organizations"
     t.string   "birth"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "user_type"
     t.boolean  "admin"
-    t.string   "provider"
     t.string   "uid"
     t.integer  "zip"
     t.integer  "zipcode_id"
@@ -102,18 +98,24 @@ ActiveRecord::Schema.define(version: 20140722190150) do
     t.string   "state"
     t.boolean  "engineer"
     t.boolean  "contractor"
-    t.boolean  "healthcare"
-    t.boolean  "mechanic"
     t.boolean  "church"
     t.boolean  "school"
-    t.boolean  "bomb_shelter"
-    t.boolean  "hurricane_shelter"
+    t.boolean  "underground_shelter"
+    t.boolean  "overnight_shelter"
     t.boolean  "oxygen"
     t.boolean  "wheel_chair"
     t.boolean  "defibrillation"
     t.string   "other"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "first_reponder"
+    t.boolean  "inspector"
+    t.boolean  "commercial"
+    t.boolean  "electrician"
+    t.boolean  "carpenter"
+    t.boolean  "operator"
+    t.boolean  "plumber"
+    t.boolean  "kitchen"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

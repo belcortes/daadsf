@@ -73,3 +73,15 @@ label {
   color: white;
   border: none;
 }
+#name_field {
+  margin-left: 19px;
+}
+#phone_field {
+  margin-left: 13px;
+}
+#email_field {
+  margin-left: 20px;
+}
+#zip_field {
+  margin-left: 34px;
+}

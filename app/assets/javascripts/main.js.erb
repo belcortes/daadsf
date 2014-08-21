@@ -47,20 +47,20 @@ function maps() {
     // var cert = new google.maps.KmlLayer({
     //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFCertUsersLayer.kml'
     // });
-    var wheelchair = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/SFSkills_Contractor_UserLayer.kml'
-    });
-    var heavy = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/SFHeavyEquipment_Chainsaw_UsersLayer.kml'
-    });
+    // var wheelchair = new google.maps.KmlLayer({
+    //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFSkills_Contractor_UserLayer.kml'
+    // });
+    // var heavy = new google.maps.KmlLayer({
+    //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFHeavyEquipment_Chainsaw_UsersLayer.kml'
+    // });
 
-    var defib_kml = new google.maps.KmlLayer({
-      url:"https://dl.dropboxusercontent.com/u/22757148/SFResource_Defib_UserLayer.kml",
-    });
+    // var defib_kml = new google.maps.KmlLayer({
+    //   url:"https://dl.dropboxusercontent.com/u/22757148/SFResource_Defib_UserLayer.kml",
+    // });
 
-    var first_aid = new google.maps.KmlLayer({
-      url:"https://dl.dropboxusercontent.com/u/22757148/SFSkills_FirstAid_UserLayer.kml",
-    });
+    // var first_aid = new google.maps.KmlLayer({
+    //   url:"https://dl.dropboxusercontent.com/u/22757148/SFSkills_FirstAid_UserLayer.kml",
+    // });
 
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
@@ -305,8 +305,7 @@ function user_data() {
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
-      console.log(data)
-      // console.log($('.name').val())
+
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>")
       // if (data.name == user) {
       //   icon = "<%= asset_path 'me.png' %>"
@@ -318,8 +317,7 @@ function user_data() {
       }else {
         icon = "<%= asset_path 'person.png' %>"
       }
-      // console.log($('.resource_links'))
-      // icon = "<%= asset_path 'person.png' %>"
+
        var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.latitude, data.longitude),
         map: map,
@@ -329,8 +327,6 @@ function user_data() {
 
       $('.resource_links').on('click', function(){
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
-        console.log(data.cert)
-        // var icon2
           switch(r_name) {
             case 'wheelchair':
               if(data.wheel_chair == true) {marker.setIcon("<%= asset_path 'wheel.png' %>")}
@@ -353,12 +349,14 @@ function user_data() {
      
 
       
+      $('.name').mouseover(function(){
 
-      // $('.name').on('hover', function(){
-      //   if($(this).text().trim() == data.name) {
-      //     icon = "<%= asset_path 'me.png' %>"
-      //   }
-      // })
+        if($(this).text().trim() == data.name) {
+          console.log('change them markers!')
+          marker.setIcon("<%= asset_path 'me.png' %>")
+          // marker.setSize(42, 68)
+        }
+      })
 
      
       marker.setMap(null);

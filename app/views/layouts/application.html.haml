@@ -1,3 +1,6 @@
+= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]
+= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice]
+= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
 / = devise_error_messages!
 / = include_gon
 = render 'layouts/header'
@@ -6,15 +9,15 @@
 #page-body
   #map 
 
-  / .container#neighbor-container
-  /   =image_tag asset_path('x.png'), :class => 'close'
-  /   = render 'layouts/neighborhoods'
-  / .container#zip-container
-  /   =image_tag asset_path('x.png'), :class => 'close'
-  /   = render 'layouts/zipcodes'
   .container#prepare-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/prepare'
+  .container#login-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'home/login_modal'
+  .container#signin-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'home/sign_up_modal'
   .container#advanced-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/advanced'
@@ -30,24 +33,13 @@
   .container#resilience-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/resiliency'
+  / .container#contact-container
+  /   =image_tag asset_path('x.png'), :class => 'close'
+  /   = render 'layouts/contact'
   / .container#results
   /   =image_tag asset_path('x.png'), :class => 'close'
   /   = render 'search/results'
       
-      
-  / .container#container-prepare
-  /   =image_tag asset_path('x.png'), :class => 'close'
-  /   %h3 Prepare for a Disaster
-  /   %p San Francisco County, California
-
-  / .container#neighborhoodshood-container
-  /   =image_tag asset_path('x.png'), :class => 'close'
-  /   %h3 Neighborhoods
-  /   %p San Francisco County, California
-  /   .height
-  /     = render 'layouts/neighborhoods'
-  / = link_to "Neighborhoods", "/neighborhoods", :remote => true
-    
 
   / %a(href='#')
   /   .map-buttons#neighbor Police and Fire
@@ -63,6 +55,10 @@
         %input.checkbox#zip-check{type: "checkbox"} Zipcodes
       %li
         %input.checkbox#neighbor-check{type: "checkbox"} Neighborhoods
+      %li
+        %input.checkbox#density-check{type: "checkbox"} Population Density
+      %li
+        %input.checkbox#super-check{type: "checkbox"} Supervisor Districts
   %a(href='#')
     .map-buttons#disaster Resiliency
   %a(href='#')
@@ -96,8 +92,11 @@
 
   = yield
 
-  / :javascript
-  /   var user = '#{escape_javascript current_user.name}';
+  :javascript
+
+    var a = $.getJSON('/user_session/user_sign_in', function(data){
+        console.log(data)
+    });
     
 
 

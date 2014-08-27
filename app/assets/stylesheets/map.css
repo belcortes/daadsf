@@ -139,6 +139,7 @@
   display: inline-block;
   z-index: 10;
   position: relative;
+  bottom: 280px;
 }
 .container2 {
   width: 400px;
@@ -152,6 +153,7 @@
   z-index: 10;
   position: relative;
   padding: 0 20px 20px 20px;
+  bottom: 280px;
 }
 .close {
   float: right;

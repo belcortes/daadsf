@@ -109,47 +109,51 @@
           .col-md-3
             Heavy Equipment
             %br
-            = f.check_box :dump_truck, {:checked=>current_user.dump_truck}
-            = f.label :dump_truck
-            %br
             = f.check_box :back_hoe, {:checked=>current_user.back_hoe}
-            = f.label :back_hoe
+            = f.label(:back_hoe,'Backhoe')
             %br
-            = f.check_box :crane, {:checked=>current_user.crane}
-            = f.label :crane
+            = f.check_box :bulldozer, {:checked=>current_user.bulldozer}
+            = f.label :bulldozer
+            %br
+            = f.check_box :dump_truck, {:checked=>current_user.dump_truck}
+            = f.label(:dump_truck,'Dump Truck')
+            %br
+            = f.check_box :excavator, {:checked=>current_user.excavator}
+            = f.label :excavator
             %br
             = f.check_box :fork_lift, {:checked=>current_user.fork_lift}
-            = f.label :fork_lift
+            = f.label(:fork_lift, 'Fork Lift')
             %br
-            = f.check_box :truck, {:checked=>current_user.truck}
-            = f.label :truck
-            %br
-            = f.check_box :air_compressor, {:checked=>current_user.air_compressor}
-            = f.label :air_compressor
-            %br
-            = f.check_box :bus, {:checked=>current_user.bus}
-            = f.label :bus
-            %br
-            = f.check_box :saw, {:checked=>current_user.saw}
-            = f.label :saw
-            %br
-            = f.check_box :lathe, {:checked=>current_user.lathe}
-            = f.label :lathe
-            %br
-            = f.check_box :plow, {:checked=>current_user.plow}
-            = f.label :plow
+            = f.check_box :front_loader, {:checked=>current_user.front_loader}
+            = f.label(:front_loader, 'Front Loader')
             %br
             = f.check_box :jack_hammer, {:checked=>current_user.jack_hammer}
-            = f.label :jack_hammer
+            = f.label(:jack_hammer, 'Jack Hammer')
             %br
+            = f.check_box :reclaimer, {:checked=>current_user.reclaimer}
+            = f.label :reclaimer
+            %br
+            = f.check_box :tractor, {:checked=>current_user.tractor}
+            = f.label :tractor
+            %br
+            = f.check_box :trencher, {:checked=>current_user.trencher}
+            = f.label :trencher
+            %br
+
           .col-md-3
             Light Equipment
+            %br
+            = f.check_box :axe, {:checked=>current_user.axe}
+            = f.label :axe
             %br
             = f.check_box :drill, {:checked=>current_user.drill}
             = f.label :drill
             %br
             = f.check_box :fuel, {:checked=>current_user.fuel}
             = f.label :fuel
+            %br
+            = f.check_box :goggles, {:checked=>current_user.goggles}
+            = f.label :goggles
             %br
             = f.check_box :hammer, {:checked=>current_user.hammer}
             = f.label :hammer

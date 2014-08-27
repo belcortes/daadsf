@@ -8,7 +8,8 @@
         - if current_user
           = current_user.email #, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
         - else
-          = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
+          / = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
+          #login Login
       - if current_user
         %li#myaccount
           %a(href='#') My Account
@@ -16,7 +17,8 @@
         - if current_user
           = link_to "Logout", destroy_user_session_path, :method => :delete
         - else
-          = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
+          #signin Sign Up
+          / # = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
   %ul#subnav
     / %li 
     /   / %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}

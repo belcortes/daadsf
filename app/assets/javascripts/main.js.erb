@@ -44,23 +44,13 @@ function maps() {
     var neighborhood_kml2 = new google.maps.KmlLayer({
       url: 'https://maps.google.com/maps/ms?ie=UTF8&hl=en&source=embed&dg=feature&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f13b9644a6edc2f'
     });
-    // var cert = new google.maps.KmlLayer({
-    //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFCertUsersLayer.kml'
-    // });
-    // var wheelchair = new google.maps.KmlLayer({
-    //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFSkills_Contractor_UserLayer.kml'
-    // });
-    // var heavy = new google.maps.KmlLayer({
-    //   url: 'https://dl.dropboxusercontent.com/u/22757148/SFHeavyEquipment_Chainsaw_UsersLayer.kml'
-    // });
-
-    // var defib_kml = new google.maps.KmlLayer({
-    //   url:"https://dl.dropboxusercontent.com/u/22757148/SFResource_Defib_UserLayer.kml",
-    // });
-
-    // var first_aid = new google.maps.KmlLayer({
-    //   url:"https://dl.dropboxusercontent.com/u/22757148/SFSkills_FirstAid_UserLayer.kml",
-    // });
+    var density = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/SF_Population_Density.kml'
+    });
+    var supervisor = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/Supervisor_Districts.kml'
+    });
+   
 
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
@@ -77,44 +67,8 @@ function maps() {
     
     $('.resource_cert').on('click', function(){
       $(this).toggleClass('active');
-      // if($(this).attr('class') == 'resource_links resource_cert active'){
-      //   cert.setMap(map);
-      // } else {
-      //   cert.setMap(null);
-      // }
     })
-    // $('.resource_wheelchair').on('click', function(){
-    //   $(this).toggleClass('active');
-    //   if($(this).attr('class') == 'resource_links resource_wheelchair active'){
-    //     wheelchair.setMap(map);
-    //   } else {
-    //     wheelchair.setMap(null);
-    //   }
-    // })
-    // $('.resource_backhoe').on('click', function(){
-    //   $(this).toggleClass('active');
-    //   if($(this).attr('class') == 'resource_links resource_backhoe active'){
-    //     heavy.setMap(map);
-    //   } else {
-    //     heavy.setMap(null);
-    //   }
-    // })
-    // $('.resource_defib').on('click', function(){
-    //   $(this).toggleClass('active');
-    //   if($(this).attr('class') == 'resource_links resource_defib active'){
-    //     defib_kml.setMap(map);
-    //   } else {
-    //     defib_kml.setMap(null);
-    //   }
-    // })
-    // $('.resource_first').on('click', function(){
-    //   $(this).toggleClass('active');
-    //   if($(this).attr('class') == 'resource_links resource_first active'){
-    //     first_aid.setMap(map);
-    //   } else {
-    //     first_aid.setMap(null);
-    //   }
-    // })
+    
     $('#resiliency').on('click', function(){
       $('.container').hide();
       $('.container2').hide();
@@ -140,7 +94,6 @@ function maps() {
         $('.container2').hide();
         if ($('#'+check_id).is(':checked') == false) {
           switch (check_id) {
-            
             case 'zip-check':
               sf_zipcodes.setMap(null);
               break;
@@ -148,17 +101,21 @@ function maps() {
               neighborhood_kml.setMap(null);
               neighborhood_kml2.setMap(null);
               break;
-          
             case 'high_liq':
               low_liq_kml.setMap(null);
               break;
             case 'low_liq':
               high_liq_kml.setMap(null);
               break;
+            case 'super-check':
+              supervisor.setMap(null);
+              break;
+            case 'density-check':
+              density.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
-
             case 'zip-check':
               sf_zipcodes.setMap(map);
               sf_zipcodes.set('preserveViewport', true);
@@ -178,7 +135,14 @@ function maps() {
               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
               // map.setZoom(12); 
               high_liq_kml.set('preserveViewport', true);
- 
+              break;
+            case 'super-check':
+              supervisor.setMap(map);
+              supervisor.set('preserveViewport', true);
+              break;
+            case 'density-check':
+              density.setMap(map);
+              density.set('preserveViewport', true);
               break;
           }
         }
@@ -308,9 +272,9 @@ function user_data() {
 
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>")
       // if (data.name == user) {
-      //   icon = "<%= asset_path 'me.png' %>"
+        // icon = "<%= asset_path 'me.png' %>"
       // } else 
-       if (data.school == true) {
+      if (data.school == true) {
         icon = "<%= asset_path 'SchoolIcon.png' %>"
       } else if (data.church == true) {
         icon = "<%= asset_path 'churchicon.png' %>"
@@ -329,19 +293,46 @@ function user_data() {
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
           switch(r_name) {
             case 'wheelchair':
-              if(data.wheel_chair == true) {marker.setIcon("<%= asset_path 'wheel.png' %>")}
+              if(data.wheel_chair == true) {marker.setIcon("<%= asset_path 'wheelchair.png' %>")}
               break;
             case 'cert':
-              if(data.cert == true) {marker.setIcon("<%= asset_path 'cert.png' %>")}
+              if(data.cert == true) {marker.setIcon("<%= asset_path 'cert2.png' %>")}
+              break;
+            case 'nert':
+              if(data.nert == true) {marker.setIcon("<%= asset_path 'nert.png' %>")}
               break;
             case 'defib':
-              if(data.defibrillation == true) {marker.setIcon("<%= asset_path 'defib.png' %>")}
+              if(data.defibrillation == true) {marker.setIcon("<%= asset_path 'defib2.png' %>")}
               break;
             case 'first':
               if(data.first_aid == true) {marker.setIcon("<%= asset_path 'medical.png' %>")}
               break;
             case 'backhoe':
               if(data.back_hoe == true) {marker.setIcon("<%= asset_path 'greaicon.png' %>")}
+              break;
+            case 'hammer':
+              if(data.hammer == true) {marker.setIcon("<%= asset_path 'hammer.png' %>")}
+              break;
+            case 'fuel':
+              if(data.fuel == true) {marker.setIcon("<%= asset_path 'fuel.png' %>")}
+              break;
+            case 'shovel':
+              if(data.shovel == true) {marker.setIcon("<%= asset_path 'shovel.png' %>")}
+              break;
+            case 'kitchen':
+              if(data.kitchen == true) {marker.setIcon("<%= asset_path 'kitchen.png' %>")}
+              break;
+            case 'electrician':
+              if(data.electrician == true) {marker.setIcon("<%= asset_path 'electrician.png' %>")}
+              break;
+            case 'generator':
+              if(data.power_generator == true) {marker.setIcon("<%= asset_path 'generator.png' %>")}
+              break;
+            case 'overnight':
+              if(data.overnight_shelter == true) {marker.setIcon("<%= asset_path 'shelter2.png' %>")}
+              break;
+            case 'underground':
+              if(data.underground_shelter == true) {marker.setIcon("<%= asset_path 'shelter.png' %>")}
               break;
           }
       })
@@ -350,13 +341,25 @@ function user_data() {
 
       
       $('.name').mouseover(function(){
+        var pinIcon = new google.maps.MarkerImage(
+          icon,
+          new google.maps.Size(42, 68));
+        
 
         if($(this).text().trim() == data.name) {
           console.log('change them markers!')
-          marker.setIcon("<%= asset_path 'me.png' %>")
-          // marker.setSize(42, 68)
-        }
+          // marker.setIcon("<%= asset_path 'me.png' %>")
+          // marker.setAnimation(google.maps.Animation.BOUNCE);
+          marker.setIcon(new google.maps.MarkerImage(
+                          icon,
+                          null,
+                          null,
+                          new google.maps.Point(20, 52))
+                              )}
       })
+      // $('.name').mouseout(function(){
+      //   marker.setAnimation(null);
+      // })
 
      
       marker.setMap(null);
@@ -364,7 +367,9 @@ function user_data() {
       
       bounds.extend(marker.position);
       $('#community').on('click', function(){
+         console.log('open mofo')
          if ($(this).attr('class') == 'map-buttons active') {
+
           $('#users').show();
           marker.setMap(map);
           map.fitBounds(bounds);
@@ -477,7 +482,7 @@ function button_clicks() {
     $('.container2').hide();
     $('#prepare-container').show();
   })
-  
+    
   $('#advanced-search').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
@@ -493,6 +498,17 @@ function button_clicks() {
     $('.container2').hide();
     $('#account-container').show();
   })
+  $('#login').on('click', function(){
+    $('.container').hide();
+    $('.container2').hide();
+    $('#login-container').show();
+  })
+  // $('.contact').on('click', function(){
+  //   $('.container').hide();
+  //   $('.container2').hide();
+  //   $('#contact-container').show();
+  // })
+
 }
 
 

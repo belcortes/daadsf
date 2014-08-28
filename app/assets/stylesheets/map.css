@@ -139,7 +139,7 @@
   display: inline-block;
   z-index: 10;
   position: relative;
-  bottom: 280px;
+  top: -280px;
 }
 .container2 {
   width: 400px;
@@ -153,7 +153,7 @@
   z-index: 10;
   position: relative;
   padding: 0 20px 20px 20px;
-  bottom: 280px;
+  top: -280px;
 }
 .close {
   float: right;
@@ -174,9 +174,10 @@
   margin-right: 5px !important;
 }
 .blue {
-  color: #428bca;
+  color: #0062A0;
   font-size: 19px;
   text-decoration: underline;
+  cursor: pointer;
 }
 .user-attr {
   font-weight: normal;

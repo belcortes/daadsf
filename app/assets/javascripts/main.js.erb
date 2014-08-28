@@ -65,9 +65,6 @@ function maps() {
 
     cloudLayer.setMap(map);
     
-    $('.resource_cert').on('click', function(){
-      $(this).toggleClass('active');
-    })
     
     $('#resiliency').on('click', function(){
       $('.container').hide();
@@ -290,6 +287,9 @@ function user_data() {
       });
 
       $('.resource_links').on('click', function(){
+        console.log($(this).attr('class'))
+        $(this).toggleClass('active');
+        $('.resource_links').not($(this)).removeClass('active');
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
           switch(r_name) {
             case 'wheelchair':
@@ -337,37 +337,32 @@ function user_data() {
           }
       })
 
-     
-
-      
+       
       $('.name').mouseover(function(){
-        var pinIcon = new google.maps.MarkerImage(
-          icon,
-          new google.maps.Size(42, 68));
-        
-
         if($(this).text().trim() == data.name) {
           console.log('change them markers!')
-          // marker.setIcon("<%= asset_path 'me.png' %>")
-          // marker.setAnimation(google.maps.Animation.BOUNCE);
-          marker.setIcon(new google.maps.MarkerImage(
-                          icon,
-                          null,
-                          null,
-                          new google.maps.Point(20, 52))
-                              )}
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+          // marker.setIcon(new google.maps.MarkerImage(
+                          // icon,
+                          // null,
+                          // null,
+                          // new google.maps.Point(20, 52))
+                          //     )
+        }
       })
-      // $('.name').mouseout(function(){
-      //   marker.setAnimation(null);
-      // })
+      $('.name').mouseout(function(){
+        marker.setAnimation(null);
+      })
 
      
       marker.setMap(null);
-
+      $('#users').children().first().on('click', function(){
+        $('#community').removeClass('active');
+        marker.setMap(null);
+      })
       
       bounds.extend(marker.position);
       $('#community').on('click', function(){
-         console.log('open mofo')
          if ($(this).attr('class') == 'map-buttons active') {
 
           $('#users').show();
@@ -380,6 +375,13 @@ function user_data() {
         var infowindow = new google.maps.InfoWindow({
           content: contentInfo
         });
+
+        $('.name').on('click', function(){
+          if($(this).text().trim() == data.name) {
+            infowindow.open(map,marker);
+          }
+        })
+
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map,marker);
         });
@@ -503,6 +505,7 @@ function button_clicks() {
     $('.container2').hide();
     $('#login-container').show();
   })
+  
   // $('.contact').on('click', function(){
   //   $('.container').hide();
   //   $('.container2').hide();

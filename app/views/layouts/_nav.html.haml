@@ -8,8 +8,8 @@
         - if current_user
           = current_user.email #, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
         - else
-          / = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
-          #login Login
+          = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
+          / #login Login
       - if current_user
         %li#myaccount
           %a(href='#') My Account

@@ -1,11 +1,9 @@
-<!-- <div class="modal fade in" id="login"> -->
-  <!-- <div class="modal-header"> -->
-    <!-- <button class="close" data-dismiss="modal">x</button> -->
-    
+<div class="modal fade in" id="login">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">x</button>
     <h2>Sign in</h2>
-  <!-- </div> -->
-  <!-- <div class="modal-body"> -->
-    <div class='height'>
+  </div>
+  <div class="modal-body">
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div><%= f.label :email %><br />
       <%= f.email_field :email, :autofocus => true %></div>
@@ -16,11 +14,9 @@
       <% end -%>
       <%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
       <% end %>
-
-    <!-- </div> -->
-    <!-- <div class="modal-footer"> -->
+    <div class="modal-footer">
       <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
       <!-- <%= render "devise/shared/links" %> -->
-    <!-- </div> -->
-  <!-- </div> -->
+    </div>
+  </div>
     </div>

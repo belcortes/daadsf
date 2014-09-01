@@ -285,18 +285,37 @@ function user_data() {
         icon: icon,
         title: 'hello'
       });
+       
 
       $('.resource_links').on('click', function(){
-        console.log($(this).attr('class'))
-        $(this).toggleClass('active');
+
         $('.resource_links').not($(this)).removeClass('active');
+
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
+        console.log(r_name)
+        if($(this).hasClass('active') == true) {
           switch(r_name) {
             case 'wheelchair':
-              if(data.wheel_chair == true) {marker.setIcon("<%= asset_path 'wheelchair.png' %>")}
+              if(data.wheel_chair == true) {
+                marker.setIcon("<%= asset_path 'wheelchair.png' %>")
+              // } else if(data.school == true){
+              //   marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+              // } else if(data.church == true){
+              //   marker.setIcon("<%= asset_path 'churchicon.png' %>")
+              // } else {
+              //   marker.setIcon("<%= asset_path 'person.png' %>")
+              }
               break;
             case 'cert':
-              if(data.cert == true) {marker.setIcon("<%= asset_path 'cert2.png' %>")}
+              if(data.cert == true) {
+                marker.setIcon("<%= asset_path 'cert2.png' %>")
+              // } else if(data.school == true){
+              //   marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+              // } else if(data.church == true){
+              //   marker.setIcon("<%= asset_path 'churchicon.png' %>")
+              // } else {
+              //   marker.setIcon("<%= asset_path 'person.png' %>")
+              }
               break;
             case 'nert':
               if(data.nert == true) {marker.setIcon("<%= asset_path 'nert.png' %>")}
@@ -334,7 +353,44 @@ function user_data() {
             case 'underground':
               if(data.underground_shelter == true) {marker.setIcon("<%= asset_path 'shelter.png' %>")}
               break;
+            case 'engineer':
+              if(data.engineer == true) {marker.setIcon("<%= asset_path 'engineer.png' %>")}
+              break;
+            case 'inspector':
+              if(data.inspector == true) {marker.setIcon("<%= asset_path 'inspector.png' %>")}
+              break;
+            case 'safe':
+              if(data.safe == true) {marker.setIcon("<%= asset_path 'safe.png' %>")}
+              break;
+            case 'jackhammer':
+              if(data.jack_hammer == true) {marker.setIcon("<%= asset_path 'jackhammer.png' %>")}
+              break;
+            case 'dumptruck':
+              if(data.dump_truck == true) {marker.setIcon("<%= asset_path 'dumptruck.png' %>")}
+              break;
+            case 'oxygen':
+              if(data.oxygen == true) {marker.setIcon("<%= asset_path 'oxygen.png' %>")}
+              break;
+            case 'tractor':
+              if(data.tractor == true) {marker.setIcon("<%= asset_path 'tractor.png' %>")}
+              break;
+            case 'goggles':
+              if(data.goggles == true) {marker.setIcon("<%= asset_path 'goggles.png' %>")}
+              break;
+          } 
+        } else {
+            console.log('this aint active')
+            $(this).removeClass('active');
+            marker.setIcon("<%= asset_path 'person.png' %>")
+            // if (data.school == true) {
+            //   marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+            // } else if (data.church == true) {
+            //   marker.setIcon("<%= asset_path 'churchicon.png' %>")
+            // }else {
+            //   marker.setIcon("<%= asset_path 'person.png' %>")
+            // }
           }
+          
       })
 
        
@@ -534,6 +590,10 @@ $(function() {
   })
   maps();
   button_clicks();
+
+  $('.resource_links').on('click', function(){
+    $(this).toggleClass('active');
+  })
 
   $('#community').on('click', function() {
     $(this).toggleClass('active');

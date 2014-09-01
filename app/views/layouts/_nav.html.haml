@@ -17,8 +17,8 @@
         - if current_user
           = link_to "Logout", destroy_user_session_path, :method => :delete
         - else
-          #signin Sign Up
-          / # = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
+          / #signin Sign Up
+          = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
   %ul#subnav
     / %li 
     /   / %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}

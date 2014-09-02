@@ -33,12 +33,20 @@ CEAD::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # config.action_mailer.default_url_options = { :host => config.app_domain }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com', 
-    port: '587',
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
-    # authentication => :plain,
-    # domain => ENV["GMAIL_DOMAIN"]
+                    :address        => "smtp.gmail.com",
+                    :port           => 587,
+                    :authentication => :plain,
+                    :user_name      => "isabel@appallicious.com",
+                    :password       => "morfina020589",
+                    :openssl_verify_mode  => 'none'
   }
 end
+
+  # ActionMailer::Base.smtp_settings = {
+  #                   :address        => "smtp.gmail.com",
+  #                   :port           => 587,
+  #                   :authentication => :plain,
+  #                   :user_name      => "<my gmail>@gmail.com",
+  #                   :password       => "<my gmail password>",
+  #                   :openssl_verify_mode  => 'none'
+  # } 

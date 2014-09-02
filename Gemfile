@@ -27,8 +27,8 @@ gem 'turbolinks'
 
 gem 'unicorn'
 
-# gem 'mail_form'
-# gem 'simple_form'
+gem 'mail_form', ">= 1.3.0"
+gem 'simple_form'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

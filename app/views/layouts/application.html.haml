@@ -8,6 +8,8 @@
 #page-body
   #map 
 
+  = yield
+
   .container#prepare-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/prepare'
@@ -89,7 +91,7 @@
   %a(href='http://appallicious.com/')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
 
-  = yield
+  
 
   / :javascript
 

@@ -73,6 +73,9 @@ label {
   color: white;
   border: none;
 }
+.hidden {
+  display: none;
+}
 #name_field {
   margin-left: 24px;
 }

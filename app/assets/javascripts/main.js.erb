@@ -489,7 +489,7 @@ function data_markers() {
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address) 
             
             
-          geocoder.geocode( { 'address': data.address}, function(results, status) {
+          geocoder.geocode( { 'address': data.address+data.address2+data.city+'CA'+data.zip}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
 
               map.setCenter(results[0].geometry.location);

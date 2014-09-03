@@ -289,8 +289,8 @@ function user_data() {
 
 
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
-        var path = "/assets/"+r_name+".png"
-        // var path = "<%= asset_path '"+r_name+".png' %>"
+        // var path = "/assets/"+r_name+".png"
+        var path = "<%= asset_path '"+r_name+".png' %>"
         console.log(path)
         if($(this).hasClass('active') == true) {
           if(data[r_name] == true) {

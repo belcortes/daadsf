@@ -290,8 +290,6 @@ function user_data() {
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
 
         var path = "/images/"+r_name+".png"
-        console.log(path)
-        console.log('^^^^^ path should be images')
 
          if (data.school == true) {
             marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
@@ -490,7 +488,6 @@ $(function() {
   // } else {
   //   console.log('no sessions')
   // }
-  console.log('PRINT SOMETHING!')
 
 
   $('.container').hide();

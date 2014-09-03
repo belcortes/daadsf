@@ -156,9 +156,9 @@ function maps() {
 }
 
 function resource_markers() {
-  var icon = "<%= asset_path 'policemarkercolored.png' %>"
-  var icon2 = "<%= asset_path 'firemanmarkercolored.png' %>"
-  var icon3 = "<%= asset_path 'hospitalmarkercolored.png' %>"
+  var icon = "/images/policemarkercolored.png"
+  var icon2 = "/images/firemanmarkercolored.png"
+  var icon3 = "/images/hospitalmarkercolored.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON("/resource", function(json) {
@@ -269,11 +269,11 @@ function user_data() {
         // icon = "<%= asset_path 'me.png' %>"
       // } else 
       if (data.school == true) {
-        icon = "<%= asset_path 'SchoolIcon.png' %>"
+        icon = "/images/SchoolIcon.png"
       } else if (data.church == true) {
-        icon = "<%= asset_path 'churchicon.png' %>"
+        icon = "/images/churchicon.png"
       }else {
-        icon = "<%= asset_path 'person.png' %>"
+        icon = "/images/person.png"
       }
 
        var marker = new google.maps.Marker({
@@ -292,11 +292,11 @@ function user_data() {
         var path = "/images/"+r_name+".png"
 
          if (data.school == true) {
-            marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+            marker.setIcon("/images/SchoolIcon.png")
          } else if (data.church == true) {
-            marker.setIcon("<%= asset_path 'churchicon.png' %>")
+            marker.setIcon("/images/churchicon.png")
          } else {
-            marker.setIcon("<%= asset_path 'person.png' %>")
+            marker.setIcon("/images/person.png")
          }
         if($(this).hasClass('active') == true) {
           if(data[r_name] == true) {

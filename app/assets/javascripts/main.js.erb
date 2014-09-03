@@ -287,96 +287,24 @@ function user_data() {
       $('.resource_links').on('click', function(){
         $('.resource_links').not($(this)).removeClass('active');
 
-
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
+
         var path = "/images/"+r_name+".png"
-        // var path = "http://daadsf.herokuapp.com/assets/"+r_name+".png"
-        // var path = "<%= image_path '"+r_name+".png' %>"
         console.log(path)
+        
+         if (data.school == true) {
+            marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+         } else if (data.church == true) {
+            marker.setIcon("<%= asset_path 'churchicon.png' %>")
+         } else {
+            marker.setIcon("<%= asset_path 'person.png' %>")
+         }
         if($(this).hasClass('active') == true) {
           if(data[r_name] == true) {
             marker.setIcon(path)
-          } else if(data.school == true){
-            marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
-          } else if(data.church == true){
-            marker.setIcon("<%= asset_path 'churchicon.png' %>")
-          } else {
-            marker.setIcon("<%= asset_path 'person.png' %>")
           }
-          // switch(r_name) {
-          //   case 'wheelchair':
-          //     if(data.wheel_chair == true) {
-          //       marker.setIcon("<%= asset_path 'wheelchair.png' %>")
-          //     }
-          //     break;
-
-          //   case 'defib':
-          //     if(data.defibrillation == true) {marker.setIcon("<%= asset_path 'defib2.png' %>")}
-          //     break;
-          //   case 'first':
-          //     if(data.first_aid == true) {marker.setIcon("<%= asset_path 'medical.png' %>")}
-          //     break;
-          //   case 'backhoe':
-          //     if(data.back_hoe == true) {marker.setIcon("<%= asset_path 'greaicon.png' %>")}
-          //     break;
-          //   case 'hammer':
-          //     if(data.hammer == true) {marker.setIcon("<%= asset_path 'hammer.png' %>")}
-          //     break;
-          //   case 'fuel':
-          //     if(data.fuel == true) {marker.setIcon("<%= asset_path 'fuel.png' %>")}
-          //     break;
-          //   case 'shovel':
-          //     if(data.shovel == true) {marker.setIcon("<%= asset_path 'shovel.png' %>")}
-          //     break;
-          //   case 'kitchen':
-          //     if(data.kitchen == true) {marker.setIcon("<%= asset_path 'kitchen.png' %>")}
-          //     break;
-          //   case 'electrician':
-          //     if(data.electrician == true) {marker.setIcon("<%= asset_path 'electrician.png' %>")}
-          //     break;
-          //   case 'generator':
-          //     if(data.power_generator == true) {marker.setIcon("<%= asset_path 'generator.png' %>")}
-          //     break;
-          //   case 'overnight':
-          //     if(data.overnight_shelter == true) {marker.setIcon("<%= asset_path 'shelter2.png' %>")}
-          //     break;
-          //   case 'underground':
-          //     if(data.underground_shelter == true) {marker.setIcon("<%= asset_path 'shelter.png' %>")}
-          //     break;
-          //   case 'engineer':
-          //     if(data.engineer == true) {marker.setIcon("<%= asset_path 'engineer.png' %>")}
-          //     break;
-          //   case 'inspector':
-          //     if(data.inspector == true) {marker.setIcon("<%= asset_path 'inspector.png' %>")}
-          //     break;
-          //   case 'safe':
-          //     if(data.safe == true) {marker.setIcon("<%= asset_path 'safe.png' %>")}
-          //     break;
-          //   case 'jackhammer':
-          //     if(data.jack_hammer == true) {marker.setIcon("<%= asset_path 'jackhammer.png' %>")}
-          //     break;
-          //   case 'dumptruck':
-          //     if(data.dump_truck == true) {marker.setIcon("<%= asset_path 'dumptruck.png' %>")}
-          //     break;
-          //   case 'oxygen':
-          //     if(data.oxygen == true) {marker.setIcon("<%= asset_path 'oxygen.png' %>")}
-          //     break;
-          //   case 'tractor':
-          //     if(data.tractor == true) {marker.setIcon("<%= asset_path 'tractor.png' %>")}
-          //     break;
-          //   case 'goggles':
-          //     if(data.goggles == true) {marker.setIcon("<%= asset_path 'goggles.png' %>")}
-          //     break;
-          // } 
         } else {
             $(this).removeClass('active');
-            if (data.school == true) {
-              marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
-            } else if (data.church == true) {
-              marker.setIcon("<%= asset_path 'churchicon.png' %>")
-            }else {
-              marker.setIcon("<%= asset_path 'person.png' %>")
-            }
           }
           
       })

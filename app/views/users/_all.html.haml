@@ -23,11 +23,11 @@
         - if attr_value == true && attr_name == 'safe'
           .resource_links.resource_safe
             &nbsp;&nbsp; - SAFE
-        - if attr_value == true && attr_name == 'first_aid'
-          .resource_links.resource_first
+        - if attr_value == true && attr_name == 'firstaid'
+          .resource_links.resource_firstaid
             &nbsp;&nbsp; - First Aid
-        - if attr_value == true && attr_name == 'first_reponder'
-          .resource_links.resource_firstr
+        - if attr_value == true && attr_name == 'firstreponder'
+          .resource_links.resource_firstresponder
             &nbsp;&nbsp; - First Responder
     Skills:
     .user-attr
@@ -36,7 +36,7 @@
           .resource_links.resource_inspector
             &nbsp;&nbsp; - Building Inspector
         - if attr_value == true && attr_name == 'carpenter'
-          .resource_links.carpenter
+          .resource_links.resource_carpenter
             &nbsp;&nbsp; - Carpenter
         - if attr_value == true && attr_name == 'commercial'
           .resource_links.resource_commercial
@@ -56,56 +56,56 @@
     &nbsp;&nbsp; Facilities
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
-        - if attr_value == true && attr_name == 'power_generator'
+        - if attr_value == true && attr_name == 'generator'
           .resource_links.resource_generator
             &nbsp;&nbsp; - Back-up Generator Facility
         - if attr_value == true && attr_name == 'kitchen'
           .resource_links.resource_kitchen
             &nbsp;&nbsp; - Commercial Kitchen
-        - if attr_value == true && attr_name == 'overnight_shelter'
+        - if attr_value == true && attr_name == 'overnight'
           .resource_links.resource_overnight
             &nbsp;&nbsp; - Overnight Shelter
-        - if attr_value == true && attr_name == 'underground_shelter'
+        - if attr_value == true && attr_name == 'underground'
           .resource_links.resource_underground
             &nbsp;&nbsp; - Underground Shelter
     &nbsp;&nbsp; Medical
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'defibrillation'
-          .resource_links.resource_defib
+          .resource_links.resource_defibrillation
             &nbsp;&nbsp; - Defibrillation
-        - if attr_value == true && attr_name == 'emergency_kit'
+        - if attr_value == true && attr_name == 'emergency'
           .resource_links.resource_emergency
             &nbsp;&nbsp; - Emergency Kit
         - if attr_value == true && attr_name == 'oxygen'
           .resource_links.resource_oxygen
             &nbsp;&nbsp; - Oxygen
-        - if attr_value == true && attr_name == 'wheel_chair'
+        - if attr_value == true && attr_name == 'wheelchair'
           .resource_links.resource_wheelchair
             &nbsp;&nbsp; - Wheelchair
         
     &nbsp;&nbsp; Equipment - Heavy
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
-        - if attr_value == true && attr_name == 'back_hoe'
+        - if attr_value == true && attr_name == 'backhoe'
           .resource_links.resource_backhoe
             &nbsp;&nbsp;&nbsp; - Back Hoe
         - if attr_value == true && attr_name == 'bulldozer'
           .resource_links.resource_bulldozer
             &nbsp;&nbsp;&nbsp; - Bulldozer
-        - if attr_value == true && attr_name == 'dump_truck'
+        - if attr_value == true && attr_name == 'dumptruck'
           .resource_links.resource_dumptruck
             &nbsp;&nbsp;&nbsp; - Dump Truck
         - if attr_value == true && attr_name == 'excavator'
           .resource_links.resource_excavator
             &nbsp;&nbsp;&nbsp; - Excavator
-        - if attr_value == true && attr_name == 'fork_lift'
+        - if attr_value == true && attr_name == 'forklift'
           .resource_links.resource_forklift
             &nbsp;&nbsp;&nbsp; - Fork Lift
-        - if attr_value == true && attr_name == 'front_loader'
+        - if attr_value == true && attr_name == 'frontloader'
           .resource_links.resource_frontloader
             &nbsp;&nbsp;&nbsp; - Front Loader
-        - if attr_value == true && attr_name == 'jack_hammer'
+        - if attr_value == true && attr_name == 'jackhammer'
           .resource_links.resource_jackhammer
             &nbsp;&nbsp;&nbsp; - Jack Hammer
         - if attr_value == true && attr_name == 'reclaimer'

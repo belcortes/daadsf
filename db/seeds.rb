@@ -77,29 +77,6 @@ n67 = Neighborhood.create(name: "Western Addition")
 n68 = Neighborhood.create(name: "West Portal")
 n69 = Neighborhood.create(name: "Westwood Highlands")
 
-z1 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20001')
-z2 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20002')
-z3 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20003')
-z4 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20005')
-z5 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20007')
-z6 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20008')
-z7 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20009')
-z8 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20010')
-z9 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20011')
-z10 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20012')
-z11 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20015')
-z12 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20016')
-z13 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20017')
-z14 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20018')
-z15 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20019')
-z16 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20020')
-z17 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20024')
-z18 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20032')
-z19 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20037')
-z50 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20036')
-z51 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20006')
-z52 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20004')
-z53 = Zipcode.create(city:'Washington', state:'DC', zip_number:'20250')
 
 z20 = Zipcode.create(city:'San Francisco', state:'CA', zip_number:'94107')
 z21 = Zipcode.create(city:'San Francisco', state:'CA', zip_number:'94133')
@@ -188,72 +165,15 @@ r51 = Resource.create(street_number: 461, street_name:'6TH', street_type:'AVE', 
 r52 = Resource.create(street_number: 1, street_name:'JOHN YOUNG', street_type:'LN', station_type:'Police Station', lat: 37.724678 , lng: -122.446214, location: 'SF')
 r53 = Resource.create(street_number: 2345, street_name:'24TH', street_type:'AVE', station_type:'Police Station', lat: 37.743745 , lng: -122.481477, location: 'SF')
 r54 = Resource.create(street_number: 301, street_name:'EDDY', street_type:'ST', station_type:'Police Station', lat: 37.783665 , lng: -122.412901, location: 'SF')
-r108 = Resource.create(street_number: 1001, street_name:'Potrero', street_type:'AVE', station_type:'Hospital', lat: 37.755413 , lng: -122.404625, location: 'SF')
-r109 = Resource.create(street_number: 900, street_name:'Hyde', street_type:'ST', station_type:'Hospital', lat: 37.789630 , lng: -122.417004, location: 'SF')
+r55 = Resource.create(street_number: 1001, street_name:'Potrero', street_type:'AVE', station_type:'Hospital', lat: 37.755413 , lng: -122.404625, location: 'SF')
+r56 = Resource.create(street_number: 900, street_name:'Hyde', street_type:'ST', station_type:'Hospital', lat: 37.789630 , lng: -122.417004, location: 'SF')
 
-# DC Police Stations, Fire Stations and Hospitals
-
-r55 = Resource.create(street_number: 101, street_name:'Atlantic', street_type:'ST SE', station_type:'Fire Station', lat: 38.8309331, lng: -77.00524451, location: 'DC')
-r56 = Resource.create(street_number: 2225, street_name:'M', street_type:'ST NW', station_type:'Fire Station', lat: 38.90549429, lng: -77.04979813, location: 'DC')
-r57 = Resource.create(street_number: 500, street_name:'F', street_type:'ST NW', station_type:'Fire Station', lat: 38.89707407, lng: -77.01948669, location: 'DC')
-r58 = Resource.create(street_number: 439, street_name:'New Jersey', street_type:'AVE NW', station_type:'Fire Station', lat: 38.89583446, lng: -77.01090043, location: 'DC')
-r59 = Resource.create(street_number: 2531, street_name:'Sherman', street_type:'AVE NW', station_type:'Fire Station', lat: 38.92339656, lng: -77.02502519, location: 'DC')
-r60 = Resource.create(street_number: 3412, street_name:'Dent', street_type:'PL NW', station_type:'Fire Station', lat: 38.91143794, lng: -77.06843588, location: 'DC')
-r61 = Resource.create(street_number: 1300, street_name:'New Jersey', street_type:'AVE NW', station_type:'Fire Station', lat: 38.90769057, lng: -77.01607757, location: 'DC')
-r62 = Resource.create(street_number: 1101, street_name:'Half', street_type:'ST SW', station_type:'Fire Station', lat: 38.87692863, lng: -77.01122978, location: 'DC')
-r63 = Resource.create(street_number: 1520, street_name:'C', street_type:'ST SE', station_type:'Fire Station', lat: 38.88553986, lng: -76.98294358, location: 'DC')
-r64 = Resource.create(street_number: 1617, street_name:'U', street_type:'ST NW', station_type:'Fire Station', lat: 38.91729647, lng: -77.03752553, location: 'DC')
-r65 = Resource.create(street_number: 1241, street_name:'6th', street_type:'ST NE', station_type:'Fire Station', lat: 38.90658343, lng: -76.99756979, location: 'DC')
-r66 = Resource.create(street_number: 3420, street_name:'14th', street_type:'ST NW', station_type:'Fire Station', lat: 38.93224649, lng: -77.03306259, location: 'DC')
-r67 = Resource.create(street_number: 2225, street_name:'5th', street_type:'ST NE', station_type:'Fire Station', lat: 38.91991356, lng: -76.9991845, location: 'DC')
-r68 = Resource.create(street_number: 4801, street_name:'North Capitol', street_type:'ST NE', station_type:'Fire Station', lat: 38.9488663, lng: -77.00829364, location: 'DC')
-r69 = Resource.create(street_number: 2101, street_name:'14th', street_type:'ST SE', station_type:'Fire Station', lat: 38.86481438, lng: -76.9860209, location: 'DC')
-r70 = Resource.create(street_number: 1018, street_name:'13th', street_type:'ST NW', station_type:'Fire Station', lat: 38.90331067, lng: -77.03001561, location: 'DC')
-r71 = Resource.create(street_number: 1227, street_name:'Monroe', street_type:'ST NE', station_type:'Fire Station', lat: 38.93237829, lng: -76.98990641, location: 'DC')
-r72 = Resource.create(street_number: 414, street_name:'8th', street_type:'ST SE', station_type:'Fire Station', lat: 38.88325925, lng: -76.99463684, location: 'DC')
-r73 = Resource.create(street_number: 2813, street_name:'Pennsylvania', street_type:'AVE SE', station_type:'Fire Station', lat: 38.87159604, lng: -76.96698729, location: 'DC')
-r74 = Resource.create(street_number: 4300, street_name:'Wisconsin', street_type:'AVE NW', station_type:'Fire Station', lat: 38.94497358, lng: -77.07842283, location: 'DC')
-r75 = Resource.create(street_number: 1763, street_name:'Lanier', street_type:'PL NW', station_type:'Fire Station', lat: 38.92477115, lng: -77.04221546, location: 'DC')
-r76 = Resource.create(street_number: 5760, street_name:'Georgia', street_type:'AVE NW', station_type:'Fire Station', lat: 38.95998108, lng: -77.02833879, location: 'DC')
-r77 = Resource.create(street_number: 2119, street_name:'G', street_type:'ST NW', station_type:'Fire Station', lat: 38.89858254, lng: -77.04762479, location: 'DC')
-r78 = Resource.create(street_number: 5101, street_name:'Georgia', street_type:'AVE NW', station_type:'Fire Station', lat: 38.9521442, lng: -77.02703227, location: 'DC')
-r79 = Resource.create(street_number: 3203, street_name:'Martin Luther King Jr.', street_type:'AVE SE', station_type:'Fire Station', lat: 38.84315633, lng: -77.00078007, location: 'DC')
-r80 = Resource.create(street_number: 1340, street_name:'Rhode Island', street_type:'AVE NE', station_type:'Fire Station', lat: 38.92469713, lng: -76.986772, location: 'DC')
-r81 = Resource.create(street_number: 4201, street_name:'Minnesota', street_type:'AVE NE', station_type:'Fire Station', lat: 38.90108432, lng: -76.94324769, location: 'DC')
-r82 = Resource.create(street_number: 3522, street_name:'Connecticut', street_type:'AVE NW', station_type:'Fire Station', lat: 38.93634476, lng: -77.05940357, location: 'DC')
-r83 = Resource.create(street_number: 4811, street_name:'MacArthur', street_type:'BLVD NW', station_type:'Fire Station', lat: 38.91556502, lng: -77.09352363, location: 'DC')
-r84 = Resource.create(street_number: 50, street_name:'49th', street_type:'ST NE', station_type:'Fire Station', lat: 38.89069333, lng: -76.9333181, location: 'DC')
-r85 = Resource.create(street_number: 4930, street_name:'Connecticut', street_type:'AVE NW', station_type:'Fire Station', lat: 38.95424021, lng: -77.0699102, location: 'DC')
-r86 = Resource.create(street_number: 2425, street_name:'Irving', street_type:'ST SE', station_type:'Fire Station', lat: 38.85266817, lng: -76.97136786, location: 'DC')
-r87 = Resource.create(street_number: 550, street_name:'Maine', street_type:'AVE SW', station_type:'Fire Station', lat: 38.87387473, lng: -77.02084918, location: 'DC')
-r88 = Resource.create(street_number: 1923, street_name:'Vermont', street_type:'AVE NW', station_type:'Fire Station', lat: 38.91629198, lng: -77.02536644, location: 'DC')
-r89 = Resource.create(street_number: 450, street_name:'6th', street_type:'ST SW', station_type:'Fire Station', lat: 38.88360638, lng: -77.01939266, location: 'DC')
-r90 = Resource.create(street_number: 100, street_name:'42nd', street_type:'ST NE', station_type:'Police Station', lat: 38.8924835, lng: -76.94288532, location: 'DC')
-r91 = Resource.create(street_number: 2701, street_name:'Pennsylvania', street_type:'AVE SE', station_type:'Police Station', lat: 38.87236376, lng: -76.96870869, location: 'DC')
-r92 = Resource.create(street_number: 1620, street_name:'V', street_type:'ST NW', station_type:'Police Station', lat: 38.91786727, lng: -77.03797081, location: 'DC')
-r93 = Resource.create(street_number: 310, street_name:'McMillan', street_type:'DR NW', station_type:'Police Station', lat: 38.92201345, lng: -77.01622155, location: 'DC')
-r94 = Resource.create(street_number: 1805, street_name:'Bladensburg', street_type:'RD NE', station_type:'Police Station', lat: 38.91507726, lng: -76.97364005, location: 'DC')
-r95 = Resource.create(street_number: 500, street_name:'E', street_type:'ST SE', station_type:'Police Station', lat: 38.88336765, lng: -76.99924069, location: 'DC')
-r96 = Resource.create(street_number: 1800, street_name:'Columbia', street_type:'RD NW', station_type:'Police Station', lat: 38.9221594, lng: -77.04286488, location: 'DC')
-r97 = Resource.create(street_number: 3244, street_name:'Pennsylvania', street_type:'AVE SE', station_type:'Police Station', lat: 38.86976828, lng: -76.95968558, location: 'DC')
-r98 = Resource.create(street_number: 616, street_name:'H', street_type:'ST NW', station_type:'Police Station', lat: 38.8995478, lng: -77.02083338, location: 'DC')
-r99 = Resource.create(street_number: 300, street_name:'Indiana', street_type:'AVE NW', station_type:'Police Station', lat: 38.89413816, lng: -77.01653825, location: 'DC')
-r100 = Resource.create(street_number: 3244, street_name:'Pennsylvania', street_type:'AVE SE', station_type:'Police Station', lat: 38.86976828, lng: -76.95968558, location: 'DC')
-r101 = Resource.create(street_number: 101, street_name:'M', street_type:'ST SW', station_type:'Police Station', lat: 38.87678289, lng: -77.01290898, location: 'DC')
-r102 = Resource.create(street_number: 6001, street_name:'Georgia', street_type:'AVE NW', station_type:'Police Station', lat: 38.96312545, lng: -77.02741098, location: 'DC')
-r103 = Resource.create(street_number: 300, street_name:'Indiana', street_type:'AVE NW', station_type:'Police Station', lat: 38.89413816, lng: -77.01653825, location: 'DC')
-r104 = Resource.create(street_number: 1500, street_name:'Eckington', street_type:'PL NE', station_type:'Police Station', lat: 38.91011578, lng: -77.00555991, location: 'DC')
-r105 = Resource.create(street_number: 801, street_name:'Shepherd', street_type:'ST NW', station_type:'Police Station', lat: 38.94008893, lng: -77.02381045, location: 'DC')
-r106 = Resource.create(street_number: 3320, street_name:'Idaho', street_type:'AVE NW', station_type:'Police Station', lat: 38.93484583, lng: -77.07483806, location: 'DC')
-r107 = Resource.create(street_number: 2455, street_name:'Alabama', street_type:'AVE SE', station_type:'Police Station', lat: 38.85335576, lng: -76.9695214, location: 'DC')
-r110 = Resource.create(street_number: 900, street_name:'23rd', street_type:'ST NW', station_type:'Hospital', lat: 38.901172, lng: -77.050928, location: 'DC')
-r111 = Resource.create(street_number: 110, street_name:'Irving', street_type:'ST NW', station_type:'Hospital', lat: 38.929406, lng: -77.014786, location: 'DC')
 
 # SF Zip Code Connector
 
 z20.resources << r1 << r7 << r34
 z21.resources << r2 << r26 << r45
-z22.resources << r3 << r38 << r109
+z22.resources << r3 << r38 << r56
 z23.resources << r4 << r35 << r49 << r9
 z33.resources << r8 << r24
 z28.resources << r10 << r11 << r25
@@ -276,25 +196,25 @@ z41.resources << r33 << r54
 z48.resources << r39 << r41
 z49.resources << r42
 z27.resources << r44
-z25.resources << r108
+z25.resources << r55
 
 # DC Zip Code Connector
 
-z1.resources << r57 << r58 << r59 << r61 << r77 << r88 << r93 << r98 << r99 << r103
-z2.resources << r65 << r67 << r94 << r104
-z3.resources << r63 << r72 << r95
-z4.resources << r70
-z5.resources << r60 << r83
-z6.resources << r82 << r85
-z7.resources << r64 << r75 << r92 << r96
-z8.resources << r66 << r111
-z9.resources << r68 << r76 << r78 << r102 << r105
-z12.resources << r74 << r106
-z13.resources << r71
-z14.resources << r80
-z15.resources << r81 << r84 << r90
-z16.resources << r69 << r73 << r86 << r91 << r97 << r100 << r107
-z17.resources << r62 << r89 << r101
-z18.resources << r55 << r79
-z19.resources << r56 << r110
-z53.resources << r87 
+# z1.resources << r57 << r58 << r59 << r61 << r77 << r88 << r93 << r98 << r99 << r103
+# z2.resources << r65 << r67 << r94 << r104
+# z3.resources << r63 << r72 << r95
+# z4.resources << r70
+# z5.resources << r60 << r83
+# z6.resources << r82 << r85
+# z7.resources << r64 << r75 << r92 << r96
+# z8.resources << r66 << r111
+# z9.resources << r68 << r76 << r78 << r102 << r105
+# z12.resources << r74 << r106
+# z13.resources << r71
+# z14.resources << r80
+# z15.resources << r81 << r84 << r90
+# z16.resources << r69 << r73 << r86 << r91 << r97 << r100 << r107
+# z17.resources << r62 << r89 << r101
+# z18.resources << r55 << r79
+# z19.resources << r56 << r110
+# z53.resources << r87 

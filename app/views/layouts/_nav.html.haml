@@ -39,7 +39,7 @@
         .map-buttons Prepare for a Disaster
     %li.login#print
       / = link_to "PRINT", '#', onclick: "printpage()"
-      =image_tag asset_path("print.png"), onclick: "printpage()"
+      =image_tag asset_path("print.png"), id: 'print'
     / %li.login#recovery
     /   %a(href='#') Recovery Resources
       

@@ -151,8 +151,6 @@ function maps() {
     user_data()
     checkbox_toggle();
   }
-    
-    
     google.maps.event.addDomListener(window, 'load', initialize);
     
 }
@@ -233,7 +231,6 @@ function resource_markers() {
           title: 'hello'
         });
         hosp_marker.setMap(null);
-        // bounds.extend(hosp_marker.position);
 
         $('.checkbox').on('click', function(){
 
@@ -277,6 +274,7 @@ function user_data() {
         icon = "<%= asset_path 'churchicon.png' %>"
       }else {
         icon = "<%= asset_path 'person.png' %>"
+        console.log(icon)
       }
 
        var marker = new google.maps.Marker({
@@ -288,107 +286,95 @@ function user_data() {
        
 
       $('.resource_links').on('click', function(){
-
         $('.resource_links').not($(this)).removeClass('active');
 
+
         r_name = $(this).attr('class').split(' ')[1].split('_')[1]
-        console.log(r_name)
+        var path = "/assets/"+r_name+".png"
         if($(this).hasClass('active') == true) {
-          switch(r_name) {
-            case 'wheelchair':
-              if(data.wheel_chair == true) {
-                marker.setIcon("<%= asset_path 'wheelchair.png' %>")
-              // } else if(data.school == true){
-              //   marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
-              // } else if(data.church == true){
-              //   marker.setIcon("<%= asset_path 'churchicon.png' %>")
-              // } else {
-              //   marker.setIcon("<%= asset_path 'person.png' %>")
-              }
-              break;
-            case 'cert':
-              if(data.cert == true) {
-                marker.setIcon("<%= asset_path 'cert2.png' %>")
-              // } else if(data.school == true){
-              //   marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
-              // } else if(data.church == true){
-              //   marker.setIcon("<%= asset_path 'churchicon.png' %>")
-              // } else {
-              //   marker.setIcon("<%= asset_path 'person.png' %>")
-              }
-              break;
-            case 'nert':
-              if(data.nert == true) {marker.setIcon("<%= asset_path 'nert.png' %>")}
-              break;
-            case 'defib':
-              if(data.defibrillation == true) {marker.setIcon("<%= asset_path 'defib2.png' %>")}
-              break;
-            case 'first':
-              if(data.first_aid == true) {marker.setIcon("<%= asset_path 'medical.png' %>")}
-              break;
-            case 'backhoe':
-              if(data.back_hoe == true) {marker.setIcon("<%= asset_path 'greaicon.png' %>")}
-              break;
-            case 'hammer':
-              if(data.hammer == true) {marker.setIcon("<%= asset_path 'hammer.png' %>")}
-              break;
-            case 'fuel':
-              if(data.fuel == true) {marker.setIcon("<%= asset_path 'fuel.png' %>")}
-              break;
-            case 'shovel':
-              if(data.shovel == true) {marker.setIcon("<%= asset_path 'shovel.png' %>")}
-              break;
-            case 'kitchen':
-              if(data.kitchen == true) {marker.setIcon("<%= asset_path 'kitchen.png' %>")}
-              break;
-            case 'electrician':
-              if(data.electrician == true) {marker.setIcon("<%= asset_path 'electrician.png' %>")}
-              break;
-            case 'generator':
-              if(data.power_generator == true) {marker.setIcon("<%= asset_path 'generator.png' %>")}
-              break;
-            case 'overnight':
-              if(data.overnight_shelter == true) {marker.setIcon("<%= asset_path 'shelter2.png' %>")}
-              break;
-            case 'underground':
-              if(data.underground_shelter == true) {marker.setIcon("<%= asset_path 'shelter.png' %>")}
-              break;
-            case 'engineer':
-              if(data.engineer == true) {marker.setIcon("<%= asset_path 'engineer.png' %>")}
-              break;
-            case 'inspector':
-              if(data.inspector == true) {marker.setIcon("<%= asset_path 'inspector.png' %>")}
-              break;
-            case 'safe':
-              if(data.safe == true) {marker.setIcon("<%= asset_path 'safe.png' %>")}
-              break;
-            case 'jackhammer':
-              if(data.jack_hammer == true) {marker.setIcon("<%= asset_path 'jackhammer.png' %>")}
-              break;
-            case 'dumptruck':
-              if(data.dump_truck == true) {marker.setIcon("<%= asset_path 'dumptruck.png' %>")}
-              break;
-            case 'oxygen':
-              if(data.oxygen == true) {marker.setIcon("<%= asset_path 'oxygen.png' %>")}
-              break;
-            case 'tractor':
-              if(data.tractor == true) {marker.setIcon("<%= asset_path 'tractor.png' %>")}
-              break;
-            case 'goggles':
-              if(data.goggles == true) {marker.setIcon("<%= asset_path 'goggles.png' %>")}
-              break;
-          } 
-        } else {
-            console.log('this aint active')
-            $(this).removeClass('active');
+          if(data[r_name] == true) {
+            marker.setIcon(path)
+          } else if(data.school == true){
+            marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+          } else if(data.church == true){
+            marker.setIcon("<%= asset_path 'churchicon.png' %>")
+          } else {
             marker.setIcon("<%= asset_path 'person.png' %>")
-            // if (data.school == true) {
-            //   marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
-            // } else if (data.church == true) {
-            //   marker.setIcon("<%= asset_path 'churchicon.png' %>")
-            // }else {
-            //   marker.setIcon("<%= asset_path 'person.png' %>")
-            // }
+          }
+          // switch(r_name) {
+          //   case 'wheelchair':
+          //     if(data.wheel_chair == true) {
+          //       marker.setIcon("<%= asset_path 'wheelchair.png' %>")
+          //     }
+          //     break;
+
+          //   case 'defib':
+          //     if(data.defibrillation == true) {marker.setIcon("<%= asset_path 'defib2.png' %>")}
+          //     break;
+          //   case 'first':
+          //     if(data.first_aid == true) {marker.setIcon("<%= asset_path 'medical.png' %>")}
+          //     break;
+          //   case 'backhoe':
+          //     if(data.back_hoe == true) {marker.setIcon("<%= asset_path 'greaicon.png' %>")}
+          //     break;
+          //   case 'hammer':
+          //     if(data.hammer == true) {marker.setIcon("<%= asset_path 'hammer.png' %>")}
+          //     break;
+          //   case 'fuel':
+          //     if(data.fuel == true) {marker.setIcon("<%= asset_path 'fuel.png' %>")}
+          //     break;
+          //   case 'shovel':
+          //     if(data.shovel == true) {marker.setIcon("<%= asset_path 'shovel.png' %>")}
+          //     break;
+          //   case 'kitchen':
+          //     if(data.kitchen == true) {marker.setIcon("<%= asset_path 'kitchen.png' %>")}
+          //     break;
+          //   case 'electrician':
+          //     if(data.electrician == true) {marker.setIcon("<%= asset_path 'electrician.png' %>")}
+          //     break;
+          //   case 'generator':
+          //     if(data.power_generator == true) {marker.setIcon("<%= asset_path 'generator.png' %>")}
+          //     break;
+          //   case 'overnight':
+          //     if(data.overnight_shelter == true) {marker.setIcon("<%= asset_path 'shelter2.png' %>")}
+          //     break;
+          //   case 'underground':
+          //     if(data.underground_shelter == true) {marker.setIcon("<%= asset_path 'shelter.png' %>")}
+          //     break;
+          //   case 'engineer':
+          //     if(data.engineer == true) {marker.setIcon("<%= asset_path 'engineer.png' %>")}
+          //     break;
+          //   case 'inspector':
+          //     if(data.inspector == true) {marker.setIcon("<%= asset_path 'inspector.png' %>")}
+          //     break;
+          //   case 'safe':
+          //     if(data.safe == true) {marker.setIcon("<%= asset_path 'safe.png' %>")}
+          //     break;
+          //   case 'jackhammer':
+          //     if(data.jack_hammer == true) {marker.setIcon("<%= asset_path 'jackhammer.png' %>")}
+          //     break;
+          //   case 'dumptruck':
+          //     if(data.dump_truck == true) {marker.setIcon("<%= asset_path 'dumptruck.png' %>")}
+          //     break;
+          //   case 'oxygen':
+          //     if(data.oxygen == true) {marker.setIcon("<%= asset_path 'oxygen.png' %>")}
+          //     break;
+          //   case 'tractor':
+          //     if(data.tractor == true) {marker.setIcon("<%= asset_path 'tractor.png' %>")}
+          //     break;
+          //   case 'goggles':
+          //     if(data.goggles == true) {marker.setIcon("<%= asset_path 'goggles.png' %>")}
+          //     break;
+          // } 
+        } else {
+            $(this).removeClass('active');
+            if (data.school == true) {
+              marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
+            } else if (data.church == true) {
+              marker.setIcon("<%= asset_path 'churchicon.png' %>")
+            }else {
+              marker.setIcon("<%= asset_path 'person.png' %>")
+            }
           }
           
       })
@@ -396,22 +382,15 @@ function user_data() {
        
       $('.name').mouseover(function(){
         if($(this).text().trim() == data.name) {
-          console.log('change them markers!')
           marker.setAnimation(google.maps.Animation.BOUNCE);
-          // marker.setIcon(new google.maps.MarkerImage(
-                          // icon,
-                          // null,
-                          // null,
-                          // new google.maps.Point(20, 52))
-                          //     )
         }
       })
       $('.name').mouseout(function(){
         marker.setAnimation(null);
       })
 
-     
       marker.setMap(null);
+
       $('#users').children().first().on('click', function(){
         $('#community').removeClass('active');
         marker.setMap(null);
@@ -555,6 +534,11 @@ function button_clicks() {
     $('.container').hide();
     $('.container2').hide();
     $('#account-container').show();
+  })
+  $('#print').on('click', function(){
+    $('.container').hide();
+    $('.container2').hide();
+    $('#print-container').show();
   })
   
   // $('.contact').on('click', function(){

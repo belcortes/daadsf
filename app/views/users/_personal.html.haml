@@ -51,11 +51,11 @@
             = f.check_box :safe, {:checked=>current_user.safe}
             = f.label(:safe, 'SAFE')
             %br
-            = f.check_box :first_aid, {:checked=>current_user.first_aid}
-            = f.label(:first_aid, 'First Aid')
+            = f.check_box :first_aid, {:checked=>current_user.firstaid}
+            = f.label(:firstaid, 'First Aid')
             %br
-            = f.check_box :first_reponder, {:checked=>current_user.first_reponder}
-            = f.label(:first_reponder, 'First Responder')
+            = f.check_box :first_reponder, {:checked=>current_user.firstresponder}
+            = f.label(:firstresponder, 'First Responder')
         .personal.col-md-4#user-buildings 
           Certificated Skills - Trade
           .account-box
@@ -89,17 +89,17 @@
           .col-md-3
             Facilities
             %br
-            = f.check_box :power_generator, {:checked=>current_user.power_generator}
-            = f.label(:power_generator,'Back-up Generator Facility')
+            = f.check_box :generator, {:checked=>current_user.generator}
+            = f.label(:generator,'Back-up Generator Facility')
             %br
             = f.check_box :kitchen, {:checked=>current_user.kitchen}
             = f.label(:kitchen,'Commercial Kitchen')
             %br
-            = f.check_box :overnight_shelter, {:checked=>current_user.overnight_shelter}
-            = f.label(:overnight_shelter,'Overnight Shelter')
+            = f.check_box :overnight, {:checked=>current_user.overnight}
+            = f.label(:overnight,'Overnight Shelter')
             %br
-            = f.check_box :underground_shelter, {:checked=>current_user.underground_shelter}
-            = f.label(:underground_shelter,'Underground Shelter')
+            = f.check_box :underground, {:checked=>current_user.underground}
+            = f.label(:underground,'Underground Shelter')
             %br
           .col-md-3
             Medical
@@ -107,38 +107,38 @@
             = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
             = f.label 'Defibrillator'
             %br
-            = f.check_box :emergency_kit, {:checked=>current_user.emergency_kit}
-            = f.label(:emergency_kit,'Emergency Kit') 
+            = f.check_box :emergency, {:checked=>current_user.emergency}
+            = f.label(:emergency,'Emergency Kit') 
             %br
             = f.check_box :oxygen, {:checked=>current_user.oxygen}
             = f.label :oxygen
             %br
-            = f.check_box :wheel_chair, {:checked=>current_user.wheel_chair}
+            = f.check_box :wheelchair, {:checked=>current_user.wheelchair}
             = f.label 'Wheelchair'
             %br
           .col-md-3
             Heavy Equipment
             %br
-            = f.check_box :back_hoe, {:checked=>current_user.back_hoe}
-            = f.label(:back_hoe,'Backhoe')
+            = f.check_box :backhoe, {:checked=>current_user.backhoe}
+            = f.label(:backhoe,'Backhoe')
             %br
             = f.check_box :bulldozer, {:checked=>current_user.bulldozer}
             = f.label :bulldozer
             %br
-            = f.check_box :dump_truck, {:checked=>current_user.dump_truck}
-            = f.label(:dump_truck,'Dump Truck')
+            = f.check_box :dumptruck, {:checked=>current_user.dumptruck}
+            = f.label(:dumptruck,'Dump Truck')
             %br
             = f.check_box :excavator, {:checked=>current_user.excavator}
             = f.label :excavator
             %br
-            = f.check_box :fork_lift, {:checked=>current_user.fork_lift}
-            = f.label(:fork_lift, 'Fork Lift')
+            = f.check_box :forklift, {:checked=>current_user.forklift}
+            = f.label(:forklift, 'Fork Lift')
             %br
-            = f.check_box :front_loader, {:checked=>current_user.front_loader}
-            = f.label(:front_loader, 'Front Loader')
+            = f.check_box :frontloader, {:checked=>current_user.frontloader}
+            = f.label(:frontloader, 'Front Loader')
             %br
-            = f.check_box :jack_hammer, {:checked=>current_user.jack_hammer}
-            = f.label(:jack_hammer, 'Jack Hammer')
+            = f.check_box :jackhammer, {:checked=>current_user.jackhammer}
+            = f.label(:jackhammer, 'Jack Hammer')
             %br
             = f.check_box :reclaimer, {:checked=>current_user.reclaimer}
             = f.label :reclaimer

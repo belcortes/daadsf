@@ -291,7 +291,8 @@ function user_data() {
 
         var path = "/images/"+r_name+".png"
         console.log(path)
-        
+        console.log('^^^^^ path should be images')
+
          if (data.school == true) {
             marker.setIcon("<%= asset_path 'SchoolIcon.png' %>")
          } else if (data.church == true) {
@@ -306,7 +307,6 @@ function user_data() {
         } else {
             $(this).removeClass('active');
           }
-          
       })
 
        

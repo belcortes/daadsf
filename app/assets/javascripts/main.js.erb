@@ -299,9 +299,7 @@ function user_data() {
             marker.setIcon("/images/person.png")
          }
         if($(this).hasClass('active') == true) {
-          if(data[r_name] == true) {
-            marker.setIcon(path)
-          }
+          if(data[r_name] == true) { marker.setIcon(path) }
         } else {
             $(this).removeClass('active');
           }
@@ -324,13 +322,13 @@ function user_data() {
         marker.setMap(null);
       })
       
-      bounds.extend(marker.position);
+      // bounds.extend(marker.position);
       $('#community').on('click', function(){
          if ($(this).attr('class') == 'map-buttons active') {
 
           $('#users').show();
           marker.setMap(map);
-          map.fitBounds(bounds);
+          // map.fitBounds(bounds);
         } else {
           $('#users').hide();
           marker.setMap(null);
@@ -354,8 +352,17 @@ function user_data() {
   })
 }
 
-function printpage(){
-  window.print()
+// function printpage(){
+//   window.print()
+// }
+function gmapPrint(){
+  // map.panTo(new google.maps.LatLng(37.800740, -122.294949));
+  // var content = window.document.getElementById('map') // get you map details
+  // var newWindow = window.open(); // open a new window
+  // newWindow.document.write(content.innerHTML); // write the map into the new window
+  // newWindow.print(); // print the new window
+  win = window.open('/images/map.png',"_blank");
+  win.onload = function() { win.print(); }
 }
 
 function data_markers() {

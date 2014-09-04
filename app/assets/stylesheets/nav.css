@@ -163,6 +163,11 @@ li #main-search {
   background-color: #f85d2b;
   color: white;
 }
+#flash_error, #flash_notice, #flash_alert {
+  position: fixed;
+  right: 0;
+  margin-right: 25px;
+}
 
 #print img {
   width: 25px;

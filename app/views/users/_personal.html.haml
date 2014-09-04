@@ -30,12 +30,12 @@
             %br
             = f.label :zip
             = f.text_field :zip, value: current_user.zip, id: 'zip_field', :required => true
-            / %br
-            / = f.check_box :church, {:checked=>current_user.church}
-            / = f.label :church
-            / %br
-            / = f.check_box :school, {:checked=>current_user.school}
-            / = f.label :school
+            %br
+            = f.check_box :church, {:checked=>current_user.church}
+            = f.label :church
+            %br
+            = f.check_box :school, {:checked=>current_user.school}
+            = f.label :school
         .personal.col-md-4#certifications 
           Certifications
           .account-box

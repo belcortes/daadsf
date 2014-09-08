@@ -5,8 +5,11 @@
   - User.all.each do |u|
     .blue.name
       = u.name
-    %span.italic{:style => "color:#0062A0" } Contact this owner
-    = link_to "Contact this owner", '/contacts/new'
+    / %span.italic{:style => "color:#0062A0" } Contact this owner
+    / = link_to "Contact this owner", '/contacts/new'
+    %a{'href' => '#contact', 'data-toggle' => 'modal'} Contact
+      
+    
     %br
     Certifications:
     .user-attr

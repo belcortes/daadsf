@@ -10,6 +10,8 @@
 
   = yield
 
+  / # = render 'layouts/contact'
+
   .container#prepare-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/prepare'
@@ -37,6 +39,9 @@
   .container#print-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/print'
+    / .container#print-container
+    / =image_tag asset_path('x.png'), :class => 'close'
+    / = render 'layouts/print'
   / .container#contact-container
   /   =image_tag asset_path('x.png'), :class => 'close'
   /   = render 'layouts/contact'

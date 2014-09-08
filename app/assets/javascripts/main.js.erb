@@ -25,6 +25,9 @@ function maps() {
     map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
     
+    
+
+
         
         
     // ---------------- KML FILES ---------------- 
@@ -260,11 +263,30 @@ function resource_markers() {
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
   var icon;
+  var oms = new OverlappingMarkerSpiderfier(map);
+  
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
+      // console.log(data)
+      var trues = '';
+      // console.log(data.email)
+      $.each( data, function( key, value ) {
+          // console.log(key, value)
+          if (value == true) {
+            
+            // console.log(key, value)
+            trues = key
+            return trues
+          }
+          
+      });
+      console.log(trues)
+      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>"+"</br>"+"Resources:"+trues)
+      // console.log( sum ); // 3
 
-      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>")
+
+      
       // if (data.name == user) {
         // icon = "<%= asset_path 'me.png' %>"
       // } else 
@@ -282,6 +304,10 @@ function user_data() {
         icon: icon,
         title: 'hello'
       });
+
+      
+
+      // console.log(marker)
        
 
       $('.resource_links').on('click', function(){
@@ -291,21 +317,30 @@ function user_data() {
 
         var path = "/images/"+r_name+".png"
 
-         if (data.school == true) {
-            marker.setIcon("/images/SchoolIcon.png")
-         } else if (data.church == true) {
-            marker.setIcon("/images/churchicon.png")
-         } else {
-            marker.setIcon("/images/person.png")
-         }
         if($(this).hasClass('active') == true) {
-          if(data[r_name] == true) { marker.setIcon(path) }
-        } else {
-            $(this).removeClass('active');
+          if(data[r_name] == true) { 
+            icon = "/images/"+r_name+".png" 
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(data.latitude, data.longitude),
+              map: map,
+              icon: path,
+              title: 'hello'
+            });
           }
+        } else {
+          $(this).removeClass('active');
+          if (data.school == true) {
+             marker.setIcon("/images/SchoolIcon.png")
+          } else if (data.church == true) {
+              marker.setIcon("/images/churchicon.png")
+          } else {
+              marker.setIcon("/images/person.png")
+          }
+        }
       })
 
-       
+     
+
       $('.name').mouseover(function(){
         if($(this).text().trim() == data.name) {
           marker.setAnimation(google.maps.Animation.BOUNCE);
@@ -317,10 +352,12 @@ function user_data() {
 
       marker.setMap(null);
 
-      $('#users').children().first().on('click', function(){
-        $('#community').removeClass('active');
-        marker.setMap(null);
-      })
+
+
+      // $('#users').children().first().on('click', function(){
+      //   $('#community').removeClass('active');
+      //   marker.setMap(null);
+      // })
       
       // bounds.extend(marker.position);
       $('#community').on('click', function(){
@@ -343,6 +380,12 @@ function user_data() {
           }
         })
 
+        var iw = new google.maps.InfoWindow();
+        oms.addListener('click', function(marker, event) {
+          iw.setContent(marker.desc);
+          iw.open(map, marker);
+        });
+
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map,marker);
         });
@@ -351,18 +394,17 @@ function user_data() {
     });
   })
 }
-
-// function printpage(){
-//   window.print()
-// }
+function printpage() {
+  window.print()
+}
 function gmapPrint(){
-  // map.panTo(new google.maps.LatLng(37.800740, -122.294949));
-  // var content = window.document.getElementById('map') // get you map details
-  // var newWindow = window.open(); // open a new window
-  // newWindow.document.write(content.innerHTML); // write the map into the new window
-  // newWindow.print(); // print the new window
-  win = window.open('/images/map.png',"_blank");
-  win.onload = function() { win.print(); }
+  map.panTo(new google.maps.LatLng(37.800740, -122.294949));
+  var content = window.document.getElementById('map') // get you map details
+  var newWindow = window.open(); // open a new window
+  newWindow.document.write(content.innerHTML); // write the map into the new window
+  newWindow.print(); // print the new window
+  // win = window.open('/images/map.png',"_blank");
+  // win.onload = function() { win.print(); }
 }
 
 function data_markers() {
@@ -374,13 +416,13 @@ function data_markers() {
     
     $.each(json, function(key, data) {
       if (data.state == 'DC'){
-        console.log('dc')
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.latitude, data.longitude),
           map: map,
           icon: icon
         });
+
 
         bounds.extend(marker.position);
 

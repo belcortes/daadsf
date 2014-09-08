@@ -17,5 +17,9 @@ class UsersController < ApplicationController
       render 'home/edit'
     end
   end
+
+  def resources
+    @users = User.all
+  end
   
 end

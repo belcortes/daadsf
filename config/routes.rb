@@ -2,7 +2,8 @@ CEAD::Application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
   # resources :zipcodes
-  
+  get '/resources', to: 'users#resources'
+
   root 'home#index'
   get '/neighborhoods', to: 'neighborhoods#index'
   # get '/neighborhoods', to: 'neighborhoods#index'

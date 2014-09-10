@@ -51,10 +51,10 @@
             = f.check_box :safe, {:checked=>current_user.safe}
             = f.label(:safe, 'SAFE')
             %br
-            = f.check_box :first_aid, {:checked=>current_user.firstaid}
+            = f.check_box :firstaid, {:checked=>current_user.firstaid}
             = f.label(:firstaid, 'First Aid')
             %br
-            = f.check_box :first_reponder, {:checked=>current_user.firstresponder}
+            = f.check_box :firstresponder, {:checked=>current_user.firstresponder}
             = f.label(:firstresponder, 'First Responder')
         .personal.col-md-4#user-buildings 
           Certificated Skills - Trade

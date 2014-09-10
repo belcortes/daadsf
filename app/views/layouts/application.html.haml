@@ -4,6 +4,7 @@
 
 = render 'layouts/header'
 = render 'layouts/nav'
+
       
 #page-body
   #map 
@@ -11,6 +12,7 @@
   = yield
 
   / # = render 'layouts/contact'
+
 
   .container#prepare-container
     =image_tag asset_path('x.png'), :class => 'close'
@@ -48,7 +50,7 @@
   / .container#results
   /   =image_tag asset_path('x.png'), :class => 'close'
   /   = render 'search/results'
-      
+  = render 'layouts/printing'
 
   / %a(href='#')
   /   .map-buttons#neighbor Police and Fire

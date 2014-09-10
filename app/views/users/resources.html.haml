@@ -1,0 +1,171 @@
+/ #printing
+/   %table.user-table
+/     %tr 
+/       %td NERT
+/     %tr 
+/       %td CERT
+/     %tr 
+/       %td CPR
+/     %tr 
+/       %td SAFE
+/     %tr 
+/       %td First Aid
+/     %tr 
+/       %td Dump Truck
+/     %tr 
+/       %td Backhoe
+/     %tr 
+/       %td Fork Lift
+/     %tr 
+/       %td Fuel
+/     %tr 
+/       %td Generator
+/     %tr 
+/       %td Jack Hammer
+/     %tr 
+/       %td Emergency Kit
+/     %tr 
+/       %td Drill
+/     %tr 
+/       %td Hammer
+/     %tr 
+/       %td Shovel
+/     %tr 
+/       %td Engineer
+/     %tr 
+/       %td General Contractor
+/     %tr 
+/       %td Church
+/     %tr 
+/       %td School
+/     %tr 
+/       %td Underground Shelter
+/     %tr 
+/       %td Overnight Shelter
+/     %tr 
+/       %td Oxygen
+/     %tr 
+/       %td Wheelchair
+/     %tr 
+/       %td Defibrillator
+/     %tr 
+/       %td First Responder
+/     %tr 
+/       %td Building Inspector
+/     %tr 
+/       %td Commercial License
+/     %tr 
+/       %td Electrician
+/     %tr 
+/       %td Carpenter
+/     %tr 
+/       %td Heavy Equipment Operator
+/     %tr 
+/       %td Plumber
+/     %tr 
+/       %td Commercial Kitchen
+/     %tr 
+/       %td Bulldozer
+/     %tr 
+/       %td Excavator
+/     %tr 
+/       %td Front Loader
+/     %tr 
+/       %td Reclaimer
+/     %tr 
+/       %td Trencher
+/     %tr 
+/       %td Tractor
+/     %tr 
+/       %td Goggles
+/     %tr 
+/       %td Axe
+
+/   - User.all.each do |u|
+/     %table.user-table
+/       %thead
+/         %tr
+/           %th
+/             = u.name
+/         %tr
+/           %th
+/             = u.address
+/             = u.address2
+/             = u.city
+/             CA
+/             = u.zip
+/       %tbody
+/         - u.attributes.each do |attr_name, attr_value|
+/           - if attr_value == true || attr_value == false
+/             %tr
+/               %td
+/                 = attr_value
+  
+
+
+
+/ %table
+/   %thead
+/     - User.all.each do |u|
+/       %th
+/         = u.name
+/   %tbody
+/     %tr.user-table
+/       - User.all.each do |u|
+/         %td
+/           - u.attributes.each do |attr_name, attr_value|
+/             - if attr_value == true || attr_value == false
+/               = attr_name
+/               = attr_value
+
+%table.user-table
+  %tr
+    %th
+    %th NERT
+    %th CERT
+    %th CPR
+    %th SAFE
+    %th First Aid
+    %th Dump Truck
+    %th Backhoe
+    %th Fork Lift
+    %th Fuel
+    %th Generator
+    %th Jack Hammer
+    %th Emergency Kit
+    %th Drill
+    %th Hammer
+    %th Shovel
+    %th Engineer
+    %th General Contractor
+    %th Church
+    %th School
+    %th Underground Shelter
+    %th Overnight Shelter
+    %th Oxygen
+    %th Wheelchair
+    %th Defibrillator
+    %th First Responder
+    %th Building Inspector
+    %th Commercial License
+    %th Electrician
+    %th Carpenter
+    %th Heavy Equipment Operator
+    %th Plumber
+    %th Commercial Kitchen
+    %th Bulldozer
+    %th Excavator
+    %th Front Loader
+    %th Reclaimer
+    %th Trencher
+    %th Tractor
+    %th Goggles
+    %th Axe
+  - User.all.each do |u|
+    %tr
+      %th
+        = u.name
+      - u.attributes.each do |attr_name, attr_value|
+        - if attr_value == true || attr_value == false
+          %td
+            = attr_value

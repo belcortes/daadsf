@@ -3,11 +3,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :validatable
   has_and_belongs_to_many :neighborhoods
   has_one :zipcode
-  geocoded_by :address
+  geocoded_by :full_street_address
   after_validation :geocode, :if => :address_changed?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
+
+  def full_street_address
+    [address, address2, city, 'CA'].compact.join(', ')
+  end
 
   # searchable do
   #   text :zip, :name, :email

@@ -1,0 +1,52 @@
+#user-print  
+  %table.user-table
+    %tr
+      %th
+      %th NERT
+      %th CERT
+      %th CPR
+      %th SAFE
+      %th First Aid
+      %th Dump Truck
+      %th Backhoe
+      %th Fork Lift
+      %th Fuel
+      %th Generator
+      %th Jack Hammer
+      %th Emergency Kit
+      %th Drill
+      %th Hammer
+      %th Shovel
+      %th Engineer
+      %th General Contractor
+      %th Church
+      %th School
+      %th Underground Shelter
+      %th Overnight Shelter
+      %th Oxygen
+      %th Wheelchair
+      %th Defibrillator
+      %th First Responder
+      %th Building Inspector
+      %th Commercial License
+      %th Electrician
+      %th Carpenter
+      %th Heavy Equipment Operator
+      %th Plumber
+      %th Commercial Kitchen
+      %th Bulldozer
+      %th Excavator
+      %th Front Loader
+      %th Reclaimer
+      %th Trencher
+      %th Tractor
+      %th Goggles
+      %th Axe
+    - User.all.each do |u|
+      %tr
+        %th
+          = u.name
+        - u.attributes.each do |attr_name, attr_value|
+          - if attr_value == true || attr_value == false
+            %td
+              = attr_value

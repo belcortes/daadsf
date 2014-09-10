@@ -166,8 +166,7 @@ function resource_markers() {
 
   $.getJSON("/resource", function(json) {
     $.each(json, function(key, data) {
-      var contentInfo = ("Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
-
+      
       
       if (data.station_type == 'Police Station' && data.location == 'SF') {
         var police_marker = new google.maps.Marker({
@@ -176,6 +175,7 @@ function resource_markers() {
           icon: icon,
           title: 'hello'
         });
+        var contentInfo = ("Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
 
@@ -204,6 +204,7 @@ function resource_markers() {
           icon: icon2,
           title: 'hello'
         });
+        var contentInfo = ("Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
 
@@ -233,6 +234,7 @@ function resource_markers() {
           icon: icon3,
           title: 'hello'
         });
+        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
         hosp_marker.setMap(null);
 
         $('.checkbox').on('click', function(){
@@ -268,21 +270,48 @@ function user_data() {
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
-      // console.log(data)
-      var trues = '';
-      // console.log(data.email)
+      var trues = [];
       $.each( data, function( key, value ) {
-          // console.log(key, value)
-          if (value == true) {
-            
-            // console.log(key, value)
-            trues = key
-            return trues
-          }
+        // switch (key) {
+        //   case 'cert':
+        //   key = 'CERT';
+        //   break;
+        //   case 'nert':
+        //   key = 'NERT';
+        //   break;
+        //   case 'safe':
+        //   key = 'SAFE';
+        //   break;
+        //   case 'cpr':
+        //   key = 'CPR';
+        //   break;
+        //   case 'emergency':
+        //   key = 'Emergency Kit';
+        //   break;
+        //   case 'carpenter':
+        //   key = 'Carpenter';
+        //   break;
+        //   case 'firstaid':
+        //   key = 'First Aid';
+        //   break;
+        //   case 'contractor':
+        //   key = 'Contractor';
+        //   break;
+        // }
+        if (key === 'cert' || key === 'nert' || key === 'cpr' || key === 'safe') {
+        var upper = key.toUpperCase()
+        } else {
+          upper = key
+        }
+        // console.log(key)
+        if (value == true) {
+
+          trues.push(upper)
+        }
           
       });
       console.log(trues)
-      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:blue;'>Contact this owner</div>"+"</br>"+"Resources:"+trues)
+      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:#0062A0; font-weight:bolder; cursor:pointer;'>Contact this owner</div>"+"</br>"+"Resources:"+"</br>"+trues)
       // console.log( sum ); // 3
 
 
@@ -398,11 +427,18 @@ function printpage() {
   window.print()
 }
 function gmapPrint(){
-  map.panTo(new google.maps.LatLng(37.800740, -122.294949));
-  var content = window.document.getElementById('map') // get you map details
+  // map.panTo(new google.maps.LatLng(37.800740, -122.294949));
+  // var content = window.document.getElementById('map') // get you map details
+  // var newWindow = window.open(); // open a new window
+  // newWindow.document.write(content.innerHTML); // write the map into the new window
+  // newWindow.print(); // print the new window
+
+  var content = window.document.getElementById('user-print') // get you map details
   var newWindow = window.open(); // open a new window
   newWindow.document.write(content.innerHTML); // write the map into the new window
   newWindow.print(); // print the new window
+
+
   // win = window.open('/images/map.png',"_blank");
   // win.onload = function() { win.print(); }
 }
@@ -415,37 +451,38 @@ function data_markers() {
   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
     
     $.each(json, function(key, data) {
-      if (data.state == 'DC'){
-        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.latitude, data.longitude),
-          map: map,
-          icon: icon
-        });
+      // if (data.state == 'DC'){
+      //   var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
+      //   marker = new google.maps.Marker({
+      //     position: new google.maps.LatLng(data.latitude, data.longitude),
+      //     map: map,
+      //     icon: icon
+      //   });
 
 
-        bounds.extend(marker.position);
+      //   bounds.extend(marker.position);
 
-        if ($('#search').val().length === 0) {
-          marker.setMap(null);
-        } else {
-          marker.setMap(map);
-        // map.panTo(marker, (38.898528, -77.031564));
-        // map.setZoom(12); 
-          map.fitBounds(bounds);
-        }
+      //   if ($('#search').val().length === 0) {
+      //     marker.setMap(null);
+      //   } else {
+      //     marker.setMap(map);
+      //   // map.panTo(marker, (38.898528, -77.031564));
+      //   // map.setZoom(12); 
+      //     map.fitBounds(bounds);
+      //   }
         
-        var infowindow = new google.maps.InfoWindow({
-            content: contentInfo
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
-      } else {
+      //   var infowindow = new google.maps.InfoWindow({
+      //       content: contentInfo
+      //   });
+      //   google.maps.event.addListener(marker, 'click', function() {
+      //     infowindow.open(map,marker);
+      //   });
+      // } else {
         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address) 
             
             
-          geocoder.geocode( { 'address': data.address+data.address2+data.city+'CA'+data.zip}, function(results, status) {
+          geocoder.geocode( { 'address': data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip}, function(results, status) {
+              console.log(data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip)
             if (status == google.maps.GeocoderStatus.OK) {
 
               map.setCenter(results[0].geometry.location);
@@ -483,7 +520,7 @@ function data_markers() {
           });
         // })
         
-      }
+      // }
     }) 
   })
   // } 
@@ -513,6 +550,7 @@ function button_clicks() {
     $('#account-container').show();
   })
   $('#print').on('click', function(){
+    console.log('clicked on print button')
     $('.container').hide();
     $('.container2').hide();
     $('#print-container').show();

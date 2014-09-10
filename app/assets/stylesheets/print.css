@@ -1,0 +1,11 @@
+@media print{
+
+/*  #map, #nav, .map-buttons {
+    display: none;
+  }*/
+
+  .user-table td {
+    border-right: 1px solid;
+    padding-top: 15px;
+  }
+}

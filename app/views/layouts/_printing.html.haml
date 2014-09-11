@@ -49,4 +49,4 @@
         - u.attributes.each do |attr_name, attr_value|
           - if attr_value == true || attr_value == false
             %td
-              = attr_value
+              = image_tag("#{attr_value}.png", size: "20x20")

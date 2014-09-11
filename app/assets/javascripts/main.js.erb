@@ -459,9 +459,9 @@ function gmapPrint(){
     var newWindow = window.open(); // open a new window
     newWindow.document.writeln('<%= stylesheet_link_tag    "application", media: "all" %>');
     newWindow.document.writeln(content.innerHTML);
-    $(window).bind("load", function() {
-       newWindow.print();
-    });
+    // $(window).bind("load", function() {
+    newWindow.print();
+    // });
     
   // });
     

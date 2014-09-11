@@ -423,9 +423,28 @@ function user_data() {
     });
   })
 }
-function printpage() {
-  window.print()
+// function printpage() {
+//   window.print()
+// }
+
+function PrintContent() {
+  var DocumentContainer = document.getElementById('user-print');
+  var WindowObject = window.open();
+  WindowObject.document.writeln(DocumentContainer.innerHTML);
+  // WindowObject.document.close();
+  // WindowObject.focus();
+  // WindowObject.print();
+  // WindowObject.close();
+  WindowObject.document.writeln('<!DOCTYPE html>');
+  WindowObject.document.writeln('<html><head><title></title>');
+  WindowObject.document.writeln('<link rel="stylesheet" type="text/css" href="css/print.css">');
+  WindowObject.document.writeln('</head><body>');
+  WindowObject.document.writeln(DocumentContainer.innerHTML);
+  WindowObject.document.writeln('</body></html>');
+  WindowObject.print();
 }
+
+
 function gmapPrint(){
   // map.panTo(new google.maps.LatLng(37.800740, -122.294949));
   // var content = window.document.getElementById('map') // get you map details
@@ -433,10 +452,19 @@ function gmapPrint(){
   // newWindow.document.write(content.innerHTML); // write the map into the new window
   // newWindow.print(); // print the new window
 
-  var content = window.document.getElementById('user-print') // get you map details
-  var newWindow = window.open(); // open a new window
-  newWindow.document.write(content.innerHTML); // write the map into the new window
-  newWindow.print(); // print the new window
+  
+
+  // $(window).bind("load", function() {
+    var content = window.document.getElementById('user-print') // get you map details
+    var newWindow = window.open(); // open a new window
+    newWindow.document.writeln('<%= stylesheet_link_tag    "application", media: "all" %>');
+    newWindow.document.writeln(content.innerHTML);
+    $(window).bind("load", function() {
+       newWindow.print();
+    });
+    
+  // });
+    
 
 
   // win = window.open('/images/map.png',"_blank");

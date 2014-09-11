@@ -237,10 +237,14 @@
   /*display: none;*/
 }
 .user-table th {
-  width: 80px;
+  min-width: 80px;
+  text-align: center;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
 } 
 .user-table td {
   border-right: 1px solid;
-  padding-top: 15px;
-
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid;
+  text-align: center;
 }

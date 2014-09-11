@@ -1,11 +1,24 @@
-@media print{
+/*@media print{*/
 
 /*  #map, #nav, .map-buttons {
     display: none;
   }*/
 
+/*  .user-table td {
+    border-right: 1px solid;
+    padding-top: 15px;
+  }*/
+
+ /* .user-table {
+  display: inline-block;
+  /*display: none;*/
+ /* }
+  .user-table th {
+    min-width: 80px;
+  } 
   .user-table td {
     border-right: 1px solid;
     padding-top: 15px;
-  }
-}
+
+  }*/
+/*}*/

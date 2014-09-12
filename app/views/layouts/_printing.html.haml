@@ -1,7 +1,7 @@
 #user-print
   .print-header
     = image_tag("appa_logo3.png",width:'300px')
-    User Resources
+    User Resources - San Francisco, CA
   %br
   %table.user-table
     %tr
@@ -48,8 +48,11 @@
       %th Axe
     - User.all.each do |u|
       %tr
-        %th
+        %th{style: 'min-width: 140px;'}
           = u.name
+          %br
+          = u.address
+          = u.address2
         - u.attributes.each do |attr_name, attr_value|
           - if attr_value == true || attr_value == false
             %td

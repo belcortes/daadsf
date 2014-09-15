@@ -9,6 +9,12 @@ a, p, div, h1, h2, h3 {
 a {
   text-decoration: none;
 }
+.contact-owner {
+  cursor: pointer;
+}
+.user-contact {
+  top: -400px !important;
+}
 .alert {
  padding: 0 !important; 
  margin-bottom: 0 !important; 

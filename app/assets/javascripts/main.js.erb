@@ -24,9 +24,6 @@ function maps() {
 
     map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
-    
-    
-
 
         
         
@@ -73,7 +70,7 @@ function maps() {
       $('.container').hide();
       $('.container2').hide();
       $(this).toggleClass('active');
-      console.log($(this).attr('class'))
+      // console.log($(this).attr('class'))
       if($(this).attr('class') == 'map-buttons active'){
         $('#resilience-container').show();
         map.panTo(new google.maps.LatLng(37.800740, -122.439785));
@@ -149,7 +146,7 @@ function maps() {
       })
     }
     
-    data_markers();
+    // data_markers();
     resource_markers()
     user_data()
     checkbox_toggle();
@@ -157,6 +154,8 @@ function maps() {
     google.maps.event.addDomListener(window, 'load', initialize);
     
 }
+
+// ---------- CITY RESOURCES - FIRE, POLICE, HOSPITAL ------------------
 
 function resource_markers() {
   var icon = "/images/policemarkercolored.png"
@@ -261,7 +260,7 @@ function resource_markers() {
   })
 }
 
-
+//  ----------- COMMUNITY RESOURCES DATA ------------------
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
   var icon;
@@ -303,17 +302,48 @@ function user_data() {
         } else {
           upper = key
         }
-        // console.log(key)
         if (value == true) {
 
           trues.push(upper)
         }
           
       });
-      console.log(trues)
+      // console.log(data.name)
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:#0062A0; font-weight:bolder; cursor:pointer;'>Contact this owner</div>"+"</br>"+"Resources:"+"</br>"+trues)
-      // console.log( sum ); // 3
 
+      $('.contact-owner').on('click', function(){
+        if ($('.user-contact').length == 0 ) {
+          console.log('modal hasnt been created')
+          var div = document.createElement('div');
+        } else {
+          console.log('already hurr')
+          // $('.user-contact').remove()
+        }
+
+        
+        // div.innerHTML ='<div class="modal-header">'
+        // div.innerHTML ='  <button class="close" data-dismiss="modal">x</button>'
+        
+        // div.innerHTML ='</div>'
+        // div.innerHTML ='<div class="modal-body">'
+        // div.innerHTML =' <p>hello this is ownser bla</p> '
+        // div.innerHTML ='</div>'
+        // $("#user-contact").modal('show');  
+        console.log($(this).prev().text().trim())
+
+        if ($(this).prev().text().trim() == data.name) {
+
+
+          
+          // div.id = 'user-contact';
+          div.className = 'modal fade in user-contact';
+          div.innerHTML ='<div class="modal-header"> <button class="close" data-dismiss="modal">x</button> <h2>'+$(this).prev().text().trim()+'</h2> '
+          // '</div>  <div class="modal-body"> '+'Email: '+data.email+'</br>Phone: '+data.phone+'</br>Address: '+data.address+data.address2+'San Francisco, CA'+'</div>'
+          document.body.appendChild(div);
+          $(".user-contact").modal('show');
+          
+        }
+      })
 
       
       // if (data.name == user) {
@@ -423,9 +453,8 @@ function user_data() {
     });
   })
 }
-// function printpage() {
-//   window.print()
-// }
+
+//  --------------- PRINTING ---------------
 
 function PrintContent() {
   var DocumentContainer = document.getElementById('user-print');
@@ -471,88 +500,90 @@ function gmapPrint(){
   // win.onload = function() { win.print(); }
 }
 
-function data_markers() {
-  var icon = "<%= asset_path 'cooling.png' %>"
-  var icon2 = "<%= asset_path 'person.png' %>"
-  var bounds = new google.maps.LatLngBounds();
+//  -----------  SEARCH FUNCTIONALITY ----------------
+
+// function data_markers() {
+//   var icon = "<%= asset_path 'cooling.png' %>"
+//   var icon2 = "<%= asset_path 'person.png' %>"
+//   var bounds = new google.maps.LatLngBounds();
   
-  $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
+//   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
     
-    $.each(json, function(key, data) {
-      // if (data.state == 'DC'){
-      //   var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
-      //   marker = new google.maps.Marker({
-      //     position: new google.maps.LatLng(data.latitude, data.longitude),
-      //     map: map,
-      //     icon: icon
-      //   });
+//     $.each(json, function(key, data) {
+//       // if (data.state == 'DC'){
+//       //   var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
+//       //   marker = new google.maps.Marker({
+//       //     position: new google.maps.LatLng(data.latitude, data.longitude),
+//       //     map: map,
+//       //     icon: icon
+//       //   });
 
 
-      //   bounds.extend(marker.position);
+//       //   bounds.extend(marker.position);
 
-      //   if ($('#search').val().length === 0) {
-      //     marker.setMap(null);
-      //   } else {
-      //     marker.setMap(map);
-      //   // map.panTo(marker, (38.898528, -77.031564));
-      //   // map.setZoom(12); 
-      //     map.fitBounds(bounds);
-      //   }
+//       //   if ($('#search').val().length === 0) {
+//       //     marker.setMap(null);
+//       //   } else {
+//       //     marker.setMap(map);
+//       //   // map.panTo(marker, (38.898528, -77.031564));
+//       //   // map.setZoom(12); 
+//       //     map.fitBounds(bounds);
+//       //   }
         
-      //   var infowindow = new google.maps.InfoWindow({
-      //       content: contentInfo
-      //   });
-      //   google.maps.event.addListener(marker, 'click', function() {
-      //     infowindow.open(map,marker);
-      //   });
-      // } else {
-        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address) 
+//       //   var infowindow = new google.maps.InfoWindow({
+//       //       content: contentInfo
+//       //   });
+//       //   google.maps.event.addListener(marker, 'click', function() {
+//       //     infowindow.open(map,marker);
+//       //   });
+//       // } else {
+//         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address) 
             
             
-          geocoder.geocode( { 'address': data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip}, function(results, status) {
-              console.log(data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip)
-            if (status == google.maps.GeocoderStatus.OK) {
+//           geocoder.geocode( { 'address': data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip}, function(results, status) {
+//               console.log(data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip)
+//             if (status == google.maps.GeocoderStatus.OK) {
 
-              map.setCenter(results[0].geometry.location);
-              var marker = new google.maps.Marker({
-                  map: map,
-                  position: results[0].geometry.location,
-                  icon: icon2
-              });
-              var infowindow = new google.maps.InfoWindow({
-                  content: contentInfo
-              });
-              if ($('#search').val().length === 0) {
-                marker.setMap(null);
-              } else {
-                $('#sf').children().children().addClass('nav_toggle_red')
-                $('#resources').hide();
-                $('#roads').hide();
-                $('#hazard').hide();
-                $('#dc-resources').hide();
-                $('#busi').show();
-                $('#neighbor').show();
-                $('#community').show();
-                $('#sf-eh').show();
-                $('#disaster').show();
-                map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-                map.setZoom(12);
-                google.maps.event.addListener(marker, 'click', function() {
-                  infowindow.open(map,marker);
-                });
-              }
+//               map.setCenter(results[0].geometry.location);
+//               var marker = new google.maps.Marker({
+//                   map: map,
+//                   position: results[0].geometry.location,
+//                   icon: icon2
+//               });
+//               var infowindow = new google.maps.InfoWindow({
+//                   content: contentInfo
+//               });
+//               if ($('#search').val().length === 0) {
+//                 marker.setMap(null);
+//               } else {
+//                 $('#sf').children().children().addClass('nav_toggle_red')
+//                 $('#resources').hide();
+//                 $('#roads').hide();
+//                 $('#hazard').hide();
+//                 $('#dc-resources').hide();
+//                 $('#busi').show();
+//                 $('#neighbor').show();
+//                 $('#community').show();
+//                 $('#sf-eh').show();
+//                 $('#disaster').show();
+//                 map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+//                 map.setZoom(12);
+//                 google.maps.event.addListener(marker, 'click', function() {
+//                   infowindow.open(map,marker);
+//                 });
+//               }
               
-            } else {
-              // alert('Geocode was not successful for the following reason: ' + status);
-            }
-          });
-        // })
+//             } else {
+//               // alert('Geocode was not successful for the following reason: ' + status);
+//             }
+//           });
+//         // })
         
-      // }
-    }) 
-  })
-  // } 
-}
+//       // }
+//     }) 
+//   })
+//   // } 
+// }
 
 function button_clicks() {
 
@@ -578,7 +609,7 @@ function button_clicks() {
     $('#account-container').show();
   })
   $('#print').on('click', function(){
-    console.log('clicked on print button')
+    // console.log('clicked on print button')
     $('.container').hide();
     $('.container2').hide();
     $('#print-container').show();

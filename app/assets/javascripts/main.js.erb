@@ -308,37 +308,23 @@ function user_data() {
         }
           
       });
-      // console.log(data.name)
+
       var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:#0062A0; font-weight:bolder; cursor:pointer;'>Contact this owner</div>"+"</br>"+"Resources:"+"</br>"+trues)
 
       $('.contact-owner').on('click', function(){
-        if ($('.user-contact').length == 0 ) {
-          console.log('modal hasnt been created')
-          var div = document.createElement('div');
-        } else {
-          console.log('already hurr')
-          // $('.user-contact').remove()
-        }
 
-        
-        // div.innerHTML ='<div class="modal-header">'
-        // div.innerHTML ='  <button class="close" data-dismiss="modal">x</button>'
-        
-        // div.innerHTML ='</div>'
-        // div.innerHTML ='<div class="modal-body">'
-        // div.innerHTML =' <p>hello this is ownser bla</p> '
-        // div.innerHTML ='</div>'
-        // $("#user-contact").modal('show');  
+          $('.close').on('click', function(){
+            $('.user-contact').remove()
+            $('.modal-backdrop').remove()
+          })
+      
         console.log($(this).prev().text().trim())
 
         if ($(this).prev().text().trim() == data.name) {
-
-
-          
+          var div = document.createElement('div');
           // div.id = 'user-contact';
           div.className = 'modal fade in user-contact';
-          div.innerHTML ='<div class="modal-header"> <button class="close" data-dismiss="modal">x</button> <h2>'+$(this).prev().text().trim()+'</h2> '
-          // '</div>  <div class="modal-body"> '+'Email: '+data.email+'</br>Phone: '+data.phone+'</br>Address: '+data.address+data.address2+'San Francisco, CA'+'</div>'
+          div.innerHTML ='<div class="modal-header"> <button class="close" data-dismiss="modal">x</button> <h2>'+$(this).prev().text().trim()+'</h2> </div>  <div class="modal-body"> '+'Email: '+data.email+'</br>Phone: '+data.phone+'</br>Address: '+data.address+data.address2+'San Francisco, CA'+'</div>'
           document.body.appendChild(div);
           $(".user-contact").modal('show');
           

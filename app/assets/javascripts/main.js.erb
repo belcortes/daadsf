@@ -24,8 +24,6 @@ function maps() {
 
     map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
-
-        
         
     // ---------------- KML FILES ---------------- 
 
@@ -70,7 +68,6 @@ function maps() {
       $('.container').hide();
       $('.container2').hide();
       $(this).toggleClass('active');
-      // console.log($(this).attr('class'))
       if($(this).attr('class') == 'map-buttons active'){
         $('#resilience-container').show();
         map.panTo(new google.maps.LatLng(37.800740, -122.439785));
@@ -174,7 +171,7 @@ function resource_markers() {
           icon: icon,
           title: 'hello'
         });
-        var contentInfo = ("Address: "+" "+data.address+"</br>"+"Phone Number: "+data.phone_number+"</br>"+"Website: "+data.website)
+        var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
 
@@ -203,7 +200,7 @@ function resource_markers() {
           icon: icon2,
           title: 'hello'
         });
-        var contentInfo = ("Address: "+" "+data.address+"</br>"+"Phone Number: "+data.phone_number+"</br>"+"Website: "+data.website)
+        var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
 
@@ -233,7 +230,7 @@ function resource_markers() {
           icon: icon3,
           title: 'hello'
         });
-        var contentInfo = ("Name: "+data.name+"</br>"+"Address: "+" "+data.address+"</br>"+"Phone Number: "+data.phone_number+"</br>"+"Website: "+data.website)
+        var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
         hosp_marker.setMap(null);
 
         $('.checkbox').on('click', function(){
@@ -309,25 +306,22 @@ function user_data() {
           
       });
 
-      var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"<div style='color:#0062A0; font-weight:bolder; cursor:pointer;'>Contact this owner</div>"+"</br>"+"Resources:"+"</br>"+trues)
+      var contentInfo = ("<strong>Name:</strong> "+" "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<div class='contact-owner' style='color:#0062A0; font-weight:bolder; cursor:pointer;'>Contact this owner</div>"+"<strong>Resources:</strong>"+"</br>"+trues)
 
       $('.contact-owner').on('click', function(){
 
           $('.close').on('click', function(){
-            $('.user-contact').remove()
-            $('.modal-backdrop').remove()
+            $('.user-contact').modal('destroy')
+            // $('.user-contact').remove()
+            // $('.modal-backdrop').remove()
           })
-      
-        console.log($(this).prev().text().trim())
 
         if ($(this).prev().text().trim() == data.name) {
           var div = document.createElement('div');
-          // div.id = 'user-contact';
           div.className = 'modal fade in user-contact';
           div.innerHTML ='<div class="modal-header"> <button class="close" data-dismiss="modal">x</button> <h2>'+$(this).prev().text().trim()+'</h2> </div>  <div class="modal-body"> '+'Email: '+data.email+'</br>Phone: '+data.phone+'</br>Address: '+data.address+data.address2+'San Francisco, CA'+'</div>'
           document.body.appendChild(div);
           $(".user-contact").modal('show');
-          
         }
       })
 
@@ -349,10 +343,6 @@ function user_data() {
         icon: icon,
         title: 'hello'
       });
-
-      
-
-      // console.log(marker)
        
 
       $('.resource_links').on('click', function(){

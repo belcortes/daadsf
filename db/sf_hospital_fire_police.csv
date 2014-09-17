@@ -1,0 +1,126 @@
+blank,name,address,phone_number,website,resource_type,facility_type,services,lat,lng
+hello,California Pacific Medical Center - California East,3698 Sacramento Street,(415) 600-6000,http://www.cpmc.org/,hospital,General Acute Care Hospital,Hospital,37.78740232,-122.4535495
+hello,California Pacific Medical Center - California West,3700 California Street,(415) 600-6000,http://www.cpmc.org/,hospital,General Acute Care Hospital,Hospital,37.78614406,-122.4559117
+hello,California Pacific Medical Center - Davies Campus,45 Castro Street,(415) 600-6000,http://www.cpmc.org/,hospital,General Acute Care Hospital,Hospital,37.76905419,-122.4358177
+hello,California Pacific Medical Center - Pacific Campus,2333 Buchanan Street,(415) 600-6000,http://www.cpmc.org/,hospital,General Acute Care Hospital,Hospital,37.79142444,-122.4310376
+hello,California Pacific Medical Center - St. Luke's Campus,3555 Cesar Chavez Street,(415) 600-6000,http://www.cpmc.org/,hospital,General Acute Care Hospital,Hospital,37.74804296,-122.4212488
+hello,Chinese Hospital,845 Jackson Street,(415) 982-2400,http://www.chinesehospital-sf.org/,hospital,General Acute Care Hospital,Hospital,37.79566209,-122.4091723
+hello,Kaiser Permanente San Francisco Medical Center,2425 Geary Boulevard,(415) 833-2000,https://healthy.kaiserpermanente.org/html/kaiser/index.shtml,hospital,General Acute Care Hospital,Hospital,37.78268324,-122.4437068
+hello,Laguna Honda Hospital And Rehabilitation Center,375 Laguna Honda Boulevard,(415) 759-2300,http://lagunahonda.org/,hospital,General Acute Care Hospital,Hospital,37.74762573,-122.4587178
+hello,San Francisco General Hospital,1001 Potrero Avenue,(415) 206-8000,http://www.sfdph.org/dph/comupg/oservices/medSvs/sfgh/default.asp,hospital,General Acute Care Hospital,Hospital,37.75606363,-122.4077197
+hello,St. Francis Memorial Hospital,900 Hyde Street,(415) 353-6000,http://www.saintfrancismemorial.org/index.htm,hospital,General Acute Care Hospital,Hospital,37.78956798,-122.4170662
+hello,"St. Mary's Medical Center, San Francisco",450 Stanyan Street,(415) 668-1000,http://www.stmarysmedicalcenter.org/index.htm,hospital,General Acute Care Hospital,Hospital,37.77380449,-122.4544068
+hello,UCSF Medical Center,505 Parnassus Avenue,(415) 476-1000,http://www.ucsfhealth.org/,hospital,General Acute Care Hospital,Hospital,37.76336734,-122.4585674
+hello,UCSF Medical Center At Mount Zion,1600 Divisadero Street,(415) 567-6600,http://mountzion.ucsfmedicalcenter.org/,hospital,General Acute Care Hospital,Hospital,37.78477686,-122.4397258
+hello,On Lok 30th Street Community Center,225 30th Street,(415) 550-2230,http://www.onlok.org/,hospital,Community Clinic,Senior Health,37.74215288,-122.4251083
+hello,Baart Market Clinic,"1111 Market Street, 1st Floor",(415) 863-3883,http://www.baartprograms.com/market.html,hospital,Community Clinic,Drug Treatment,37.7802172,-122.4127907
+hello,Baart Turk Street Clinic,433 Turk Street,(415) 928-7800,http://www.baartprograms.com/turk.html,hospital,Community Clinic,Drug Treatment,37.78246323,-122.4163466
+hello,Chinese Community Health Services,1800 31st Avenue,(415) 677-2388,http://www.chclinics.org/,hospital,Community Clinic,General Health,37.75341278,-122.4892746
+hello,Chinese Hospital's Excelsior Health Services,888 Paris Street,(415) 677-2488,http://www.chclinics.org/,hospital,Community Clinic,General Health,37.71582646,-122.439401
+hello,Curry Senior Center,333 Turk Street,(415) 885-2274,http://curryseniorcenter.org/,hospital,Community Clinic,Senior Health,37.78267054,-122.4145816
+hello,"Drug Detoxification, Rehab And After Care Svs. Prog.",529 Clayton Street,(415) 565-1926,http://www.healthright360.org/,hospital,Free Clinic,Drug Treatment,37.77029461,-122.448703
+hello,First Resort,"450 Sutter St., Ste. 1740",(415) 627-9175,http://firstresort.org/,hospital,Community Clinic,Womens Health,37.78934797,-122.407783
+hello,Glide Health Services,330 Ellis Street,(415) 674-6140,http://www.glide.org/home,hospital,Community Clinic,General Health,37.78509497,-122.4116495
+hello,Haight Ashbury Integrated Care Center,1735 Mission St,(415) 554-1100,http://www.healthright360.org/,hospital,Community Clinic,Free General Health,37.7694838,-122.4199175
+hello,Institute On Aging,3575 Geary Blvd,(415) 750-4111,http://www.ioaging.org/,hospital,Community Clinic,Senior Health,37.78246781,-122.4483432
+hello,Instituto Familiar De La Raza - Outpatient,2919 Mission Street,(415) 229-0500,http://ifrsf.org/,hospital,Community Clinic,Cultural General Health,37.75034371,-122.4181955
+hello,Lyon-Martin Womens Health Services,1748 Market Street,(415) 565-7667,http://lyon-martin.org/,hospital,Community Clinic,Womens Health,37.77240194,-122.4228124
+hello,Mission Neighborhood Health Center,240 Shotwell Street,(415) 552-3870,http://www.mnhc.org/place-locations/shotwell-clinic/,hospital,Community Clinic,Cultural General Health,37.76472768,-122.4163534
+hello,Mission Neighborhood Health Center - Valencia Clinic,1647 Valencia Street,(415) 647-3666,http://www.mnhc.org/place-locations/valencia-clinic/,hospital,Community Clinic,Cultural General Health,37.74700015,-122.4200801
+hello,Mission Neighborhood Health Ctr.-Excelsior Clinic,4434 Mission Street,(415) 406-135,http://www.mnhc.org/place-locations/excelsior-clinic/,hospital,Community Clinic,Cultural General Health,37.72668158,-122.4333768
+hello,Mission Neighborhood Homeless Resource Center,165 Capp St,(415) 869-7977,http://www.mnhc.org/place-locations/homeless-resource-center/,hospital,Community Clinic,Cultural General Health,37.7640344,-122.4185548
+hello,Native American Health Center,160 Capp Street,(415) 621-8051,http://www.nativehealth.org/,hospital,Community Clinic,Cultural General Health,37.76411733,-122.4186651
+hello,North East Medical Services,1520 Stockton Street,(415) 391-9686,http://www.nems.org/locationsStockton.html,hospital,Community Clinic,Cultural General Health,37.79989739,-122.4090252
+hello,North East Medical Services - Noriega,1450 Noriega Street,(415) 391-9686 ,http://www.nems.org/locationsSunset1450Noriega.html,hospital,Community Clinic,Cultural General Health,37.75412784,-122.4794002
+hello,North East Medical Services - San Bruno Avenue,2574 San Bruno Ave,(415) 391-9686 ,http://www.nems.org/locationsPortola.html,hospital,Community Clinic,Cultural General Health,37.72908815,-122.4042605
+hello,North East Medical Services-Leland Avenue,82 Leland Avenue,(415) 391-9686 ,http://www.nems.org/locationsVisitacionValley.html,hospital,Community Clinic,Cultural General Health,37.71182702,-122.4052494
+hello,On Lok Senior Health Services,1000 Montgomery Street,(415) 292-8650,http://www.onlok.org/,hospital,Community Clinic,Senior Health,37.79846727,-122.4038559
+hello,On Lok Senior Health Services - Bush St,1333 Bush Street,(415) 292-8888,http://www.onlok.org/,hospital,Community Clinic,Senior Health,37.78882313,-122.4190464
+hello,On Lok Senior Health Services - Powell,1441 Powell Street,(415) 292-8650,http://www.onlok.org/,hospital,Community Clinic,Senior Health,37.79788399,-122.4103728
+hello,On Lok Senior Health Services-Mission Center,4430 Mission Street,(415) 292-2620,http://www.onlok.org/,hospital,Community Clinic,Senior Health,37.72674014,-122.4332937
+hello,Planned Parenthood San Francisco Center,1650 Valencia Street,(415) 821-1282,http://www.plannedparenthood.org/health-center/california/san-francisco/94110/san-francisco-health-center-3997-90200,hospital,Community Clinic,Family General Health,37.74611894,-122.4201235
+hello,Richmond Maxi-Center,3626 Balboa Street,(415) 668-5955,http://www.ramsinc.org/,hospital,Community Clinic,Cultural General Health,37.77575714,-122.4976142
+hello,San Francisco Free Clinic,4900 California Street,(415) 750-9894,http://www.sffc.org/,hospital,Free Clinic,Free General Health,37.78458778,-122.4700906
+hello,South Of Market Health Center,229 7th Street,(415) 503-6000,http://www.smhcsf.org/,hospital,Community Clinic,General Health,37.77766069,-122.4088864
+hello,St. Anthony Medical Clinic,150 Golden Gate Ave,(415) 241-8320,http://www.stanthonysf.org/,hospital,Free Clinic,Free General Health,37.78197735,-122.4131723
+hello,St. James Infirmary,1372 Mission St.,(415) 554-8494,http://stjamesinfirmary.org/,hospital,Community Clinic,Sexual Health Clinic,37.77561778,-122.4155768
+hello,St. Luke's Health Care Center - Adult Clinic,1580 Valencia Street,(415) 641-6996,http://www.cpmc.org/services/slh-healthcarecenter.html,hospital,Community Clinic,General Health,37.7475674,-122.4202336
+hello,St. Luke's Health Care Center - Pediatric Clinic,1580 Valencia St,(415) 641-6996,http://www.cpmc.org/services/slh-healthcarecenter.html,hospital,Community Clinic,Youth Health,37.7475674,-122.4202336
+hello,St. Luke's Health Care Center - Women's Clinic,1580 Valencia Street,(415) 641-6996,http://www.cpmc.org/services/slh-healthcarecenter.html,hospital,Community Clinic,Womens Health,37.7475674,-122.4202336
+hello,Asian & Pacific Islander Wellness Center,730 Polk Street,(415) 292-3400,http://www.apiwellness.org/home.html,hospital,Community Clinic,Cultural General Health,37.78358665,-122.4191904
+hello,Woman's Community Clinic/Tides Center,1833 Fillmore Street,(415) 379-7800,http://www.womenscommunityclinic.org/,hospital,Community Clinic,Womens Health,37.7865244,-122.4333831
+hello,Castro-Mission Health Center,3850 17th Street ,(415) 934-7700,NA,hospital,Community Health Network,NA,37.76271772,-122.4318407
+hello,Children's Health Center At SFGH,1001 Potrero Ave,(415) 206-8000,http://www.sfdph.org/dph/comupg/oservices/medSvs/sfgh/default.asp,hospital,Community Health Network,NA,37.75577951,-122.4061957
+hello,Chinatown Health Center,1490 Mason Street,(415) 364-7600,https://www.sfdph.org/dph/comupg/oservices/medSvs/hlthCtrs/ChinatownHlthCtr.asp,hospital,Community Health Network,NA,37.79693062,-122.4117722
+hello,Family Health Center At SFGH,995 Potrero Avenue,(415) 206-8000,http://www.sfdph.org/dph/comupg/oservices/medSvs/sfgh/default.asp,hospital,Community Health Network,NA,37.75690321,-122.4066315
+hello,General Medical Clinic At SFGH,1001 Potrero Ave,(415) 206-8000,http://www.sfdph.org/dph/comupg/oservices/medSvs/sfgh/default.asp,hospital,Community Health Network,NA,37.75577951,-122.4061957
+hello,Maxine Hall Health Center,1301 Pierce Street,(415) 292-1300,NA,hospital,Community Health Network,NA,37.781938,-122.4358694
+hello,Ocean Park Health Center,1351 24th Avenue,(415) 682-1900,NA,hospital,Community Health Network,NA,37.76238083,-122.4824949
+hello,Potrero Hill Health Center,1050 Wisconsin Street,(415) 648-3022,http://www.sfdph.org/dph/comupg/oservices/medSvs/hlthCtrs/PotreroHlthCtr.asp,hospital,Community Health Network,NA,37.75427069,-122.3987353
+hello,Silver Avenue Family Health Center,1525 Silver Avenue,(415) 657-1700,http://www.sfdph.org/dph/comupg/oservices/medSvs/hlthCtrs/SilverHlthCtr.asp,hospital,Community Health Network,NA,37.73222744,-122.4065175
+hello,Southeast Health Center,2401 Keith Street,(415) 671-7000,http://www.sfdph.org/dph/comupg/oservices/medSvs/hlthCtrs/SEHlthCtr.asp,hospital,Community Health Network,NA,37.72591049,-122.3924666
+hello,3rd Street Youth Center & Clinic,5190 3rd Street ,(415) 822-1707,http://www.3rdstyouth.org/,hospital,Community Health Network,NA,37.73086205,-122.3922007
+hello,San Francisco City Clinic,356 7th Street,(415) 487-5500,http://www.sfcityclinic.org/,hospital,Community Health Network,NA,37.7760443,-122.4070295
+hello,Adult Immunization & Travel Clinic,101 Grove St,(415) 554-2625,http://www.sfcdcp.org/aitc.html,hospital,Community Health Network,NA,37.77838372,-122.4186957
+hello,Housing And Urban Health Clinic,234 Eddy Street,(415) 353-5095,NA,hospital,Community Health Network,NA,37.78413785,-122.4115425
+hello,Women's Health Center,1001 Potrero Ave.,(415) 206-8476,NA,hospital,Community Health Network,NA,37.75617447,-122.4065947
+hello,Balboa Teen Health Center,1000 Cayuga Ave,(415) 469-4512,http://www.sfdph.org/dph/comupg/oservices/medSvs/hlthCtrs/BalboaTeenHlthCtr.asp,hospital,Community Health Network,NA,37.72207048,-122.4398288
+hello,Cole Street Clinic,555 Cole Street,(415) 386-9398,http://www.huckleberryyouth.org/,hospital,Community Health Network,NA,37.76999193,-122.450374
+hello,Larkin Street Medical Clinic,1138 Sutter St,(415) 673-0911,http://www.larkinstreetyouth.org/,hospital,Community Health Network,NA,37.78794224,-122.4191218
+hello,Special Programs For Youth,375 Woodside Avenue,(415) 753-7760,http://www.sfdph.org/dph/comupg/oservices/medSvs/hlthCtrs/SPYHlthCtr.asp,hospital,Community Health Network,NA,37.74571703,-122.4522671
+hello,Westside Community Mental Health,1663 Mission St,(415) 581-0449,http://www.westside-health.org/,hospital,Community Health Network,NA,37.77125833,-122.4194887
+hello,North East Medical Services Taraval,2308 Taraval Street,(415) 391-9686,http://www.nems.org/,hospital,Community Health Network,NA,37.74240843,-122.4910405
+hello,Station 1,935 Folsom St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.779453,-122.404066
+hello,Station 2,1340 Powell St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.797032,-122.40999
+hello,Station 3,1067 Post St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.786817,-122.419429
+hello,Station 5,1301 Turk St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.780512,-122.43078
+hello,Station 6,135 Sanchez St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.767046,-122.430779
+hello,Station 7,2300 Folsom St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.760352,-122.415155
+hello,Station 8,36 Bluxome St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.777261,-122.396718
+hello,Station 9,2245 Jerrold Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.74525,-122.40124
+hello,Station 10,655 Presidio Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.785692,-122.446685
+hello,Station 11,3880 26th St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.748744,-122.426444
+hello,Station 12,1145 Stanyan St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.763478,-122.452642
+hello,Station 13,530 Sansome St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.795552,-122.401411
+hello,Station 14,551 26th Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.779006,-122.485945
+hello,Station 15,1000 Ocean Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.723488,-122.45288
+hello,Station 16,2251 Greenwich St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.798662,-122.436692
+hello,Station 17,1295 Shafter Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.727515,-122.385011
+hello,Station 18,1935 32nd Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.750973,-122.490482
+hello,Station 19,390 Buckingham Way,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.727841,-122.478923
+hello,Station 20,285 Olympia Way,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.751289,-122.455738
+hello,Station 21,1443 Grove St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.775446,-122.440278
+hello,Station 22,1290 16th Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.763976,-122.473614
+hello,Station 23,1348 45th Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.761401,-122.504716
+hello,Station 24,100 Hoffman Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.753099,-122.441176
+hello,Station 25,3305 3rd St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.746634,-122.386868
+hello,Station 26,80 Digby St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.739985,-122.433069
+hello,Station 28,1814 Stockton St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.802562,-122.409628
+hello,Station 29,299 Vermont St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.766187,-122.404317
+hello,Station 31,441 12Th Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.779862,-122.47092
+hello,Station 32,194 Park St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.736453,-122.421201
+hello,Station 33,8 Capital St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.710879,-122.45853
+hello,Station 34,499 41St Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.779475,-122.502448
+hello,Station 35,Na Pier 22 1/2 Na,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.790218,-122.388457
+hello,Station 36,109 Oak St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.774936,-122.421206
+hello,Station 37,798 Wisconsin St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.757421,-122.399164
+hello,Station 38,2150 California St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.789531,-122.429817
+hello,Station 39,1091 Portola Dr,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.74011,-122.458727
+hello,Station 40,2155 18Th Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.747641,-122.475236
+hello,Station 41,1325 Leavenworth St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.793408,-122.416413
+hello,Station 42,2430 San Bruno Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.731556,-122.405608
+hello,Station 43,720 Moscow St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.716257,-122.431506
+hello,Station 44,1298 Girard St,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.716658,-122.400258
+hello,Station 48,849 Avenue D Na,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.825182,-122.373959
+hello,Station 49,1415 Evans Ave,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.741162,-122.385482
+hello,Station 51,218 Lincoln Blvd,(415) 558-3200,http://www.sf-fire.org/index.aspx,fire_station,NA,NA,37.801507,-122.455489
+hello,Central Station,766 Vallejo St,(415) 315-2400,http://sf-police.org/index.aspx?page=805,police_station,NA,NA,37.798659,-122.409957
+hello,Southern Station,850 Bryant St,(415) 553-1373,http://sf-police.org/index.aspx?page=844,police_station,NA,NA,37.775431,-122.403934
+hello,Bayview Station,201 Williams St,(415) 671-2300,http://sf-police.org/index.aspx?page=798,police_station,NA,NA,37.729788,-122.397934
+hello,Mission Station,630 Valencia St,(415) 558-5400,http://sf-police.org/index.aspx?page=819,police_station,NA,NA,37.762851,-122.422005
+hello,Northern Station,1125 Filmore St,(415) 614-3400,http://sf-police.org/index.aspx?page=825,police_station,NA,NA,37.780188,-122.432322
+hello,Park Station,1899 Waller St,(415) 242-3000,http://sf-police.org/index.aspx?page=832,police_station,NA,NA,37.767797,-122.455284
+hello,Richmond Station,461 6Th Ave,(415) 666-8000,http://sf-police.org/index.aspx?page=838,police_station,NA,NA,37.780004,-122.464317
+hello,Ingleside Station,1 John Young Ln,(415) 404-4000,http://sf-police.org/index.aspx?page=812,police_station,NA,NA,37.724678,-122.446214
+hello,Taraval Station,2345 24Th Ave,(415) 759-3100,http://sf-police.org/index.aspx?page=858,police_station,NA,NA,37.743745,-122.481477
+hello,Tenderloin Station,301 Eddy St,(415) 345-7300,http://sf-police.org/index.aspx?page=862,police_station,NA,NA,37.783665,-122.41290hello

@@ -167,14 +167,14 @@ function resource_markers() {
     $.each(json, function(key, data) {
       
       
-      if (data.station_type == 'Police Station' && data.location == 'SF') {
+      if (data.resource_type == 'police_station') {
         var police_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
           icon: icon,
           title: 'hello'
         });
-        var contentInfo = ("Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
+        var contentInfo = ("Address: "+" "+data.address+"</br>"+"Phone Number: "+data.phone_number+"</br>"+"Website: "+data.website)
         police_marker.setMap(null);
         bounds.extend(police_marker.position);
 
@@ -196,14 +196,14 @@ function resource_markers() {
           });
         });
         
-      } else if (data.station_type == 'Fire Station' && data.location == 'SF'){
+      } else if (data.resource_type == 'fire_station'){
         var fire_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
           icon: icon2,
           title: 'hello'
         });
-        var contentInfo = ("Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
+        var contentInfo = ("Address: "+" "+data.address+"</br>"+"Phone Number: "+data.phone_number+"</br>"+"Website: "+data.website)
         fire_marker.setMap(null);
         bounds.extend(fire_marker.position);
 
@@ -226,14 +226,14 @@ function resource_markers() {
           });
         });
         
-      } else if (data.station_type == 'Hospital' && data.location == 'SF') {
+      } else if (data.resource_type == 'hospital') {
         var hosp_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
           map: map,
           icon: icon3,
           title: 'hello'
         });
-        var contentInfo = ("Name:"+" "+data.name+"</br>"+"Type:"+" "+data.station_type+"</br>"+"Address:"+" "+data.street_number+" "+data.street_name+" "+data.street_type)
+        var contentInfo = ("Name: "+data.name+"</br>"+"Address: "+" "+data.address+"</br>"+"Phone Number: "+data.phone_number+"</br>"+"Website: "+data.website)
         hosp_marker.setMap(null);
 
         $('.checkbox').on('click', function(){
@@ -485,91 +485,6 @@ function gmapPrint(){
   // win = window.open('/images/map.png',"_blank");
   // win.onload = function() { win.print(); }
 }
-
-//  -----------  SEARCH FUNCTIONALITY ----------------
-
-// function data_markers() {
-//   var icon = "<%= asset_path 'cooling.png' %>"
-//   var icon2 = "<%= asset_path 'person.png' %>"
-//   var bounds = new google.maps.LatLngBounds();
-  
-//   $.getJSON("/search?utf8=✓&search="+$('#search').val()+"&x=8&y=8", function(json) {
-    
-//     $.each(json, function(key, data) {
-//       // if (data.state == 'DC'){
-//       //   var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address+"</br>"+"Phone:"+" "+data.phone+"</br>"+"Cooling Center Type:"+" "+data.center_type)
-//       //   marker = new google.maps.Marker({
-//       //     position: new google.maps.LatLng(data.latitude, data.longitude),
-//       //     map: map,
-//       //     icon: icon
-//       //   });
-
-
-//       //   bounds.extend(marker.position);
-
-//       //   if ($('#search').val().length === 0) {
-//       //     marker.setMap(null);
-//       //   } else {
-//       //     marker.setMap(map);
-//       //   // map.panTo(marker, (38.898528, -77.031564));
-//       //   // map.setZoom(12); 
-//       //     map.fitBounds(bounds);
-//       //   }
-        
-//       //   var infowindow = new google.maps.InfoWindow({
-//       //       content: contentInfo
-//       //   });
-//       //   google.maps.event.addListener(marker, 'click', function() {
-//       //     infowindow.open(map,marker);
-//       //   });
-//       // } else {
-//         var contentInfo = ("Name:"+" "+data.name+"</br>"+"Address:"+" "+data.address) 
-            
-            
-//           geocoder.geocode( { 'address': data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip}, function(results, status) {
-//               console.log(data.address+' '+data.address2+','+'San Francisco'+','+'CA'+','+data.zip)
-//             if (status == google.maps.GeocoderStatus.OK) {
-
-//               map.setCenter(results[0].geometry.location);
-//               var marker = new google.maps.Marker({
-//                   map: map,
-//                   position: results[0].geometry.location,
-//                   icon: icon2
-//               });
-//               var infowindow = new google.maps.InfoWindow({
-//                   content: contentInfo
-//               });
-//               if ($('#search').val().length === 0) {
-//                 marker.setMap(null);
-//               } else {
-//                 $('#sf').children().children().addClass('nav_toggle_red')
-//                 $('#resources').hide();
-//                 $('#roads').hide();
-//                 $('#hazard').hide();
-//                 $('#dc-resources').hide();
-//                 $('#busi').show();
-//                 $('#neighbor').show();
-//                 $('#community').show();
-//                 $('#sf-eh').show();
-//                 $('#disaster').show();
-//                 map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-//                 map.setZoom(12);
-//                 google.maps.event.addListener(marker, 'click', function() {
-//                   infowindow.open(map,marker);
-//                 });
-//               }
-              
-//             } else {
-//               // alert('Geocode was not successful for the following reason: ' + status);
-//             }
-//           });
-//         // })
-        
-//       // }
-//     }) 
-//   })
-//   // } 
-// }
 
 function button_clicks() {
 

@@ -406,6 +406,7 @@ function user_data() {
       
       // bounds.extend(marker.position);
       $('#community').on('click', function(){
+        $('#print-container').hide();
          if ($(this).attr('class') == 'map-buttons active') {
           $('#users').show();
           marker.setMap(map);
@@ -445,22 +446,22 @@ function user_data() {
 
 //  --------------- PRINTING ---------------
 
-function PrintContent() {
-  var DocumentContainer = document.getElementById('user-print');
-  var WindowObject = window.open();
-  WindowObject.document.writeln(DocumentContainer.innerHTML);
-  // WindowObject.document.close();
-  // WindowObject.focus();
-  // WindowObject.print();
-  // WindowObject.close();
-  WindowObject.document.writeln('<!DOCTYPE html>');
-  WindowObject.document.writeln('<html><head><title></title>');
-  WindowObject.document.writeln('<link rel="stylesheet" type="text/css" href="css/print.css">');
-  WindowObject.document.writeln('</head><body>');
-  WindowObject.document.writeln(DocumentContainer.innerHTML);
-  WindowObject.document.writeln('</body></html>');
-  WindowObject.print();
-}
+// function PrintContent() {
+//   var DocumentContainer = document.getElementById('user-print');
+//   var WindowObject = window.open();
+//   WindowObject.document.writeln(DocumentContainer.innerHTML);
+//   // WindowObject.document.close();
+//   // WindowObject.focus();
+//   // WindowObject.print();
+//   // WindowObject.close();
+//   WindowObject.document.writeln('<!DOCTYPE html>');
+//   WindowObject.document.writeln('<html><head><title></title>');
+//   WindowObject.document.writeln('<link rel="stylesheet" type="text/css" href="css/print.css">');
+//   WindowObject.document.writeln('</head><body>');
+//   WindowObject.document.writeln(DocumentContainer.innerHTML);
+//   WindowObject.document.writeln('</body></html>');
+//   WindowObject.print();
+// }
 
 
 function gmapPrint(){
@@ -494,22 +495,26 @@ function button_clicks() {
   $('#prepare').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
+    $('#print-container').hide();
     $('#prepare-container').show();
   })
     
   $('#advanced-search').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
+    $('#print-container').hide();
     $('#advanced-container').show();
   })
   $('#recovery').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
+    $('#print-container').hide();
     $('#recovery-container').show();
   })
   $('#myaccount').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
+    $('#print-container').hide();
     $('#account-container').show();
   })
   $('#print').on('click', function(){

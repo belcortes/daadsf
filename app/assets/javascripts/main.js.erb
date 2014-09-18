@@ -474,7 +474,7 @@ function gmapPrint(){
   
     var content = window.document.getElementById('user-print') // get you map details
     var newWindow = window.open(); // open a new window
-    newWindow.document.writeln('<%= stylesheet_link_tag "application", media: "all" %>');
+    // newWindow.document.writeln('<link href="./assets/application.css" media="all" rel="stylesheet">');
     newWindow.document.writeln(content.innerHTML);
     newWindow.print();
 

@@ -269,32 +269,110 @@ function user_data() {
       var trues = [];
       var cNewName = "";
       $.each( data, function( key, value ) {
-        // switch (key) {
-        //   case 'cert':
-        //   key = 'CERT';
-        //   break;
-        //   case 'nert':
-        //   key = 'NERT';
-        //   break;
-        //   case 'safe':
-        //   key = 'SAFE';
-        //   break;
-        //   case 'cpr':
-        //   key = 'CPR';
-        //   break;
-        //   case 'emergency':
-        //   key = 'Emergency Kit';
-        //   break;
-        //   case 'carpenter':
-        //   key = 'Carpenter';
-        //   break;
-        //   case 'firstaid':
-        //   key = 'First Aid';
-        //   break;
-        //   case 'contractor':
-        //   key = 'Contractor';
-        //   break;
-        // }
+        switch (key) {
+          case 'emergency':
+          key = 'Emergency Kit';
+          break;
+          case 'carpenter':
+          key = 'Carpenter';
+          break;
+          case 'firstaid':
+          key = 'First Aid';
+          break;
+          case 'contractor':
+          key = 'Contractor';
+          break;
+          case 'dumptruck':
+          key = 'Dump Truck';
+          break;
+          case 'backhoe':
+          key = 'Backhoe';
+          break;
+          case 'forklift':
+          key = 'Fork Lift';
+          break;
+          case 'fuel':
+          key = 'Fuel';
+          break;
+          case 'generator':
+          key = 'Generator';
+          break;
+          case 'jackhammer':
+          key = 'Jackhammer';
+          break;
+          case 'drill':
+          key = 'Drill';
+          break;
+          case 'hammer':
+          key = 'Hammer';
+          break;
+          case 'shovel':
+          key = 'Shovel';
+          break;
+          case 'engineer':
+          key = 'Structural Engineer';
+          break;
+          case 'underground':
+          key = 'Underground Shelter';
+          break;
+          case 'overnight':
+          key = 'Overnight Shelter';
+          break;
+          case 'oxygen':
+          key = 'Oxygen';
+          break;
+          case 'wheelchair':
+          key = 'Wheelchair';
+          break;
+          case 'defibrillation':
+          key = 'Defibrillation';
+          break;
+          case 'firstresponder':
+          key = 'First Responder';
+          break;
+          case 'inspector':
+          key = 'Building Inspector';
+          break;
+          case 'commercial':
+          key = 'Commercial License';
+          break;
+          case 'electrician':
+          key = 'Electrician';
+          break;
+          case 'operator':
+          key = 'Heave Equipment Operator';
+          break;
+          case 'kitchen':
+          key = 'Commercial Kitchen';
+          break;
+          case 'bulldozer':
+          key = 'Bulldozer';
+          break;
+          case 'excavator':
+          key = 'Excavator';
+          break;
+          case 'frontloader':
+          key = 'Front Loader';
+          break;
+          case 'reclaimer':
+          key = 'Reclaimer';
+          break;
+          case 'trencher':
+          key = 'Trencher';
+          break;
+          case 'tractor':
+          key = 'Tractor';
+          break;
+          case 'goggles':
+          key = 'Goggles';
+          break;
+          case 'axe':
+          key = 'Axe';
+          break;
+          case 'plumber':
+          key = 'Plumber';
+          break;
+        }
         if (key === 'cert' || key === 'nert' || key === 'cpr' || key === 'safe') {
         var upper = key.toUpperCase()
         } else {
@@ -341,7 +419,7 @@ function user_data() {
         icon: icon,
         title: 'hello'
       });
-
+       console.log(marker)
       var infowindow = new google.maps.InfoWindow({
           content: contentInfo
         });

@@ -472,18 +472,11 @@ function gmapPrint(){
   // newWindow.print(); // print the new window
 
   
-
-  // $(window).bind("load", function() {
     var content = window.document.getElementById('user-print') // get you map details
     var newWindow = window.open(); // open a new window
-    newWindow.document.writeln('<%= stylesheet_link_tag    "application", media: "all" %>');
+    newWindow.document.writeln('<link rel="stylesheet" type="text/css" href="./assets/application.css">');
     newWindow.document.writeln(content.innerHTML);
-    // $(window).bind("load", function() {
     newWindow.print();
-    // });
-    
-  // });
-    
 
 
   // win = window.open('/images/map.png',"_blank");

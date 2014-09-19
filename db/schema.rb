@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916235505) do
+ActiveRecord::Schema.define(version: 20140919190318) do
 
   create_table "cooling_centers", force: true do |t|
     t.string   "name"
@@ -122,6 +122,26 @@ ActiveRecord::Schema.define(version: 20140916235505) do
     t.boolean  "goggles"
     t.boolean  "axe"
     t.string   "address2"
+    t.integer  "backhoe_q"
+    t.integer  "bulldozer_q"
+    t.integer  "dumptruck_q"
+    t.integer  "excavator_q"
+    t.integer  "forklift_q"
+    t.integer  "frontloader_q"
+    t.integer  "jackhammer_q"
+    t.integer  "reclaimer_q"
+    t.integer  "tractor_q"
+    t.integer  "trencher_q"
+    t.integer  "axe_q"
+    t.integer  "drill_q"
+    t.integer  "fuel_q"
+    t.integer  "goggles_q"
+    t.integer  "hammer_q"
+    t.integer  "shovel_q"
+    t.integer  "defibrillation_q"
+    t.integer  "emergency_q"
+    t.integer  "oxygen_q"
+    t.integer  "wheelchair_q"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

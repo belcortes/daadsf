@@ -105,48 +105,62 @@
             Medical
             %br
             = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
+            = f.select :defibrillation_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label 'Defibrillator'
             %br
             = f.check_box :emergency, {:checked=>current_user.emergency}
+            = f.select :emergency_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label(:emergency,'Emergency Kit') 
             %br
             = f.check_box :oxygen, {:checked=>current_user.oxygen}
+            = f.select :oxygen_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :oxygen
             %br
             = f.check_box :wheelchair, {:checked=>current_user.wheelchair}
+            = f.select :wheelchair_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label 'Wheelchair'
             %br
           .col-md-3
             Heavy Equipment
             %br
             = f.check_box :backhoe, {:checked=>current_user.backhoe}
+            = f.select :backhoe_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label(:backhoe,'Backhoe')
             %br
             = f.check_box :bulldozer, {:checked=>current_user.bulldozer}
+            = f.select :bulldozer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :bulldozer
             %br
             = f.check_box :dumptruck, {:checked=>current_user.dumptruck}
+            = f.select :dumptruck_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label(:dumptruck,'Dump Truck')
             %br
             = f.check_box :excavator, {:checked=>current_user.excavator}
+            = f.select :excavator_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :excavator
             %br
             = f.check_box :forklift, {:checked=>current_user.forklift}
+            = f.select :forklift_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label(:forklift, 'Fork Lift')
             %br
             = f.check_box :frontloader, {:checked=>current_user.frontloader}
+            = f.select :frontloader_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label(:frontloader, 'Front Loader')
             %br
             = f.check_box :jackhammer, {:checked=>current_user.jackhammer}
+            = f.select :jackhammer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label(:jackhammer, 'Jack Hammer')
             %br
             = f.check_box :reclaimer, {:checked=>current_user.reclaimer}
+            = f.select :reclaimer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :reclaimer
             %br
             = f.check_box :tractor, {:checked=>current_user.tractor}
+            = f.select :tractor_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :tractor
             %br
             = f.check_box :trencher, {:checked=>current_user.trencher}
+            = f.select :trencher_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :trencher
             %br
 
@@ -154,21 +168,27 @@
             Light Equipment
             %br
             = f.check_box :axe, {:checked=>current_user.axe}
+            = f.select :axe_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :axe
             %br
             = f.check_box :drill, {:checked=>current_user.drill}
+            = f.select :drill_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :drill
             %br
             = f.check_box :fuel, {:checked=>current_user.fuel}
+            = f.select :fuel_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :fuel
             %br
             = f.check_box :goggles, {:checked=>current_user.goggles}
+            = f.select :goggles_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :goggles
             %br
             = f.check_box :hammer, {:checked=>current_user.hammer}
+            = f.select :hammer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :hammer
             %br
             = f.check_box :shovel, {:checked=>current_user.shovel}
+            = f.select :shovel_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
             = f.label :shovel
             %br
         #update

@@ -97,3 +97,6 @@ label {
 #_option_value__NY__NY__option___option_value__CA__CA__option_ {
   margin-left: 29px;
 }
+select {
+  width: 50px;
+}

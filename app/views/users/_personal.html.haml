@@ -90,77 +90,81 @@
             Facilities
             %br
             = f.check_box :generator, {:checked=>current_user.generator}
+            = f.select :generator_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.generator_q)
             = f.label(:generator,'Back-up Generator Facility')
             %br
             = f.check_box :kitchen, {:checked=>current_user.kitchen}
+            = f.select :kitchen_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.kitchen_q)
             = f.label(:kitchen,'Commercial Kitchen')
             %br
             = f.check_box :overnight, {:checked=>current_user.overnight}
+            = f.select :overnight_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.overnight_q)
             = f.label(:overnight,'Overnight Shelter')
             %br
             = f.check_box :underground, {:checked=>current_user.underground}
+            = f.select :underground_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.underground_q)
             = f.label(:underground,'Underground Shelter')
             %br
           .col-md-3
             Medical
             %br
             = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
-            = f.select :defibrillation_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :defibrillation_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.defibrillation_q)
             = f.label 'Defibrillator'
             %br
             = f.check_box :emergency, {:checked=>current_user.emergency}
-            = f.select :emergency_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :emergency_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.emergency_q)
             = f.label(:emergency,'Emergency Kit') 
             %br
             = f.check_box :oxygen, {:checked=>current_user.oxygen}
-            = f.select :oxygen_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :oxygen_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.oxygen_q)
             = f.label :oxygen
             %br
             = f.check_box :wheelchair, {:checked=>current_user.wheelchair}
-            = f.select :wheelchair_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :wheelchair_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.wheelchair_q)
             = f.label 'Wheelchair'
             %br
           .col-md-3
             Heavy Equipment
             %br
             = f.check_box :backhoe, {:checked=>current_user.backhoe}
-            = f.select :backhoe_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :backhoe_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.backhoe_q)
             = f.label(:backhoe,'Backhoe')
             %br
             = f.check_box :bulldozer, {:checked=>current_user.bulldozer}
-            = f.select :bulldozer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :bulldozer_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.bulldozer_q)
             = f.label :bulldozer
             %br
             = f.check_box :dumptruck, {:checked=>current_user.dumptruck}
-            = f.select :dumptruck_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :dumptruck_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.dumptruck_q)
             = f.label(:dumptruck,'Dump Truck')
             %br
             = f.check_box :excavator, {:checked=>current_user.excavator}
-            = f.select :excavator_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :excavator_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.excavator_q)
             = f.label :excavator
             %br
             = f.check_box :forklift, {:checked=>current_user.forklift}
-            = f.select :forklift_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :forklift_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.forklift_q)
             = f.label(:forklift, 'Fork Lift')
             %br
             = f.check_box :frontloader, {:checked=>current_user.frontloader}
-            = f.select :frontloader_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :frontloader_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.frontloader_q)
             = f.label(:frontloader, 'Front Loader')
             %br
             = f.check_box :jackhammer, {:checked=>current_user.jackhammer}
-            = f.select :jackhammer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :jackhammer_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.jackhammer_q)
             = f.label(:jackhammer, 'Jack Hammer')
             %br
             = f.check_box :reclaimer, {:checked=>current_user.reclaimer}
-            = f.select :reclaimer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :reclaimer_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.reclaimer_q)
             = f.label :reclaimer
             %br
             = f.check_box :tractor, {:checked=>current_user.tractor}
-            = f.select :tractor_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :tractor_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.tractor_q)
             = f.label :tractor
             %br
             = f.check_box :trencher, {:checked=>current_user.trencher}
-            = f.select :trencher_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :trencher_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.trencher_q)
             = f.label :trencher
             %br
 
@@ -168,27 +172,27 @@
             Light Equipment
             %br
             = f.check_box :axe, {:checked=>current_user.axe}
-            = f.select :axe_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :axe_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.axe_q)
             = f.label :axe
             %br
             = f.check_box :drill, {:checked=>current_user.drill}
-            = f.select :drill_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :drill_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.drill_q)
             = f.label :drill
             %br
             = f.check_box :fuel, {:checked=>current_user.fuel}
-            = f.select :fuel_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :fuel_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.fuel_q)
             = f.label :fuel
             %br
             = f.check_box :goggles, {:checked=>current_user.goggles}
-            = f.select :goggles_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :goggles_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.goggles_q)
             = f.label :goggles
             %br
             = f.check_box :hammer, {:checked=>current_user.hammer}
-            = f.select :hammer_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :hammer_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.hammer_q)
             = f.label :hammer
             %br
             = f.check_box :shovel, {:checked=>current_user.shovel}
-            = f.select :shovel_q, ((0..30).map {|i| [i,i] } << ["No limit",nil])
+            = f.select :shovel_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.shovel_q)
             = f.label :shovel
             %br
         #update

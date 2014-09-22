@@ -152,6 +152,19 @@ function maps() {
     
 }
 
+function boolean_quantities() {
+  console.log('hide dix shiz')
+  $('#user-resources').find('select').hide()
+  $('#user-resources').find('input').on('click', function(){
+    $(this).next().show()
+  })
+  $("#user-resources").find("input:checked").next().show()
+  // $("#user-resources").find("input:not(checked)").next().hide()
+  // if ($('#user-resources').find('input').is(':checked') == true) {
+  //   console.log)
+  // }
+}
+
 // ---------- CITY RESOURCES - FIRE, POLICE, HOSPITAL ------------------
 
 function resource_markers() {
@@ -419,7 +432,6 @@ function user_data() {
         icon: icon,
         title: 'hello'
       });
-       console.log(marker)
       var infowindow = new google.maps.InfoWindow({
           content: contentInfo
         });
@@ -524,23 +536,6 @@ function user_data() {
 
 //  --------------- PRINTING ---------------
 
-// function PrintContent() {
-//   var DocumentContainer = document.getElementById('user-print');
-//   var WindowObject = window.open();
-//   WindowObject.document.writeln(DocumentContainer.innerHTML);
-//   // WindowObject.document.close();
-//   // WindowObject.focus();
-//   // WindowObject.print();
-//   // WindowObject.close();
-//   WindowObject.document.writeln('<!DOCTYPE html>');
-//   WindowObject.document.writeln('<html><head><title></title>');
-//   WindowObject.document.writeln('<link rel="stylesheet" type="text/css" href="css/print.css">');
-//   WindowObject.document.writeln('</head><body>');
-//   WindowObject.document.writeln(DocumentContainer.innerHTML);
-//   WindowObject.document.writeln('</body></html>');
-//   WindowObject.print();
-// }
-
 
 function gmapPrint(){
   // map.panTo(new google.maps.LatLng(37.800740, -122.294949));
@@ -615,7 +610,6 @@ $(function() {
   //   console.log('no sessions')
   // }
 
-
   $('.container').hide();
   $('.close').on('click', function() {
     $('.container').css('display', 'none');
@@ -623,6 +617,7 @@ $(function() {
   })
   maps();
   button_clicks();
+  boolean_quantities()
 
   $('.resource_links').on('click', function(){
     $(this).toggleClass('active');

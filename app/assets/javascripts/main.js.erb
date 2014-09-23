@@ -153,20 +153,17 @@ function maps() {
 }
 
 function boolean_quantities() {
-  console.log('hide dix shiz')
   $('#user-resources').find('select').hide()
   $('#user-resources').find('input').on('click', function(){
     if ($(this).is(':checked') == true) {
       $(this).next().show()
+      $(this).next().val(1)
     } else {
       $(this).next().hide()
       $(this).next().val(0)
     }
-    
   })
   $("#user-resources").find("input:checked").next().show()
-  // $("#user-resources").find("input:not(checked)").next().hide()
-  // $('#user-resources').find('input:not(checked)')
 }
 
 // ---------- CITY RESOURCES - FIRE, POLICE, HOSPITAL ------------------
@@ -403,12 +400,10 @@ function user_data() {
       var contentInfo = ("<strong>Name:</strong> "+" "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Email:</strong> "+" "+data.email+"</br>"+"<strong>Resources:</strong>"+"</br>"+newStr)
 
       $('.contact-owner').on('click', function(){
-
           $('.close').on('click', function(){
               $('.user-contact').remove()
               $('.modal-backdrop').remove()
           })
-
         if ($(this).prev().text().trim() == data.name) {
           var div = document.createElement('div');
           div.className = 'modal fade in user-contact';

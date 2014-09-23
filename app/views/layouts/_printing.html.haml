@@ -49,6 +49,8 @@
         %th Tractor
         %th Goggles
         %th Axe
+      - User.uniq.pluck(:zip).each do |z|
+        = z
       - User.all.each do |u|
         %tr
           %th{style: 'min-width: 140px;'}

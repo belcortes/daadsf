@@ -30,8 +30,11 @@
     %span.glyphicon.glyphicon-remove
     = render 'layouts/recover'
   .container#account-container
+    / - if session[:modal] == true
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'users/personal'
+
+  / render :partial => 'layouts/modal'
   .container#users
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'users/all'

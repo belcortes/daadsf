@@ -156,13 +156,17 @@ function boolean_quantities() {
   console.log('hide dix shiz')
   $('#user-resources').find('select').hide()
   $('#user-resources').find('input').on('click', function(){
-    $(this).next().show()
+    if ($(this).is(':checked') == true) {
+      $(this).next().show()
+    } else {
+      $(this).next().hide()
+      $(this).next().val(0)
+    }
+    
   })
   $("#user-resources").find("input:checked").next().show()
   // $("#user-resources").find("input:not(checked)").next().hide()
-  // if ($('#user-resources').find('input').is(':checked') == true) {
-  //   console.log)
-  // }
+  // $('#user-resources').find('input:not(checked)')
 }
 
 // ---------- CITY RESOURCES - FIRE, POLICE, HOSPITAL ------------------
@@ -609,6 +613,17 @@ $(function() {
   // } else {
   //   console.log('no sessions')
   // }
+
+  $("#sign_up").bind("ajax:success", function(e, data, status, xhr) {
+    if (data.success) {
+      $('#account-container').show();
+      // $('#sign_up').modal('hide');
+      // $('#sign_up_button').hide();
+      // return $('#submit_comment').slideToggle(1000, "easeOutBack");
+    } else {
+      return alert('failure!');
+    }
+  });
 
   $('.container').hide();
   $('.close').on('click', function() {

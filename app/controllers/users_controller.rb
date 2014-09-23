@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      sign_in @user
+      session[:modal] = true
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
 
   def show
     @users = User.all

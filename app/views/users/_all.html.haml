@@ -62,30 +62,54 @@
         - if attr_value == true && attr_name == 'generator'
           .resource_links.resource_generator
             &nbsp;&nbsp; - Back-up Generator Facility
+            (
+            = u.generator_q
+            )
         - if attr_value == true && attr_name == 'kitchen'
           .resource_links.resource_kitchen
             &nbsp;&nbsp; - Commercial Kitchen
+            (
+            = u.kitchen_q
+            )
         - if attr_value == true && attr_name == 'overnight'
           .resource_links.resource_overnight
             &nbsp;&nbsp; - Overnight Shelter
+            (
+            = u.overnight_q
+            )
         - if attr_value == true && attr_name == 'underground'
           .resource_links.resource_underground
             &nbsp;&nbsp; - Underground Shelter
+            (
+            = u.underground_q
+            )
     &nbsp;&nbsp; Medical
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'defibrillation'
           .resource_links.resource_defibrillation
             &nbsp;&nbsp; - Defibrillation
+            (
+            = u.defibrillation_q
+            )
         - if attr_value == true && attr_name == 'emergency'
           .resource_links.resource_emergency
             &nbsp;&nbsp; - Emergency Kit
+            (
+            = u.emergency_q
+            )
         - if attr_value == true && attr_name == 'oxygen'
           .resource_links.resource_oxygen
             &nbsp;&nbsp; - Oxygen
+            (
+            = u.oxygen_q
+            )
         - if attr_value == true && attr_name == 'wheelchair'
           .resource_links.resource_wheelchair
             &nbsp;&nbsp; - Wheelchair
+            (
+            = u.wheelchair_q
+            )
         
     &nbsp;&nbsp; Equipment - Heavy
     .user-attr
@@ -93,53 +117,101 @@
         - if attr_value == true && attr_name == 'backhoe'
           .resource_links.resource_backhoe
             &nbsp;&nbsp;&nbsp; - Back Hoe
+            (
+            = u.backhoe_q
+            )
         - if attr_value == true && attr_name == 'bulldozer'
           .resource_links.resource_bulldozer
             &nbsp;&nbsp;&nbsp; - Bulldozer
+            (
+            = u.bulldozer_q
+            )
         - if attr_value == true && attr_name == 'dumptruck'
           .resource_links.resource_dumptruck
             &nbsp;&nbsp;&nbsp; - Dump Truck
+            (
+            = u.dumptruck_q
+            )
         - if attr_value == true && attr_name == 'excavator'
           .resource_links.resource_excavator
             &nbsp;&nbsp;&nbsp; - Excavator
+            (
+            = u.excavator_q
+            )
         - if attr_value == true && attr_name == 'forklift'
           .resource_links.resource_forklift
             &nbsp;&nbsp;&nbsp; - Fork Lift
+            (
+            = u.forklift_q
+            )
         - if attr_value == true && attr_name == 'frontloader'
           .resource_links.resource_frontloader
             &nbsp;&nbsp;&nbsp; - Front Loader
+            (
+            = u.frontloader_q
+            )
         - if attr_value == true && attr_name == 'jackhammer'
           .resource_links.resource_jackhammer
             &nbsp;&nbsp;&nbsp; - Jack Hammer
+            (
+            = u.jackhammer_q
+            )
         - if attr_value == true && attr_name == 'reclaimer'
           .resource_links.resource_reclaimer
             &nbsp;&nbsp;&nbsp; - Reclaimer
+            (
+            = u.reclaimer_q
+            )
         - if attr_value == true && attr_name == 'tractor'
           .resource_links.resource_tractor
             &nbsp;&nbsp;&nbsp; - Tractor
+            (
+            = u.tractor_q
+            )
         - if attr_value == true && attr_name == 'trencher'
           .resource_links.resource_trencher
             &nbsp;&nbsp;&nbsp; - Trencher
+            (
+            = u.trencher_q
+            )
     &nbsp;&nbsp; Equipment - Light
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
         - if attr_value == true && attr_name == 'axe'
           .resource_links.resource_axe
             &nbsp;&nbsp;&nbsp; - Axe
+            (
+            = u.axe_q
+            )
         - if attr_value == true && attr_name == 'drill'
           .resource_links.resource_drill
             &nbsp;&nbsp;&nbsp; - Drill
+            (
+            = u.drill_q
+            )
         - if attr_value == true && attr_name == 'fuel'
           .resource_links.resource_fuel
             &nbsp;&nbsp;&nbsp; - Fuel
+            (
+            = u.fuel_q
+            )
         - if attr_value == true && attr_name == 'goggles'
           .resource_links.resource_goggles
             &nbsp;&nbsp;&nbsp; - Goggles
+            (
+            = u.goggles_q
+            )
         - if attr_value == true && attr_name == 'hammer'
           .resource_links.resource_hammer
             &nbsp;&nbsp;&nbsp; - Hammer
+            (
+            = u.hammer_q
+            )
         - if attr_value == true && attr_name == 'shovel'
           .resource_links.resource_shovel
             &nbsp;&nbsp;&nbsp; - Shovel
+            (
+            = u.shovel_q
+            )
 
     %br

@@ -100,3 +100,6 @@ label {
 select {
   width: 50px;
 }
+.user-table tr:nth-child(even){
+  background: #f2f2f2;;
+}

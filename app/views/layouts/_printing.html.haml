@@ -4,7 +4,7 @@
   %body
     .print-header
       = image_tag("appa_logo3.png",width:'300px')
-      User Resources - San Francisco, CA
+      Community Resources - San Francisco, CA
     %br
     %table.user-table
       %tr
@@ -49,9 +49,7 @@
         %th Tractor
         %th Goggles
         %th Axe
-      - User.uniq.pluck(:zip).each do |z|
-        = z
-      - User.all.each do |u|
+      - User.where(zip: '94107').each do |u|
         %tr
           %th{style: 'min-width: 140px;'}
             = u.name

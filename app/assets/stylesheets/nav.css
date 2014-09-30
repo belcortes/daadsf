@@ -174,7 +174,9 @@ li #main-search {
   right: 0;
   margin-right: 25px;
 }
-
+#flash_alert {
+  color: red;
+}
 #print img {
   width: 25px;
 }

@@ -597,6 +597,32 @@ function button_clicks() {
 
 }
 
+$.fn.serializeObject = function() {
+  var values = {}
+  $("form input, form select, form textarea").each( function(){
+    values[this.name] = $(this).val();
+  });
+  return values;
+}
+
+function ajax_signup() {
+  $("#login").submit(function(e){
+   e.preventDefault(); //This prevents the form from submitting normally
+   var user_info = $(this).serializeObject();
+   console.log("About to post to /users: " + JSON.stringify(user_info));
+   $.ajax({
+     type: "POST",
+     url: "/users/sign_in",
+     data: user_info,
+     success: function(json){
+       console.log("The Devise Response: " + JSON.stringify(json));
+       //alert("The Devise Response: " + JSON.stringify(json));
+     },
+     dataType: "json"
+   });
+});
+}
+
 
 
 
@@ -609,16 +635,19 @@ $(function() {
   //   console.log('no sessions')
   // }
 
-  $("#sign_up").bind("ajax:success", function(e, data, status, xhr) {
-    if (data.success) {
-      $('#account-container').show();
-      // $('#sign_up').modal('hide');
-      // $('#sign_up_button').hide();
-      // return $('#submit_comment').slideToggle(1000, "easeOutBack");
-    } else {
-      return alert('failure!');
-    }
-  });
+  // $("#login").bind("ajax:success", function(e, data, status, xhr) {
+  //   // window.location.replace("/");
+  //   if (data.success) {
+  //     console.log('we signed in mofo!')
+  //     $('#login').modal('hide');
+  //     // $('#account-container').show()
+  //     console.log(data)
+  //     // $('#sign_up_button').hide();
+  //     // return $('#submit_comment').slideToggle(1000, "easeOutBack");
+  //   } else {
+  //     console.log('failure mofo')
+  //   }
+  // });
 
   $('.container').hide();
   $('.close').on('click', function() {
@@ -628,6 +657,7 @@ $(function() {
   maps();
   button_clicks();
   boolean_quantities()
+  // ajax_signup()
 
   $('.resource_links').on('click', function(){
     $(this).toggleClass('active');

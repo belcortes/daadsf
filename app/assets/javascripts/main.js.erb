@@ -48,6 +48,9 @@ function maps() {
     var supervisor = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/Supervisor_Districts.kml'
     });
+    var tsunami = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_tsunami_evacuation.kml'
+    });
    
 
     var weatherLayer = new google.maps.weather.WeatherLayer({
@@ -107,6 +110,9 @@ function maps() {
             case 'density-check':
               density.setMap(null);
               break;
+            case 'tsunami':
+              tsunami.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -137,6 +143,10 @@ function maps() {
             case 'density-check':
               density.setMap(map);
               density.set('preserveViewport', true);
+              break;
+            case 'tsunami':
+              tsunami.setMap(map);
+              tsunami.set('preserveViewport', true);
               break;
           }
         }
@@ -594,7 +604,15 @@ function button_clicks() {
   //   $('.container2').hide();
   //   $('#contact-container').show();
   // })
-
+  var zip_click = ''
+  $('.zip-click').on('click', function(){
+    zip_click = $(this).text()
+    console.log(zip_click)
+    // $('.user-table').append('<tr><td>column 1 value</td><td>column 2 value</td></tr>')
+    // $('#someTable > tbody > tr:first').after(newRow);
+    // $('#table tr:last').after('<tr><td>column 1 value</td><td>column 2 value</td></tr>');
+  })
+  // "<% User.where(zip: "+zip_click+").each do |u| %><tr><th style='min-width: 140px;'><%= u.name %><br/><%= u.address %><%= u.address2 %></th><% u.attributes.each do |attr_name, attr_value| %><% if attr_value == true || attr_value == false %><td><%= image_tag('#{attr_value}.png', size: '20x20') %></td><% end %><% end %></tr><% end %>"
 }
 
 $.fn.serializeObject = function() {
@@ -666,4 +684,6 @@ $(function() {
   $('#community').on('click', function() {
     $(this).toggleClass('active');
   })
+
+
 });

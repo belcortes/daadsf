@@ -2,9 +2,79 @@
   %h3 Printing Options
 
   / = link_to "Evacuation Routes", '#', onclick: "printpage()"
-  %p Local Resources
-  = link_to "User Resources", '#', onclick: "gmapPrint()"
+  = link_to "All Resources", '#', onclick: "gmapPrint()"
+  %p Local Resources by Zipcode
   %br
-  = link_to User.uniq.pluck(:zip).map(&:inspect).join(', '), onclick: "gmapPrint()"
+  / = link_to ''
+  - User.all.each do |f|
+    - f.attributes.each do |attr_name, attr_value|
+      - if attr_name == 'zip'
+        = link_to attr_value, '#', class: 'zip-click', onclick: "gmapPrint()"
+        #user-print
+          %head
+            = stylesheet_link_tag    "application", media: "all" #, "data-turbolinks-track" => true
+          %body
+            .print-header
+              = image_tag("appa_logo3.png",width:'300px')
+              Community Resources - San Francisco, CA
+              = attr_value
+            %br
+            %table.user-table
+              %tr
+                %th
+                %th NERT
+                %th CERT
+                %th CPR
+                %th SAFE
+                %th First Aid
+                %th Dump Truck
+                %th Backhoe
+                %th Fork Lift
+                %th Fuel
+                %th Generator
+                %th Jack Hammer
+                %th Emergency Kit
+                %th Drill
+                %th Hammer
+                %th Shovel
+                %th Engineer
+                %th General Contractor
+                %th Church
+                %th School
+                %th Underground Shelter
+                %th Overnight Shelter
+                %th Oxygen
+                %th Wheelchair
+                %th Defibrillator
+                %th First Responder
+                %th Building Inspector
+                %th Commercial License
+                %th Electrician
+                %th Carpenter
+                %th Heavy Equipment Operator
+                %th Plumber
+                %th Commercial Kitchen
+                %th Bulldozer
+                %th Excavator
+                %th Front Loader
+                %th Reclaimer
+                %th Trencher
+                %th Tractor
+                %th Goggles
+                %th Axe
+              - User.where(zip: attr_value).each do |u|
+                %tr
+                  %th{style: 'min-width: 140px;'}
+                    = u.name
+                    %br
+                    = u.address
+                    = u.address2
+                  - u.attributes.each do |attr_name, attr_value|
+                    - if attr_value == true || attr_value == false
+                      %td
+                        = image_tag("#{attr_value}.png", size: "20x20")
+        %br
+  / # = link_to User.uniq.pluck(:zip).map(&:inspect).join(', '), onclick: "gmapPrint()"
   / # = link_to "User Resources", '#', onclick: "PrintContent()"
-  %p Preparedness
+  / %p Preparedness
+

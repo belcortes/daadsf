@@ -55,8 +55,8 @@ class User < ActiveRecord::Base
   #   end
   # end
 
-  def self.as_csv
-    CSV.generate do |csv|
+  def self.as_csv(options = {})
+    CSV.generate(options) do |csv|
       csv << column_names
       all.each do |item|
         csv << item.attributes.values_at(*column_names)

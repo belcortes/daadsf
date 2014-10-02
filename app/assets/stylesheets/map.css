@@ -246,9 +246,9 @@
   position: fixed !important;
   padding-left: 5px;
 }
-#user-print {
+/*#user-print {
   display: none;
-}
+}*/
 
 .user-table {
   display: inline-block;

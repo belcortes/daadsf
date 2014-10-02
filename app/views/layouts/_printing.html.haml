@@ -5,6 +5,9 @@
 /     .print-header
 /       = image_tag("appa_logo3.png",width:'300px')
 /       Community Resources - San Francisco, CA
+/       Download:
+/       <%= link_to "CSV", products_path(format: "csv") %> |
+/       <%= link_to "Excel", products_path(format: "xls") %>
 /     %br
 /     %table.user-table
 /       %tr

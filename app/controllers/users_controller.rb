@@ -1,5 +1,19 @@
 class UsersController < ApplicationController
 
+  def print
+    @user = User.where(zip: params[:zip])
+    render :layout => false, :only => [:print]
+    p @user
+  end
+
+  def index
+    @user = User.order(:name)
+    respond_to do |format|
+      format.html
+      format.csv {render text: @user.as_csv}
+    end
+  end
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -15,6 +29,9 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     respond_to do |format|
+      format.html
+      format.csv {render text: @users.as_csv}
+      # format.xls {render text: @users.as_csv(col_sep: '\t')}
       format.json { render json: @users }
     end
   end

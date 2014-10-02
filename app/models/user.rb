@@ -55,6 +55,15 @@ class User < ActiveRecord::Base
   #   end
   # end
 
+  def self.as_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |item|
+        csv << item.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email

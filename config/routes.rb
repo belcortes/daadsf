@@ -6,7 +6,7 @@ CEAD::Application.routes.draw do
 
   root 'home#index'
   get '/neighborhoods', to: 'neighborhoods#index'
-  get '/print/:zip', to: 'users#print'
+  get '/print/:zip', to: 'users#print', :as => :user_print
   # get '/neighborhoods', to: 'neighborhoods#index'
   get '/cooling', to: 'cooling_centers#show', :defaults => { :format => 'json' }
   get '/users', to: 'users#show', :defaults => { :format => 'json' }

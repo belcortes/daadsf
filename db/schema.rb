@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922121804) do
+ActiveRecord::Schema.define(version: 20141003221816) do
+
+  create_table "buildings", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cooling_centers", force: true do |t|
     t.string   "name"
@@ -146,6 +154,12 @@ ActiveRecord::Schema.define(version: 20140922121804) do
     t.integer  "kitchen_q"
     t.integer  "overnight_q"
     t.integer  "underground_q"
+    t.boolean  "business"
+    t.boolean  "ngo"
+    t.boolean  "gov"
+    t.boolean  "faith"
+    t.boolean  "closed"
+    t.boolean  "open"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

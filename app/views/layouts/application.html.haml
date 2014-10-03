@@ -73,10 +73,16 @@
         %input.checkbox#density-check{type: "checkbox"} Population Density
       %li
         %input.checkbox#super-check{type: "checkbox"} Supervisor Districts
-  %a(href='#')
-    .map-buttons#disaster Resiliency
-  %a(href='#')
-    .map-buttons#resiliency Resiliency
+  .dropdown
+    %a.dropdown-toggle.map-buttons#resiliency{"data-toggle" => "dropdown"}(href='#')
+      Resiliency
+      %b.caret
+    %ul#menu8.dropdown-menu
+      %li
+        - Neighborhood.all.each do |n|
+          %input.mission{:name => "optionsRadios", :type => "radio"}
+            = n.name
+            %br
   .dropdown
     %a.dropdown-toggle.map-buttons#neighbor{"data-toggle" => "dropdown"}(href='#')
       Resources
@@ -100,6 +106,8 @@
         %input.checkbox#high_liq{type: "checkbox"} Low Liquifaction Level
       %li
         %input.checkbox#low_liq{type: "checkbox"} High Liquifaction Level
+      %li
+        %input.checkbox#tsunami_i{type: "checkbox"} Tsunami Inundation
   .dropdown
     %a.dropdown-toggle.map-buttons#sf-er{"data-toggle" => "dropdown"}(href='#')
       Emergency Resources
@@ -110,6 +118,8 @@
 
   %a(href='http://appallicious.com/')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
+  #about
+    ABOUT
 
   
 

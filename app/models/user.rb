@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
   def full_street_address
-    [address, address2, city, 'CA'].compact.join(', ')
+    [address, address2, city, 'CA', zip].compact.join(', ')
   end
 
   # searchable do
@@ -55,18 +55,9 @@ class User < ActiveRecord::Base
   #   end
   # end
 
-#   <%- headers = ['Name', 'Email'] -%>
-# <%= CSV.generate_line headers %>
-# <%- @query.each do |user| -%>
-#   <%= CSV.generate_line([user.name, user.email]) %>
-# <%- end -%>
-
 
   def self.as_csv
-    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','survival_kit','shovel','emergency_contact','city','state','engineer','contractor','church','school','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe'] 
-    # CSV.generate_line headers
-    # @user.each do |user|
-      # CSV.generate_line([user.email,user.phone,user.name,user.address,user.address2,user.nert,user.cert,user.cpr,user.safe,user.firstaid,user.dumptruck,user.backhoe,user.forklift,user.fuel,user.generator,user.saw,user.jackhammer,user.emergency,user.drill,user.hammer,user.survival_kit,user.shovel,user.emergency_contact,user.city,user.state,user.engineer,user.contractor,user.church,user.school,user.underground,user.overnight,user.oxygen,user.wheelchair,user.defibrillation,user.other,user.latitude,user.longitude,user.firstresponder,user.inspector,user.commercial,user.electrician,user.carpenter,user.operator,user.plumber,user.kitchen,user.bulldozer,user.excavator,user.frontloader,user.reclaimer,user.trencher,user.tractor,user.goggles,user.axe])
+    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','survival_kit','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe'] 
     CSV.generate do |csv|
       csv << headers
       all.each do |item|

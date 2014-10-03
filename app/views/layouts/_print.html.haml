@@ -9,6 +9,8 @@
   - User.all.each do |f|
     - f.attributes.each do |attr_name, attr_value|
       - if attr_name == 'zip'
+        / - p attr_name.size
+        / - p attr_value.size
         = link_to attr_value, "/print/#{attr_value}", class: 'zip-click'
         %br
   / # = link_to User.uniq.pluck(:zip).map(&:inspect).join(', '), onclick: "gmapPrint()"

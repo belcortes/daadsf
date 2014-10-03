@@ -7,10 +7,10 @@
         =image_tag("appa_logo3.png",width:'300px')
       Community Resources - San Francisco, CA
       %br
-      Download:
-      = link_to "CSV", user_print_path(format: "csv")
-      = link_to "Print", 'javascript:window.print()'
-      = link_to "Excel", user_print_path(format: "xls")
+      %br
+      = link_to "CSV", user_print_path(format: "csv"), class: 'map-buttons2'
+      = link_to "Excel", user_print_path(format: "xls"), class: 'map-buttons2'
+      = link_to "Print", 'javascript:window.print()', class: 'map-buttons2'
     %br
     %table.user-table
       %tr

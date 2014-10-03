@@ -1,5 +1,7 @@
 var geocoder;
 var map;
+var retroData;
+var heatmap;
 
 
 // -------------- FUNCTIONS ------------
@@ -51,18 +53,43 @@ function maps() {
     var tsunami = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sf_tsunami_evacuation.kml'
     });
+    var tsunami_i = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_tsunami_inundation.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
     var cloudLayer = new google.maps.weather.CloudLayer();
+    // console.log(retroData)
+
+    // $.getJSON("/retro", function(json) {
+    //   $.each(json, function(key, data) {
+    //     // console.log(data.latitude)
+    //     retroData = [new google.maps.LatLng(data.latitude, data.longitude)]
+        
+    //     // return retroData
+    //     var pointArray = new google.maps.MVCArray(retroData);
+
+    //     heatmap = new google.maps.visualization.HeatmapLayer({
+    //       data: pointArray
+    //     });
+        
+    //     heatmap.setMap(map);
+
+    //   })
+    // })
+    // console.log(retroData)
+    
     
 
     //  ---------------- KML CALLS ---------------- 
+
+
+    
    
     weatherLayer.setMap(map);
 
     cloudLayer.setMap(map);
-    
     
     $('#resiliency').on('click', function(){
       $('.container').hide();
@@ -110,6 +137,9 @@ function maps() {
             case 'tsunami':
               tsunami.setMap(null);
               break;
+            case 'tsunami_i':
+              tsunami_i.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -145,6 +175,10 @@ function maps() {
               tsunami.setMap(map);
               tsunami.set('preserveViewport', true);
               break;
+            case 'tsunami_i':
+              tsunami_i.setMap(map);
+              tsunami_i.set('preserveViewport', true);
+              break;
           }
         }
       })
@@ -155,8 +189,7 @@ function maps() {
     user_data()
     checkbox_toggle();
   }
-    google.maps.event.addDomListener(window, 'load', initialize);
-    
+    google.maps.event.addDomListener(window, 'load', initialize);  
 }
 
 function boolean_quantities() {

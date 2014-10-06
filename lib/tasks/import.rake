@@ -6,7 +6,6 @@ task :import => [:environment] do
   file = "db/sf_hospital_fire_police.csv"
 
   CSV.foreach(file, :headers => true) do |row|
-    p row
     Resource.create! ({
       :name => row[1],
       :address => row[2],

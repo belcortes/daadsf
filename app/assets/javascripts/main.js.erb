@@ -249,7 +249,6 @@ function resource_markers() {
   $.getJSON("/resource", function(json) {
     $.each(json, function(key, data) {
       
-      
       if (data.resource_type == 'police_station') {
         var police_marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.lng),
@@ -489,11 +488,17 @@ function user_data() {
       // if (data.name == user) {
         // icon = "<%= asset_path 'me.png' %>"
       // } else 
-      if (data.school == true) {
+      if (data.ngo == true) {
         icon = "/images/SchoolIcon.png"
-      } else if (data.church == true) {
+      } else if (data.faith == true) {
         icon = "/images/churchicon.png"
-      }else {
+      } else if (data.business == true) {
+        icon = "/images/churchicon.png"
+      } else if (data.gov == true) {
+        icon = "/images/churchicon.png"
+      } else if (data.name == 'Zynga') {
+        icon = "/images/zynga.png"
+      } else {
         icon = "/images/person.png"
       }
 
@@ -518,27 +523,32 @@ function user_data() {
         if($(this).hasClass('active') == true) {
           if(data[r_name] == true) { 
             icon = "/images/"+r_name+".png" 
-            // marker.setIcon(path)
-            var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(data.latitude, data.longitude),
-              map: map,
-              icon: path,
-              title: 'hello'
-            });
+            marker.setIcon(path)
+            // var marker = new google.maps.Marker({
+            //   position: new google.maps.LatLng(data.latitude, data.longitude),
+            //   map: map,
+            //   icon: path,
+            //   title: 'hello'
+            // });
           }
         } else {
           $(this).removeClass('active');
-          // if (data.school == true) {
-          //    marker.setIcon("/images/SchoolIcon.png")
-          // } else if (data.church == true) {
-          //   marker.setIcon("/images/churchicon.png")
-          // } else {
-          //   marker.setIcon("/images/person.png")
-          // }
+          if (data.ngo == true) {
+            marker.setIcon("/images/SchoolIcon.png")
+          } else if (data.faith == true) {
+            marker.setIcon("/images/churchicon.png")
+          } else if (data.business == true) {
+            marker.setIcon("/images/churchicon.png")
+          } else if (data.gov == true) {
+            marker.setIcon("/images/churchicon.png")
+          } else if (data.name == 'Zynga') {
+            marker.setIcon("/images/zynga.png")
+          } else {
+            marker.setIcon("/images/person.png")
+          }
         }
       })
       oms.addListener('click', function(marker, event) {
-        // console.log('cluster clikins')
         // infowindow.setContent(marker.desc);
         infowindow.open(map, marker);
       });
@@ -659,6 +669,9 @@ function button_clicks() {
     $('.container').hide();
     $('.container2').hide();
     $('#print-container').show();
+  })
+  $('.mission').on('click', function(){
+    console.log($(this).val())
   })
   
   // $('.contact').on('click', function(){

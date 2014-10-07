@@ -3,7 +3,7 @@
   .height
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       .row
-        .personal.col-md-4#contact-info 
+        .personal.col-md-3#contact-info 
           Personal Information
           .account-box
             = f.label :name
@@ -26,17 +26,34 @@
             %br
             = f.label :state
             = select_tag(options_for_select([['NY'], ['CA']]))
-            / # = f.text_field :state, value: current_user.state, id: 'state_field', :required => true
             %br
             = f.label :zip
             = f.text_field :zip, value: current_user.zip, id: 'zip_field', :required => true
             %br
-            = f.check_box :church, {:checked=>current_user.church}
-            = f.label :church
+        .personal.col-md-3#person-info 
+          Are you a:
+          .account-box
+            = f.check_box :business, {:checked=>current_user.business}
+            = f.label :business
             %br
-            = f.check_box :school, {:checked=>current_user.school}
-            = f.label :school
-        .personal.col-md-4#certifications 
+            = f.check_box :ngo, {:checked=>current_user.ngo}
+            = f.label(:ngo, 'NGO')
+            %br
+            = f.check_box :faith, {:checked=>current_user.faith}
+            = f.label(:faith, 'Faith Based Organization')
+            %br
+            = f.check_box :gov, {:checked=>current_user.gov}
+            = f.label(:gov, 'Government Entity')
+            %br
+            %br
+          Are you:
+          .account-box
+            = f.check_box :open, {:checked=>current_user.open}
+            = f.label :open
+            %br
+            = f.check_box :closed, {:checked=>current_user.closed}
+            = f.label :closed
+        .personal.col-md-3#certifications 
           Certifications
           .account-box
             = f.check_box :cert, {:checked=>current_user.cert}
@@ -56,7 +73,7 @@
             %br
             = f.check_box :firstresponder, {:checked=>current_user.firstresponder}
             = f.label(:firstresponder, 'First Responder')
-        .personal.col-md-4#user-buildings 
+        .personal.col-md-3#user-buildings 
           Certificated Skills - Trade
           .account-box
             = f.check_box :inspector,{:checked=>current_user.inspector}

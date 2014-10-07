@@ -277,7 +277,7 @@
 }
 #about {
   position: relative;
-  z-index: 10;
+  /*z-index: 10;*/
   /* width: 100px; */
   height: 22px;
   color: #2a6496;

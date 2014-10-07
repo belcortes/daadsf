@@ -103,3 +103,7 @@ select {
 .user-table tr:nth-child(even){
   background: #f2f2f2;;
 }
+
+#contact-info input {
+  width: 180px;
+}

@@ -746,6 +746,10 @@ $(function() {
   //   }
   // });
 
+  $('#person-info input').click(function () {
+    $(this).parent().children().not($(this)).attr('checked', false)
+  });
+
   $('.container').hide();
   $('.close').on('click', function() {
     $('.container').css('display', 'none');

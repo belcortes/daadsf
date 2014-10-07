@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   after_validation :geocode, :if => :address_changed?
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :validatable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
   def full_street_address
     [address, address2, city, 'CA', zip].compact.join(', ')

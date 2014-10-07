@@ -33,16 +33,16 @@
         .personal.col-md-3#person-info 
           Are you a:
           .account-box
-            = f.check_box :business, {:checked=>current_user.business}
+            = f.radio_button :business, {:checked=>current_user.business}
             = f.label :business
             %br
-            = f.check_box :ngo, {:checked=>current_user.ngo}
+            = f.radio_button :ngo, {:checked=>current_user.ngo}
             = f.label(:ngo, 'NGO')
             %br
-            = f.check_box :faith, {:checked=>current_user.faith}
+            = f.radio_button :faith, {:checked=>current_user.faith}
             = f.label(:faith, 'Faith Based Organization')
             %br
-            = f.check_box :gov, {:checked=>current_user.gov}
+            = f.radio_button :gov, {:checked=>current_user.gov}
             = f.label(:gov, 'Government Entity')
             %br
             %br

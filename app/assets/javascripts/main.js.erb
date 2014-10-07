@@ -488,16 +488,16 @@ function user_data() {
       // if (data.name == user) {
         // icon = "<%= asset_path 'me.png' %>"
       // } else 
-      if (data.ngo == true) {
-        icon = "/images/SchoolIcon.png"
+      if (data.name == 'Zynga') {
+        icon = "/images/zynga.png"
+      } else if (data.ngo == true) {
+        icon = "/images/ngo.png"
       } else if (data.faith == true) {
         icon = "/images/churchicon.png"
       } else if (data.business == true) {
-        icon = "/images/churchicon.png"
+        icon = "/images/business.png"
       } else if (data.gov == true) {
-        icon = "/images/churchicon.png"
-      } else if (data.name == 'Zynga') {
-        icon = "/images/zynga.png"
+        icon = "/images/government.png"
       } else {
         icon = "/images/person.png"
       }
@@ -534,13 +534,13 @@ function user_data() {
         } else {
           $(this).removeClass('active');
           if (data.ngo == true) {
-            marker.setIcon("/images/SchoolIcon.png")
+            marker.setIcon("/images/ngo.png")
           } else if (data.faith == true) {
             marker.setIcon("/images/churchicon.png")
           } else if (data.business == true) {
-            marker.setIcon("/images/churchicon.png")
+            marker.setIcon("/images/business.png")
           } else if (data.gov == true) {
-            marker.setIcon("/images/churchicon.png")
+            marker.setIcon("/images/government.png")
           } else if (data.name == 'Zynga') {
             marker.setIcon("/images/zynga.png")
           } else {
@@ -665,10 +665,14 @@ function button_clicks() {
     $('#account-container').show();
   })
   $('#print').on('click', function(){
-    // console.log('clicked on print button')
     $('.container').hide();
     $('.container2').hide();
     $('#print-container').show();
+  })
+  $('#about').on('click', function(){
+    $('.container').hide();
+    $('.container2').hide();
+    $('#about-container').show();
   })
   $('.mission').on('click', function(){
     console.log($(this).val())

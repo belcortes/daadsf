@@ -23,18 +23,9 @@
   .container#signin-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'home/sign_up_modal'
-  .container#advanced-container
-    =image_tag asset_path('x.png'), :class => 'close'
-    = render 'layouts/advanced'
-  .container#recovery-container
-    %span.glyphicon.glyphicon-remove
-    = render 'layouts/recover'
   .container#account-container
-    / - if session[:modal] == true
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'users/personal'
-
-  / render :partial => 'layouts/modal'
   .container#users
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'users/all'
@@ -50,9 +41,9 @@
   / .container#contact-container
   /   =image_tag asset_path('x.png'), :class => 'close'
   /   = render 'layouts/contact'
-  / .container#results
-  /   =image_tag asset_path('x.png'), :class => 'close'
-  /   = render 'search/results'
+  .container#about-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/about'
   / = render 'layouts/printing'
 
   / %a(href='#')
@@ -118,7 +109,7 @@
       %li
         %input.checkbox#tsunami{type: "checkbox"} Tsunami Evacuation Routes
 
-  %a(href='http://appallicious.com/')
+  %a(href='http://appallicious.com/' target='_blank')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'
   #about
     ABOUT

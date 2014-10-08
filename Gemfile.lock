@@ -25,12 +25,15 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.6)
     arel (4.0.2)
     atomic (1.1.16)
     bcrypt (3.1.7)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
+    buftok (0.2.0)
     builder (3.1.4)
+    chronic (0.10.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -44,20 +47,19 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     geocoder (1.2.3)
-    gon (5.1.1)
-      actionpack (>= 2.3.0)
-      json
-      multi_json
-      request_store (>= 1.0.5)
     haml (4.0.5)
       tilt
     hashie (2.1.2)
     hike (1.2.3)
+    http (0.6.2)
+      http_parser.rb (~> 0.6.0)
+    http_parser.rb (0.6.0)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -74,11 +76,15 @@ GEM
     mail_form (1.5.0)
       actionmailer (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    naught (1.0.0)
+    oauth (0.4.7)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -90,11 +96,17 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (1.6.0)
       omniauth-oauth2 (~> 1.1)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.1.2)
       faraday (>= 0.8, < 0.10)
       multi_json (~> 1.3)
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     orm_adapter (0.5.0)
     pdfkit (0.6.2)
     pg (0.17.1)
@@ -124,7 +136,6 @@ GEM
     rake (10.2.2)
     rdoc (4.1.1)
       json (~> 1.4)
-    request_store (1.0.7)
     rest-client (1.6.8)
       mime-types (~> 1.16)
       rdoc (>= 2.4.2)
@@ -141,6 +152,7 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    simple_oauth (0.2.0)
     sinatra (1.0)
       rack (>= 1.0)
     sprockets (2.11.0)
@@ -168,6 +180,17 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.1)
       coffee-rails
+    twitter (5.11.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (~> 0.0.9)
+      faraday (~> 0.9.0)
+      http (~> 0.6.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.2.0)
     tzinfo (0.3.39)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
@@ -178,6 +201,8 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    whenever (0.9.3)
+      chronic (>= 0.6.3)
     wicked (1.0.3)
       rails (>= 3.0.7)
 
@@ -190,12 +215,12 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   geocoder
-  gon
   haml
   jbuilder (~> 1.2)
   jquery-rails
   mail_form (>= 1.3.0)
   omniauth-facebook
+  omniauth-twitter
   pdfkit
   pg
   rails (= 4.0.2)
@@ -207,6 +232,8 @@ DEPENDENCIES
   sunspot_solr
   taps
   turbolinks
+  twitter
   uglifier (>= 1.3.0)
   unicorn
+  whenever
   wicked

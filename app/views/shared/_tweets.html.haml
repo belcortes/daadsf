@@ -1,0 +1,8 @@
+%section#tweets
+  .height
+    %u
+      - Tweet.last(5).each do |t|
+        = t.text
+        = t.id
+        %br
+        %br

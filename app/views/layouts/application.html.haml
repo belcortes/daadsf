@@ -12,8 +12,9 @@
   = yield
 
   / # = render 'layouts/contact'
-
-
+  .container#twitter-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'shared/tweets'
   .container#prepare-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/prepare'
@@ -38,9 +39,9 @@
     / .container#print-container
     / =image_tag asset_path('x.png'), :class => 'close'
     / = render 'layouts/print'
-  / .container#contact-container
-  /   =image_tag asset_path('x.png'), :class => 'close'
-  /   = render 'layouts/contact'
+  .container.resiliency-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/resiliency'
   .container#about-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/about'
@@ -87,6 +88,8 @@
         %input.checkbox#sf-hosp{type: "checkbox"} Hospitals
       %li
         %input.checkbox#pharma{type: "checkbox"} Pharmacies
+      %li
+        %input.checkbox#twitter{type: "checkbox"} Twitter Feed
 
   %a(href='#')
     .map-buttons#community Community Resources

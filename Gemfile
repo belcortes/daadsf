@@ -17,7 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 # gem 'sunspot_rails'
 gem 'geocoder'
-gem 'gon'
+gem 'twitter'
+gem 'omniauth-twitter'
+gem 'whenever'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

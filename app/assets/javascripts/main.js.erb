@@ -91,21 +91,21 @@ function maps() {
 
     cloudLayer.setMap(map);
     
-    $('#resiliency').on('click', function(){
-      $('.container').hide();
-      $('.container2').hide();
-      $(this).toggleClass('active');
-      if($(this).attr('class') == 'map-buttons active'){
-        $('#resilience-container').show();
-        map.panTo(new google.maps.LatLng(37.800740, -122.439785));
-        map.setZoom(15); 
-        sf_zipcodes.setMap(map);
-        sf_zipcodes.set('preserveViewport', true);
-      } else {
-        $('#resilience-container').hide();
-        sf_zipcodes.setMap(null);
-      }
-    })
+    // $('#resiliency').on('click', function(){
+    //   $('.container').hide();
+    //   $('.container2').hide();
+    //   $(this).toggleClass('active');
+    //   if($(this).attr('class') == 'map-buttons active'){
+    //     $('#resilience-container').show();
+    //     map.panTo(new google.maps.LatLng(37.800740, -122.439785));
+    //     map.setZoom(15); 
+    //     sf_zipcodes.setMap(map);
+    //     sf_zipcodes.set('preserveViewport', true);
+    //   } else {
+    //     $('#resilience-container').hide();
+    //     sf_zipcodes.setMap(null);
+    //   }
+    // })
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){
@@ -139,6 +139,9 @@ function maps() {
               break;
             case 'tsunami_i':
               tsunami_i.setMap(null);
+              break;
+            case 'twitter':
+              $('#twitter-container').hide()
               break;
           }
         } else {
@@ -178,6 +181,9 @@ function maps() {
             case 'tsunami_i':
               tsunami_i.setMap(map);
               tsunami_i.set('preserveViewport', true);
+              break;
+            case 'twitter':
+              $('#twitter-container').show()
               break;
           }
         }
@@ -619,11 +625,6 @@ function user_data() {
 
 
 function gmapPrint(){
-  // map.panTo(new google.maps.LatLng(37.800740, -122.294949));
-  // var content = window.document.getElementById('map') // get you map details
-  // var newWindow = window.open(); // open a new window
-  // newWindow.document.write(content.innerHTML); // write the map into the new window
-  // newWindow.print(); // print the new window
 
   
     var content = window.document.getElementById('user-print') // get you map details
@@ -631,10 +632,6 @@ function gmapPrint(){
     // newWindow.document.writeln('<link href="./assets/application.css" media="all" rel="stylesheet">');
     newWindow.document.writeln(content.innerHTML);
     newWindow.print();
-
-
-  // win = window.open('/images/map.png',"_blank");
-  // win.onload = function() { win.print(); }
 }
 
 function button_clicks() {
@@ -646,18 +643,18 @@ function button_clicks() {
     $('#prepare-container').show();
   })
     
-  $('#advanced-search').on('click', function(){
-    $('.container').hide();
-    $('.container2').hide();
-    $('#print-container').hide();
-    $('#advanced-container').show();
-  })
-  $('#recovery').on('click', function(){
-    $('.container').hide();
-    $('.container2').hide();
-    $('#print-container').hide();
-    $('#recovery-container').show();
-  })
+  // $('#advanced-search').on('click', function(){
+  //   $('.container').hide();
+  //   $('.container2').hide();
+  //   $('#print-container').hide();
+  //   $('#advanced-container').show();
+  // })
+  // $('#recovery').on('click', function(){
+  //   $('.container').hide();
+  //   $('.container2').hide();
+  //   $('#print-container').hide();
+  //   $('#recovery-container').show();
+  // })
   $('#myaccount').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
@@ -676,48 +673,59 @@ function button_clicks() {
   })
   $('.mission').on('click', function(){
     console.log($(this).val())
+    $('.container').hide();
+    $('.container2').hide();
+    resiliency_output()
+    // $('.resiliency-container').show();
+    // $('.resiliency').append(
+    //     '<h3>'+$(this).val()+'</h3>'
+    // )
   })
-  
-  // $('.contact').on('click', function(){
-  //   $('.container').hide();
-  //   $('.container2').hide();
-  //   $('#contact-container').show();
+  // var zip_click = ''
+  // $('.zip-click').on('click', function(){
+  //   zip_click = $(this).text()
+  //   console.log(zip_click)
   // })
-  var zip_click = ''
-  $('.zip-click').on('click', function(){
-    zip_click = $(this).text()
-    console.log(zip_click)
-    // $('.user-table').append('<tr><td>column 1 value</td><td>column 2 value</td></tr>')
-    // $('#someTable > tbody > tr:first').after(newRow);
-    // $('#table tr:last').after('<tr><td>column 1 value</td><td>column 2 value</td></tr>');
-  })
-  // "<% User.where(zip: "+zip_click+").each do |u| %><tr><th style='min-width: 140px;'><%= u.name %><br/><%= u.address %><%= u.address2 %></th><% u.attributes.each do |attr_name, attr_value| %><% if attr_value == true || attr_value == false %><td><%= image_tag('#{attr_value}.png', size: '20x20') %></td><% end %><% end %></tr><% end %>"
 }
 
-$.fn.serializeObject = function() {
-  var values = {}
-  $("form input, form select, form textarea").each( function(){
-    values[this.name] = $(this).val();
+// $.fn.serializeObject = function() {
+//   var values = {}
+//   $("form input, form select, form textarea").each( function(){
+//     values[this.name] = $(this).val();
+//   });
+//   return values;
+// }
+
+// function ajax_signup() {
+//   $("#login").submit(function(e){
+//    e.preventDefault(); //This prevents the form from submitting normally
+//    var user_info = $(this).serializeObject();
+//    console.log("About to post to /users: " + JSON.stringify(user_info));
+//    $.ajax({
+//      type: "POST",
+//      url: "/users/sign_in",
+//      data: user_info,
+//      success: function(json){
+//        console.log("The Devise Response: " + JSON.stringify(json));
+//        //alert("The Devise Response: " + JSON.stringify(json));
+//      },
+//      dataType: "json"
+//    });
+// });
+// }
+
+function resiliency_output() {
+  $.ajax ({
+    type: 'GET',
+    url: "/neighbors",
+    dataType: "JSON",
+    success: function(data){
+      console.log(data)
+      $('.resiliency-container').show()
+      data.name
+      data.r_score
+    }
   });
-  return values;
-}
-
-function ajax_signup() {
-  $("#login").submit(function(e){
-   e.preventDefault(); //This prevents the form from submitting normally
-   var user_info = $(this).serializeObject();
-   console.log("About to post to /users: " + JSON.stringify(user_info));
-   $.ajax({
-     type: "POST",
-     url: "/users/sign_in",
-     data: user_info,
-     success: function(json){
-       console.log("The Devise Response: " + JSON.stringify(json));
-       //alert("The Devise Response: " + JSON.stringify(json));
-     },
-     dataType: "json"
-   });
-});
 }
 
 
@@ -726,25 +734,7 @@ function ajax_signup() {
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
 
-  // if (user) {
-  //   console.log(user)
-  // } else {
-  //   console.log('no sessions')
-  // }
-
-  // $("#login").bind("ajax:success", function(e, data, status, xhr) {
-  //   // window.location.replace("/");
-  //   if (data.success) {
-  //     console.log('we signed in mofo!')
-  //     $('#login').modal('hide');
-  //     // $('#account-container').show()
-  //     console.log(data)
-  //     // $('#sign_up_button').hide();
-  //     // return $('#submit_comment').slideToggle(1000, "easeOutBack");
-  //   } else {
-  //     console.log('failure mofo')
-  //   }
-  // });
+  
 
   $('#person-info input').click(function () {
     $(this).parent().children().not($(this)).attr('checked', false)
@@ -758,7 +748,6 @@ $(function() {
   maps();
   button_clicks();
   boolean_quantities()
-  // ajax_signup()
 
   $('.resource_links').on('click', function(){
     $(this).toggleClass('active');

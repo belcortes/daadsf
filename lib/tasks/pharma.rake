@@ -1,8 +1,8 @@
 require 'csv'
 
-namespace :tasks do
+namespace :import do
   desc "adding pharmacies to buildings"
-  task :import => [:environment] do
+  task :pharma => [:environment] do
 
     file = "db/sf_pharmacies.csv"
 
@@ -13,6 +13,23 @@ namespace :tasks do
         :longitude => row[2],
         :name => row[3],
         :b_type => row[4]
+      })
+    end
+
+  end
+
+  desc "adding supermarkets to buildings"
+  task :super => [:environment] do
+
+    file = "db/sf_supermarkets.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :name => row[0],
+        :address => row[1],
+        :b_type => row[2],
+        :latitude => row[3],
+        :longitude => row[4]
       })
     end
 

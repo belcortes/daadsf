@@ -56,6 +56,9 @@ function maps() {
     var tsunami_i = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sf_tsunami_inundation.kml'
     });
+    var landslide = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_landslide.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -143,6 +146,9 @@ function maps() {
             case 'twitter':
               $('#twitter-container').hide()
               break;
+            case 'landslide':
+              landslide.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -182,6 +188,10 @@ function maps() {
               tsunami_i.setMap(map);
               tsunami_i.set('preserveViewport', true);
               break;
+            case 'landslide':
+              landslide.setMap(map);
+              landslide.set('preserveViewport', true);
+              break;
             case 'twitter':
               $('#twitter-container').show()
               break;
@@ -219,6 +229,7 @@ function resource_markers() {
   var icon2 = "/images/firemanmarkercolored.png"
   var icon3 = "/images/hospitalmarkercolored.png"
   var icon4 = "/images/pharmacy.png"
+  var icon5 = "/images/supermarket.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/retro', function(json){
@@ -247,6 +258,31 @@ function resource_markers() {
           google.maps.event.addListener(p_marker, 'click', function() {
             infowindow.open(map,p_marker);
           });
+        });
+      } else if (data.b_type == 'Supermarket') {
+          var p_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon5,
+            title: 'hello'
+          });
+          var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address)
+          p_marker.setMap(null);
+          bounds.extend(p_marker.position);
+          $('.checkbox').on('click', function(){
+            if ($('#super').is(':checked') == true) {
+               p_marker.setMap(map);
+               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               map.setZoom(12); 
+            } else {
+              p_marker.setMap(null);
+            }
+            var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+            });
+            google.maps.event.addListener(p_marker, 'click', function() {
+              infowindow.open(map,p_marker);
+            });
         });
       }
     })

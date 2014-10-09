@@ -107,11 +107,20 @@ select {
 #contact-info input {
   width: 180px;
 }
-
+#tweets h3 {
+  color: #55acee;
+}
+#tweets img {
+  float: left;
+  margin-right: 8px;
+}
 #tweets ul {
   list-style-type: none;
   padding: 0;
   font-weight: normal;
   line-height: normal;
   color: #646463;
+}
+.black {
+  color: black
 }

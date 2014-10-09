@@ -230,8 +230,8 @@ function resource_markers() {
   var icon3 = "/images/hospitalmarkercolored.png"
   var icon4 = "/images/pharmacy.png"
   var icon5 = "/images/supermarket.png"
+  var icon6 = "/images/gas_station.png"
   var bounds = new google.maps.LatLngBounds();
-
   $.getJSON('/retro', function(json){
     $.each(json, function(key, data){
       if (data.b_type == 'pharmacy') {
@@ -271,6 +271,31 @@ function resource_markers() {
           bounds.extend(p_marker.position);
           $('.checkbox').on('click', function(){
             if ($('#super').is(':checked') == true) {
+               p_marker.setMap(map);
+               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               map.setZoom(12); 
+            } else {
+              p_marker.setMap(null);
+            }
+            var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+            });
+            google.maps.event.addListener(p_marker, 'click', function() {
+              infowindow.open(map,p_marker);
+            });
+        });
+      } else if (data.b_type == 'gas_station') {
+          var p_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon6,
+            title: 'hello'
+          });
+          var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address)
+          p_marker.setMap(null);
+          bounds.extend(p_marker.position);
+          $('.checkbox').on('click', function(){
+            if ($('#gas').is(':checked') == true) {
                p_marker.setMap(map);
                map.panTo(new google.maps.LatLng(37.769884, -122.459793));
                map.setZoom(12); 

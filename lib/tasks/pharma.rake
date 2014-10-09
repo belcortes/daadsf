@@ -34,4 +34,21 @@ namespace :import do
     end
 
   end
+
+  desc "adding gas stations to buildings"
+  task :gas => [:environment] do
+
+    file = "db/sf_gas_station_final.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :name => row[0],
+        :address => row[1],
+        :latitude => row[2],
+        :longitude => row[3],
+        :b_type => row[4]
+      })
+    end
+
+  end
 end

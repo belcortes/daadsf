@@ -756,26 +756,29 @@ function button_clicks() {
 function resiliency_output() {
 
   $('.mission').on('click', function(){
-    // console.log($(this).val())
     $('.container').hide();
     $('.container2').hide();
+    // $('.resiliency-container').children().first().remove()
     var neighbor_text = $(this).val()
+    var html_content = '<h3>'+neighbor_text+'</h3><p>HELLOOOO</p>'
     $.ajax ({
       type: 'GET',
       url: "/neighbors",
       dataType: "JSON",
       success: function(data){
-        data.name
-        data.r_score
         $('.resiliency-container').show();
-        $('.resiliency').prepend(
-          '<h3>'+neighbor_text+'</h3><p>HELLOOOO</p>'
-        )
+        // data.name
+        // data.r_score
+        // console.log(html_content)
+        // if (html_content.length > 0) {
+          // $('.resiliency-container').children().first().remove()
+        // } else {
+        $('.resiliency').prepend(html_content)
+        // }
+        
       }
     });
-    
   })
-  
 }
 
 
@@ -783,9 +786,6 @@ function resiliency_output() {
 
 //  ----------- ON DOCUMENT READY --------------
 $(function() {
-
-  
-
   $('#person-info input').click(function () {
     $(this).parent().children().not($(this)).attr('checked', false)
   });

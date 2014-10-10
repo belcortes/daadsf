@@ -27,19 +27,29 @@ namespace :twitter do
     #   p m.location
     # end
 
-    @client.search('#throwbackthursday', :lang => "en",).take(50).each do |t|
-      # if(t.user.location == 'California' || t.user.location == 'San Francisco, CA' || t.user.location == 'San Francisco' || t.user.location == 'SF')
-        Tweet.create!({
-            :text => t.text,
-            :name => t.user.name,
-            :location => t.user.location,
-            :photo => t.user.profile_image_url.to_s,
-            :handle => t.user.screen_name
-        })
-      # end
-    end 
+    # @client.search('#throwbackthursday', :lang => "en").take(50).each do |t|
+    #   # if(t.user.location == 'California' || t.user.location == 'San Francisco, CA' || t.user.location == 'San Francisco' || t.user.location == 'SF')
+    #     Tweet.create!({
+    #         :text => t.text,
+    #         :name => t.user.name,
+    #         :location => t.user.location,
+    #         :photo => t.user.profile_image_url.to_s,
+    #         :handle => t.user.screen_name
+    #     })
+    #   # end
+    # end 
 
-    # @client.status(520005365208215552).place.bounding_box.coordinates
+    @client.search('#codetoprepare', :result_type => 'recent', :geocode => '37.781157,-122.398720,8mi').take(100).each do |t|
+      Tweet.create!({
+        :text => t.text,
+        :name => t.user.name,
+        :location => t.user.location,
+        :photo => t.user.profile_image_url.to_s,
+        :handle => t.user.screen_name,
+        :lat => t.geo.coordinates.first,
+        :long => t.geo.coordinates.last
+      })
+    end
 
   end
 end

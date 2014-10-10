@@ -1,6 +1,5 @@
 var geocoder;
 var map;
-// var retroData;
 var heatmap;
 
 
@@ -63,25 +62,6 @@ function maps() {
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
     var cloudLayer = new google.maps.weather.CloudLayer();
-    // console.log(retroData)
-
-    // $.getJSON("/retro", function(json) {
-    //   $.each(json, function(key, data) {
-    //     // console.log(data.latitude)
-    //     retroData = [new google.maps.LatLng(data.latitude, data.longitude)]
-        
-    //     // return retroData
-    //     var pointArray = new google.maps.MVCArray(retroData);
-
-    //     heatmap = new google.maps.visualization.HeatmapLayer({
-    //       data: pointArray
-    //     });
-        
-    //     heatmap.setMap(map);
-
-    //   })
-    // })
-    // console.log(retroData)
     
     
 
@@ -143,9 +123,6 @@ function maps() {
             case 'tsunami_i':
               tsunami_i.setMap(null);
               break;
-            case 'twitter':
-              $('#twitter-container').hide()
-              break;
             case 'landslide':
               landslide.setMap(null);
               break;
@@ -192,9 +169,6 @@ function maps() {
               landslide.setMap(map);
               landslide.set('preserveViewport', true);
               break;
-            case 'twitter':
-              $('#twitter-container').show()
-              break;
           }
         }
       })
@@ -231,7 +205,39 @@ function resource_markers() {
   var icon4 = "/images/pharmacy.png"
   var icon5 = "/images/supermarket.png"
   var icon6 = "/images/gas_station.png"
+  var icon7 = "/images/twittericon.png"
   var bounds = new google.maps.LatLngBounds();
+
+  $.getJSON('/tweets', function(json){
+    $.each(json, function(key, data){
+      var t_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.long),
+          map: map,
+          icon: icon7,
+          title: 'hello'
+        });
+      var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Text:</strong> "+" "+data.text)
+        t_marker.setMap(null);
+        bounds.extend(t_marker.position);
+        $('.checkbox').on('click', function(){
+          if ($('#twitter').is(':checked') == true) {
+            $('#twitter-container').show()
+             t_marker.setMap(map);
+             map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+             map.setZoom(12); 
+          } else {
+            $('#twitter-container').hide()
+            t_marker.setMap(null);
+          }
+          var infowindow = new google.maps.InfoWindow({
+              content: contentInfo
+          });
+          google.maps.event.addListener(t_marker, 'click', function() {
+            infowindow.open(map,t_marker);
+          });
+        });
+    })
+  })
   $.getJSON('/retro', function(json){
     $.each(json, function(key, data){
       if (data.b_type == 'pharmacy') {
@@ -703,19 +709,6 @@ function button_clicks() {
     $('#print-container').hide();
     $('#prepare-container').show();
   })
-    
-  // $('#advanced-search').on('click', function(){
-  //   $('.container').hide();
-  //   $('.container2').hide();
-  //   $('#print-container').hide();
-  //   $('#advanced-container').show();
-  // })
-  // $('#recovery').on('click', function(){
-  //   $('.container').hide();
-  //   $('.container2').hide();
-  //   $('#print-container').hide();
-  //   $('#recovery-container').show();
-  // })
   $('#myaccount').on('click', function(){
     $('.container').hide();
     $('.container2').hide();
@@ -732,21 +725,6 @@ function button_clicks() {
     $('.container2').hide();
     $('#about-container').show();
   })
-  $('.mission').on('click', function(){
-    console.log($(this).val())
-    $('.container').hide();
-    $('.container2').hide();
-    resiliency_output()
-    // $('.resiliency-container').show();
-    // $('.resiliency').append(
-    //     '<h3>'+$(this).val()+'</h3>'
-    // )
-  })
-  // var zip_click = ''
-  // $('.zip-click').on('click', function(){
-  //   zip_click = $(this).text()
-  //   console.log(zip_click)
-  // })
 }
 
 // $.fn.serializeObject = function() {
@@ -776,17 +754,28 @@ function button_clicks() {
 // }
 
 function resiliency_output() {
-  $.ajax ({
-    type: 'GET',
-    url: "/neighbors",
-    dataType: "JSON",
-    success: function(data){
-      console.log(data)
-      $('.resiliency-container').show()
-      data.name
-      data.r_score
-    }
-  });
+
+  $('.mission').on('click', function(){
+    // console.log($(this).val())
+    $('.container').hide();
+    $('.container2').hide();
+    var neighbor_text = $(this).val()
+    $.ajax ({
+      type: 'GET',
+      url: "/neighbors",
+      dataType: "JSON",
+      success: function(data){
+        data.name
+        data.r_score
+        $('.resiliency-container').show();
+        $('.resiliency').prepend(
+          '<h3>'+neighbor_text+'</h3><p>HELLOOOO</p>'
+        )
+      }
+    });
+    
+  })
+  
 }
 
 
@@ -809,6 +798,7 @@ $(function() {
   maps();
   button_clicks();
   boolean_quantities()
+  resiliency_output()
 
   $('.resource_links').on('click', function(){
     $(this).toggleClass('active');

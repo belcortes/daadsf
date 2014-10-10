@@ -10,8 +10,10 @@
     <%= f.email_field :email, :autofocus => true %></div>
     <div><%= f.label :password %><br />
     <%= f.password_field :password %></div>
+    <p>Password must be at least 8 characters</p>
     <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></div>
+    <p>Password must be at least 8 characters</p>
   </div>
   <div class="modal-footer">
     <p><div><%= f.submit "Sign up", :class => 'btn btn-small btn-success' %></div></p>

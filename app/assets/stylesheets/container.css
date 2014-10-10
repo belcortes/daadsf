@@ -122,5 +122,6 @@ select {
   color: #646463;
 }
 .black {
-  color: black
+  color: black;
+  word-spacing: -5px;
 }

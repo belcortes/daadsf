@@ -216,7 +216,7 @@ function resource_markers() {
           icon: icon7,
           title: 'hello'
         });
-      var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Text:</strong> "+" "+data.text)
+      var contentInfo = ("<strong>Twitter Handle:</strong> @"+data.handle+"</br>"+"<strong>Text:</strong> "+" "+data.text)
         t_marker.setMap(null);
         bounds.extend(t_marker.position);
         $('.checkbox').on('click', function(){

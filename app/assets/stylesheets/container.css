@@ -114,6 +114,10 @@ select {
   float: left;
   margin-right: 8px;
 }
+#tweets li {
+  min-height: 48px;
+  /*border-bottom: 1px solid gray;*/
+}
 #tweets ul {
   list-style-type: none;
   padding: 0;
@@ -121,6 +125,9 @@ select {
   line-height: normal;
   color: #646463;
 }
+/*.tweet-text {
+  float: right;
+}*/
 .black {
   color: black;
   word-spacing: -5px;

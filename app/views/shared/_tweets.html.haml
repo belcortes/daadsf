@@ -2,12 +2,13 @@
   %h3 Tweets
   .height
     %ul
-      - Tweet.last(5).each do |t|
+      - Tweet.all.each do |t|
         %li
           .black
             @
             = t.handle
-          %img(src="#{t.photo}")
-          = t.text
+            %img(src="#{t.photo}")
+          .tweet-text
+            = t.text
         %br
         %br

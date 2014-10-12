@@ -2,7 +2,7 @@
   %h3 Tweets
   .height
     %ul
-      - Tweet.all.each do |t|
+      - Tweet.all.last(50).each do |t|
         %li
           .black
             @

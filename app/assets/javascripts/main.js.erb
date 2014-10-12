@@ -58,6 +58,9 @@ function maps() {
     var landslide = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sf_landslide.kml'
     });
+    var priority = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_priority_cleared_routes.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -126,6 +129,9 @@ function maps() {
             case 'landslide':
               landslide.setMap(null);
               break;
+            case 'priority':
+              priority.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -168,6 +174,10 @@ function maps() {
             case 'landslide':
               landslide.setMap(map);
               landslide.set('preserveViewport', true);
+              break;
+            case 'priority':
+              priority.setMap(map);
+              priority.set('preserveViewport', true);
               break;
           }
         }
@@ -563,6 +573,8 @@ function user_data() {
       // } else 
       if (data.name == 'Zynga') {
         icon = "/images/zynga.png"
+      } else if (data.ngo == true && data.closed == true) {
+        icon = "/images/ngo_closed.png"
       } else if (data.ngo == true) {
         icon = "/images/ngo.png"
       } else if (data.faith == true) {
@@ -608,6 +620,8 @@ function user_data() {
           $(this).removeClass('active');
           if (data.ngo == true) {
             marker.setIcon("/images/ngo.png")
+          } else if (data.ngo == true && data.closed == true) {
+            marker.setIcon("/images/ngo_closed.png")
           } else if (data.faith == true) {
             marker.setIcon("/images/churchicon.png")
           } else if (data.business == true) {
@@ -754,8 +768,21 @@ function button_clicks() {
 function resiliency_output() {
   $('.mission').on('click', function(){
     var neighbor_name = $(this).val()
-    // var not_this = $(this).parent().children().not($(this))
-    // console.log($(this).parent().children().not($(this)).val())
+
+    var not_this = $(this).parent().children().not($(this))
+
+    // var resiliency_text = $('.resiliency').html()
+    console.log(not_this)
+    for (var i = 0; i < not_this.length; i++) {
+      var not_this_array = not_this[i].value
+        // if (not_this_array)
+    //   // console.log(not_this_array)
+    //   // CHECK IF VALUES IN NOT_THIS_ARRAY ARE IN THE RESILIENCY CONTAINER
+    //   if ($.inArray(not_this_array, resiliency_text) > -1) {
+    //     console.log('not in this string yay!')
+    //     // delete the not_this_neighborhood text
+    //   }
+    }
     var html_content = '<div class="resiliency-content"><h3>'+neighbor_name+'</h3><p>HELLOOOO</p></div>'
     $('.container').hide();
     $('.container2').hide();
@@ -766,28 +793,11 @@ function resiliency_output() {
       dataType: "JSON",
       success: function(data){
         $.each($(data), function(key, value) {
-          // console.log(value.name);
           if (value.name == neighbor_name) {
-            // console.log($(this))
             $('.resiliency').append(html_content)
-          } else {
-            // console.log(not($('.resiliency').not($(this)))
-            // $('.resiliency').children().remove()
-            // console.log('not the fukin data')
-            // $('.resiliency-content').remove()
           }
         });
         $('.resiliency-container').show();
-        // if($('.resiliency').html().length > 0) {
-        //   $('.resiliency-content').last().remove()
-        // } else {
-        // $('.resiliency').append(html_content)
-          // $('.resiliency').children().first().remove()
-        // }
-        
-        // if ($('.resiliency').html() == ""){
-        
-        
       }
     });
   })

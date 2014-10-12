@@ -5,11 +5,12 @@
   - User.all.each do |u|
     .blue.name
       = u.name
+    - if u.closed == true
+      This establishment is closed
+      %br
     %span.italic.contact-owner{:style => "color:#0062A0" } Contact this owner
     / = link_to "Contact this owner", '/contacts/new'
     / %a{'href' => '#contact', 'data-toggle' => 'modal'} Contact
-      
-    
     %br
     Certifications:
     .user-attr

@@ -188,6 +188,9 @@
   text-decoration: underline;
   cursor: pointer;
 }
+.blue2 {
+  color: #009BD0;
+}
 .user-attr {
   font-weight: normal;
   /*text-decoration: underline;*/
@@ -260,7 +263,8 @@
 }*/
 
 .user-table {
-  display: inline-block;
+  /*display: inline-block;*/
+  margin-bottom: 30px;
   /*display: none;*/
 }
 .user-table th {

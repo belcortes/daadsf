@@ -692,13 +692,11 @@ function user_data() {
 
 
 function gmapPrint(){
-
-  
-    var content = window.document.getElementById('user-print') // get you map details
-    var newWindow = window.open(); // open a new window
-    // newWindow.document.writeln('<link href="./assets/application.css" media="all" rel="stylesheet">');
-    newWindow.document.writeln(content.innerHTML);
-    newWindow.print();
+  var content = window.document.getElementById('user-print') // get you map details
+  var newWindow = window.open(); // open a new window
+  // newWindow.document.writeln('<link href="./assets/application.css" media="all" rel="stylesheet">');
+  newWindow.document.writeln(content.innerHTML);
+  newWindow.print();
 }
 
 function button_clicks() {
@@ -754,27 +752,41 @@ function button_clicks() {
 // }
 
 function resiliency_output() {
-
   $('.mission').on('click', function(){
+    var neighbor_name = $(this).val()
+    // var not_this = $(this).parent().children().not($(this))
+    // console.log($(this).parent().children().not($(this)).val())
+    var html_content = '<div class="resiliency-content"><h3>'+neighbor_name+'</h3><p>HELLOOOO</p></div>'
     $('.container').hide();
     $('.container2').hide();
-    // $('.resiliency-container').children().first().remove()
-    var neighbor_text = $(this).val()
-    var html_content = '<h3>'+neighbor_text+'</h3><p>HELLOOOO</p>'
+    
     $.ajax ({
       type: 'GET',
       url: "/neighbors",
       dataType: "JSON",
       success: function(data){
+        $.each($(data), function(key, value) {
+          // console.log(value.name);
+          if (value.name == neighbor_name) {
+            // console.log($(this))
+            $('.resiliency').append(html_content)
+          } else {
+            // console.log(not($('.resiliency').not($(this)))
+            // $('.resiliency').children().remove()
+            // console.log('not the fukin data')
+            // $('.resiliency-content').remove()
+          }
+        });
         $('.resiliency-container').show();
-        // data.name
-        // data.r_score
-        // console.log(html_content)
-        // if (html_content.length > 0) {
-          // $('.resiliency-container').children().first().remove()
+        // if($('.resiliency').html().length > 0) {
+        //   $('.resiliency-content').last().remove()
         // } else {
-        $('.resiliency').prepend(html_content)
+        // $('.resiliency').append(html_content)
+          // $('.resiliency').children().first().remove()
         // }
+        
+        // if ($('.resiliency').html() == ""){
+        
         
       }
     });

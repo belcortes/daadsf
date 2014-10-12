@@ -3,7 +3,8 @@
 
   = link_to "All Resources", '#', onclick: "gmapPrint()"
   %p Local Resources by Zipcode
-  - User.uniq.pluck(:zip).each do |p|
-    = link_to "#{p}", "/print/#{p}", class: 'zip-click'
-    %br
+  %ul
+    - User.uniq.pluck(:zip).sort.each do |p|
+      %li
+        = link_to "#{p}", "/print/#{p}", class: 'zip-click'
 

@@ -14,47 +14,13 @@
     %br
     %table.user-table
       %tr
-        %th
+        %th.blue2 Certifications:
         %th NERT
         %th CERT
         %th CPR
         %th SAFE
         %th First Aid
-        %th Dump Truck
-        %th Backhoe
-        %th Fork Lift
-        %th Fuel
-        %th Generator
-        %th Jack Hammer
-        %th Emergency Kit
-        %th Drill
-        %th Hammer
-        %th Shovel
-        %th Engineer
-        %th General Contractor
-        %th Church
-        %th School
-        %th Underground Shelter
-        %th Overnight Shelter
-        %th Oxygen
-        %th Wheelchair
-        %th Defibrillator
         %th First Responder
-        %th Building Inspector
-        %th Commercial License
-        %th Electrician
-        %th Carpenter
-        %th Heavy Equipment Operator
-        %th Plumber
-        %th Commercial Kitchen
-        %th Bulldozer
-        %th Excavator
-        %th Front Loader
-        %th Reclaimer
-        %th Trencher
-        %th Tractor
-        %th Goggles
-        %th Axe
       - @user.all.each do |u|
         %tr
           %th{style: 'min-width: 140px;'}
@@ -63,6 +29,192 @@
             = u.address
             = u.address2
           - u.attributes.each do |attr_name, attr_value|
-            - if attr_value == true || attr_value == false
+            - if attr_name == 'cert'
               %td
                 = image_tag("#{attr_value}.png", size: "20x20")
+            - if attr_name == 'nert'
+              %td
+                = image_tag("#{attr_value}.png", size: "20x20")
+            - if attr_name == 'cpr'
+              %td
+                = image_tag("#{attr_value}.png", size: "20x20")
+            - if attr_name == 'safe'
+              %td
+                = image_tag("#{attr_value}.png", size: "20x20")
+            - if attr_name == 'firstaid'
+              %td
+                = image_tag("#{attr_value}.png", size: "20x20")
+            - if attr_name == 'firstresponder'
+              %td
+                = image_tag("#{attr_value}.png", size: "20x20")
+      %table.user-table
+        %tr
+          %th.blue2 Skills:
+          %th Building Inspector
+          %th Carpenter
+          %th Commercial License
+          %th General Contractor
+          %th Electrician
+          %th Engineer
+        - @user.all.each do |u|
+          %tr.space
+            %th{style: 'min-width: 140px;'}
+              = u.name
+              %br
+              = u.address
+              = u.address2
+            - u.attributes.each do |attr_name, attr_value|
+              - if attr_name == 'inspector'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'carpenter'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'commercial'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'contractor'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'electrician'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'engineer'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+      %table.user-table
+        %tr
+          %th.blue2 Facilities
+          %th Backup Generator
+          %th Industrial Kitchen
+          %th Overnight Shelter
+          %th Underground Shelter
+        - @user.all.each do |u|
+          %tr
+            %th{style: 'min-width: 140px;'}
+              = u.name
+              %br
+              = u.address
+              = u.address2
+            - u.attributes.each do |attr_name, attr_value|
+              - if attr_name == 'generator'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'kitchen'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'overnight'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'underground'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+      %table.user-table
+        %tr
+          %th.blue2 Medical
+          %th Defibrillator
+          %th Emergency Kit
+          %th Oxygen
+          %th Wheelchair
+        - @user.all.each do |u|
+          %tr
+            %th{style: 'min-width: 140px;'}
+              = u.name
+              %br
+              = u.address
+              = u.address2
+            - u.attributes.each do |attr_name, attr_value|
+              - if attr_name == 'defibrillation'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'emergency'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'oxygen'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'wheelchair'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+      %table.user-table
+        %tr
+          %th.blue2 Equipment - Heavy
+          %th Backhoes
+          %th Bulldozer
+          %th Dumptruck
+          %th Excavator
+          %th Fork Lift
+          %th Front Loader
+          %th Jackhammer
+          %th Reclaimer
+          %th Tractor
+        - @user.all.each do |u|
+          %tr
+            %th{style: 'min-width: 140px;'}
+              = u.name
+              %br
+              = u.address
+              = u.address2
+            - u.attributes.each do |attr_name, attr_value|
+              - if attr_name == 'backhoe'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'bulldozer'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'dumptruck'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'excavator'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'forklift'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'frontloader'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'jackhammer'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'reclaimer'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'tractor'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+      %table.user-table
+        %tr
+          %th.blue2 Equipment - Light
+          %th Axe
+          %th Drill
+          %th Fuel
+          %th Goggles
+          %th Hammer
+          %th Shovel
+        - @user.all.each do |u|
+          %tr
+            %th{style: 'min-width: 140px;'}
+              = u.name
+              %br
+              = u.address
+              = u.address2
+            - u.attributes.each do |attr_name, attr_value|
+              - if attr_name == 'axe'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'drill'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'fuel'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'goggles'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'hammer'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'shovel'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")

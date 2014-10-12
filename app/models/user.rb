@@ -13,34 +13,6 @@ class User < ActiveRecord::Base
     [address, address2, city, 'CA', zip].compact.join(', ')
   end
 
-  # searchable do
-  #   text :zip, :name, :email
-  #   boolean :nert
-  #   boolean :cert
-  #   boolean :cpr
-  #   boolean :safe
-  #   boolean :first_aid
-  #   boolean :dump_truck
-  #   boolean :back_hoe
-  #   boolean :crane
-  #   boolean :fork_lift
-  #   boolean :truck
-  #   boolean :fuel
-  #   boolean :air_compressor
-  #   boolean :power_generator
-  #   boolean :bus
-  #   boolean :saw
-  #   boolean :lathe
-  #   boolean :plow
-  #   boolean :jack_hammer
-  #   boolean :emergency_kit
-  #   boolean :drill
-  #   boolean :hammer
-  #   boolean :survival_kit
-  #   boolean :shovel
-  # end
-
-
   # def facebook
   #   # You need to implement the method below in your model (e.g. app/models/user.rb)
   #   @user = User.from_omniauth(request.env["omniauth.auth"])
@@ -57,7 +29,7 @@ class User < ActiveRecord::Base
 
 
   def self.as_csv
-    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','survival_kit','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe'] 
+    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe'] 
     CSV.generate do |csv|
       csv << headers
       all.each do |item|

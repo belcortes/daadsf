@@ -26,7 +26,10 @@
   font-weight: 500;
 }
 #preparation li {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  border: 1px solid lightgray;
+  padding: 10px;
 }
 
 #advanced-search li {
@@ -131,4 +134,8 @@ select {
 .black {
   color: black;
   word-spacing: -5px;
+}
+
+#user-print .space td {
+  margin-bottom: 50px;
 }

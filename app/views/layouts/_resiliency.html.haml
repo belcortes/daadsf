@@ -1,5 +1,8 @@
 .resiliency
+  %h3 Neighborhood Resiliency Scores
   .height
     - Neighborhood.all.each do |n|
-      %h3
+      %h4
         = n.name
+        \ -
+        = n.r_score

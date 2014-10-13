@@ -101,7 +101,7 @@ function maps() {
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){
-
+        var no_image = $(this).parent().parent().parent().find('a').text().trim()
         var check_id = $(this).attr('id')
         $('.container').hide();
         $('.container2').hide();
@@ -144,7 +144,9 @@ function maps() {
               break;
           }
         } else {
-          $('#page-body').append("<img class='theImg' src='/images/"+check_id+".png' />")
+          if (no_image != 'Resources'){
+            $('#page-body').append("<img class='theImg' src='/images/"+check_id+".png' />")
+          }
           switch (check_id) {
             case 'zip-check':
               sf_zipcodes.setMap(map);
@@ -199,22 +201,30 @@ function maps() {
       })
     }
     
-    // data_markers();
     resource_markers()
     user_data()
     checkbox_toggle();
-    // resiliency_output()
 
-    $('.mission').on('click', function(){
-      $('.resiliency-container').show();
-      $('#page-body').append("<img class='theImg' src='/images/resiliency_legend.png' />")
-      resiliency.setMap(map);
-      resiliency.set('preserveViewport', true);
+    $('#resiliency').on('click', function(){
+      $('.container').hide();
+      $('.container2').hide();
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'map-buttons active'){
+        $('.resiliency-container').show();
+        $('#page-body').append("<img class='theImg' src='/images/resiliency_legend.png' />")
+        resiliency.setMap(map);
+        resiliency.set('preserveViewport', true);
+      } else {
+        $('#resilience-container').hide();
+        resiliency.setMap(null);
+        $('.theImg').remove()
+      }
     })
-    $('.resiliency-container .close').on('click', function(){
-      resiliency.setMap(null);
-      $('.theImg').remove()
-    })
+    // $('.resiliency-container .close').on('click', function(){
+    //   resiliency.setMap(null);
+    //   $('.theImg').remove()
+    //   $('#resiliency').removeClass('active')
+    // })
   }
     google.maps.event.addDomListener(window, 'load', initialize);  
 }
@@ -695,8 +705,9 @@ function user_data() {
       
       // bounds.extend(marker.position);
       $('#community').on('click', function(){
-        $('#print-container').hide();
-         if ($(this).attr('class') == 'map-buttons active') {
+        $('.container').hide();
+        $('.container2').hide();
+        if ($(this).attr('class') == 'map-buttons active') {
           $('#users').show();
           marker.setMap(map);
           // map.fitBounds(bounds);
@@ -796,51 +807,51 @@ function button_clicks() {
 // });
 // }
 
-function resiliency_output() {
-  $('.mission').on('click', function(){
-    // resiliency.setMap(map);
-    // resiliency.set('preserveViewport', true);
-    var neighbor_name = $(this).val()
+// function resiliency_output() {
+//   $('.mission').on('click', function(){
+//     // resiliency.setMap(map);
+//     // resiliency.set('preserveViewport', true);
+//     var neighbor_name = $(this).val()
 
-    var not_this = $(this).parent().children().not($(this))
+//     var not_this = $(this).parent().children().not($(this))
 
-    // var resiliency_text = $('.resiliency').html()
-    // console.log(not_this)
-    for (var i = 0; i < not_this.length; i++) {
-      var not_this_array = not_this[i].value
-      // console.log(not_this_array)
-    //   // console.log(not_this_array)
-    //   // CHECK IF VALUES IN NOT_THIS_ARRAY ARE IN THE RESILIENCY CONTAINER
-    //   if ($.inArray(not_this_array, resiliency_text) > -1) {
-    //     console.log('not in this string yay!')
-    //     // delete the not_this_neighborhood text
-    //   }
-    }
-    var html_content = '<div class="resiliency-content"><h3>'+neighbor_name+'</h3><p>HELLOOOO</p></div>'
-    $('.container').hide();
-    $('.container2').hide();
+//     // var resiliency_text = $('.resiliency').html()
+//     // console.log(not_this)
+//     for (var i = 0; i < not_this.length; i++) {
+//       var not_this_array = not_this[i].value
+//       // console.log(not_this_array)
+//     //   // console.log(not_this_array)
+//     //   // CHECK IF VALUES IN NOT_THIS_ARRAY ARE IN THE RESILIENCY CONTAINER
+//     //   if ($.inArray(not_this_array, resiliency_text) > -1) {
+//     //     console.log('not in this string yay!')
+//     //     // delete the not_this_neighborhood text
+//     //   }
+//     }
+//     var html_content = '<div class="resiliency-content"><h3>'+neighbor_name+'</h3><p>HELLOOOO</p></div>'
+//     $('.container').hide();
+//     $('.container2').hide();
     
-    $.ajax ({
-      type: 'GET',
-      url: "/neighbors",
-      dataType: "JSON",
-      success: function(data){
-        $.each($(data), function(key, value) {
-          if (value.name == neighbor_name) {
-            // console.log(data)
-            console.log('data that should be added ^^')
-            $('.resiliency').append(html_content)
-          } else {
-            // console.log(data)
-            $('.resiliency').remove($('.resiliency-content'))
-            console.log('data that should be removed ^^')
-          }
-        });
-        $('.resiliency-container').show();
-      }
-    });
-  })
-}
+//     $.ajax ({
+//       type: 'GET',
+//       url: "/neighbors",
+//       dataType: "JSON",
+//       success: function(data){
+//         $.each($(data), function(key, value) {
+//           if (value.name == neighbor_name) {
+//             // console.log(data)
+//             console.log('data that should be added ^^')
+//             $('.resiliency').append(html_content)
+//           } else {
+//             // console.log(data)
+//             $('.resiliency').remove($('.resiliency-content'))
+//             console.log('data that should be removed ^^')
+//           }
+//         });
+//         $('.resiliency-container').show();
+//       }
+//     });
+//   })
+// }
 
 
 

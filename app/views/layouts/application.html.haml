@@ -65,16 +65,18 @@
         %input.checkbox#density-check{type: "checkbox"} Population Density
       %li
         %input.checkbox#super-check{type: "checkbox"} Supervisor Districts
-  .dropdown
-    %a.dropdown-toggle.map-buttons#resiliency{"data-toggle" => "dropdown"}(href='#')
-      Resiliency
-      %b.caret
-    %ul#menu8.dropdown-menu
-      %li
-        - Neighborhood.all.each do |n|
-          %input.mission{:name => "optionsRadios", :type => "radio", :value => "#{n.name}"}
-            = n.name
-            %br
+  %a(href='#')
+    .map-buttons#resiliency Resiliency
+  / .dropdown
+  /   %a.dropdown-toggle.map-buttons#resiliency{"data-toggle" => "dropdown"}(href='#')
+  /     Resiliency
+  /     %b.caret
+  /   %ul#menu8.dropdown-menu
+  /     %li
+  /       - Neighborhood.all.each do |n|
+  /         %input.mission{:name => "optionsRadios", :type => "radio", :value => "#{n.name}"}
+  /           = n.name
+  /           %br
   .dropdown
     %a.dropdown-toggle.map-buttons#neighbor{"data-toggle" => "dropdown"}(href='#')
       Resources

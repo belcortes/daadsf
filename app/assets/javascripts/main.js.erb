@@ -103,6 +103,7 @@ function maps() {
         $('.container').hide();
         $('.container2').hide();
         if ($('#'+check_id).is(':checked') == false) {
+          $('.theImg').remove()
           switch (check_id) {
             case 'zip-check':
               sf_zipcodes.setMap(null);
@@ -140,6 +141,7 @@ function maps() {
               break;
           }
         } else {
+          $('#page-body').append("<img class='theImg' src='/images/"+check_id+".png' />")
           switch (check_id) {
             case 'zip-check':
               sf_zipcodes.setMap(map);
@@ -789,7 +791,7 @@ function resiliency_output() {
     // console.log(not_this)
     for (var i = 0; i < not_this.length; i++) {
       var not_this_array = not_this[i].value
-      console.log(not_this_array)
+      // console.log(not_this_array)
     //   // console.log(not_this_array)
     //   // CHECK IF VALUES IN NOT_THIS_ARRAY ARE IN THE RESILIENCY CONTAINER
     //   if ($.inArray(not_this_array, resiliency_text) > -1) {
@@ -808,7 +810,13 @@ function resiliency_output() {
       success: function(data){
         $.each($(data), function(key, value) {
           if (value.name == neighbor_name) {
+            // console.log(data)
+            console.log('data that should be added ^^')
             $('.resiliency').append(html_content)
+          } else {
+            // console.log(data)
+            $('.resiliency').remove($('.resiliency-content'))
+            console.log('data that should be removed ^^')
           }
         });
         $('.resiliency-container').show();

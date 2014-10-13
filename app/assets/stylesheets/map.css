@@ -298,3 +298,11 @@
   margin-bottom: 9px;
   margin-right: 70px;
 }
+.theImg {
+  z-index: 10;
+  position: relative;
+  width: 150px;
+  right: 200px;
+  top: 60px;
+  float: right;
+}

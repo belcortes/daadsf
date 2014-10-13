@@ -49,6 +49,9 @@ function maps() {
     var supervisor = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/Supervisor_Districts.kml'
     });
+    var extreme_heat = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_extreme_heat_layer4.kml'
+    });
     var tsunami = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sf_tsunami_evacuation.kml'
     });
@@ -132,6 +135,9 @@ function maps() {
             case 'priority':
               priority.setMap(null);
               break;
+            case 'extreme_heat':
+              extreme_heat.setMap(null);
+              break;
           }
         } else {
           switch (check_id) {
@@ -178,6 +184,10 @@ function maps() {
             case 'priority':
               priority.setMap(map);
               priority.set('preserveViewport', true);
+              break;
+            case 'extreme_heat':
+              extreme_heat.setMap(map);
+              extreme_heat.set('preserveViewport', true);
               break;
           }
         }
@@ -579,8 +589,12 @@ function user_data() {
         icon = "/images/ngo.png"
       } else if (data.faith == true) {
         icon = "/images/churchicon.png"
+      } else if (data.business == true && data.closed == true) {
+        icon = "/images/business_closed.png"
       } else if (data.business == true) {
         icon = "/images/business.png"
+      } else if (data.gov == true && data.closed == true) {
+        icon = "/images/government_closed.png"
       } else if (data.gov == true) {
         icon = "/images/government.png"
       } else {
@@ -772,10 +786,10 @@ function resiliency_output() {
     var not_this = $(this).parent().children().not($(this))
 
     // var resiliency_text = $('.resiliency').html()
-    console.log(not_this)
+    // console.log(not_this)
     for (var i = 0; i < not_this.length; i++) {
       var not_this_array = not_this[i].value
-        // if (not_this_array)
+      console.log(not_this_array)
     //   // console.log(not_this_array)
     //   // CHECK IF VALUES IN NOT_THIS_ARRAY ARE IN THE RESILIENCY CONTAINER
     //   if ($.inArray(not_this_array, resiliency_text) > -1) {

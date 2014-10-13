@@ -64,6 +64,9 @@ function maps() {
     var priority = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sf_priority_cleared_routes.kml'
     });
+    var resiliency = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_neighborhood_resiliency.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -200,6 +203,18 @@ function maps() {
     resource_markers()
     user_data()
     checkbox_toggle();
+    // resiliency_output()
+
+    $('.mission').on('click', function(){
+      $('.resiliency-container').show();
+      $('#page-body').append("<img class='theImg' src='/images/resiliency_legend.png' />")
+      resiliency.setMap(map);
+      resiliency.set('preserveViewport', true);
+    })
+    $('.resiliency-container .close').on('click', function(){
+      resiliency.setMap(null);
+      $('.theImg').remove()
+    })
   }
     google.maps.event.addDomListener(window, 'load', initialize);  
 }
@@ -783,6 +798,8 @@ function button_clicks() {
 
 function resiliency_output() {
   $('.mission').on('click', function(){
+    // resiliency.setMap(map);
+    // resiliency.set('preserveViewport', true);
     var neighbor_name = $(this).val()
 
     var not_this = $(this).parent().children().not($(this))
@@ -842,7 +859,7 @@ $(function() {
   maps();
   button_clicks();
   boolean_quantities()
-  resiliency_output()
+  // resiliency_output()
 
   $('.resource_links').on('click', function(){
     $(this).toggleClass('active');

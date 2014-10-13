@@ -1,11 +1,10 @@
-#preparation
+#printing
   %h3 Printing Options
 
   = link_to "All Resources", '#', onclick: "gmapPrint()"
   %p Local Resources by Zipcode
-  - if current_user
-    %ul
-      - User.uniq.pluck(:zip).each do |p|
-        %li
-          = link_to "#{p}", "/print/#{p}", class: 'zip-click'
+  %ul
+    - User.uniq.pluck(:zip).each do |p|
+      %li
+        = link_to "#{p}", "/print/#{p}", class: 'zip-click'
 

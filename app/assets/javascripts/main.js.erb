@@ -64,6 +64,9 @@ function maps() {
     var resiliency = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sf_neighborhood_resiliency.kml'
     });
+    var test_disaster = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/test_dsiaster.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -136,6 +139,9 @@ function maps() {
             case 'extreme_heat':
               extreme_heat.setMap(null);
               break;
+            case 'test_disaster':
+              test_disaster.setMap(null);
+              break;
           }
         } else {
           if (no_image != 'Resources'){
@@ -181,6 +187,10 @@ function maps() {
             case 'extreme_heat':
               extreme_heat.setMap(map);
               extreme_heat.set('preserveViewport', true);
+              break;
+            case 'test_disaster':
+              test_disaster.setMap(map);
+              test_disaster.set('preserveViewport', true);
               break;
           }
         }

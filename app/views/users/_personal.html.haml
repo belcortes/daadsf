@@ -202,10 +202,10 @@
             = f.select :drill_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.drill_q)
             = f.label :drill
             %br
-            / = f.check_box :flashlight, {:checked=>current_user.flashlight}
-            / = f.select :flashlight_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.flashlight_q)
-            / = f.label :flashlight
-            / %br
+            = f.check_box :flashlight, {:checked=>current_user.flashlight}
+            = f.select :flashlight_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.flashlight_q)
+            = f.label :flashlight
+            %br
             = f.check_box :fuel, {:checked=>current_user.fuel}
             = f.select :fuel_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.fuel_q)
             = f.label :fuel

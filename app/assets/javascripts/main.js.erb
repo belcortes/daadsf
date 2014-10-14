@@ -679,18 +679,24 @@ function user_data() {
           }
         } else {
           $(this).removeClass('active');
-          if (data.ngo == true) {
-            marker.setIcon("/images/ngo.png")
+          if (data.name == 'Zynga') {
+            marker.setIcon("/images/zynga.png")
           } else if (data.ngo == true && data.closed == true) {
             marker.setIcon("/images/ngo_closed.png")
+          } else if (data.ngo == true) {
+            marker.setIcon("/images/ngo.png")
+          } else if (data.faith == true && data.closed == true) {
+            marker.setIcon("/images/churchicon_closed.png")
           } else if (data.faith == true) {
             marker.setIcon("/images/churchicon.png")
+          } else if (data.business == true && data.closed == true) {
+            marker.setIcon("/images/business_closed.png")
           } else if (data.business == true) {
             marker.setIcon("/images/business.png")
+          } else if (data.gov == true && data.closed == true) {
+            marker.setIcon("/images/government_closed.png")
           } else if (data.gov == true) {
             marker.setIcon("/images/government.png")
-          } else if (data.name == 'Zynga') {
-            marker.setIcon("/images/zynga.png")
           } else {
             marker.setIcon("/images/person.png")
           }

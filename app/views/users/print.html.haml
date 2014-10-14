@@ -192,11 +192,11 @@
           %th.blue2 Equipment - Light
           %th Axe
           %th Drill
-          %th Flashlight
           %th Fuel
           %th Goggles
           %th Hammer
           %th Shovel
+          %th Flashlight
         - @user.all.each do |u|
           %tr
             %th{style: 'min-width: 140px;'}
@@ -205,16 +205,14 @@
               = u.address
               = u.address2
             - u.attributes.each do |attr_name, attr_value|
+              - p attr_name
+              - p attr_value
               - if attr_name == 'axe'
                 %td
                   = image_tag("#{attr_value}.png", size: "20x20")
               - if attr_name == 'drill'
                 %td
                   = image_tag("#{attr_value}.png", size: "20x20")
-              / - if attr_name == 'flashlight'
-              /   - p attr_value
-              /   %td
-              /     = image_tag("#{attr_value}.png", size: "20x20")
               - if attr_name == 'fuel'
                 %td
                   = image_tag("#{attr_value}.png", size: "20x20")
@@ -225,5 +223,8 @@
                 %td
                   = image_tag("#{attr_value}.png", size: "20x20")
               - if attr_name == 'shovel'
+                %td
+                  = image_tag("#{attr_value}.png", size: "20x20")
+              - if attr_name == 'flashlight'
                 %td
                   = image_tag("#{attr_value}.png", size: "20x20")

@@ -6,7 +6,7 @@
     .blue.name
       = u.name
     - if u.closed == true
-      This establishment is closed
+      %span.red This establishment is closed
       %br
     %span.italic.contact-owner{:style => "color:#0062A0" } Contact this owner
     / = link_to "Contact this owner", '/contacts/new'
@@ -193,12 +193,12 @@
             (
             = u.drill_q
             )
-        / - if attr_value == true && attr_name == 'flashlight'
-        /   .resource_links.resource_flashlight
-        /     &nbsp;&nbsp;&nbsp; - Flashlight
-        /     (
-        /     = u.flashlight_q
-        /     )
+        - if attr_value == true && attr_name == 'flashlight'
+          .resource_links.resource_flashlight
+            &nbsp;&nbsp;&nbsp; - Flashlight
+            (
+            = u.flashlight_q
+            )
         - if attr_value == true && attr_name == 'fuel'
           .resource_links.resource_fuel
             &nbsp;&nbsp;&nbsp; - Fuel

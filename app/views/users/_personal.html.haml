@@ -36,14 +36,17 @@
             = f.check_box :business, {:checked=>current_user.business}
             = f.label :business
             %br
-            = f.check_box :ngo, {:checked=>current_user.ngo}
-            = f.label(:ngo, 'NGO')
-            %br
             = f.check_box :faith, {:checked=>current_user.faith}
             = f.label(:faith, 'Faith Based Organization')
             %br
             = f.check_box :gov, {:checked=>current_user.gov}
             = f.label(:gov, 'Government Entity')
+            %br
+            = f.check_box :individual, {:checked=>current_user.individual}
+            = f.label(:individual, 'Individual')
+            %br
+            = f.check_box :ngo, {:checked=>current_user.ngo}
+            = f.label(:ngo, 'NGO')
             %br
             %br
           Are you:

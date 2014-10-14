@@ -138,3 +138,6 @@ select {
 #user-print .space td {
   margin-bottom: 50px;
 }
+#prepare-container h4 {
+  text-decoration: underline;
+}

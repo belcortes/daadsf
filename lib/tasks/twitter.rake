@@ -11,7 +11,7 @@ namespace :twitter do
       config.access_token_secret = 'LicGYPVWd43oMvAt5CBacrZfYgtgp06Xzq7LUNKq0GJWG'
     end 
 
-    @client.search('#codetoprepare', :result_type => 'recent', :geocode => '37.781157,-122.398720,8mi').take(150).each do |t|
+    @client.search('#codetoprepare OR #disaster OR #lomaprieta OR #earthquake', :result_type => 'recent', :geocode => '37.781157,-122.398720,8mi').take(150).each do |t|
       Tweet.find_or_create_by_text_and_handle(text: t.text, handle: t.user.screen_name) do |c|
         c.name = t.user.name
         c.location = t.user.location

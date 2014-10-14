@@ -31,11 +31,8 @@ function maps() {
     var sf_zipcodes = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/sfzipcodes.kml'
     });
-    var low_liq_kml = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/modlowSFLiqui.kml'
-    });
-    var high_liq_kml = new google.maps.KmlLayer({
-      url: 'https://dl.dropboxusercontent.com/u/22757148/vhighhighSFLiqui.kml'
+    var liquifaction = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/sf_liquifaction_potential.kml'
     });
     var neighborhood_kml = new google.maps.KmlLayer({
       url: 'https://maps.google.com/maps/ms?dg=feature&ie=UTF8&authuser=0&msa=0&output=kml&msid=216722849731329970375.0004a2f137271f66502f6'
@@ -115,11 +112,8 @@ function maps() {
               neighborhood_kml.setMap(null);
               neighborhood_kml2.setMap(null);
               break;
-            case 'high_liq':
-              low_liq_kml.setMap(null);
-              break;
-            case 'low_liq':
-              high_liq_kml.setMap(null);
+            case 'liquifaction':
+              liquifaction.setMap(null);
               break;
             case 'super-check':
               supervisor.setMap(null);
@@ -156,17 +150,9 @@ function maps() {
               neighborhood_kml.setMap(map);
               neighborhood_kml2.setMap(map);
               break;
-            case 'high_liq':
-              low_liq_kml.setMap(map);
-              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              // map.setZoom(12); 
-              low_liq_kml.set('preserveViewport', true);
-              break;
-            case 'low_liq':
-              high_liq_kml.setMap(map);
-              // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-              // map.setZoom(12); 
-              high_liq_kml.set('preserveViewport', true);
+            case 'liquifaction':
+              liquifaction.setMap(map);
+              liquifaction.set('preserveViewport', true);
               break;
             case 'super-check':
               supervisor.setMap(map);

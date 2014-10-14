@@ -73,6 +73,9 @@
             %br
             = f.check_box :firstresponder, {:checked=>current_user.firstresponder}
             = f.label(:firstresponder, 'First Responder')
+            %br
+            = f.check_box :rescue, {:checked=>current_user.rescue}
+            = f.label(:rescue, 'Light Search & Rescue')
         .personal.col-md-3#user-buildings 
           Certificated Skills - Trade
           .account-box
@@ -195,6 +198,10 @@
             = f.check_box :drill, {:checked=>current_user.drill}
             = f.select :drill_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.drill_q)
             = f.label :drill
+            %br
+            = f.check_box :flashlight, {:checked=>current_user.flashlight}
+            = f.select :flashlight_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.flashlight_q)
+            = f.label :flashlight
             %br
             = f.check_box :fuel, {:checked=>current_user.fuel}
             = f.select :fuel_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.fuel_q)

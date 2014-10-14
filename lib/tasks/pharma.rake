@@ -51,4 +51,21 @@ namespace :import do
     end
 
   end
+
+  desc "adding religious centers stations to buildings"
+  task :religious => [:environment] do
+
+    file = "db/sf_religious_centers_address_included.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :name => row[0],
+        :address => row[1],
+        :latitude => row[2],
+        :longitude => row[3],
+        :b_type => row[4]
+      })
+    end
+
+  end
 end

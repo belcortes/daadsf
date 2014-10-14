@@ -159,9 +159,7 @@ li #main-search {
 }
 #appalogo {
   position: absolute;
-  /*z-index: 100;*/
   height: 20px;
-  /*float: left;*/
   left: 10px;
   bottom: 10px;
 }
@@ -179,4 +177,13 @@ li #main-search {
 }
 #print img {
   width: 25px;
+}
+#beta {
+  font-size: 23px;
+  font-weight: bold;
+  color: #428bca;
+}
+#sf {
+  font-size: 23px;
+  font-weight: bold;
 }

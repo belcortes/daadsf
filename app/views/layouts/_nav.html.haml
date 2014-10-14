@@ -2,14 +2,16 @@
   %a(href='/')
     =image_tag asset_path('AppaLogo.png'), :id => 'nav-img'
   #upper-nav
-    #logo-name DISASTER ASSESSMENT AND ASSISTANCE DASHBOARD sf
+    #logo-name 
+      DISASTER ASSESSMENT AND ASSISTANCE DASHBOARD
+      %span#sf SF
+      %span#beta BETA
     %ul#logo-nav
       %li
         - if current_user
           = current_user.email #, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
         - else
           = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
-          / #login Login
       - if current_user
         %li#myaccount
           %a(href='#') My Account
@@ -20,28 +22,11 @@
           / #signin Sign Up
           = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
   %ul#subnav
-    / %li 
-    /   / %input#main-search.search{placeholder: 'Search by Business, Address or County', type: 'text'}
-    /   = form_tag '/search', :method => :get do
-    /     = text_field_tag :search, params[:search], placeholder:'SEARCH'
-    /     / %input#search{onclick: "codeAddress()", type: "button"}
-    /     %button#search{onclick: "data_markers()"}
-    /       = image_submit_tag("search.png") #, :name => nil
-    / %li#button
-    /   %a{href:'/'}
-    /     %button Reset
-    /   %button#search
-    /     =image_tag asset_path("search.png")
-    / %li#advanced-search
-    /   %a(href='#') Advanced Search
     %li.login#prepare
       %a(href='#') 
         .map-buttons Prepare for a Disaster
     %li.login#print
-      / = link_to "PRINT", '#', onclick: "printpage()"
       =image_tag asset_path("print.png"), id: 'print'
-    / %li.login#recovery
-    /   %a(href='#') Recovery Resources
       
 = render "home/login_modal"
 = render "home/sign_up_modal"

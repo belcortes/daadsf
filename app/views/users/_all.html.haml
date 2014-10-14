@@ -33,6 +33,9 @@
         - if attr_value == true && attr_name == 'firstresponder'
           .resource_links.resource_firstresponder
             &nbsp;&nbsp; - First Responder
+        - if attr_value == true && attr_name == 'rescue'
+          .resource_links.resource_rescue
+            &nbsp;&nbsp; - Light Search & Rescue
     Skills:
     .user-attr
       - u.attributes.each do |attr_name, attr_value|
@@ -189,6 +192,12 @@
             &nbsp;&nbsp;&nbsp; - Drill
             (
             = u.drill_q
+            )
+        - if attr_value == true && attr_name == 'flashlight'
+          .resource_links.resource_flashlight
+            &nbsp;&nbsp;&nbsp; - Flashlight
+            (
+            = u.flashlight_q
             )
         - if attr_value == true && attr_name == 'fuel'
           .resource_links.resource_fuel

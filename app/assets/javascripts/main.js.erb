@@ -253,6 +253,7 @@ function resource_markers() {
   var icon5 = "/images/supermarket.png"
   var icon6 = "/images/gas_station.png"
   var icon7 = "/images/twittericon.png"
+  var icon8 = "/images/faith.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/tweets', function(json){
@@ -360,6 +361,31 @@ function resource_markers() {
             });
             google.maps.event.addListener(p_marker, 'click', function() {
               infowindow.open(map,p_marker);
+            });
+        });
+      } else if (data.b_type == "faith") {
+          var f_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon8,
+            title: 'hello'
+          });
+          var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address)
+          f_marker.setMap(null);
+          bounds.extend(f_marker.position);
+          $('.checkbox').on('click', function(){
+            if ($('#faith').is(':checked') == true) {
+               f_marker.setMap(map);
+               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               map.setZoom(12); 
+            } else {
+              f_marker.setMap(null);
+            }
+            var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+            });
+            google.maps.event.addListener(f_marker, 'click', function() {
+              infowindow.open(map,f_marker);
             });
         });
       }
@@ -577,6 +603,12 @@ function user_data() {
           case 'plumber':
           key = 'Plumber';
           break;
+          case 'rescue':
+          key = 'Light Search & Rescue';
+          break;
+          case 'flashlight':
+          key = 'Flashlight';
+          break;
         }
         if (key === 'cert' || key === 'nert' || key === 'cpr' || key === 'safe') {
         var upper = key.toUpperCase()
@@ -614,6 +646,8 @@ function user_data() {
         icon = "/images/ngo_closed.png"
       } else if (data.ngo == true) {
         icon = "/images/ngo.png"
+      } else if (data.faith == true && data.closed == true) {
+        icon = "/images/churchicon_closed.png"
       } else if (data.faith == true) {
         icon = "/images/churchicon.png"
       } else if (data.business == true && data.closed == true) {
@@ -693,15 +727,6 @@ function user_data() {
       })
 
       marker.setMap(null);
-
-      
-
-
-
-      // $('#users').children().first().on('click', function(){
-      //   $('#community').removeClass('active');
-      //   marker.setMap(null);
-      // })
       
       // bounds.extend(marker.position);
       $('#community').on('click', function(){

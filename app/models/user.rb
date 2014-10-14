@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
 
   def self.as_csv
-    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe'] 
+    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe', 'rescue', 'flashlight'] 
     CSV.generate do |csv|
       csv << headers
       all.each do |item|

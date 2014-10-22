@@ -1,0 +1,17 @@
+b_type,name,address,lat,long
+evacuation_potential_pickup_location,China Basin Parking Lot,"Channel Street and 3rd Street, San Francisco, CA 94158",37.7745193,-122.3897512
+evacuation_potential_pickup_location,Fisherman’s Wharf Parking Lot,"160 Jefferson Street, San Francisco, CA 94133",37.8085287,-122.4148085
+evacuation_potential_pickup_location,Presidio Trust Operations Department Parking Lot,"Intersection of Lincoln Boulevard and Howard Road, San Francisco, CA 94129",37.788331,-122.481339
+evacuation_potential_pickup_location,Alemany Farmers' Market Parking Lot,"100 Alemany Boulevard, San Francisco, CA 94110-6221",37.7357188,-122.4099429
+evacuation_potential_pickup_location,Lakeshore School,"220 Middlefield Drive, San Francisco, CA 94132-1418",37.7304324,-122.4852876
+evacuation_potential_pickup_location,Marina Middle School,"3500 Fillmore Street, San Francisco, CA 94123-2199",37.8026909,-122.4351571
+evacuation_potential_pickup_location,Mervyns Shopping Plaza,"2675 Geary Boulevard, San Francisco, CA 94118",37.7821513,-122.4460842
+evacuation_potential_pickup_location,Presidio Trust Parking Lot,"104 Montgomery Street, San Francisco, CA 94129",37.800461,-122.458219
+evacuation_potential_pickup_location,Port of San Francisco,"Pier 1 The EmbarcaderoSan Francisco, CA 94111",37.796987,-122.395168
+evacuation_potential_pickup_location,San Francisco State University,"1600 Holloway Avenue, San Francisco, CA 94132",37.7219699,-122.4794032
+evacuation_potential_pickup_location,Stonestown Mall,"1 Stonestown Mall, San Francisco, CA 94132-1905",37.728722,-122.476983
+evacuation_potential_pickup_location,Washington High School,"600 32nd Avenue, San Francisco, CA 94121-2794",37.7777914,-122.4917623
+evacuation_potential_pickup_location,Pier 28,"Pier 28, San Francisco, CA 94105-1251",37.786644,-122.387008
+evacuation_potential_pickup_location,Glen Park BART Station Parking Lot,"Intersection of Diamond Street and O'Shaughnessy Boulevard, San Francisco, CA 94131",37.732941,-122.434114
+evacuation_potential_pickup_location,Balboa Park BART Station Parking Lot,"401 Geneva Avenue, San Francisco, CA 94112 CA 94112",37.720436,-122.447289
+evacuation_potential_pickup_location,"Cruise Ship Terminal, Pier 35","1454 The EmbarcaderoSan Francisco, CA 94133",37.807411,-122.406321

@@ -32,7 +32,6 @@ namespace :import do
         :longitude => row[4]
       })
     end
-
   end
 
   desc "adding gas stations to buildings"
@@ -64,6 +63,39 @@ namespace :import do
         :latitude => row[2],
         :longitude => row[3],
         :b_type => row[4]
+      })
+    end
+
+  end
+
+  desc "adding evacuation pickups to buildings"
+  task :pickup => [:environment] do
+
+    file = "db/sf_potential_evacuation_pickup_locations.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :b_type => row[0],
+        :name => row[1],
+        :address => row[2],
+        :latitude => row[3],
+        :longitude => row[4]
+      })
+    end
+
+  end
+  desc "adding cooling centers to buildings"
+  task :cooling => [:environment] do
+
+    file = "db/sf_cooling_centers_for_seniors.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :b_type => row[0],
+        :name => row[1],
+        :address => row[2],
+        :latitude => row[3],
+        :longitude => row[4]
       })
     end
 

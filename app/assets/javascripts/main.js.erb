@@ -250,6 +250,8 @@ function resource_markers() {
   var icon6 = "/images/gas_station.png"
   var icon7 = "/images/twittericon.png"
   var icon8 = "/images/faith.png"
+  var icon9 = "/images/bus.png"
+  var icon10 = "/images/cooling.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/tweets', function(json){
@@ -382,6 +384,56 @@ function resource_markers() {
             });
             google.maps.event.addListener(f_marker, 'click', function() {
               infowindow.open(map,f_marker);
+            });
+        });
+      } else if (data.b_type == "evacuation_potential_pickup_location") {
+          var pickup_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon9,
+            title: 'hello'
+          });
+          var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address)
+          pickup_marker.setMap(null);
+          bounds.extend(pickup_marker.position);
+          $('.checkbox').on('click', function(){
+            if ($('#pickup').is(':checked') == true) {
+               pickup_marker.setMap(map);
+               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               map.setZoom(12); 
+            } else {
+              pickup_marker.setMap(null);
+            }
+            var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+            });
+            google.maps.event.addListener(pickup_marker, 'click', function() {
+              infowindow.open(map,pickup_marker);
+            });
+        });
+      } else if (data.b_type == "cooling_center") {
+          var c_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon10,
+            title: 'hello'
+          });
+          var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address)
+          c_marker.setMap(null);
+          bounds.extend(c_marker.position);
+          $('.checkbox').on('click', function(){
+            if ($('#cooling').is(':checked') == true) {
+               c_marker.setMap(map);
+               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               map.setZoom(12); 
+            } else {
+              c_marker.setMap(null);
+            }
+            var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+            });
+            google.maps.event.addListener(c_marker, 'click', function() {
+              infowindow.open(map,c_marker);
             });
         });
       }

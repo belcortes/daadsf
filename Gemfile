@@ -44,6 +44,7 @@ gem 'taps'
 
 group :production do
   gem 'pg'
+  # gem 'mysql2'
   gem 'rails_12factor'
 end
 group :development do

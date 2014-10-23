@@ -1,22 +1,18 @@
-# require 'twitter'
-
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with :name => "daad", :password => "4theC!ty"
   # Prevent CSRF attacks by raising an exception.
   # For APIs you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  # before_filter :load_tweets
+  before_filter :authenticate
 
-  # def load_tweets
-  # #   # @tweets = Twitter.user_timeline[0..4] # For this demonstration lets keep the tweets limited to the first 5 available.
-  #   @client = Twitter::REST::Client.new do |config|
-  #     config.consumer_key        = 'Ki4VH7ullmaMpHYpDM2GhDBLX'
-  #     config.consumer_secret     = 'x1uCE0K0BWBltVZBSA7ZI3Dcys1cUcRvMDCsy52KbINYG4mxNb'
-  #     config.access_token        = '152867998-m6Kyo9xUUTvDpoAL092vhVfVBMM3fMfGz8dUw97k'
-  #     config.access_token_secret = 'LicGYPVWd43oMvAt5CBacrZfYgtgp06Xzq7LUNKq0GJWG'
-  #   end
-  # end
+
+
+  def authenticate
+    authenticate_or_request_with_http_basic('Administration') do |username, password|
+      md5_of_password = Digest::MD5.hexdigest(password)
+      username == 'admin' && md5_of_password == '743051cb01e060fa0fd5ddeaa654fd4a'
+    end
+  end
 
   def login_onload
 

@@ -7,12 +7,11 @@
       %span#sf SF
       %span#beta BETA
     %ul#logo-nav
-      %li 
-        = link_to 'BETA Login', '#'
-      /   - if current_user
-      /     = current_user.email #, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
-      /   - else
-      /     = link_to "Login", "#login", "data-toggle" => "modal", :remote => true
+      %li
+        - if current_user
+          = current_user.email #, '#edit', "data-toggle" => "modal", :remote => true, :id => 'login_form'
+        - else
+          = link_to "BETA Login", "#login", "data-toggle" => "modal", :remote => true
       / - if current_user
       /   %li#myaccount
       /     %a(href='#') My Account

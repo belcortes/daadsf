@@ -155,6 +155,8 @@ function maps() {
             case 'neighbor-check':
               neighborhood_kml.setMap(map);
               neighborhood_kml2.setMap(map);
+              neighborhood_kml.set('preserveViewport', true);
+              neighborhood_kml2.set('preserveViewport', true);
               break;
             case 'liquifaction':
               liquifaction.setMap(map);
@@ -269,8 +271,8 @@ function resource_markers() {
           if ($('#twitter').is(':checked') == true) {
             $('#twitter-container').show()
              t_marker.setMap(map);
-             map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             map.setZoom(12); 
+             // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+             // map.setZoom(12); 
           } else {
             $('#twitter-container').hide()
             t_marker.setMap(null);
@@ -299,8 +301,8 @@ function resource_markers() {
         $('.checkbox').on('click', function(){
           if ($('#pharma').is(':checked') == true) {
              p_marker.setMap(map);
-             map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             map.setZoom(12); 
+             // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+             // map.setZoom(12); 
           } else {
             p_marker.setMap(null);
           }
@@ -324,8 +326,8 @@ function resource_markers() {
           $('.checkbox').on('click', function(){
             if ($('#super').is(':checked') == true) {
                p_marker.setMap(map);
-               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-               map.setZoom(12); 
+               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               // map.setZoom(12); 
             } else {
               p_marker.setMap(null);
             }
@@ -349,8 +351,8 @@ function resource_markers() {
           $('.checkbox').on('click', function(){
             if ($('#gas').is(':checked') == true) {
                p_marker.setMap(map);
-               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-               map.setZoom(12); 
+               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               // map.setZoom(12); 
             } else {
               p_marker.setMap(null);
             }
@@ -374,8 +376,8 @@ function resource_markers() {
           $('.checkbox').on('click', function(){
             if ($('#faith').is(':checked') == true) {
                f_marker.setMap(map);
-               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-               map.setZoom(12); 
+               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               // map.setZoom(12); 
             } else {
               f_marker.setMap(null);
             }
@@ -399,8 +401,8 @@ function resource_markers() {
           $('.checkbox').on('click', function(){
             if ($('#pickup').is(':checked') == true) {
                pickup_marker.setMap(map);
-               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-               map.setZoom(12); 
+               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               // map.setZoom(12); 
             } else {
               pickup_marker.setMap(null);
             }
@@ -424,8 +426,8 @@ function resource_markers() {
           $('.checkbox').on('click', function(){
             if ($('#cooling').is(':checked') == true) {
                c_marker.setMap(map);
-               map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-               map.setZoom(12); 
+               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               // map.setZoom(12); 
             } else {
               c_marker.setMap(null);
             }
@@ -458,8 +460,8 @@ function resource_markers() {
 
           if ($('#sf-police').is(':checked') == true) {
              police_marker.setMap(map);
-             map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             map.setZoom(12); 
+             // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+             // map.setZoom(12); 
           } else {
 
             police_marker.setMap(null);
@@ -488,8 +490,8 @@ function resource_markers() {
 
           if ($('#sf-fire').is(':checked') == true) {
              fire_marker.setMap(map);
-             map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             map.setZoom(12); 
+             // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+             // map.setZoom(12); 
           } else {
 
             fire_marker.setMap(null);
@@ -516,8 +518,8 @@ function resource_markers() {
 
           if ($('#sf-hosp').is(':checked') == true) {
              hosp_marker.setMap(map);
-            map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-            map.setZoom(12); 
+            // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+            // map.setZoom(12); 
           } else {
 
             hosp_marker.setMap(null);

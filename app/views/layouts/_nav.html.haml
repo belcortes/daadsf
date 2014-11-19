@@ -18,9 +18,9 @@
       %li
         - if current_user
           = link_to "Logout", destroy_user_session_path, :method => :delete
-      /   - else
-      /     / #signin Sign Up
-      /     = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true
+        - else
+          / #signin Sign Up
+          = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true, :id => 'signup'
   %ul#subnav
     %li.login#prepare
       %a(href='#') 

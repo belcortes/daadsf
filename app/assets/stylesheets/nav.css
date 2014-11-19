@@ -19,6 +19,9 @@ a {
  padding: 0 !important; 
  margin-bottom: 0 !important; 
 }
+#signup {
+  margin-left: 10px;
+}
 #nav {
   height: 80px;
   width: 100%;

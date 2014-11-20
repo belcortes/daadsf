@@ -690,7 +690,9 @@ function user_data() {
       // if (data.name == user) {
         // icon = "<%= asset_path 'me.png' %>"
       // } else 
-      if (data.name == 'Zynga') {
+      if (data.volunteer == true) {
+        icon = "/images/4bells.png"
+      } else if (data.name == 'Zynga') {
         icon = "/images/zynga.png"
       } else if (data.ngo == true && data.closed == true) {
         icon = "/images/ngo_closed.png"

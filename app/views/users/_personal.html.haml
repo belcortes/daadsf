@@ -55,6 +55,9 @@
             = f.check_box :ngo, {:checked=>current_user.ngo}
             = f.label(:ngo, 'NGO')
             %br
+            = f.label(:duns_number,'DUNS Number')
+            = f.text_field :duns_number, value: current_user.duns_number, id: 'duns_field', :class => 'numbers'
+            %br
             %br
           Are you:
           .account-box
@@ -89,7 +92,7 @@
             %br
             = f.label(:certification_number, 'Certification Number')
             = f.text_field :certification_number, value: current_user.certification_number, id: 'certification_field', :class => 'numbers'
-            = f.text_field :certification_number, value: current_user.certification2_number, id: 'certification2_field', :class => 'numbers'
+            = f.text_field :certification2_number, value: current_user.certification2_number, id: 'certification2_field', :class => 'numbers'
         .personal.col-md-3#user-buildings 
           Certificated Skills - Trade
           .account-box
@@ -119,10 +122,7 @@
             %br
             = f.label(:license_number, 'License Number')
             = f.text_field :license_number, value: current_user.license_number, id: 'license_field', :class => 'numbers'
-            = f.text_field :license_number, value: current_user.license2_number, id: 'license_field2', :class => 'numbers'
-            %br
-            = f.label(:duns_number,'DUNS Number')
-            = f.text_field :duns_number, value: current_user.duns_number, id: 'duns_field', :class => 'numbers'
+            = f.text_field :license2_number, value: current_user.license2_number, id: 'license_field2', :class => 'numbers'
       %br
       .personal#user-resources 
         Resources

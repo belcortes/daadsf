@@ -16,8 +16,21 @@
   border: 2px solid black;
   /*box-shadow: 5px 5px 5px grey;*/
 }
+#license_field {
+  margin-left: 30px;
+}
+#duns_field {
+  margin-left: 47px;
+}
+#user_volunteer_true, #user_volunteer_false {
+  width: auto !important;
+  margin-left: 2px;
+}
 .stars {
   width: 90px;
+}
+.numbers {
+  width: 100px;
 }
 #marina {
   text-align: center;

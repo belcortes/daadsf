@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014012613) do
+ActiveRecord::Schema.define(version: 20141120021133) do
 
   create_table "buildings", force: true do |t|
     t.string   "address"
@@ -179,6 +179,10 @@ ActiveRecord::Schema.define(version: 20141014012613) do
     t.boolean  "flashlight"
     t.integer  "flashlight_q"
     t.boolean  "individual"
+    t.integer  "license_number"
+    t.integer  "certification_number"
+    t.integer  "duns_number"
+    t.boolean  "volunteer"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

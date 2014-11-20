@@ -30,6 +30,13 @@
             = f.label :zip
             = f.text_field :zip, value: current_user.zip, id: 'zip_field', :required => true
             %br
+            If Volunteer:
+            %br
+            = f.radio_button :volunteer, true,{:checked=>current_user.volunteer}
+            = f.label(:volunteer, 'Available')
+            %br
+            = f.radio_button :volunteer, false, {:checked=>current_user.volunteer}
+            = f.label(:volunteer, 'Not Available')
         .personal.col-md-3#person-info 
           Are you a:
           .account-box
@@ -105,6 +112,15 @@
             %br
             = f.check_box :engineer,{:checked=>current_user.engineer}
             = f.label(:engineer,'Structural Engineer')
+            %br
+            = f.label :license_number
+            = f.text_field :license_number, value: current_user.license_number, id: 'license_field', :class => 'numbers'
+            %br
+            = f.label :certification_number
+            = f.text_field :certification_number, value: current_user.certification_number, id: 'certification_field', :class => 'numbers'
+            %br
+            = f.label :duns_number
+            = f.text_field :duns_number, value: current_user.duns_number, id: 'duns_field', :class => 'numbers'
       %br
       .personal#user-resources 
         Resources

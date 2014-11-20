@@ -123,6 +123,9 @@
             = f.label(:license_number, 'License Number')
             = f.text_field :license_number, value: current_user.license_number, id: 'license_field', :class => 'numbers'
             = f.text_field :license2_number, value: current_user.license2_number, id: 'license_field2', :class => 'numbers'
+            %br
+            = f.label :other
+            = f.text_field :other, value: current_user.other, id: 'other_field', :class => 'numbers'
       %br
       .personal#user-resources 
         Resources

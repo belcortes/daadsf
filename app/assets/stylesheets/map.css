@@ -22,6 +22,12 @@
 #duns_field {
   margin-left: 47px;
 }
+#certification2_field {
+  margin-left: 142px;
+ }
+#license_field2 {
+  margin-left: 144px;
+}
 #user_volunteer_true, #user_volunteer_false {
   width: auto !important;
   margin-left: 2px;

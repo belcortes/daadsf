@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120043437) do
+ActiveRecord::Schema.define(version: 20141210223156) do
 
   create_table "buildings", force: true do |t|
     t.string   "address"
@@ -185,6 +185,8 @@ ActiveRecord::Schema.define(version: 20141120043437) do
     t.boolean  "volunteer"
     t.integer  "certification2_number"
     t.integer  "license2_number"
+    t.boolean  "sandbag"
+    t.integer  "sandbag_q"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

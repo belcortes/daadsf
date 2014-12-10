@@ -243,5 +243,9 @@
             = f.select :shovel_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.shovel_q)
             = f.label :shovel
             %br
+            = f.check_box :sandbag, {:checked=>current_user.sandbag}
+            = f.select :sandbag_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.sandbag_q)
+            = f.label :sandbag
+            %br
         #update
           = f.submit 'UPDATE'

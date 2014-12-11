@@ -542,7 +542,7 @@ function resource_markers() {
 function user_data() {
   var bounds = new google.maps.LatLngBounds();
   var icon;
-  var oms = new OverlappingMarkerSpiderfier(map);
+  // var oms = new OverlappingMarkerSpiderfier(map);
   
 
   $.getJSON("/users", function(json) {
@@ -771,10 +771,10 @@ function user_data() {
           }
         }
       })
-      oms.addListener('click', function(marker, event) {
-        // infowindow.setContent(marker.desc);
-        infowindow.open(map, marker);
-      });
+      // oms.addListener('click', function(marker, event) {
+      //   // infowindow.setContent(marker.desc);
+      //   infowindow.open(map, marker);
+      // });
 
      
 
@@ -808,18 +808,6 @@ function user_data() {
             infowindow.open(map,marker);
           }
         })
-
-        // var iw = new google.maps.InfoWindow();
-
-        
-
-        // oms.addListener('spiderfy', function(markers) {
-        //   for(var i = 0; i < markers.length; i ++) {
-        //     markers[i].setIcon(iconWithColor(spiderfiedColor));
-        //     markers[i].setShadow(null);
-        //   } 
-        //   infowindow.close();
-        // });
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map,marker);
@@ -866,78 +854,6 @@ function button_clicks() {
     $('#about-container').show();
   })
 }
-
-// $.fn.serializeObject = function() {
-//   var values = {}
-//   $("form input, form select, form textarea").each( function(){
-//     values[this.name] = $(this).val();
-//   });
-//   return values;
-// }
-
-// function ajax_signup() {
-//   $("#login").submit(function(e){
-//    e.preventDefault(); //This prevents the form from submitting normally
-//    var user_info = $(this).serializeObject();
-//    console.log("About to post to /users: " + JSON.stringify(user_info));
-//    $.ajax({
-//      type: "POST",
-//      url: "/users/sign_in",
-//      data: user_info,
-//      success: function(json){
-//        console.log("The Devise Response: " + JSON.stringify(json));
-//        //alert("The Devise Response: " + JSON.stringify(json));
-//      },
-//      dataType: "json"
-//    });
-// });
-// }
-
-// function resiliency_output() {
-//   $('.mission').on('click', function(){
-//     // resiliency.setMap(map);
-//     // resiliency.set('preserveViewport', true);
-//     var neighbor_name = $(this).val()
-
-//     var not_this = $(this).parent().children().not($(this))
-
-//     // var resiliency_text = $('.resiliency').html()
-//     // console.log(not_this)
-//     for (var i = 0; i < not_this.length; i++) {
-//       var not_this_array = not_this[i].value
-//       // console.log(not_this_array)
-//     //   // console.log(not_this_array)
-//     //   // CHECK IF VALUES IN NOT_THIS_ARRAY ARE IN THE RESILIENCY CONTAINER
-//     //   if ($.inArray(not_this_array, resiliency_text) > -1) {
-//     //     console.log('not in this string yay!')
-//     //     // delete the not_this_neighborhood text
-//     //   }
-//     }
-//     var html_content = '<div class="resiliency-content"><h3>'+neighbor_name+'</h3><p>HELLOOOO</p></div>'
-//     $('.container').hide();
-//     $('.container2').hide();
-    
-//     $.ajax ({
-//       type: 'GET',
-//       url: "/neighbors",
-//       dataType: "JSON",
-//       success: function(data){
-//         $.each($(data), function(key, value) {
-//           if (value.name == neighbor_name) {
-//             // console.log(data)
-//             console.log('data that should be added ^^')
-//             $('.resiliency').append(html_content)
-//           } else {
-//             // console.log(data)
-//             $('.resiliency').remove($('.resiliency-content'))
-//             console.log('data that should be removed ^^')
-//           }
-//         });
-//         $('.resiliency-container').show();
-//       }
-//     });
-//   })
-// }
 
 
 

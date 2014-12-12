@@ -285,7 +285,7 @@ function resource_markers() {
         });
     })
   })
-  $.getJSON('/retro', function(json){
+    $.getJSON('/retro', function(json){
     $.each(json, function(key, data){
       if (data.b_type == 'pharmacy') {
         var p_marker = new google.maps.Marker({

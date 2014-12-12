@@ -67,6 +67,12 @@ function maps() {
     var test_disaster = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/test_dsiaster.kml'
     });
+    var flood_high = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_high_risk.kml'
+    });
+    var flood_med = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_moderate_risk.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -142,6 +148,12 @@ function maps() {
             case 'test_disaster':
               test_disaster.setMap(null);
               break;
+            case 'flood_high':
+              flood_high.setMap(null);
+              break;
+            case 'flood_med':
+              flood_med.setMap(null);
+              break;
           }
         } else {
           if (no_image != 'Resources'){
@@ -193,6 +205,14 @@ function maps() {
             case 'test_disaster':
               test_disaster.setMap(map);
               test_disaster.set('preserveViewport', true);
+              break;
+            case 'flood_high':
+              flood_high.setMap(map);
+              flood_high.set('preserveViewport', true);
+              break;
+            case 'flood_med':
+              flood_med.setMap(map);
+              flood_med.set('preserveViewport', true);
               break;
           }
         }
@@ -252,8 +272,8 @@ function resource_markers() {
   var icon6 = "/images/gas_station.png"
   var icon7 = "/images/twittericon.png"
   var icon8 = "/images/faith.png"
-  var icon9 = "/images/bus.png"
-  var icon10 = "/images/cooling.png"
+  var icon9 = "/images/evacuation_potential_pickup_location.png"
+  var icon10 = "/images/cooling_center.png"
   var icon11 = "/images/sandbagicon.png"
   var bounds = new google.maps.LatLngBounds();
 

@@ -1,0 +1,20 @@
+name,city,address,type,latitude,longitude,phone_number,notes
+,Palo Alto,"1925 Embarcadero Rd, Palo Alto, CA 94303",sandbag_pickup,37.454932,-122.110763,,
+,Alviso,Northeast corner of Gold and Catherine Streets,sandbag_pickup,37.427249,-121.976029,,
+City Main Yard,San Jose,"1404 Mabury Rd, San Jose, CA 95133",sandbag_pickup,37.363342,-121.87456,,"Self fill, sand and empty bags are provided"
+City Central Service Yard,San Jose,"1661 Senter Rd, San Jose, CA 95112",sandbag_pickup,37.318598,-121.860125,,
+Santa Clara Valley Water District Warehouse,San Jose,"5905 Winfield Blvd, San Jose, CA 95123",sandbag_pickup,37.245658,-121.869211,,"Bag pickup, street access only"
+El Toro Fire Station,Morgan Hill,"18300 Old Monterey Rd, Morgan Hill, CA 95037",sandbag_pickup,37.141519,-121.663501,,
+La Honda Corp Yard,La Honda,"59 Entrada Way, La Honda, CA 94020",sandbag_pickup,37.318779,-122.272655,(650) 747-0341,
+Princeton Corp Yard,Half Moon Bay,"203 Cornell Ave, Half Moon Bay, CA 94019",sandbag_pickup,37.505576,-122.491489,(650) 728-7993,
+Pescadero High School,Pescadero,"350 Butano Cutoff, Pescadero, CA 94060",sandbag_pickup,37.247962,-122.364659,,
+Grant Corporation Yard,Redwood City,"752 Chestnut St, Redwood City, CA 94063",sandbag_pickup,37.484558,-122.219753,(650) 363-4103,
+City Corporation Yard,San Carlos,"1000 Bransten Rd, San Carlos, CA 94070",sandbag_pickup,37.506552,-122.254332,,
+,San Francisco,"2323 Cesar Chavez St, San Francisco, CA 94107",sandbag_pickup,37.749385,-122.402055,,Limit of 10 sandbags per address
+City of Pleasanton Service Center,Pleasanton,"3333 Busch Rd, Pleasanton, CA 94566",sandbag_pickup,37.677297,-121.859029,,
+,Napa,"1st St & Freeway Dr, Napa, CA 94558",sandbag_pickup,38.299652,-122.305957,,Residents should bring a shovel and gloves and plan to fill and transport their own bags
+Martin Bros.,Mill Valley,"232 Shoreline Hwy, Mill Valley, CA 94941",sandbag_pickup,37.880934,-122.523846,,
+Pini Ace Hardware,Novato,"1535 Novato Blvd, Novato, CA 94947",sandbag_pickup,38.097968,-122.570016,,
+Shamrock Materials,San Rafael,"548 Du Bois St, San Rafael, CA 94901",sandbag_pickup,37.965237,-122.518061,,
+Water Components,San Rafael,"44 Simms St, San Rafael, CA 94901",sandbag_pickup,37.958009,-122.506892,,
+Goodman’s Hardware,Mill Valley,"775 Redwood Hwy, Mill Valley, CA 94941",sandbag_pickup,37.894194,-122.516032,,

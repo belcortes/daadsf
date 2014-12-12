@@ -100,4 +100,23 @@ namespace :import do
     end
 
   end
+  desc "adding sandbag locations to buildings"
+  task :sandbag => [:environment] do
+
+    file = "db/sandbag_pickup2.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :name => row[0],
+        :city => row[1],
+        :address => row[2],
+        :b_type => row[3],
+        :latitude => row[4],
+        :longitude => row[5],
+        :phone_number => row[6],
+        :notes => row[7]
+      })
+    end
+
+  end
 end

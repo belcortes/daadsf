@@ -274,7 +274,7 @@ function resource_markers() {
   var icon8 = "/images/faith.png"
   var icon9 = "/images/evacuation_potential_pickup_location.png"
   var icon10 = "/images/cooling_center.png"
-  var icon11 = "/images/sandbagicon.png"
+  var icon11 = "/images/sandbag_pickup.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/tweets', function(json){
@@ -302,6 +302,10 @@ function resource_markers() {
           google.maps.event.addListener(t_marker, 'click', function() {
             infowindow.open(map,t_marker);
           });
+        });
+        $('#twitter-container').children($('.close')).on('click', function() {
+          t_marker.setMap(null);
+          $('#twitter').attr('checked', false);
         });
     })
   })

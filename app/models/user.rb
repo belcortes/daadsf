@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :validatable
   has_and_belongs_to_many :neighborhoods
+  has_and_belongs_to_many :admin_users
   has_one :zipcode
   geocoded_by :full_street_address
   after_validation :geocode, :if => :address_changed?

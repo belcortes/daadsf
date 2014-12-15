@@ -73,6 +73,9 @@ function maps() {
     var flood_med = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_moderate_risk.kml'
     });
+    var flood_low = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_moderate_to_low_risk.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -154,6 +157,9 @@ function maps() {
             case 'flood_med':
               flood_med.setMap(null);
               break;
+            case 'flood_low':
+              flood_low.setMap(null);
+              break;
           }
         } else {
           if (no_image != 'Resources'){
@@ -213,6 +219,10 @@ function maps() {
             case 'flood_med':
               flood_med.setMap(map);
               flood_med.set('preserveViewport', true);
+              break;
+            case 'flood_low':
+              flood_low.setMap(map);
+              flood_low.set('preserveViewport', true);
               break;
           }
         }
@@ -595,273 +605,274 @@ function user_data() {
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
-      var trues = [];
-      var cNewName = "";
-      $.each( data, function( key, value ) {
-        switch (key) {
-          case 'emergency':
-          key = 'Emergency Kit';
-          break;
-          case 'carpenter':
-          key = 'Carpenter';
-          break;
-          case 'firstaid':
-          key = 'First Aid';
-          break;
-          case 'contractor':
-          key = 'Contractor';
-          break;
-          case 'dumptruck':
-          key = 'Dump Truck';
-          break;
-          case 'backhoe':
-          key = 'Backhoe';
-          break;
-          case 'forklift':
-          key = 'Fork Lift';
-          break;
-          case 'fuel':
-          key = 'Fuel';
-          break;
-          case 'generator':
-          key = 'Generator';
-          break;
-          case 'jackhammer':
-          key = 'Jackhammer';
-          break;
-          case 'drill':
-          key = 'Drill';
-          break;
-          case 'hammer':
-          key = 'Hammer';
-          break;
-          case 'shovel':
-          key = 'Shovel';
-          break;
-          case 'engineer':
-          key = 'Structural Engineer';
-          break;
-          case 'underground':
-          key = 'Underground Shelter';
-          break;
-          case 'overnight':
-          key = 'Overnight Shelter';
-          break;
-          case 'oxygen':
-          key = 'Oxygen';
-          break;
-          case 'wheelchair':
-          key = 'Wheelchair';
-          break;
-          case 'defibrillation':
-          key = 'Defibrillation';
-          break;
-          case 'firstresponder':
-          key = 'First Responder';
-          break;
-          case 'inspector':
-          key = 'Building Inspector';
-          break;
-          case 'commercial':
-          key = 'Commercial License';
-          break;
-          case 'electrician':
-          key = 'Electrician';
-          break;
-          case 'operator':
-          key = 'Heave Equipment Operator';
-          break;
-          case 'kitchen':
-          key = 'Commercial Kitchen';
-          break;
-          case 'bulldozer':
-          key = 'Bulldozer';
-          break;
-          case 'excavator':
-          key = 'Excavator';
-          break;
-          case 'frontloader':
-          key = 'Front Loader';
-          break;
-          case 'reclaimer':
-          key = 'Reclaimer';
-          break;
-          case 'trencher':
-          key = 'Trencher';
-          break;
-          case 'tractor':
-          key = 'Tractor';
-          break;
-          case 'goggles':
-          key = 'Goggles';
-          break;
-          case 'axe':
-          key = 'Axe';
-          break;
-          case 'plumber':
-          key = 'Plumber';
-          break;
-          case 'rescue':
-          key = 'Light Search & Rescue';
-          break;
-          case 'flashlight':
-          key = 'Flashlight';
-          break;
-          case 'sandbag':
-          key = 'Sandbag';
-          break;
-        }
-        if (key === 'cert' || key === 'nert' || key === 'cpr' || key === 'safe') {
-        var upper = key.toUpperCase()
-        } else {
-          upper = key
-        }
-        if (value === true) {
-          trues.push(upper)
-        }
-      });
-      var newStr = trues.join(", ");
-      var contentInfo = ("<strong>Name:</strong> "+" "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone+"</br>"+"<strong>Email:</strong> "+" "+data.email+"</br>"+"<strong>Resources:</strong>"+"</br>"+newStr)
-
-      $('.contact-owner').on('click', function(){
-          $('.close').on('click', function(){
-              $('.user-contact').remove()
-              $('.modal-backdrop').remove()
-          })
-        if ($(this).prev().text().trim() == data.name) {
-          var div = document.createElement('div');
-          div.className = 'modal fade in user-contact';
-          div.innerHTML ='<div class="modal-header"> <button class="close" data-dismiss="modal">x</button> <h2>'+$(this).prev().text().trim()+'</h2> </div>  <div class="modal-body"> '+'<strong>Email:</strong> '+data.email+'</br><strong>Phone Number:</strong> '+data.phone+'</br><strong>Address:</strong> '+data.address+" "+data.address2+'- San Francisco, CA'+'</div>'
-          document.body.appendChild(div);
-          $(".user-contact").modal('show');
-        }
-      })
-
-      
-      // if (data.name == user) {
-        // icon = "<%= asset_path 'me.png' %>"
-      // } else 
-      if (data.volunteer == true) {
-        icon = "/images/4bells.png"
-      } else if (data.name == 'Zynga') {
-        icon = "/images/zynga.png"
-      } else if (data.ngo == true && data.closed == true) {
-        icon = "/images/ngo_closed.png"
-      } else if (data.ngo == true) {
-        icon = "/images/ngo.png"
-      } else if (data.faith == true && data.closed == true) {
-        icon = "/images/churchicon_closed.png"
-      } else if (data.faith == true) {
-        icon = "/images/churchicon.png"
-      } else if (data.business == true && data.closed == true) {
-        icon = "/images/business_closed.png"
-      } else if (data.business == true) {
-        icon = "/images/business.png"
-      } else if (data.gov == true && data.closed == true) {
-        icon = "/images/government_closed.png"
-      } else if (data.gov == true) {
-        icon = "/images/government.png"
-      } else {
-        icon = "/images/person.png"
-      }
-
-       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.latitude, data.longitude),
-        map: map,
-        icon: icon,
-        title: 'hello'
-      });
-      var infowindow = new google.maps.InfoWindow({
-          content: contentInfo
-        });
-       
-
-      $('.resource_links').on('click', function(){
-        $('.resource_links').not($(this)).removeClass('active');
-
-        r_name = $(this).attr('class').split(' ')[1].split('_')[1]
-        var path = "/images/"+r_name+".png"
-
-
-        if($(this).hasClass('active') == true) {
-          if(data[r_name] == true) { 
-            icon = "/images/"+r_name+".png" 
-            marker.setIcon(path)
-            // var marker = new google.maps.Marker({
-            //   position: new google.maps.LatLng(data.latitude, data.longitude),
-            //   map: map,
-            //   icon: path,
-            //   title: 'hello'
-            // });
+      if(data.display == true) {
+        var trues = [];
+        var cNewName = "";
+        $.each( data, function( key, value ) {
+          switch (key) {
+            case 'emergency':
+            key = 'Emergency Kit';
+            break;
+            case 'carpenter':
+            key = 'Carpenter';
+            break;
+            case 'firstaid':
+            key = 'First Aid';
+            break;
+            case 'contractor':
+            key = 'Contractor';
+            break;
+            case 'dumptruck':
+            key = 'Dump Truck';
+            break;
+            case 'backhoe':
+            key = 'Backhoe';
+            break;
+            case 'forklift':
+            key = 'Fork Lift';
+            break;
+            case 'fuel':
+            key = 'Fuel';
+            break;
+            case 'generator':
+            key = 'Generator';
+            break;
+            case 'jackhammer':
+            key = 'Jackhammer';
+            break;
+            case 'drill':
+            key = 'Drill';
+            break;
+            case 'hammer':
+            key = 'Hammer';
+            break;
+            case 'shovel':
+            key = 'Shovel';
+            break;
+            case 'engineer':
+            key = 'Structural Engineer';
+            break;
+            case 'underground':
+            key = 'Underground Shelter';
+            break;
+            case 'overnight':
+            key = 'Overnight Shelter';
+            break;
+            case 'oxygen':
+            key = 'Oxygen';
+            break;
+            case 'wheelchair':
+            key = 'Wheelchair';
+            break;
+            case 'defibrillation':
+            key = 'Defibrillation';
+            break;
+            case 'firstresponder':
+            key = 'First Responder';
+            break;
+            case 'inspector':
+            key = 'Building Inspector';
+            break;
+            case 'commercial':
+            key = 'Commercial License';
+            break;
+            case 'electrician':
+            key = 'Electrician';
+            break;
+            case 'operator':
+            key = 'Heave Equipment Operator';
+            break;
+            case 'kitchen':
+            key = 'Commercial Kitchen';
+            break;
+            case 'bulldozer':
+            key = 'Bulldozer';
+            break;
+            case 'excavator':
+            key = 'Excavator';
+            break;
+            case 'frontloader':
+            key = 'Front Loader';
+            break;
+            case 'reclaimer':
+            key = 'Reclaimer';
+            break;
+            case 'trencher':
+            key = 'Trencher';
+            break;
+            case 'tractor':
+            key = 'Tractor';
+            break;
+            case 'goggles':
+            key = 'Goggles';
+            break;
+            case 'axe':
+            key = 'Axe';
+            break;
+            case 'plumber':
+            key = 'Plumber';
+            break;
+            case 'rescue':
+            key = 'Light Search & Rescue';
+            break;
+            case 'flashlight':
+            key = 'Flashlight';
+            break;
+            case 'sandbag':
+            key = 'Sandbag';
+            break;
           }
-        } else {
-          $(this).removeClass('active');
-          if (data.name == 'Zynga') {
-            marker.setIcon("/images/zynga.png")
-          } else if (data.ngo == true && data.closed == true) {
-            marker.setIcon("/images/ngo_closed.png")
-          } else if (data.ngo == true) {
-            marker.setIcon("/images/ngo.png")
-          } else if (data.faith == true && data.closed == true) {
-            marker.setIcon("/images/churchicon_closed.png")
-          } else if (data.faith == true) {
-            marker.setIcon("/images/churchicon.png")
-          } else if (data.business == true && data.closed == true) {
-            marker.setIcon("/images/business_closed.png")
-          } else if (data.business == true) {
-            marker.setIcon("/images/business.png")
-          } else if (data.gov == true && data.closed == true) {
-            marker.setIcon("/images/government_closed.png")
-          } else if (data.gov == true) {
-            marker.setIcon("/images/government.png")
+          if (key === 'cert' || key === 'nert' || key === 'cpr' || key === 'safe') {
+          var upper = key.toUpperCase()
           } else {
-            marker.setIcon("/images/person.png")
+            upper = key
           }
-        }
-      })
-      // oms.addListener('click', function(marker, event) {
-      //   // infowindow.setContent(marker.desc);
-      //   infowindow.open(map, marker);
-      // });
+          if (value === true) {
+            trues.push(upper)
+          }
+        });
+        var newStr = trues.join(", ");
+        var contentInfo = ("<strong>Name:</strong> "+" "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone+"</br>"+"<strong>Email:</strong> "+" "+data.email+"</br>"+"<strong>Resources:</strong>"+"</br>"+newStr)
 
-     
-
-      $('.name').mouseover(function(){
-        if($(this).text().trim() == data.name) {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-      })
-      $('.name').mouseout(function(){
-        marker.setAnimation(null);
-      })
-
-      marker.setMap(null);
-      
-      // bounds.extend(marker.position);
-      $('#community').on('click', function(){
-        $('.container').hide();
-        $('.container2').hide();
-        if ($(this).attr('class') == 'map-buttons active') {
-          $('#users').show();
-          marker.setMap(map);
-          // map.fitBounds(bounds);
-        } else {
-          $('#users').hide();
-          marker.setMap(null);
-        }
-        
-
-        $('.name').on('click', function(){
-          if($(this).text().trim() == data.name) {
-            infowindow.open(map,marker);
+        $('.contact-owner').on('click', function(){
+            $('.close').on('click', function(){
+                $('.user-contact').remove()
+                $('.modal-backdrop').remove()
+            })
+          if ($(this).prev().text().trim() == data.name) {
+            var div = document.createElement('div');
+            div.className = 'modal fade in user-contact';
+            div.innerHTML ='<div class="modal-header"> <button class="close" data-dismiss="modal">x</button> <h2>'+$(this).prev().text().trim()+'</h2> </div>  <div class="modal-body"> '+'<strong>Email:</strong> '+data.email+'</br><strong>Phone Number:</strong> '+data.phone+'</br><strong>Address:</strong> '+data.address+" "+data.address2+'- San Francisco, CA'+'</div>'
+            document.body.appendChild(div);
+            $(".user-contact").modal('show');
           }
         })
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
-      });
+        
+        // if (data.name == user) {
+          // icon = "<%= asset_path 'me.png' %>"
+        // } else 
+        if (data.volunteer == true) {
+          icon = "/images/4bells.png"
+        } else if (data.name == 'Zynga') {
+          icon = "/images/zynga.png"
+        } else if (data.ngo == true && data.closed == true) {
+          icon = "/images/ngo_closed.png"
+        } else if (data.ngo == true) {
+          icon = "/images/ngo.png"
+        } else if (data.faith == true && data.closed == true) {
+          icon = "/images/churchicon_closed.png"
+        } else if (data.faith == true) {
+          icon = "/images/churchicon.png"
+        } else if (data.business == true && data.closed == true) {
+          icon = "/images/business_closed.png"
+        } else if (data.business == true) {
+          icon = "/images/business.png"
+        } else if (data.gov == true && data.closed == true) {
+          icon = "/images/government_closed.png"
+        } else if (data.gov == true) {
+          icon = "/images/government.png"
+        } else {
+          icon = "/images/person.png"
+        }
 
+         var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.latitude, data.longitude),
+          map: map,
+          icon: icon,
+          title: 'hello'
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: contentInfo
+          });
+         
+
+        $('.resource_links').on('click', function(){
+          $('.resource_links').not($(this)).removeClass('active');
+
+          r_name = $(this).attr('class').split(' ')[1].split('_')[1]
+          var path = "/images/"+r_name+".png"
+
+
+          if($(this).hasClass('active') == true) {
+            if(data[r_name] == true) { 
+              icon = "/images/"+r_name+".png" 
+              marker.setIcon(path)
+              // var marker = new google.maps.Marker({
+              //   position: new google.maps.LatLng(data.latitude, data.longitude),
+              //   map: map,
+              //   icon: path,
+              //   title: 'hello'
+              // });
+            }
+          } else {
+            $(this).removeClass('active');
+            if (data.name == 'Zynga') {
+              marker.setIcon("/images/zynga.png")
+            } else if (data.ngo == true && data.closed == true) {
+              marker.setIcon("/images/ngo_closed.png")
+            } else if (data.ngo == true) {
+              marker.setIcon("/images/ngo.png")
+            } else if (data.faith == true && data.closed == true) {
+              marker.setIcon("/images/churchicon_closed.png")
+            } else if (data.faith == true) {
+              marker.setIcon("/images/churchicon.png")
+            } else if (data.business == true && data.closed == true) {
+              marker.setIcon("/images/business_closed.png")
+            } else if (data.business == true) {
+              marker.setIcon("/images/business.png")
+            } else if (data.gov == true && data.closed == true) {
+              marker.setIcon("/images/government_closed.png")
+            } else if (data.gov == true) {
+              marker.setIcon("/images/government.png")
+            } else {
+              marker.setIcon("/images/person.png")
+            }
+          }
+        })
+        // oms.addListener('click', function(marker, event) {
+        //   // infowindow.setContent(marker.desc);
+        //   infowindow.open(map, marker);
+        // });
+
+       
+
+        $('.name').mouseover(function(){
+          if($(this).text().trim() == data.name) {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+        })
+        $('.name').mouseout(function(){
+          marker.setAnimation(null);
+        })
+
+        marker.setMap(null);
+        
+        // bounds.extend(marker.position);
+        $('#community').on('click', function(){
+          $('.container').hide();
+          $('.container2').hide();
+          if ($(this).attr('class') == 'map-buttons active') {
+            $('#users').show();
+            marker.setMap(map);
+            // map.fitBounds(bounds);
+          } else {
+            $('#users').hide();
+            marker.setMap(null);
+          }
+          
+
+          $('.name').on('click', function(){
+            if($(this).text().trim() == data.name) {
+              infowindow.open(map,marker);
+            }
+          })
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+          });
+        });
+      }
     });
   })
 }

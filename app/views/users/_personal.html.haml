@@ -125,8 +125,26 @@
             = f.text_field :license2_number, value: current_user.license2_number, id: 'license_field2', :class => 'numbers'
             %br
             = f.label :other
-            = f.text_field :other, value: current_user.other, id: 'other_field', :class => 'numbers'
+            = f.text_field :other, value: current_user.other, id: 'other_field', :class => 'numbers' 
+        
       %br
+      .personal.col-md-3#assistance 
+        Assistance
+        .account-box
+          = f.check_box :meals, {:checked=>current_user.meals}
+          = f.label(:meals, 'Meals')
+          %br
+          = f.check_box :gather, {:checked=>current_user.gather}
+          = f.label(:gather, 'Place to Gather')
+          %br
+          = f.check_box :clothing, {:checked=>current_user.clothing}
+          = f.label(:clothing, 'Clothing/Blankets')
+          %br
+          = f.check_box :spiritual, {:checked=>current_user.spiritual}
+          = f.label(:spiritual, 'Spiritual/Emotional Support')
+          %br
+          = f.label :other
+          = f.text_field :other, value: current_user.other, id: 'other_field', :class => 'numbers' 
       .personal#user-resources 
         Resources
         .account-box.row
@@ -149,7 +167,6 @@
             = f.select :underground_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.underground_q)
             = f.label(:underground,'Underground Shelter')
             %br
-          .col-md-3
             Medical
             %br
             = f.check_box :defibrillation, {:checked=>current_user.defibrillation}
@@ -211,8 +228,7 @@
             = f.select :trencher_q, options_for_select((0..30).map {|i| [i,i] } << ["No limit",nil], current_user.trencher_q)
             = f.label :trencher
             %br
-
-          .col-md-3
+          .col-md-2
             Light Equipment
             %br
             = f.check_box :axe, {:checked=>current_user.axe}

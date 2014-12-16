@@ -1,5 +1,4 @@
 ActiveAdmin.register AdminUser do
-  # has_and_belongs_to_many :users
   permit_params :email, :password, :password_confirmation, :super, :user_ids => []
 
   menu :if => proc{ current_admin_user.super? }
@@ -31,27 +30,21 @@ ActiveAdmin.register AdminUser do
     f.actions
   end
 
-  # controller do
+  controller do
 
-  #   def create
-  #     @admin = AdminUser.new
-  #     p @admin
-  #     # @admin = AdminUser.new(params[:admin_uer])
-  #     @user = User.new(params[:email => @admin.email, :password => @admin.password, :password_confirmation => @admin.password_confirmation])
-  #   end
-  # end
-
-  
-
-  # collection_action :add_user, :method => :post do
-  #   p :admin_user
-  #   p 'PARAMS HERE ^^^^^^^^^^^^^^^^^^^^^^^'
-  #   @user = User.new(params[:email => admin_user.email, :password => admin_user.password, :password_confirmation => admin_user.password])
-  #   p @user
-  # end
-  # def create
-  #   p :admin_user
-  #   p 'PARAMS HERE ^^^^^^^^^^^^^^^^^^^^^^^'
-  # end
+    def create
+      @admin = AdminUser.new(permitted_params[:admin_user])
+      if @admin.save
+        @user = User.new(permitted_params[email: @admin.email, password: @admin.password, password_confirmation: @admin.password_confirmation, admin: true])
+        p @user
+        p 'user params ^^^'
+        p @admin
+        p 'PARAMS HERE ^^^^^^^^^^^^^^^^^^^^^^^^^^'
+        redirect_to admin_admin_users_path
+      else
+        render '/admin/admin_users/new'
+      end
+    end
+  end
 
 end

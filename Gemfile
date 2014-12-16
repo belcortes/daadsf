@@ -21,7 +21,7 @@ gem 'active_admin_sidebar'
 gem 'geocoder'
 gem 'twitter'
 gem 'omniauth-twitter'
-gem 'whenever'
+# gem 'whenever'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -70,11 +70,17 @@ function maps() {
     var flood_high = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_high_risk.kml'
     });
+    var floodway_high = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_high_risk_floodway.kml'
+    });
     var flood_med = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_moderate_risk.kml'
     });
     var flood_low = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_moderate_to_low_risk.kml'
+    });
+    var levee_low = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_low_to_moderate_levee.kml'
     });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
@@ -153,12 +159,14 @@ function maps() {
               break;
             case 'flood_high':
               flood_high.setMap(null);
+              floodway_high.setMap(null);
               break;
             case 'flood_med':
               flood_med.setMap(null);
               break;
             case 'flood_low':
               flood_low.setMap(null);
+              levee_low.setMap(null);
               break;
           }
         } else {
@@ -214,7 +222,9 @@ function maps() {
               break;
             case 'flood_high':
               flood_high.setMap(map);
+              floodway_high.setMap(map);
               flood_high.set('preserveViewport', true);
+              floodway_high.set('preserveViewport', true);
               break;
             case 'flood_med':
               flood_med.setMap(map);
@@ -223,6 +233,8 @@ function maps() {
             case 'flood_low':
               flood_low.setMap(map);
               flood_low.set('preserveViewport', true);
+              levee_low.setMap(map);
+              levee_low.set('preserveViewport', true);
               break;
           }
         }

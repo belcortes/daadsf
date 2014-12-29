@@ -82,6 +82,9 @@ function maps() {
     var levee_low = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/san_mateo_nfhl_low_to_moderate_levee.kml'
     });
+    var evac_routes = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/bay_area_evacuation_complete.kml'
+    });
     var weatherLayer = new google.maps.weather.WeatherLayer({
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
@@ -168,6 +171,9 @@ function maps() {
               flood_low.setMap(null);
               levee_low.setMap(null);
               break;
+            case 'evac_routes':
+              evac_routes.setMap(null);
+              break;
           }
         } else {
           if (no_image != 'Resources'){
@@ -229,6 +235,10 @@ function maps() {
             case 'flood_med':
               flood_med.setMap(map);
               flood_med.set('preserveViewport', true);
+              break;
+            case 'evac_routes':
+              evac_routes.setMap(map);
+              evac_routes.set('preserveViewport', true);
               break;
             case 'flood_low':
               flood_low.setMap(map);
@@ -895,7 +905,6 @@ function user_data() {
 function gmapPrint(){
   var content = window.document.getElementById('user-print') // get you map details
   var newWindow = window.open(); // open a new window
-  // newWindow.document.writeln('<link href="./assets/application.css" media="all" rel="stylesheet">');
   newWindow.document.writeln(content.innerHTML);
   newWindow.print();
 }
@@ -934,6 +943,24 @@ $(function() {
   $('#person-info input').click(function () {
     $(this).parent().children().not($(this)).attr('checked', false)
   });
+
+  // $('#ticker').newsTicker({
+  //   max_row: 1,
+  //   row_height: 20,
+  //   direction: 'up'
+  // });
+
+  var ticker = function()
+    {
+      setTimeout(function(){
+          $('#ticker li:first').animate( {marginTop: '-120px'}, 1000, function()
+          {
+              $(this).detach().appendTo('ul#ticker').removeAttr('style');
+          });
+          ticker();
+      }, 4000);
+  };
+  ticker();
 
   $('.container').hide();
   $('.close').on('click', function() {

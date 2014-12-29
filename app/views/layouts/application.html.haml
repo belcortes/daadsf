@@ -36,22 +36,14 @@
   .container#print-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/print'
-    / .container#print-container
-    / =image_tag asset_path('x.png'), :class => 'close'
-    / = render 'layouts/print'
   .container.resiliency-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/resiliency'
   .container#about-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/about'
-  / = render 'layouts/printing'
 
-  / %a(href='#')
-  /   .map-buttons#neighbor Police and Fire
-   
-  / %a(href='#')
-  /   .map-buttons#disaster SF Zipcodes
+
   .dropdown
     %a.dropdown-toggle.map-buttons#busi{"data-toggle" => "dropdown"}(href='#')
       San Francisco
@@ -67,16 +59,6 @@
         %input.checkbox#super-check{type: "checkbox"} Supervisor Districts
   %a(href='#')
     .map-buttons#resiliency Resiliency
-  / .dropdown
-  /   %a.dropdown-toggle.map-buttons#resiliency{"data-toggle" => "dropdown"}(href='#')
-  /     Resiliency
-  /     %b.caret
-  /   %ul#menu8.dropdown-menu
-  /     %li
-  /       - Neighborhood.all.each do |n|
-  /         %input.mission{:name => "optionsRadios", :type => "radio", :value => "#{n.name}"}
-  /           = n.name
-  /           %br
   .dropdown
     %a.dropdown-toggle.map-buttons#neighbor{"data-toggle" => "dropdown"}(href='#')
       Resources
@@ -137,6 +119,8 @@
         %input.checkbox#test_disaster{type: "checkbox"} Test Disaster
       %li
         %input.checkbox#sandbag{type: "checkbox"} Sandbag Pickup Locations
+      %li
+        %input.checkbox#evac_routes{type: "checkbox"} Bay Area Evacuation Routes
 
   %a(href='http://appallicious.com/' target='_blank')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'

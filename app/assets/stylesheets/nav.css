@@ -9,6 +9,30 @@ a, p, div, h1, h2, h3 {
 a {
   text-decoration: none;
 }
+#ticker {
+  height: 22px !important;
+  width: 300px;
+  text-align: center;
+  float: right;
+  background: white;
+  overflow: hidden;
+}
+.login.ticker {
+  display: none !important;
+}
+.ticker {
+  border: 1px solid red;
+  padding: 0 !important;
+  width: 400px;
+  background: red;
+}
+#breaking {
+  /*float: left;*/
+  background: red;
+  color: white;
+  font-weight: bold;
+  margin-left: 4px;
+}
 .contact-owner {
   cursor: pointer;
 }

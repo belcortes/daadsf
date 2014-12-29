@@ -35,15 +35,19 @@ ActiveAdmin.register AdminUser do
     def create
       @admin = AdminUser.new(permitted_params[:admin_user])
       if @admin.save
-        @user = User.new(permitted_params[email: @admin.email, password: @admin.password, password_confirmation: @admin.password_confirmation, admin: true])
+        @user = User.new(user_params[])
         p @user
         p 'user params ^^^'
-        p @admin
-        p 'PARAMS HERE ^^^^^^^^^^^^^^^^^^^^^^^^^^'
         redirect_to admin_admin_users_path
       else
         render '/admin/admin_users/new'
       end
+    end
+    private
+    def user_params
+      params.require(:user).permit(
+        :user_id, :email, :password, :password_confirmation, :admin
+      )
     end
   end
 

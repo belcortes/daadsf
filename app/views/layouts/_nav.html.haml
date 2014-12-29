@@ -21,13 +21,24 @@
         - else
           / #signin Sign Up
           = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true, :id => 'signup'
+      %li
+        - if current_user && current_user.admin?
+          = link_to "Breaking", "#breaking", "data-toggle" => "modal", :remote => true
   %ul#subnav
     %li.login#prepare
-      %a(href='#') 
+      %a(href='#')
         .map-buttons Prepare for a Disaster
     %li.login#print
       =image_tag asset_path("print.png"), id: 'print'
+    %li.login.ticker
+      %span#breaking BREAKING
+      %ul#ticker
+        %li This is the 1st latest news item.
+        %li This is the 2nd latest news item.
+        %li This is the 3rd latest news item.
+        %li This is the 4th latest news item.
       
 = render "home/login_modal"
 = render "home/sign_up_modal"
 = render "home/edit_modal"
+= render "home/breaking"

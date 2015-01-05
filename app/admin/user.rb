@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   before_filter :left_sidebar!
   scope_to :current_admin_user, :unless => proc{ current_admin_user.super? }
-  permit_params :email, :password, :password_confirmation, :phone, :name, :zip, :address, :nert, :cert, :cpr, :safe, :firstaid, :dumptruck, :backhoe, :forklift, :fuel, :generator, :saw, :jackhammer, :emergency, :drill, :hammer, :survival_kit, :shovel, :engineer, :contractor, :church, :school, :underground, :overnight, :oxygen, :wheelchair, :defibrillation, :other, :firstresponder, :inspector, :commercial, :electrician, :carpenter, :operator, :plumber, :kitchen, :bulldozer, :excavator, :frontloader, :reclaimer, :trencher, :tractor, :goggles, :axe, :backhoe_q, :bulldozer_q, :dumptruck_q, :excavator_q, :forklift_q, :frontloader_q, :jackhammer_q, :reclaimer_q, :tractor_q, :trencher_q, :axe_q, :drill_q, :fuel_q, :goggles_q, :hammer_q, :shovel_q, :defibrillation_q, :emergency_q, :oxygen_q, :wheelchair_q, :generator_q, :kitchen_q, :overnight_q, :underground_q, :flashlight_q, :individual, :business, :ngo, :gov, :faith, :closed, :open, :rescue, :flashlight, :license_number, :certification_number, :duns_number, :volunteer, :display, :emergency_contact, :latitude, :longitude, :license2_number, :certification2_number
+  permit_params :email, :password, :password_confirmation, :phone, :name, :zip, :address, :nert, :cert, :cpr, :safe, :firstaid, :dumptruck, :backhoe, :forklift, :fuel, :generator, :saw, :jackhammer, :emergency, :drill, :hammer, :survival_kit, :shovel, :engineer, :contractor, :church, :school, :underground, :overnight, :oxygen, :wheelchair, :defibrillation, :other, :firstresponder, :inspector, :commercial, :electrician, :carpenter, :operator, :plumber, :kitchen, :bulldozer, :excavator, :frontloader, :reclaimer, :trencher, :tractor, :goggles, :axe, :backhoe_q, :bulldozer_q, :dumptruck_q, :excavator_q, :forklift_q, :frontloader_q, :jackhammer_q, :reclaimer_q, :tractor_q, :trencher_q, :axe_q, :drill_q, :fuel_q, :goggles_q, :hammer_q, :shovel_q, :defibrillation_q, :emergency_q, :oxygen_q, :wheelchair_q, :generator_q, :kitchen_q, :overnight_q, :underground_q, :flashlight_q, :individual, :business, :ngo, :gov, :faith, :closed, :open, :rescue, :flashlight, :license_number, :certification_number, :duns_number, :volunteer, :display, :emergency_contact, :latitude, :longitude, :license2_number, :certification2_number, :display2, :display3
 
   form do |f|
     f.inputs "User Details" do
@@ -12,6 +12,8 @@ ActiveAdmin.register User do
         f.input :password_confirmation, :label => "Password Confirmation"
       end
       f.input :display
+      f.input :display2
+      f.input :display3
       f.input :phone
       f.input :name
       f.input :zip
@@ -109,10 +111,12 @@ ActiveAdmin.register User do
   index do
     actions
     selectable_column
-    column :display
     column :email
-    column :phone
     column :name
+    column :display
+    column :display2
+    column :display3
+    column :phone
     column :zip
     column :address
     column :nert
@@ -121,7 +125,9 @@ ActiveAdmin.register User do
     column :safe
     column 'First Aid', :firstaid
     column 'Dump Truck', :dumptruck
+    column 'Dump Truck #', :dumptruck_q
     column :backhoe
+    column 'Backhoe #', :backhoe_q
     column 'Fork Lift', :forklift
     column :fuel
     column :generator
@@ -132,7 +138,6 @@ ActiveAdmin.register User do
     column :hammer
     column :survival_kit
     column :shovel
-    column :emergency_contact
     column :engineer
     column :contractor
     column :church
@@ -154,27 +159,25 @@ ActiveAdmin.register User do
     column :plumber
     column :kitchen
     column :bulldozer
+    column 'Bulldozer #', :bulldozer_q
     column :excavator
     column 'Front Loader', :frontloader
     column :reclaimer
+    column 'Reclaimer #', :reclaimer_q
     column :trencher
+    column 'Trencher #', :trencher_q
     column :tractor
+    column 'Tractor #', :tractor_q
     column :goggles
+    column 'Goggles #', :goggles_q
     column :axe
-    column 'Backhoe #', :backhoe_q
-    column 'Bulldozer #', :bulldozer_q
-    column 'Dump Truck #', :dumptruck_q
+    column 'Axe #', :axe_q
     column 'Excavator #', :excavator_q
     column 'Fork Lift #', :forklift_q
     column 'Front Loader #', :frontloader_q
     column 'Jackhammer #', :jackhammer_q
-    column 'Reclaimer #', :reclaimer_q
-    column 'Tractor #', :tractor_q
-    column 'Trencher #', :trencher_q
-    column 'Axe #', :axe_q
     column 'Drill #', :drill_q
     column 'Fuel #', :fuel_q
-    column 'Goggles #', :goggles_q
     column 'Hammer #', :hammer_q
     column 'Shovel #', :shovel_q
     column 'Defibrillation #', :defibrillation_q

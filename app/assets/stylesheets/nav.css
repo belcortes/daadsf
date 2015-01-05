@@ -11,20 +11,23 @@ a {
 }
 #ticker {
   height: 22px !important;
-  width: 300px;
+  width: 300px !important;
   text-align: center;
   float: right;
   background: white;
   overflow: hidden;
 }
-.login.ticker {
+/*.login.ticker {
   display: none !important;
-}
+}*/
 .ticker {
   border: 1px solid red;
   padding: 0 !important;
   width: 400px;
   background: red;
+}
+.news-list {
+  display: list-item !important;
 }
 #breaking {
   /*float: left;*/

@@ -89,6 +89,8 @@ function maps() {
       temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
     });
     var cloudLayer = new google.maps.weather.CloudLayer();
+    var trafficLayer = new google.maps.TrafficLayer();
+  
     
     
 
@@ -100,22 +102,8 @@ function maps() {
     weatherLayer.setMap(map);
 
     cloudLayer.setMap(map);
-    
-    // $('#resiliency').on('click', function(){
-    //   $('.container').hide();
-    //   $('.container2').hide();
-    //   $(this).toggleClass('active');
-    //   if($(this).attr('class') == 'map-buttons active'){
-    //     $('#resilience-container').show();
-    //     map.panTo(new google.maps.LatLng(37.800740, -122.439785));
-    //     map.setZoom(15); 
-    //     sf_zipcodes.setMap(map);
-    //     sf_zipcodes.set('preserveViewport', true);
-    //   } else {
-    //     $('#resilience-container').hide();
-    //     sf_zipcodes.setMap(null);
-    //   }
-    // })
+
+    trafficLayer.setMap(map);
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){
@@ -627,6 +615,10 @@ function user_data() {
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
+      if(data.display2 == false || data.display3 == false){
+        $(this).attr('display', false);
+        $(this).attr('display2', false);
+      }
       if(data.display == true) {
         var trues = [];
         var cNewName = "";
@@ -798,7 +790,7 @@ function user_data() {
           icon = "/images/person.png"
         }
 
-         var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: new google.maps.LatLng(data.latitude, data.longitude),
           map: map,
           icon: icon,
@@ -818,7 +810,7 @@ function user_data() {
 
           if($(this).hasClass('active') == true) {
             if(data[r_name] == true) { 
-              icon = "/images/"+r_name+".png" 
+              icon = "/images/"+r_name+".png"
               marker.setIcon(path)
               // var marker = new google.maps.Marker({
               //   position: new google.maps.LatLng(data.latitude, data.longitude),
@@ -876,7 +868,9 @@ function user_data() {
           $('.container2').hide();
           if ($(this).attr('class') == 'map-buttons active') {
             $('#users').show();
+            // if(data.display == true) {
             marker.setMap(map);
+            // }
             // map.fitBounds(bounds);
           } else {
             $('#users').hide();
@@ -949,18 +943,19 @@ $(function() {
   //   row_height: 20,
   //   direction: 'up'
   // });
+  // $("#ticker").liScroll();
 
-  var ticker = function()
-    {
-      setTimeout(function(){
-          $('#ticker li:first').animate( {marginTop: '-120px'}, 1000, function()
-          {
-              $(this).detach().appendTo('ul#ticker').removeAttr('style');
-          });
-          ticker();
-      }, 4000);
-  };
-  ticker();
+  // var ticker = function()
+  //   {
+  //     setTimeout(function(){
+  //         $('#ticker li:first').animate( {marginTop: '-120px'}, 1000, function()
+  //         {
+  //             $(this).detach().appendTo('ul#ticker').removeAttr('style');
+  //         });
+  //         ticker();
+  //     }, 4000);
+  // };
+  // ticker();
 
   $('.container').hide();
   $('.close').on('click', function() {

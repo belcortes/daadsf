@@ -32,10 +32,10 @@
             %br
             If Volunteer:
             %br
-            = f.radio_button :volunteer, true,{:checked=>current_user.volunteer}
+            = f.radio_button :volunteer, true, {:checked => current_user.volunteer? == true}
             = f.label(:volunteer, 'Available')
             %br
-            = f.radio_button :volunteer, false, {:checked=>current_user.volunteer}
+            = f.radio_button :volunteer, false, {:checked => current_user.volunteer? == false}
             = f.label(:volunteer, 'Not Available')
         .personal.col-md-3#person-info 
           Are you a:

@@ -615,10 +615,10 @@ function user_data() {
 
   $.getJSON("/users", function(json) {
     $.each(json, function(key, data) {
-      if(data.display2 == false || data.display3 == false){
-        $(this).attr('display', false);
-        $(this).attr('display2', false);
-      }
+      // if(data.display2 == false || data.display3 == false){
+      //   $(this).attr('display', false);
+      //   $(this).attr('display2', false);
+      // }
       if(data.display == true) {
         var trues = [];
         var cNewName = "";
@@ -807,17 +807,10 @@ function user_data() {
           r_name = $(this).attr('class').split(' ')[1].split('_')[1]
           var path = "/images/"+r_name+".png"
 
-
           if($(this).hasClass('active') == true) {
             if(data[r_name] == true) { 
               icon = "/images/"+r_name+".png"
               marker.setIcon(path)
-              // var marker = new google.maps.Marker({
-              //   position: new google.maps.LatLng(data.latitude, data.longitude),
-              //   map: map,
-              //   icon: path,
-              //   title: 'hello'
-              // });
             }
           } else {
             $(this).removeClass('active');
@@ -938,24 +931,18 @@ $(function() {
     $(this).parent().children().not($(this)).attr('checked', false)
   });
 
-  // $('#ticker').newsTicker({
-  //   max_row: 1,
-  //   row_height: 20,
-  //   direction: 'up'
+  // var marquee = $('.ticker-container');
+  // marquee.each(function() {
+  //   var mar = $(this),indent = mar.width();
+  //   mar.marquee = function() {
+  //       indent--;
+  //       mar.css('text-indent',indent);
+  //       if (indent < -1 * mar.children('.ticker-text').width()) {
+  //           indent = mar.width();
+  //       }
+  //   };
+  //   mar.data('interval',setInterval(mar.marquee,1000/60));
   // });
-  // $("#ticker").liScroll();
-
-  // var ticker = function()
-  //   {
-  //     setTimeout(function(){
-  //         $('#ticker li:first').animate( {marginTop: '-120px'}, 1000, function()
-  //         {
-  //             $(this).detach().appendTo('ul#ticker').removeAttr('style');
-  //         });
-  //         ticker();
-  //     }, 4000);
-  // };
-  // ticker();
 
   $('.container').hide();
   $('.close').on('click', function() {

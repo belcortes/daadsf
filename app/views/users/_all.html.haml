@@ -3,7 +3,7 @@
   Community Resources
 .height
   - User.all.each do |u|
-    - if u.display == true
+    - if u.display == true || u.display2 == true
       .blue.name
         = u.name
       - if u.closed == true

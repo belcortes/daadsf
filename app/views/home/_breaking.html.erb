@@ -1,13 +1,13 @@
-<div class="modal fade in" id="breaking">
+<div class="modal fade in" id="breakingnews">
   <div class="modal-header">
     <button class="close" data-dismiss="modal">x</button>
     <h2>Add your Breaking News</h2>
   </div>
   <div class="modal-body">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email, :autofocus => true %></div>
-    <%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
+    <%= form_tag(:remote => true) do %>
+    <div><%= label_tag 'Message' %><br />
+    <%= text_field_tag :news %></div>
+    <%= submit_tag "Submit", :class => 'btn btn-small btn-success' %>
     <% end %>
   </div>
 </div>

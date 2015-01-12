@@ -125,9 +125,9 @@ ActiveAdmin.register User do
     column :safe
     column 'First Aid', :firstaid
     column 'Dump Truck', :dumptruck
-    column 'Dump Truck #', :dumptruck_q
+    # column 'Dump Truck #', :dumptruck_q
     column :backhoe
-    column 'Backhoe #', :backhoe_q
+    # column 'Backhoe #', :backhoe_q
     column 'Fork Lift', :forklift
     column :fuel
     column :generator
@@ -147,9 +147,9 @@ ActiveAdmin.register User do
     column :oxygen
     column :wheelchair
     column :defibrillation
-    column :other
-    column :latitude
-    column :longitude
+    # column :other
+    # column :latitude
+    # column :longitude
     column 'First Responder', :firstresponder
     column :inspector
     column :commercial
@@ -159,51 +159,51 @@ ActiveAdmin.register User do
     column :plumber
     column :kitchen
     column :bulldozer
-    column 'Bulldozer #', :bulldozer_q
+    # column 'Bulldozer #', :bulldozer_q
     column :excavator
     column 'Front Loader', :frontloader
     column :reclaimer
-    column 'Reclaimer #', :reclaimer_q
+    # column 'Reclaimer #', :reclaimer_q
     column :trencher
-    column 'Trencher #', :trencher_q
+    # column 'Trencher #', :trencher_q
     column :tractor
-    column 'Tractor #', :tractor_q
+    # column 'Tractor #', :tractor_q
     column :goggles
-    column 'Goggles #', :goggles_q
+    # column 'Goggles #', :goggles_q
     column :axe
-    column 'Axe #', :axe_q
-    column 'Excavator #', :excavator_q
-    column 'Fork Lift #', :forklift_q
-    column 'Front Loader #', :frontloader_q
-    column 'Jackhammer #', :jackhammer_q
-    column 'Drill #', :drill_q
-    column 'Fuel #', :fuel_q
-    column 'Hammer #', :hammer_q
-    column 'Shovel #', :shovel_q
-    column 'Defibrillation #', :defibrillation_q
-    column 'Emergency Kit #', :emergency_q
-    column 'Oxygen #', :oxygen_q
-    column 'Wheelchair #', :wheelchair_q
-    column 'Generator #', :generator_q
-    column 'Kitchen #', :kitchen_q
-    column 'Overnight Shelter #', :overnight_q
-    column 'Underground Shelter #', :underground_q
-    column 'Flashlight #', :flashlight_q
-    column :individual
-    column :business
-    column 'NGO', :ngo
-    column 'Government Entity', :gov
-    column 'Faith Based Organization', :faith
-    column :closed
-    column :open
-    column :rescue
-    column :flashlight
-    column :license_number
-    column :license2_number
-    column :certification_number
-    column :certification2_number
-    column :duns_number
-    column :volunteer
+    # column 'Axe #', :axe_q
+    # column 'Excavator #', :excavator_q
+    # column 'Fork Lift #', :forklift_q
+    # column 'Front Loader #', :frontloader_q
+    # column 'Jackhammer #', :jackhammer_q
+    # column 'Drill #', :drill_q
+    # column 'Fuel #', :fuel_q
+    # column 'Hammer #', :hammer_q
+    # column 'Shovel #', :shovel_q
+    # column 'Defibrillation #', :defibrillation_q
+    # column 'Emergency Kit #', :emergency_q
+    # column 'Oxygen #', :oxygen_q
+    # column 'Wheelchair #', :wheelchair_q
+    # column 'Generator #', :generator_q
+    # column 'Kitchen #', :kitchen_q
+    # column 'Overnight Shelter #', :overnight_q
+    # column 'Underground Shelter #', :underground_q
+    # column 'Flashlight #', :flashlight_q
+    # column :individual
+    # column :business
+    # column 'NGO', :ngo
+    # column 'Government Entity', :gov
+    # column 'Faith Based Organization', :faith
+    # column :closed
+    # column :open
+    # column :rescue
+    # column :flashlight
+    # column :license_number
+    # column :license2_number
+    # column :certification_number
+    # column :certification2_number
+    # column :duns_number
+    # column :volunteer
     
   end
 
@@ -295,19 +295,20 @@ ActiveAdmin.register User do
   filter :duns_number
   filter :volunteer
 
+  # controller do
+  #   # ... other actions 
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
+  #   def email
+
+  #     respond_to do |format|
+  #       if @comment.save
+  #         AdminMailer.comment_created(@comment.id).deliver
+  #         redirect_to @comment
+  #       end
+  #     end
+  #   end
   # end
+
 
 
 end

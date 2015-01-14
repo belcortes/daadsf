@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230212812) do
+ActiveRecord::Schema.define(version: 20150114194337) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -76,6 +76,29 @@ ActiveRecord::Schema.define(version: 20141230212812) do
     t.decimal  "longitude",     precision: 15, scale: 12
     t.string   "accessibility"
     t.integer  "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "create_emails", force: true do |t|
+    t.string   "text"
+    t.string   "to"
+    t.string   "from"
+    t.string   "subject"
+    t.string   "html"
+    t.string   "attachmentX"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.boolean  "email"
+    t.boolean  "mms"
+    t.integer  "width"
+    t.integer  "height"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.datetime "date_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -295,19 +295,15 @@ ActiveAdmin.register User do
   filter :duns_number
   filter :volunteer
 
-  # controller do
-  #   # ... other actions 
-
-  #   def email
-
-  #     respond_to do |format|
-  #       if @comment.save
-  #         AdminMailer.comment_created(@comment.id).deliver
-  #         redirect_to @comment
-  #       end
-  #     end
-  #   end
-  # end
+  batch_action :email do |selection|
+    p selection
+    p '^^^^^^^^^^^^^vvvvvvvvvvvvvvv'
+    User.find(selection).each do |e|
+      p e.email.to_s
+      UserMailer.email_blast(e).deliver
+    end
+    redirect_to :back
+  end
 
 
 

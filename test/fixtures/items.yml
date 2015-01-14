@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: false
+  mms: false
+  width: 1
+  height: 1
+  lat: 9.99
+  lng: 9.99
+  date_time: 2015-01-12 15:36:55
+
+two:
+  email: false
+  mms: false
+  width: 1
+  height: 1
+  lat: 9.99
+  lng: 9.99
+  date_time: 2015-01-12 15:36:55

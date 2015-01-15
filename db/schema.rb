@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150114194337) do
     t.datetime "updated_at"
   end
 
-  create_table "create_emails", force: true do |t|
+  create_table "emails", force: true do |t|
     t.string   "text"
     t.string   "to"
     t.string   "from"

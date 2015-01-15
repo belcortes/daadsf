@@ -6,6 +6,8 @@ CEAD::Application.routes.draw do
   # resources :zipcodes
   get '/resources', to: 'users#resources'
 
+  post '/incoming_mails' => 'incoming_mails#create'
+
   root 'home#index'
   get '/neighborhoods', to: 'neighborhoods#index'
   get '/print/:zip', to: 'users#print', :as => :user_print

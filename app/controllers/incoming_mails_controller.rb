@@ -3,27 +3,19 @@ class IncomingMailsController < ApplicationController
 
   def create
     puts "Entering the controller! Controlling the e-mail!"
-    Rails.logger.info params[:subject]
-    Rails.logger.info params[:from]
-    Rails.logger.info params[:to]
+    Rails.logger.info params[:headers][:subject]
     Rails.logger.info params[:plain]
     Rails.logger.info params[:html]
-    Rails.logger.info params[:attachment]
 
-    # if User.all.map(&:email).include? params[:envelope][:from] # check if user is registered
-    #   @thought = Thought.new
-    #   @thought.body = params[:plain].split("\n").first
-    #   @thought.user = User.where(:email => params[:from])
-    #   @thought.date = DateTime.now
+    @email = Email.new
+    @email.body = params[:plain].split("\n").first
+    @email.date = DateTime.now
 
-    #   if @thought.save
-    #     render :text => 'Success', :status => 200
-    #   else
-    #     render :text => 'Internal failure', :status => 501
-    #   end
-    # else
-    #   render :text => 'Unknown user', :status => 404 # 404 would reject the mail
-    # end
+    if @email.save
+      render :text => 'Success', :status => 200
+    else
+      render :text => 'Internal failure', :status => 501
+    end
   end
 
   # skip_before_filter :verify_authenticity_token

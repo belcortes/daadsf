@@ -9,9 +9,9 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
 
-    @email = Email.new(text: params[:plain], html: params[:html], from: params[:headers][:from], subject: params[:headers][:subject])
-    p params[:headers][:subject]
-    p params[:headers][:from]
+    @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelopes][:from], subject: params[:envelopes]['Subject'])
+    p params[:envelope][:subject]
+    p params[:envelope][:from]
     p params[:subject]
     p 'params up hurrrr ^^^^^^^^^^^^^^^'
 

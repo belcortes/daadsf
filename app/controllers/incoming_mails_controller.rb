@@ -6,10 +6,11 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:headers][:subject]
     Rails.logger.info params[:plain]
     Rails.logger.info params[:html]
+    Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
 
     @email = Email.new
-    @email.body = params[:plain].split("\n").first
-    @email.date = DateTime.now
+    @email.text = params[:plain].split("\n").first
+    @email.subject = params[:headers][:subject]
 
     if @email.save
       render :text => 'Success', :status => 200

@@ -33,8 +33,7 @@ class IncomingMailsController < ApplicationController
     @inbound_email = Email.create(:text => params[:text],
                         :html => params[:html],
                         :from => params[:from],
-                        :subject => params[:subject],
-                        :attachment => params[:attachments]
+                        :subject => params[:subject]
                         )
 
     if @inbound_email.save

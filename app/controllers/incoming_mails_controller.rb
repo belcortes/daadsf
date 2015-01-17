@@ -27,12 +27,14 @@ class IncomingMailsController < ApplicationController
   def create
     # @params = params
     puts "Entering the controller! Controlling the e-mail!"
-    @inbound_email = Email.create(:text => params['text'],
-                        :html => params['html'],
-                        :to => params['to'],
-                        :from => params['from'],
-                        :subject => params['subject'],
-                        :attachment => params["attachment"]
+    p params[:text]
+    p params[:from]
+    p params[:subject]
+    @inbound_email = Email.create(:text => params[:text],
+                        :html => params[:html],
+                        :from => params[:from],
+                        :subject => params[:subject],
+                        :attachment => params[:attachments]
                         )
 
     if @inbound_email.save

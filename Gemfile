@@ -14,6 +14,7 @@ gem 'omniauth-facebook'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_sidebar'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -21,6 +22,7 @@ gem 'active_admin_sidebar'
 gem 'geocoder'
 gem 'twitter'
 gem 'omniauth-twitter'
+gem 'exifr', :git => 'git://github.com/picuous/exifr.git'
 # gem 'griddler'
 
 # Use jquery as the JavaScript library

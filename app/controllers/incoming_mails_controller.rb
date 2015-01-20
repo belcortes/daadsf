@@ -31,10 +31,13 @@ class IncomingMailsController < ApplicationController
     p params[:from]
     p params[:subject]
     p params[:attachments]
+    p params[:attachmentX]
+    # p params[:attachment-info]
     @inbound_email = Email.create(:text => params[:text],
                         :html => params[:html],
                         :from => params[:from],
-                        :subject => params[:subject]
+                        :subject => params[:subject],
+                        :attachments => params[:attachmentX]
                         )
 
     if @inbound_email.save

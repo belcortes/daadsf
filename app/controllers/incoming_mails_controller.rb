@@ -30,6 +30,7 @@ class IncomingMailsController < ApplicationController
     p params[:text]
     p params[:from]
     p params[:subject]
+    p params[:attachments]
     @inbound_email = Email.create(:text => params[:text],
                         :html => params[:html],
                         :from => params[:from],

@@ -9,10 +9,14 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
 
+    @attachment = Item.create(:attachment => params[:attachments][0])
+
+
+
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject])
     p 'exif? vvvvvvv'
-    p params[:attachments][:filename]
-    p params[:attachments][:filename]
+    p params[:attachments][0][:filename]
+    p @attachment
     # EXIFR::JPEG.new(params[:attachments][:filename]).exif?
     p 'params up hurrrr ^^^^^^^^^^^^^^^'
 
@@ -22,6 +26,8 @@ class IncomingMailsController < ApplicationController
       render :text => 'Internal failure', :status => 501
     end
   end
+
+
 
   # skip_before_filter :verify_authenticity_token
 

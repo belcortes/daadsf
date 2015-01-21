@@ -68,8 +68,7 @@ class IncomingMailsController < ApplicationController
   #   #   end
   #   # end
   # end
-
-  # private
+  
   # def clean_field(input_string)
   #   input_string.gsub(/\n/, '') if input_string
   # end

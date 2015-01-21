@@ -7,7 +7,11 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:headers][:subject]
     Rails.logger.info params[:plain]
     Rails.logger.info params[:html]
-    Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
+    Rails.logger.info params[:attachments]['0'].original_filename  
+    Rails.logger.info params[:attachments]['0'].content_type
+
+    # :attach => params[:attachments]['0']
+    # Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
 
     # @attachment = Item.create(:attachment => params[:attachments][0])
 

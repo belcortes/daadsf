@@ -119,4 +119,24 @@ namespace :import do
     end
 
   end
+
+  desc "adding school locations to buildings"
+  task :school => [:environment] do
+
+    file = "db/sf_schools.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :name => row[0],
+        :address => row[1],
+        :notes => row[2],
+        :phone_number => row[3],
+        :latitude => row[4],
+        :longitude => row[5],
+        :city => row[6],
+        :b_type => row[7]
+      })
+    end
+
+  end
 end

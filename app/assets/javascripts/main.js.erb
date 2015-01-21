@@ -300,6 +300,7 @@ function resource_markers() {
   var icon9 = "/images/evacuation_potential_pickup_location.png"
   var icon10 = "/images/cooling_center.png"
   var icon11 = "/images/sandbag_pickup.png"
+  var icon12 = "/images/SchoolIcon.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/tweets', function(json){
@@ -511,6 +512,31 @@ function resource_markers() {
               infowindow.open(map,s_marker);
             });
         });
+      } else if (data.b_type == "school") {
+          var s_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.latitude, data.longitude),
+            map: map,
+            icon: icon12,
+            title: 'hello'
+          });
+          var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Notes:</strong> "+" "+data.notes+"</br>"+"<strong>Type:</strong> "+" "+data.city)
+          s_marker.setMap(null);
+          bounds.extend(s_marker.position);
+          $('.checkbox').on('click', function(){
+            if ($('#school').is(':checked') == true) {
+               s_marker.setMap(map);
+               // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
+               // map.setZoom(12); 
+            } else {
+              s_marker.setMap(null);
+            }
+            var infowindow = new google.maps.InfoWindow({
+                content: contentInfo
+            });
+            google.maps.event.addListener(s_marker, 'click', function() {
+              infowindow.open(map,s_marker);
+            });
+        });
       }
     })
   })
@@ -605,7 +631,7 @@ function resource_markers() {
           });
         });
 
-      }
+      } 
       
     })
   })

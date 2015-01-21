@@ -17,9 +17,9 @@ class IncomingMailsController < ApplicationController
 
 
 
-    @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject])
+    @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
     p 'exif? vvvvvvv'
-    p params[:attachments][0][:filename]
+    # p params[:attachments][0][:filename]
     # p @attachment
     # EXIFR::JPEG.new(params[:attachments][:filename]).exif?
     p 'params up hurrrr ^^^^^^^^^^^^^^^'

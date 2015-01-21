@@ -10,9 +10,11 @@ class IncomingMailsController < ApplicationController
     Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
 
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from])
-    p params[:envelope][:Subject]
+    p params[:headers][:Subject]
     p params[:envelope][:from]
     p params[:attachments]
+    p 'exif? vvvvvvv'
+    EXIFR::JPEG.new(params[:attachments][:filename]).exif?
     p 'params up hurrrr ^^^^^^^^^^^^^^^'
 
     if @email.save

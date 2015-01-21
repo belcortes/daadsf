@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_sidebar'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

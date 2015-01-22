@@ -1,7 +1,7 @@
 class IncomingMailsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate
-  after_photo_post_process :copy_exif_data 
+  # after_photo_post_process :copy_exif_data 
   # before_save :extract_geolocation
 
   def create
@@ -26,13 +26,13 @@ class IncomingMailsController < ApplicationController
   end
 
   # private 
-  def copy_exif_data 
-    exif =EXIFR::JPEG.new(item.queued_for_write[:original].path) 
-    self.date = exif.date_time.to_date
-    self.lat = exif.gps_lat
-    p self.lat
-    p exif
-  end 
+  # def copy_exif_data 
+  #   exif =EXIFR::JPEG.new(item.queued_for_write[:original].path) 
+  #   self.date = exif.date_time.to_date
+  #   self.lat = exif.gps_lat
+  #   p self.lat
+  #   p exif
+  # end 
   # def load_exif
     
   #   return if exif.nil? or not exif.exif?

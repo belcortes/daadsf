@@ -9,6 +9,8 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.info params[:attachments]['0'].original_filename  
     Rails.logger.info params[:attachments]['0'].content_type
+    # exif = EXIFR::JPEG.new(item.queued_for_write[:original].path)
+    # p exif
 
     # :attach => params[:attachments]['0']
     # Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
@@ -18,11 +20,6 @@ class IncomingMailsController < ApplicationController
 
 
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
-    p 'exif? vvvvvvv'
-    # p params[:attachments][0][:filename]
-    # p @attachment
-    # EXIFR::JPEG.new(params[:attachments][:filename]).exif?
-    p 'params up hurrrr ^^^^^^^^^^^^^^^'
 
     if @email.save
       render :text => 'Success', :status => 200
@@ -30,17 +27,17 @@ class IncomingMailsController < ApplicationController
       render :text => 'Internal failure', :status => 501
     end
   end
-  def load_exif
-    exif = EXIFR::JPEG.new(photo.queued_for_write[:original])
-    return if exif.nil? or not exif.exif?
-    self.exposure = exif.exposure_time.to_s
-    self.f_stop = exif.f_number.to_f.to_s
-    self.focal_length = exif.focal_length.to_f.round.to_s
-    self.iso = exif.iso_speed_ratings
-    self.date = exif.date_time.to_date
-    rescue
-      false
-  end
+  # def load_exif
+    
+  #   return if exif.nil? or not exif.exif?
+  #   self.exposure = exif.exposure_time.to_s
+  #   self.f_stop = exif.f_number.to_f.to_s
+  #   self.focal_length = exif.focal_length.to_f.round.to_s
+  #   self.iso = exif.iso_speed_ratings
+  #   self.date = exif.date_time.to_date
+  #   rescue
+  #     false
+  # end
 
 
 

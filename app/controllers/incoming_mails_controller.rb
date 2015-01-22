@@ -30,6 +30,17 @@ class IncomingMailsController < ApplicationController
       render :text => 'Internal failure', :status => 501
     end
   end
+  def load_exif
+    exif = EXIFR::JPEG.new(photo.queued_for_write[:original])
+    return if exif.nil? or not exif.exif?
+    self.exposure = exif.exposure_time.to_s
+    self.f_stop = exif.f_number.to_f.to_s
+    self.focal_length = exif.focal_length.to_f.round.to_s
+    self.iso = exif.iso_speed_ratings
+    self.date = exif.date_time.to_date
+    rescue
+      false
+  end
 
 
 

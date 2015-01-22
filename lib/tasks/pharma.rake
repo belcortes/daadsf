@@ -139,4 +139,23 @@ namespace :import do
     end
 
   end
+  desc "adding child care locations to buildings"
+  task :child => [:environment] do
+
+    file = "db/sf_child_care.csv"
+
+    CSV.foreach(file, :headers => true) do |row|
+      Building.create! ({
+        :notes => row[0],
+        :name => row[1],
+        :phone_number => row[2],
+        :address => row[3],
+        :city => row[4],
+        :latitude => row[5],
+        :longitude => row[6],
+        :b_type => row[7]
+      })
+    end
+
+  end
 end

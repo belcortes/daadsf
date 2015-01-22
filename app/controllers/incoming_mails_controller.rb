@@ -2,7 +2,7 @@ class IncomingMailsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate
   # after_photo_post_process :copy_exif_data 
-  # before_save :extract_geolocation
+  
 
   def create
     puts "Entering the controller! Controlling the e-mail!"
@@ -13,10 +13,10 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:attachments]['0'].content_type
     tempfile = Tempfile.new(params[:attachments]['0'].original_filename, "#{Rails.root.to_s}/tmp/")
     Rails.logger.info tempfile.path
-    exif = EXIFR::JPEG.new(tempfile.path)
-    exif_lat = exif.gps_lat
-    Rails.logger exif
-    Rails.logger exif_lat
+    # exif = EXIFR::JPEG.new(tempfile.path)
+    # exif_lat = exif.gps_lat
+    # Rails.logger exif
+    # Rails.logger exif_lat
 
 
 

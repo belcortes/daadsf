@@ -1,6 +1,7 @@
 class IncomingMailsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate
+  after_photo_post_process :copy_exif_data 
   # before_save :extract_geolocation
 
   def create
@@ -10,13 +11,8 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.info params[:attachments]['0'].original_filename  
     Rails.logger.info params[:attachments]['0'].content_type
-    # exif = EXIFR::JPEG.new(item.queued_for_write[:original].path)
-    # p exif
-
-    # :attach => params[:attachments]['0']
-    # Rails.logger.log params[:attachments][0] if params[:attachments] # A tempfile attachment if attachments is populated
-
-    # @attachment = Item.create(:attachment => params[:attachments][0])
+    tempfile = Tempfile.new(params[:attachments]['0'].original_filename, "#{Rails.root.to_s}/tmp/")
+    Rails.logger.info tempfile.path
 
 
 
@@ -28,6 +24,15 @@ class IncomingMailsController < ApplicationController
       render :text => 'Internal failure', :status => 501
     end
   end
+
+  private 
+  def copy_exif_data 
+    exif =EXIFR::JPEG.new(item.queued_for_write[:original].path) 
+    self.date = exif.date_time.to_date
+    self.lat = exif.gps_lat
+    p self.lat
+    p exif
+  end 
   # def load_exif
     
   #   return if exif.nil? or not exif.exif?

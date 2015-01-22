@@ -25,7 +25,7 @@ class IncomingMailsController < ApplicationController
     end
   end
 
-  private 
+  # private 
   def copy_exif_data 
     exif =EXIFR::JPEG.new(item.queued_for_write[:original].path) 
     self.date = exif.date_time.to_date

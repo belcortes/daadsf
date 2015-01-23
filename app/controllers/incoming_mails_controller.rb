@@ -10,12 +10,17 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.info params[:attachments]['0'].original_filename  
     Rails.logger.info params[:attachments]['0'].content_type
-    # Rails.logger.info params[:attachments]['0'].url
-    # Rails.logger.info params[:attachments]['0'].path
-      # exif = EXIFR::JPEG.new(tempfile.path)
-    # exif_lat = exif.gps_lat
-    # Rails.logger exif
-    # Rails.logger exif_lat
+    Rails.logger.info params[:attachments]['0'].tempfile
+    Rails.logger.info params[:attachments]['0'].tempfile.path
+
+    # if photo_metadata.gps
+    #   latitude = photo_metadata.gps.latitude
+    #   longitude = photo_metadata.gps.longitude
+    #   save_to_fusion_table(latitude, longitude, params[:resource_info])
+    #   @message = "File Upload Successful."
+    # else
+    #   @message = "This photo has no GPS Data."
+    # end
     p 'exif tentatives vv'
     p params[:attachments]['0'].path
     p Tempfile.new(params[:attachments]['0'].original_filename, "#{Rails.root.to_s}/tmp/")

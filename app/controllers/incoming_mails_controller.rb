@@ -11,14 +11,13 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.info params[:attachments]['0'].original_filename  
     Rails.logger.info params[:attachments]['0'].content_type
-    tempfile = Tempfile.new(params[:attachments]['0'].original_filename, "#{Rails.root.to_s}/tmp/")
-    Rails.logger.info tempfile.path
     # exif = EXIFR::JPEG.new(tempfile.path)
     # exif_lat = exif.gps_lat
     # Rails.logger exif
     # Rails.logger exif_lat
-
-    p EXIFR::JPEG.new(params[:attachments]['0'].queued_for_write[:original])
+    p 'exif tentatives vv'
+    p params[:attachments]['0'].path
+    p Tempfile.new(params[:attachments]['0'].original_filename, "#{Rails.root.to_s}/tmp/")
 
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
 

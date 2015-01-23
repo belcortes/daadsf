@@ -5,7 +5,7 @@ class Email < ActiveRecord::Base
   validates_attachment_content_type :item, :content_type => /\Aimage\/.*\Z/
   validates_attachment_presence :item
 
-  after_email_post_process :load_exif
+  # after_email_post_process :load_exif
 
   def load_exif
     exif = EXIFR::JPEG.new(email.queued_for_write[:original].path)

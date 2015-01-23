@@ -11,6 +11,7 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:html]
     Rails.logger.info params[:attachments]['0'].original_filename  
     Rails.logger.info params[:attachments]['0'].content_type
+    Rails.logger.info params[:attachments]['0'].default_options
     # exif = EXIFR::JPEG.new(tempfile.path)
     # exif_lat = exif.gps_lat
     # Rails.logger exif

@@ -18,7 +18,7 @@ class IncomingMailsController < ApplicationController
     # Rails.logger exif
     # Rails.logger exif_lat
 
-
+    p EXIFR::JPEG.new(params[:attachments]['0'].queued_for_write[:original])
 
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
 

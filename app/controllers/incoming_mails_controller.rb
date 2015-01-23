@@ -14,7 +14,7 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:attachments]['0'].tempfile.path
     p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).date_time
     p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).width
-    p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).length
+    p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).height
 
     # if photo_metadata.gps
     #   latitude = photo_metadata.gps.latitude

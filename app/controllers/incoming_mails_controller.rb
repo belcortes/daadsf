@@ -8,16 +8,18 @@ class IncomingMailsController < ApplicationController
     Rails.logger.info params[:headers][:subject]
     Rails.logger.info params[:plain]
     Rails.logger.info params[:html]
-    Rails.logger.info params[:attachments]['0'].original_filename  
-    Rails.logger.info params[:attachments]['0'].content_type
-    Rails.logger.info params[:attachments]['0'].tempfile
     Rails.logger.info params[:attachments]['0'].tempfile.path
     p 'exif tentatives vv'
-    p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).width
-    p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).height
-    p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).gps_latitude
-    p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).gps_longitude
+    # p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).width
+    # p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).height
+    # p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).gps_latitude
+    # p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).gps_longitude
+    a = EXIFR::JPEG.new(EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path))
 
+    lat = a.exif[0].gps_latitude[0].to_f + (a.exif[0].gps_latitude[1].to_f / 60) + (a.exif[0].gps_latitude[2].to_f / 3600)
+    long = a.exif[0].gps_longitude[0].to_f + (a.exif[0].gps_longitude[1].to_f / 60) + (a.exif[0].gps_longitude[2].to_f / 3600)
+    p lat
+    p long
 
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
 

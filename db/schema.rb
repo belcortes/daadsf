@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123205507) do
+ActiveRecord::Schema.define(version: 20150126191825) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -42,10 +42,16 @@ ActiveRecord::Schema.define(version: 20150123205507) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "super"
+    t.boolean  "leader"
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "admin_users_leaders", force: true do |t|
+    t.integer "admin_user_id"
+    t.integer "leader_id"
+  end
 
   create_table "admin_users_users", force: true do |t|
     t.integer "admin_user_id"
@@ -114,6 +120,15 @@ ActiveRecord::Schema.define(version: 20150123205507) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+  end
+
+  create_table "leaders", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "neighborhoods", force: true do |t|

@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :super, :user_ids => []
+  permit_params :email, :password, :password_confirmation, :super, :leader_ids => [], :user_ids => []
 
   menu :if => proc{ current_admin_user.super? }
 
@@ -25,30 +25,32 @@ ActiveAdmin.register AdminUser do
         f.input :password_confirmation, :label => "Password Confirmation"
       end
       f.input :super
+      f.input :leader
+      f.input :leaders, :as => :check_boxes, :collection => Leader.all
       f.input :users, :as => :check_boxes, :collection => User.all
     end
     f.actions
   end
 
-  controller do
+  # controller do
 
-    def create
-      @admin = AdminUser.new(permitted_params[:admin_user])
-      if @admin.save
-        @user = User.new(user_params[])
-        p @user
-        p 'user params ^^^'
-        redirect_to admin_admin_users_path
-      else
-        render '/admin/admin_users/new'
-      end
-    end
-    private
-    def user_params
-      params.require(:user).permit(
-        :user_id, :email, :password, :password_confirmation, :admin
-      )
-    end
-  end
+  #   def create
+  #     @admin = AdminUser.new(permitted_params[:admin_user])
+  #     if @admin.save
+  #       @user = User.new(user_params[])
+  #       p @user
+  #       p 'user params ^^^'
+  #       redirect_to admin_admin_users_path
+  #     else
+  #       render '/admin/admin_users/new'
+  #     end
+  #   end
+  #   private
+  #   def user_params
+  #     params.require(:user).permit(
+  #       :user_id, :email, :password, :password_confirmation, :admin
+  #     )
+  #   end
+  # end
 
 end

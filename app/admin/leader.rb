@@ -1,12 +1,11 @@
 ActiveAdmin.register Leader do
-  permit_params :email, :name
-  # scope_to :current_admin_user, :if => proc{ current_admin_user.leader? }  
-
+  permit_params :email, :name, :user_ids => []
   scope_to :current_admin_user, :unless => proc{ current_admin_user.super? }  
   menu :if => proc{ !current_admin_user.leader?}
 
   index do
-    # current_admin_user.groups.each do |g|
+    p current_admin_user
+    p 'check me out ^^'
     selectable_column
     id_column
     column :name

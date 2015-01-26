@@ -1,9 +1,11 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :super, :leader_ids => [], :user_ids => []
+  permit_params :email, :password, :password_confirmation, :super, :leader, :leader_ids => [], :user_ids => []
 
   menu :if => proc{ current_admin_user.super? }
 
   index do
+    p current_admin_user
+    p 'check me out ^^'
     selectable_column
     id_column
     column :email

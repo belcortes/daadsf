@@ -296,11 +296,15 @@ ActiveAdmin.register User do
   filter :volunteer
 
   batch_action :email do |selection|
-    p selection
-    p '^^^^^^^^^^^^^vvvvvvvvvvvvvvv'
     User.find(selection).each do |e|
-      p e.email.to_s
       UserMailer.email_blast(e).deliver
+    end
+    redirect_to :back
+  end
+
+  batch_action :activate do |selection|
+    User.find(selection).each do |e|
+      e.update_attributes(display: true)
     end
     redirect_to :back
   end

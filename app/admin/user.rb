@@ -309,6 +309,13 @@ ActiveAdmin.register User do
     redirect_to :back
   end
 
+  batch_action :deactivate do |selection|
+    User.find(selection).each do |e|
+      e.update_attributes(display: false)
+    end
+    redirect_to :back
+  end
+
 
 
 end

@@ -1,17 +1,19 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :super, :leader, :leader_ids => [], :user_ids => []
+  permit_params :email, :password, :password_confirmation, :super, :leader, :name, :leader_ids => [], :user_ids => []
 
   menu :if => proc{ current_admin_user.super? }
 
   index do
     selectable_column
     id_column
+    column :name
     column :email
     column :sign_in_count
     column :created_at
     actions
   end
 
+  filter :name
   filter :email
   filter :super
   filter :sign_in_count
@@ -19,6 +21,7 @@ ActiveAdmin.register AdminUser do
 
   form do |f|
     f.inputs "Admin Details" do
+      f.input :name
       f.input :email,                   :label => "Email Address"
       if f.object.id.nil?
         f.input :password,              :label => "Password"

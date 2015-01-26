@@ -4,8 +4,6 @@ ActiveAdmin.register Leader do
   menu :if => proc{ !current_admin_user.leader?}
 
   index do
-    p current_admin_user
-    p 'check me out ^^'
     selectable_column
     id_column
     column :name
@@ -32,6 +30,22 @@ ActiveAdmin.register Leader do
       f.input :users, :as => :check_boxes, :collection => User.all
     end
     f.actions
+  end
+
+  show do
+    attributes_table do
+      row :name
+      row :email
+      row :created_at
+      row :updated_at
+
+      row 'Users' do
+        table_for leader.users do |t|
+          t.column :name
+          t.column :email
+        end
+      end
+    end
   end
 
 end

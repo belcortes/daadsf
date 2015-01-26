@@ -4,8 +4,6 @@ ActiveAdmin.register AdminUser do
   menu :if => proc{ current_admin_user.super? }
 
   index do
-    p current_admin_user
-    p 'check me out ^^'
     selectable_column
     id_column
     column :email
@@ -33,6 +31,53 @@ ActiveAdmin.register AdminUser do
     end
     f.actions
   end
+
+  show do
+    attributes_table do
+      row :name
+      row :email
+      row :created_at
+      row :updated_at
+
+      row 'Leaders' do
+        table_for admin_user.leaders do |t|
+          t.column :name
+          t.column :email
+        end
+      end
+
+      row 'Users' do
+        table_for admin_user.users do |t|
+          t.column :name
+          t.column :email
+        end
+      end
+    end
+  end
+
+  # controller do
+  #   def create
+  #     # Create the profile.
+  #     # @user = User.new
+  #     # Create the listing and connect the profile to it.
+  #     @admin = AdminUser.create(permitted_params[:admin_user])
+  #     @user = User.create(email: @admin.email, password: @admin.password, password_confirmation: @admin.password_confirmation, admin: true)
+  #     # @admin.user.last = @user
+  #     # p @user
+  #     p @admin
+  #     p @user
+  #     # if @admin.save
+  #     #   redirect_to admin_admin_users_path
+  #     # else
+  #     #   render '/admin/admin_users/new'
+  #     # end
+  #     # p 'new objects ^^^^^^^'
+
+  #     create! do |success, failure|
+  #       success.html { redirect_to admin_dashboard_path}  # Or whatever path.
+  #     end
+  #   end
+  # end
 
   # controller do
 

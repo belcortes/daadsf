@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :validatable
-  has_and_belongs_to_many :neighborhoods
+  # has_and_belongs_to_many :neighborhoods
   has_and_belongs_to_many :admin_users
   has_and_belongs_to_many :leaders
   has_one :zipcode

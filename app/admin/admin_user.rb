@@ -39,6 +39,8 @@ ActiveAdmin.register AdminUser do
     attributes_table do
       row :name
       row :email
+      row :leader
+      row :super
       row :created_at
       row :updated_at
 

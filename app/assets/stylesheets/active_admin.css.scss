@@ -19,6 +19,18 @@ body.active_admin #active_admin_content.left_sidebar #sidebar {
   margin-left: 0;
 }
 
+#header h1 {
+  width: 2%;
+}
+
+#header #tabs {
+  width: 1000px;
+}
+#header #utility_nav {
+  float: left;
+  line-height: 27px;
+}
+
 body.active_admin #active_admin_content.left_sidebar #main_content_wrapper {
   float: inherit;
   width: auto;

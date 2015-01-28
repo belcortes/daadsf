@@ -16,10 +16,16 @@ class IncomingMailsController < ApplicationController
     # p EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path).gps_longitude
     a = EXIFR::JPEG.new(params[:attachments]['0'].tempfile.path)
 
-    lat = a.gps_latitude[0].to_f + (a.gps_latitude[1].to_f / 60) + (a.gps_latitude[2].to_f / 3600)
-    long = (a.gps_longitude[0].to_f + (a.gps_longitude[1].to_f / 60) + (a.gps_longitude[2].to_f / 3600))*-1
-    p lat
-    p long
+    if a.gps? == true
+      p 'it has the gps data'
+      lat = a.gps_latitude[0].to_f + (a.gps_latitude[1].to_f / 60) + (a.gps_latitude[2].to_f / 3600)
+      long = (a.gps_longitude[0].to_f + (a.gps_longitude[1].to_f / 60) + (a.gps_longitude[2].to_f / 3600))*-1
+      p lat
+      p long
+    else
+      p 'no gps data'
+    end
+    
 
     @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
 

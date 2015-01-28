@@ -14,7 +14,7 @@ ActiveAdmin.register Email do
   end
 
   index as: :grid do |e|
-    link_to image_tag(e.item.url)
+    link_to image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )
   end
 
   # index do

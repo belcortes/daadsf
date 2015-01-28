@@ -31,7 +31,7 @@ class IncomingMailsController < ApplicationController
       end
     else
       p 'no gps data'
-      gps_data(params[:envelope][:from])
+      # gps_data(params[:envelope][:from])
     end
     
 

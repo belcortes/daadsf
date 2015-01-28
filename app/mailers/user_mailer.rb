@@ -7,6 +7,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'DAAD Email Blast')
   end
 
+  def gps_data(user)
+    @user = user
+    mail(to: @user.email, subject: 'Your Image Has No GPS Data')
+  end
+
   def receive(message)
     for recipient in message.to
       User.find_by_email(recipient).update_attribute(:bio, message.body)

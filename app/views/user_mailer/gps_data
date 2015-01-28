@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @user.from %></h1>
+    <p>
+      You have sent an image without any gps data. Please send us an image that we can include in the map. 
+    </p>
+  </body>
+</html>

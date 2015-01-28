@@ -22,18 +22,20 @@ class IncomingMailsController < ApplicationController
       long = (a.gps_longitude[0].to_f + (a.gps_longitude[1].to_f / 60) + (a.gps_longitude[2].to_f / 3600))*-1
       p lat
       p long
+      @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'], lat: lat, lng: long)
+
+      if @email.save
+        render :text => 'Success', :status => 200
+      else
+        render :text => 'Internal failure', :status => 501
+      end
     else
       p 'no gps data'
+      gps_data(params[:envelope][:from])
     end
     
 
-    @email = Email.new(text: params[:plain], html: params[:html], from: params[:envelope][:from], subject: params[:headers][:Subject], :item => params[:attachments]['0'])
-
-    if @email.save
-      render :text => 'Success', :status => 200
-    else
-      render :text => 'Internal failure', :status => 501
-    end
+    
   end
 
   # private 

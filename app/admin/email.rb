@@ -1,41 +1,27 @@
-# ActiveAdmin.register User, :as => 'Email User' do
-#   before_filter :skip_sidebar!
-#   menu :label => "Email"
+ActiveAdmin.register Email do
+  # before_filter :skip_sidebar!
+  permit_params :subject, :from, :text
 
-#   # content do
    
+  form do |f|
+    f.inputs "Admin Details" do
+      f.input :subject
+      f.input :from
+      f.input :text
+    end
+    f.actions
+    p email.errors
+  end
 
-#   form do |f|
-#       f.label 'Enter your message here:'
-#       f.input :name
-#   end
+  index as: :grid do |e|
+    link_to image_tag(e.item.url)
+  end
 
-    
-
-
-#   # end
-
-#   index do
-#     selectable_column
-#     column :email
-#     column :name
-#     column :phone
-#     column :zip
-#     column :address
-#   end
-
-#   # controller do
-#   #   def scoped_collection
-#   #     User.where(:waitlist => true)
-#   #   end
-#   # end
-
-#   # # code
-
-#   # scope :all
-#   # scope :journalists
-#   # scope :startup_employees
-# end
+  # index do
+  #   selectable_column
+  #   column :from
+  # end
+end
 
 # ActiveAdmin.register_page "Email" do
 

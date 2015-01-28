@@ -1,5 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "belcortes@gmail.com"
+  skip_before_filter :verify_authenticity_token, :only => [:email_blast]
 
   def email_blast(user)
     @user = user

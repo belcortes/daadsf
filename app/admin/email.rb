@@ -1,26 +1,29 @@
 ActiveAdmin.register Email do
   # before_filter :skip_sidebar!
   permit_params :subject, :from, :text
+  actions :all, :except => [:new]
 
    
-  form do |f|
-    f.inputs "Admin Details" do
-      f.input :subject
-      f.input :from
-      f.input :text
-    end
-    f.actions
-    p email.errors
-  end
 
-  index as: :grid do |e|
-    link_to image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )
-  end
-
-  # index do
-  #   selectable_column
-  #   column :from
+  # index as: :grid, columns: 2 do |e|
+  #   image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )
+  #   # resource_selection_cell e
   # end
+
+  action_item only: :index do
+    link_to 'Publish'
+  end
+
+  index do
+    selectable_column
+    column "Images" do |e|
+      # e.member_images.each do |img|
+      image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )
+      # end
+    end
+    
+    column :from
+  end
 end
 
 # ActiveAdmin.register_page "Email" do

@@ -13,7 +13,7 @@ CEAD::Application.routes.draw do
   get '/print/:zip', to: 'users#print', :as => :user_print
   # get '/neighborhoods', to: 'neighborhoods#index'
   get '/cooling', to: 'cooling_centers#show', :defaults => { :format => 'json' }
-  get '/publish', to: 'email#publish_images', :defaults => { :format => 'json' }
+  get '/publish', to: 'emails#published_images', :defaults => { :format => 'json' }
   get '/users', to: 'users#show', :defaults => { :format => 'json' }
   get '/retro', to: 'buildings#index', :defaults => { :format => 'json' }
   get '/resource', to: 'resources#show', :defaults => { :format => 'json' }

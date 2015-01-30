@@ -302,6 +302,7 @@ function resource_markers() {
   var icon11 = "/images/sandbag_pickup.png"
   var icon12 = "/images/SchoolIcon.png"
   var icon13 = "/images/child_care.png"
+  var icon14 = "/images/photo_icon.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/tweets', function(json){
@@ -336,7 +337,31 @@ function resource_markers() {
         });
     })
   })
-    $.getJSON('/retro', function(json){
+  $.getJSON('/publish', function(json){
+    $.each(json, function(key, data){
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data.lat, data.lng),
+        map: map, 
+        icon: icon14,
+        title:"Hello World!"
+      })
+      marker.setMap(null);
+      $('.checkbox').on('click', function(){
+        if ($('#photo').is(':checked') == true) {
+          marker.setMap(map);
+        } else {
+          marker.setMap(null);
+        }
+        var infowindow = new google.maps.InfoWindow({
+            content: "<div><img width='254' height='355' src='https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0"+data.id+"/original/"+data.item_file_name+"'</div>"
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+      });
+    })
+  })
+  $.getJSON('/retro', function(json){
     $.each(json, function(key, data){
       if (data.b_type == 'pharmacy') {
         var p_marker = new google.maps.Marker({

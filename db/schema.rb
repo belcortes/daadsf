@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126224002) do
+ActiveRecord::Schema.define(version: 20150130185315) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150126224002) do
     t.datetime "item_updated_at"
     t.float    "lat"
     t.float    "lng"
+    t.boolean  "published"
   end
 
   create_table "items", force: true do |t|
@@ -121,6 +122,7 @@ ActiveRecord::Schema.define(version: 20150126224002) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+    t.integer  "email_id"
   end
 
   create_table "leaders", force: true do |t|

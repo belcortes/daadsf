@@ -1010,18 +1010,18 @@ $(function() {
     $(this).parent().children().not($(this)).attr('checked', false)
   });
 
-  // var marquee = $('.ticker-container');
-  // marquee.each(function() {
-  //   var mar = $(this),indent = mar.width();
-  //   mar.marquee = function() {
-  //       indent--;
-  //       mar.css('text-indent',indent);
-  //       if (indent < -1 * mar.children('.ticker-text').width()) {
-  //           indent = mar.width();
-  //       }
-  //   };
-  //   mar.data('interval',setInterval(mar.marquee,1000/60));
-  // });
+  var marquee = $('.ticker-container');
+  marquee.each(function() {
+    var mar = $(this),indent = mar.width();
+    mar.marquee = function() {
+        indent--;
+        mar.css('text-indent',indent);
+        if (indent < -1 * mar.children('.ticker-text').width()) {
+            indent = mar.width();
+        }
+    };
+    mar.data('interval',setInterval(mar.marquee,1000/60));
+  });
 
   $('.container').hide();
   $('.close').on('click', function() {

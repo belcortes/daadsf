@@ -31,10 +31,14 @@ a {
 }*/
 #breaking {
   float: left;
-  background: red;
+  /*background: red;*/
   color: white;
   font-weight: bold;
   margin-left: 4px;
+  margin-right: 4px;
+}
+#breaking-submit {
+  margin-top: 10px;
 }
 .contact-owner {
   cursor: pointer;
@@ -136,6 +140,7 @@ li #main-search {
   font-size: 16px;
   position: relative;
   bottom: 5px;
+  vertical-align: middle;
   
 }
 #login_form {
@@ -227,7 +232,7 @@ li #main-search {
   white-space: nowrap;
   overflow: hidden;
   /* height: 20px; */
-  width: 500px;
+  width: 600px;
   float: right;
   background: white;
 }

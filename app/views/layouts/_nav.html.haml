@@ -22,7 +22,7 @@
           = link_to "Sign up", "#sign_up", "data-toggle" => "modal", :remote => true, :id => 'signup'
       %li
         - if current_user && current_user.admin?
-          = link_to "Breaking", "#breakingnews", "data-toggle" => "modal", :remote => true
+          = link_to "Alert", "#breakingnews", "data-toggle" => "modal", :remote => true
           = link_to "Admin", '/admin'
   %ul#subnav
     %li.login#prepare
@@ -30,12 +30,12 @@
         .map-buttons Prepare for a Disaster
     %li.login#print
       =image_tag asset_path("print.png"), id: 'print'
-    / %li.login.ticker
-    /   %span#breaking BREAKING
-    /   .ticker-container
-    /     %ul.ticker-text
-    /       %li Earthquake alert in San Francisco
-    /       %li This is the 2nd latest news item. plus some more things i want to write
+    %li.login.ticker
+      %span#breaking ALERT
+      .ticker-container
+        %ul.ticker-text
+          / %li Earthquake alert in San Francisco
+          %li SHELTER IN PLACE: Suspicious package being investigated on University at Hamilton, shelter in place in effect for surrounding area. 
     /       %li This is the 3rd latest news item.
     /       %li This is the 4th latest news item.
       

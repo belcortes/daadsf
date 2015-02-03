@@ -8,6 +8,7 @@ ActiveAdmin.register Email, as: 'Images' do
   #   link_to 'Publish'
   # end
   filter :from
+  filter :address
   filter :item_file_name
   filter :published
   filter :created_at
@@ -19,6 +20,7 @@ ActiveAdmin.register Email, as: 'Images' do
     column "Images" do |e|
       image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )
     end
+    column :address
     column :from
     column :subject
   end

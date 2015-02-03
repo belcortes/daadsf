@@ -6,6 +6,7 @@ class Email < ActiveRecord::Base
   validates_attachment_content_type :item, :content_type => /\Aimage\/.*\Z/
   validates_attachment_presence :item
 
-  # reverse_geocoded_by :latitude, :longitude
-  # after_validation :reverse_geocode  # auto-fetch address
+  reverse_geocoded_by :lat, :lng
+  after_validation :reverse_geocode  # auto-fetch address
+  # after_validation :fetch_address
 end

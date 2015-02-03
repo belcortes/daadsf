@@ -7,6 +7,11 @@ ActiveAdmin.register Email, as: 'Images' do
   # action_item only: :index do
   #   link_to 'Publish'
   # end
+  filter :from
+  filter :item_file_name
+  filter :published
+  filter :created_at
+
 
   index do
     selectable_column

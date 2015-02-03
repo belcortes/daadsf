@@ -6,21 +6,6 @@ class Email < ActiveRecord::Base
   validates_attachment_content_type :item, :content_type => /\Aimage\/.*\Z/
   validates_attachment_presence :item
 
-  # after_email_post_process :load_exif
-
-  # def item_id
-  #   item.instance.id
-  # end
-
-  # def load_exif
-  #   exif = EXIFR::JPEG.new(email.queued_for_write[:original].path)
-  #   return if exif.nil? or not exif.exif?
-  #   self.exposure = exif.exposure_time.to_s
-  #   self.lat = exif.gps.latitude
-  #   self.lng = exif.gps.longitude
-  #   p self.lat
-  #   rescue
-  #     false
-  # end
-
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode  # auto-fetch address
 end

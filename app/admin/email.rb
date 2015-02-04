@@ -1,12 +1,19 @@
 ActiveAdmin.register Email, as: 'Images' do
   # before_filter :skip_sidebar!
   menu priority: 1
-  permit_params :subject, :from, :text
-  actions :all, :except => [:new]
+  permit_params :subject, :from, :text, :tags
+  actions :all, :except => [:new, :destroy, :show]
+  # action_item :edit, only: :index, label: 'Add Tags'
+
+  # config.action_items[1] = ActiveAdmin::ActionItem.new only: :index do
+  #   link_to "Add Tags", edit_admin_image_path(:id)
+  # end
+  
 
   # action_item only: :index do
   #   link_to 'Publish'
   # end
+  filter :tags
   filter :from
   filter :address
   filter :item_file_name
@@ -14,15 +21,33 @@ ActiveAdmin.register Email, as: 'Images' do
   filter :created_at
 
 
+
   index do
     selectable_column
+    # column "" do |resource|
+    #   links = ''.html_safe
+    #   links += link_to I18n.t('active_admin.edit'), edit_admin_image_path(resource), :label => 'Add Tags'
+    #   links
+    # end
+    actions
     column :published
     column "Images" do |e|
       image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )
     end
+    column :tags
     column :address
     column :from
     column :subject
+  end
+
+  form do |f|
+    f.inputs "Add Tags to This Image" do
+      if f.object.persisted?
+        #is shown when editing an existing object
+        f.input :tags
+      end
+    end
+    f.actions
   end
 
   batch_action :publish do |selection|

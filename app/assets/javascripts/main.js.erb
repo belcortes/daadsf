@@ -85,6 +85,9 @@ function maps() {
     var evac_routes = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/bay_area_evacuation_complete.kml'
     });
+    var ft_layer = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/6_ft_layer/doc.kml'
+    });
     // var sea_level_rise = new google.maps.KmlLayer({
     //   url: 'https://dl.dropboxusercontent.com/u/22757148/1ft_slr.kml'
     // });
@@ -167,6 +170,9 @@ function maps() {
             case 'evac_routes':
               evac_routes.setMap(null);
               break;
+            case '6ft':
+              ft_layer.setMap(null);
+              break;
           }
         } else {
           if (no_image != 'Resources'){
@@ -239,6 +245,10 @@ function maps() {
               levee_low.setMap(map);
               levee_low.set('preserveViewport', true);
               break;
+            case '6ft':
+              ft_layer.setMap(map);
+              ft_layer.set('preserveViewport', true);
+              break;
           }
         }
       })
@@ -303,7 +313,35 @@ function resource_markers() {
   var icon12 = "/images/SchoolIcon.png"
   var icon13 = "/images/child_care.png"
   var icon14 = "/images/photo_icon.png"
+  var icon15 = "/images/incident.png"
   var bounds = new google.maps.LatLngBounds();
+
+  $.getJSON('/incidents', function(json){
+    $.each(json, function(key, data){
+      var t_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.lng),
+          map: map,
+          icon: icon15,
+          title: 'hello'
+        });
+      var contentInfo = ("<strong>Description:</strong> "+data.description+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Lat:</strong> "+" "+data.lat+"<strong> Long:</strong> "+" "+data.lng)
+        t_marker.setMap(null);
+        bounds.extend(t_marker.position);
+        $('.checkbox').on('click', function(){
+          if ($('#incidents').is(':checked') == true) {
+             t_marker.setMap(map);
+          } else {
+            t_marker.setMap(null);
+          }
+          var infowindow = new google.maps.InfoWindow({
+              content: contentInfo
+          });
+          google.maps.event.addListener(t_marker, 'click', function() {
+            infowindow.open(map,t_marker);
+          });
+        });
+    })
+  })
 
   $.getJSON('/tweets', function(json){
     $.each(json, function(key, data){
@@ -1010,18 +1048,18 @@ $(function() {
     $(this).parent().children().not($(this)).attr('checked', false)
   });
 
-  var marquee = $('.ticker-container');
-  marquee.each(function() {
-    var mar = $(this),indent = mar.width();
-    mar.marquee = function() {
-        indent--;
-        mar.css('text-indent',indent);
-        if (indent < -1 * mar.children('.ticker-text').width()) {
-            indent = mar.width();
-        }
-    };
-    mar.data('interval',setInterval(mar.marquee,1000/60));
-  });
+  // var marquee = $('.ticker-container');
+  // marquee.each(function() {
+  //   var mar = $(this),indent = mar.width();
+  //   mar.marquee = function() {
+  //       indent--;
+  //       mar.css('text-indent',indent);
+  //       if (indent < -1 * mar.children('.ticker-text').width()) {
+  //           indent = mar.width();
+  //       }
+  //   };
+  //   mar.data('interval',setInterval(mar.marquee,1000/60));
+  // });
 
   $('.container').hide();
   $('.close').on('click', function() {

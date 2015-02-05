@@ -24,12 +24,10 @@ ActiveAdmin.register Email, as: 'Images' do
 
   index do
     selectable_column
-    # column "" do |resource|
-    #   links = ''.html_safe
-    #   links += link_to I18n.t('active_admin.edit'), edit_admin_image_path(resource), :label => 'Add Tags'
-    #   links
-    # end
-    actions
+    # actions
+    actions defaults: false do |post|
+      link_to 'Add Tags', edit_admin_image_path(:id)
+    end
     column :published
     column "Images" do |e|
       image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{e.item.instance.id}/original/#{e.item_file_name}" )

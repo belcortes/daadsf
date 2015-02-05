@@ -21,6 +21,7 @@ CEAD::Application.routes.draw do
   get '/cooling_search', to: 'cooling_centers#index', :defaults => { :format => 'json' }
   get '/neighbors', to: 'neighborhoods#index', :defaults => { :format => 'json' }
   get '/tweets', to: 'tweets#index', :defaults => { :format => 'json' }
+  get '/incidents', to: 'incidents#index', :defaults => { :format => 'json' }
   get '/search', to: 'search#search' #, :defaults => { :format => 'json' }
 
   match '/contacts',     to: 'contacts#new',             via: 'get'

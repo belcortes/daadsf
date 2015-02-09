@@ -1,0 +1,13 @@
+%h3 Incidents
+%p San Francisco County, California
+.height
+  - Incident.all.each do |n|
+    .incidents
+      %a.incident(href='#') 
+        = n.description
+      %br
+      = n.categories
+      %br
+      = n.address
+      %br
+      %br

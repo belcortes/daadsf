@@ -330,9 +330,29 @@ function resource_markers() {
         $('.checkbox').on('click', function(){
           if ($('#incidents').is(':checked') == true) {
              t_marker.setMap(map);
+              $('.container').hide();
+              $('.container2').hide();
+              $('#incident-container').show();
           } else {
             t_marker.setMap(null);
+            // $('.container').hide();
+            // $('.container2').hide();
+            $('#incident-container').hide();
           }
+          $('.incident').mouseover(function(){
+            console.log('mouseover on description')
+            if($(this).text().trim() == data.description) {
+              t_marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
+            })
+          $('.incident').mouseout(function(){
+            t_marker.setAnimation(null);
+          })
+          $('.incident').on('click', function(){
+            if($(this).text().trim() == data.description) {
+              infowindow.open(map,t_marker);
+            }
+          })
           var infowindow = new google.maps.InfoWindow({
               content: contentInfo
           });
@@ -1037,6 +1057,7 @@ function button_clicks() {
     $('.container2').hide();
     $('#about-container').show();
   })
+  // 
 }
 
 
@@ -1048,18 +1069,18 @@ $(function() {
     $(this).parent().children().not($(this)).attr('checked', false)
   });
 
-  // var marquee = $('.ticker-container');
-  // marquee.each(function() {
-  //   var mar = $(this),indent = mar.width();
-  //   mar.marquee = function() {
-  //       indent--;
-  //       mar.css('text-indent',indent);
-  //       if (indent < -1 * mar.children('.ticker-text').width()) {
-  //           indent = mar.width();
-  //       }
-  //   };
-  //   mar.data('interval',setInterval(mar.marquee,1000/60));
-  // });
+  var marquee = $('.ticker-container');
+  marquee.each(function() {
+    var mar = $(this),indent = mar.width();
+    mar.marquee = function() {
+        indent--;
+        mar.css('text-indent',indent);
+        if (indent < -1 * mar.children('.ticker-text').width()) {
+            indent = mar.width();
+        }
+    };
+    mar.data('interval',setInterval(mar.marquee,1000/60));
+  });
 
   $('.container').hide();
   $('.close').on('click', function() {

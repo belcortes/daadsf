@@ -42,6 +42,9 @@
   .container#about-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/about'
+  .container#incident-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/incidents'
 
 
   .dropdown
@@ -57,8 +60,9 @@
         %input.checkbox#density-check{type: "checkbox"} Population Density
       %li
         %input.checkbox#super-check{type: "checkbox"} Supervisor Districts
-      %li
-        %input.checkbox#incidents{type: "checkbox"} Incidents
+      - if current_user && current_user.admin?
+        %li
+          %input.checkbox#incidents{type: "checkbox"} Incidents
   %a(href='#')
     .map-buttons#resiliency Resiliency
   .dropdown
@@ -90,8 +94,9 @@
         %input.checkbox#pickup{type: "checkbox"} Public Transport Evacuation Locations
       %li
         %input.checkbox#twitter{type: "checkbox"} Twitter Feed
-      %li
-        %input.checkbox#photo{type: "checkbox"} Photos
+      - if current_user && current_user.admin?
+        %li
+          %input.checkbox#photo{type: "checkbox"} Photos
 
   %a(href='#')
     .map-buttons#community Community Resources

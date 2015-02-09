@@ -232,7 +232,7 @@ li #main-search {
   white-space: nowrap;
   overflow: hidden;
   /* height: 20px; */
-  width: 600px;
+  width: 400px;
   float: right;
   background: white;
 }

@@ -1,6 +1,6 @@
 ActiveAdmin.register Incident do
   # before_filter :skip_sidebar!
-  permit_params :description, :lat, :lng, :address, :image, :tags, :categories, :admin_user_id => [], :leader_ids => []
+  permit_params :description, :latitude, :longitude, :address, :image, :tags, :categories, :admin_user_id => [], :leader_ids => []
   # belongs_to :admin_user
   scope :incident, :default => true do |r|
     r.where(:resource => nil, :asset => nil)
@@ -26,8 +26,8 @@ ActiveAdmin.register Incident do
   form do |f|
     f.inputs "Add New Incident" do
       f.input :description
-      f.input :lat
-      f.input :lng
+      # f.input :latitude
+      # f.input :longitude
       f.input :address
       
       f.input :categories

@@ -316,6 +316,18 @@ ActiveAdmin.register User do
     redirect_to :back
   end
 
+  controller do
+    def create
+      @user = User.new(permitted_params[:user])
+      @user.admin_user = current_admin_user
+      if @user.save
+        redirect_to admin_users
+      else
+        render new_admin_user_path
+      end
+    end
+  end
+
 
 
 end

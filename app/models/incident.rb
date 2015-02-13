@@ -9,8 +9,10 @@ class Incident < ActiveRecord::Base
   # :url  => "/assets/photos/:id/:style/:basename.:extension"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   # validates_attachment_presence :image
-  reverse_geocoded_by :lat, :lng
-  after_validation :reverse_geocode  # auto-fetch address
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
+  # reverse_geocoded_by :lat, :lng
+  # after_validation :reverse_geocode  # auto-fetch address
 
   # self.location = self.address? ? ReverseLocation.create(...) : ForwardLocation.create(...)
 

@@ -45,6 +45,12 @@
   .container#incident-container
     =image_tag asset_path('x.png'), :class => 'close'
     = render 'layouts/incidents'
+  .container#resource-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/resources'
+  .container#asset-container
+    =image_tag asset_path('x.png'), :class => 'close'
+    = render 'layouts/assets'
 
 
   .dropdown
@@ -63,6 +69,10 @@
       - if current_user && current_user.admin?
         %li
           %input.checkbox#incidents{type: "checkbox"} Incidents
+        %li
+          %input.checkbox#assets{type: "checkbox"} Assets
+        %li
+          %input.checkbox#resources{type: "checkbox"} Resources
   %a(href='#')
     .map-buttons#resiliency Resiliency
   .dropdown

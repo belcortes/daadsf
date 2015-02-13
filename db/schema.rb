@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206222814) do
+ActiveRecord::Schema.define(version: 20150213004322) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(version: 20150206222814) do
 
   create_table "incidents", force: true do |t|
     t.string   "description"
-    t.decimal  "lat"
-    t.decimal  "lng"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.string   "address"
     t.integer  "admin_user_id"
     t.integer  "leader_id"
@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 20150206222814) do
     t.string   "categories"
     t.string   "tags"
     t.boolean  "display"
+    t.boolean  "resource"
+    t.boolean  "asset"
   end
 
   create_table "items", force: true do |t|
@@ -317,6 +319,7 @@ ActiveRecord::Schema.define(version: 20150206222814) do
     t.integer  "clothing_q"
     t.boolean  "display2",               default: false
     t.boolean  "display3",               default: false
+    t.boolean  "leader"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

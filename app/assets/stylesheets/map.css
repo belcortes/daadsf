@@ -31,6 +31,9 @@
 #other_field {
   margin-left: 72px;
 }*/
+#leg-assets {
+  display: none;
+}
 #user_volunteer_true, #user_volunteer_false {
   width: auto !important;
   margin-left: 2px;

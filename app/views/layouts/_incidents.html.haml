@@ -1,13 +1,18 @@
 %h3 Incidents
 %p San Francisco County, California
 .height
-  - Incident.all.each do |n|
-    .incidents
-      %a.incident(href='#') 
-        = n.description
-      %br
-      = n.categories
-      %br
-      = n.address
-      %br
-      %br
+  / %p hellooooooo
+  / - Incident.all.each do |n|
+  /   %a.incident(href='#') 
+  /     = n.description
+  /   %br
+  /   = n.address
+  /   %br
+  /   %br
+  - Incident.where(asset: nil, resource: nil).each do |p|
+    %a.incident(href='#') 
+      = p.description
+    %br
+    = p.address
+    %br
+    %br

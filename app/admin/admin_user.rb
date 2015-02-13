@@ -60,49 +60,19 @@ ActiveAdmin.register AdminUser do
     end
   end
 
-  # controller do
-  #   def create
-  #     # Create the profile.
-  #     # @user = User.new
-  #     # Create the listing and connect the profile to it.
-  #     @admin = AdminUser.create(permitted_params[:admin_user])
-  #     @user = User.create(email: @admin.email, password: @admin.password, password_confirmation: @admin.password_confirmation, admin: true)
-  #     # @admin.user.last = @user
-  #     # p @user
-  #     p @admin
-  #     p @user
-  #     # if @admin.save
-  #     #   redirect_to admin_admin_users_path
-  #     # else
-  #     #   render '/admin/admin_users/new'
-  #     # end
-  #     # p 'new objects ^^^^^^^'
-
-  #     create! do |success, failure|
-  #       success.html { redirect_to admin_dashboard_path}  # Or whatever path.
-  #     end
-  #   end
-  # end
-
-  # controller do
-
-  #   def create
-  #     @admin = AdminUser.new(permitted_params[:admin_user])
-  #     if @admin.save
-  #       @user = User.new(user_params[])
-  #       p @user
-  #       p 'user params ^^^'
-  #       redirect_to admin_admin_users_path
-  #     else
-  #       render '/admin/admin_users/new'
-  #     end
-  #   end
-  #   private
-  #   def user_params
-  #     params.require(:user).permit(
-  #       :user_id, :email, :password, :password_confirmation, :admin
-  #     )
-  #   end
-  # end
+  controller do
+    def create
+      @admin = AdminUser.new(permitted_params[:admin_user])
+      @user = User.create(email: @admin.email, password: @admin.password, password_confirmation: @admin.password_confirmation, name: @admin.name, admin: true)
+      if @admin.save && @user.save
+        p 'we saved bitch!'
+        p @user
+        p @admin
+        redirect_to admin_users_path
+      else
+        render new_admin_incident_path
+      end
+    end
+  end
 
 end

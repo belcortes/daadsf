@@ -1,9 +1,9 @@
-ActiveAdmin.register Incident do
+ActiveAdmin.register Incident, as: 'Asset' do
   # before_filter :skip_sidebar!
   permit_params :description, :lat, :lng, :address, :image, :tags, :categories, :admin_user_id => [], :leader_ids => []
   # belongs_to :admin_user
-  scope :incident, :default => true do |r|
-    r.where(:resource => nil, :asset => nil)
+  scope :asset, :default => true do |r|
+    r.where(:asset => true)
   end
 
   index do
@@ -45,6 +45,7 @@ ActiveAdmin.register Incident do
     def create
       @incident = Incident.new(permitted_params[:incident])
       @incident.admin_user = current_admin_user
+      @incident.asset = true
       if @incident.save
         redirect_to admin_incidents_path
       else

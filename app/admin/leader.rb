@@ -1,5 +1,5 @@
 ActiveAdmin.register Leader do
-  permit_params :email, :name, :user_ids => []
+  permit_params :email, :name, :password, :password_confirmation, :user_ids => []
   scope_to :current_admin_user, :unless => proc{ current_admin_user.super? }  
   menu :if => proc{ !current_admin_user.leader?}
 
@@ -44,6 +44,27 @@ ActiveAdmin.register Leader do
           t.column :name
           t.column :email
         end
+      end
+    end
+  end
+
+  controller do
+    def create
+      @leader = Leader.new(permitted_params[:leader])
+      @user = User.create(email: @leader.email, password: @leader.password, password_confirmation: @leader.password_confirmation, name: @leader.name, leader: true)
+      @admin = AdminUser.create(email: @leader.email, password: @leader.password, password_confirmation: @leader.password_confirmation, name: @leader.name, leader: true)
+      @leader.admin_users << current_admin_user
+      p @leader
+      p @user
+      p @admin
+      p @leader.admin_users
+      if @leader.save! && @user.save! && @admin.save!
+        p 'we saved bitch!'
+        redirect_to admin_leaders_path
+      else
+        p 'we no save'
+        p errors
+        render '/admin/leaders/new'
       end
     end
   end

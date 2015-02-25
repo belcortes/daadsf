@@ -3,7 +3,7 @@ ActiveAdmin.register Incident, as: 'Asset' do
   permit_params :description, :latitude, :longitude, :address, :image, :tags, :categories, :admin_user_id => [], :leader_ids => []
   # belongs_to :admin_user
   scope :asset, :default => true do |r|
-    r.where(:asset => true)
+    r.where(:r_type => 'asset')
   end
 
   index do
@@ -24,7 +24,7 @@ ActiveAdmin.register Incident, as: 'Asset' do
   end
 
   form do |f|
-    f.inputs "Add New Incident" do
+    f.inputs "Add New Asset" do
       f.input :description
       # f.input :latitude
       # f.input :longitude
@@ -45,7 +45,7 @@ ActiveAdmin.register Incident, as: 'Asset' do
     def create
       @incident = Incident.new(permitted_params[:incident])
       @incident.admin_user = current_admin_user
-      @incident.asset = true
+      @incident.r_type = 'asset'
       if @incident.save
         redirect_to admin_incidents_path
       else

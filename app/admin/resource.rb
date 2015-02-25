@@ -4,7 +4,7 @@ ActiveAdmin.register Incident, as: 'Resource' do
   # scope :resource
   # belongs_to :admin_user
   scope :resource, :default => true do |r|
-    r.where(:resource => true)
+    r.where(:r_type => 'resource')
   end
 
   index do
@@ -26,7 +26,7 @@ ActiveAdmin.register Incident, as: 'Resource' do
   end
 
   form do |f|
-    f.inputs "Add New Incident" do
+    f.inputs "Add New Resource" do
       f.input :description
       # f.input :latitude
       # f.input :longitude
@@ -46,7 +46,7 @@ ActiveAdmin.register Incident, as: 'Resource' do
     def create
       @incident = Incident.new(permitted_params[:incident])
       @incident.admin_user = current_admin_user
-      @incident.resource = true
+      @incident.r_type = 'resource'
       if @incident.save
         redirect_to admin_incidents_path
       else

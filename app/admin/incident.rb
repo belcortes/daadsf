@@ -3,7 +3,7 @@ ActiveAdmin.register Incident do
   permit_params :description, :latitude, :longitude, :address, :image, :tags, :categories, :admin_user_id => [], :leader_ids => []
   # belongs_to :admin_user
   scope :incident, :default => true do |r|
-    r.where(:resource => nil, :asset => nil)
+    r.where(:r_type => 'incident')
   end
 
   index do
@@ -45,6 +45,7 @@ ActiveAdmin.register Incident do
     def create
       @incident = Incident.new(permitted_params[:incident])
       @incident.admin_user = current_admin_user
+      @incident.r_type = 'incident'
       if @incident.save
         redirect_to admin_incidents_path
       else

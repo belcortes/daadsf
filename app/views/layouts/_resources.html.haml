@@ -1,7 +1,7 @@
 %h3 Resources
 %p San Francisco County, California
 .height
-  - Incident.where(resource: true).each do |p|
+  - Incident.where(r_type: 'resource').each do |p|
     %a.incident(href='#') 
       = p.description
     %br

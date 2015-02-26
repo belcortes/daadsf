@@ -9,7 +9,7 @@
   /   = n.address
   /   %br
   /   %br
-  - Incident.where(asset: nil, resource: nil).each do |p|
+  - Incident.where(r_type: 'incident').each do |p|
     %a.incident(href='#') 
       = p.description
     %br

@@ -281,143 +281,64 @@ function resource_markers() {
   var icon12 = "/images/SchoolIcon.png"
   var icon13 = "/images/child_care.png"
   var icon14 = "/images/photo_icon.png"
-  var icon15 = "/images/incident.png"
-  var icon16 = "/images/asset.png"
-  var icon17 = "/images/resource.png"
   var bounds = new google.maps.LatLngBounds();
 
   $.getJSON('/incidents', function(json){
     $.each(json, function(key, data){
-      if (data.resource != true && data.asset != true) {
-        var t_marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data.latitude, data.longitude),
-            map: map,
-            icon: icon15,
-            title: 'hello'
-          });
-        var contentInfo = ("<strong>Description:</strong> "+data.description+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Lat:</strong> "+" "+data.latitude+"<strong> Long:</strong> "+" "+data.longitude)
-        t_marker.setMap(null);
-        bounds.extend(t_marker.position);
-        $('.checkbox').on('click', function(){
-          if ($('#incidents').is(':checked') == true) {
-             t_marker.setMap(map);
-              $('.container').hide();
-              $('.container2').hide();
-              $('#incident-container').show();
-          } else {
-            t_marker.setMap(null);
-            $('#incident-container').hide();
-          }
-          $('.incident').mouseover(function(){
-            console.log('mouseover on description')
-            if($(this).text().trim() == data.description) {
-              t_marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            })
-          $('.incident').mouseout(function(){
-            t_marker.setAnimation(null);
-          })
-          $('.incident').on('click', function(){
-            if($(this).text().trim() == data.description) {
-              infowindow.open(map,t_marker);
+
+      var t_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.latitude, data.longitude),
+          map: map,
+          icon: "/images/"+data.r_type+".png",
+          title: 'hello'
+        });
+      var contentInfo = ("<strong>Description:</strong> "+data.description+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Lat:</strong> "+" "+data.latitude+"<strong> Long:</strong> "+" "+data.longitude)
+      t_marker.setMap(null);
+      bounds.extend(t_marker.position);
+      $('.checkbox').on('click', function(){
+        var resource_id = $(this).attr('id')
+        if (resource_id == 'incidents' && data.r_type == 'incident') {
+          var incident = 'incident';
+        } else if (resource_id == 'resources' && data.r_type == 'resource') {
+          var incident = 'resource';
+        } else if (resource_id == 'assets' && data.r_type == 'asset') {
+          var incident = 'asset';
+        } else {
+          return;
+        }
+        if ($(this).is(':checked') == true) {
+           t_marker.setMap(map);
+            $('.container').hide();
+            $('.container2').hide();
+            $('#'+incident+'-container').show();
+        } else {
+          t_marker.setMap(null);
+          $('#'+incident+'-container').hide();
+        }
+        $('.'+incident).mouseover(function(){
+          console.log('mouseover on description')
+          if($(this).text().trim() == data.description) {
+            t_marker.setAnimation(google.maps.Animation.BOUNCE);
             }
           })
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(t_marker, 'click', function() {
+        $('.'+incident+'').mouseout(function(){
+          t_marker.setAnimation(null);
+        })
+        $('.'+incident+'').on('click', function(){
+          if($(this).text().trim() == data.description) {
             infowindow.open(map,t_marker);
-          });
-        });
-      }
-      if (data.resource == true) {
-        var r_marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data.latitude, data.longitude),
-            map: map,
-            icon: icon17,
-            title: 'hello'
-          });
-        var contentInfo = ("<strong>Description:</strong> "+data.description+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Lat:</strong> "+" "+data.latitude+"<strong> Long:</strong> "+" "+data.longitude)
-        r_marker.setMap(null);
-        bounds.extend(r_marker.position);
-        $('.checkbox').on('click', function(){
-          if ($('#resources').is(':checked') == true) {
-             r_marker.setMap(map);
-              $('.container').hide();
-              $('.container2').hide();
-              $('#resource-container').show();
-          } else {
-            r_marker.setMap(null);
-            $('#resource-container').hide();
           }
-          $('.incident').mouseover(function(){
-            console.log('mouseover on description')
-            if($(this).text().trim() == data.description) {
-              r_marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            })
-          $('.incident').mouseout(function(){
-            r_marker.setAnimation(null);
-          })
-          $('.incident').on('click', function(){
-            if($(this).text().trim() == data.description) {
-              infowindow.open(map,r_marker);
-            }
-          })
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(r_marker, 'click', function() {
-            infowindow.open(map,r_marker);
-          });
+        })
+        var infowindow = new google.maps.InfoWindow({
+            content: contentInfo
         });
-      }
-      if (data.asset == true) {
-        var a_marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data.latitude, data.longitude),
-            map: map,
-            icon: icon16,
-            title: 'hello'
-          });
-        var contentInfo = ("<strong>Description:</strong> "+data.description+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Lat:</strong> "+" "+data.latitude+"<strong> Long:</strong> "+" "+data.longitude)
-        a_marker.setMap(null);
-        bounds.extend(a_marker.position);
-        $('.checkbox').on('click', function(){
-          if ($('#assets').is(':checked') == true) {
-             a_marker.setMap(map);
-              $('.container').hide();
-              $('.container2').hide();
-              $('#asset-container').show();
-          } else {
-            a_marker.setMap(null);
-            $('#asset-container').hide();
-          }
-          $('.incident').mouseover(function(){
-            console.log('mouseover on description')
-            if($(this).text().trim() == data.description) {
-              a_marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            })
-          $('.incident').mouseout(function(){
-            a_marker.setAnimation(null);
-          })
-          $('.incident').on('click', function(){
-            if($(this).text().trim() == data.description) {
-              infowindow.open(map,a_marker);
-            }
-          })
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(a_marker, 'click', function() {
-            infowindow.open(map,a_marker);
-          });
+        google.maps.event.addListener(t_marker, 'click', function() {
+          infowindow.open(map,t_marker);
         });
-      }
-        
-      
+      });
     })
   })
+
 
   $.getJSON('/tweets', function(json){
     $.each(json, function(key, data){

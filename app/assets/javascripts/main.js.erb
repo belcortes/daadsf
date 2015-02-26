@@ -267,9 +267,9 @@ function boolean_quantities() {
 // ---------- CITY RESOURCES - FIRE, POLICE, HOSPITAL ------------------
 
 function resource_markers() {
-  var icon = "/images/policemarkercolored.png"
-  var icon2 = "/images/firemanmarkercolored.png"
-  var icon3 = "/images/hospitalmarkercolored.png"
+  // var icon = "/images/policemarkercolored.png"
+  // var icon2 = "/images/firemanmarkercolored.png"
+  // var icon3 = "/images/hospitalmarkercolored.png"
   var icon4 = "/images/pharmacy.png"
   var icon5 = "/images/supermarket.png"
   var icon6 = "/images/gas_station.png"
@@ -627,95 +627,37 @@ function resource_markers() {
 
   $.getJSON("/resource", function(json) {
     $.each(json, function(key, data) {
-      
+      var r_marker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.lng),
+          map: map,
+          icon: "/images/"+data.resource_type+".png",
+          title: 'hello'
+      });
+      var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
+      r_marker.setMap(null);
+      bounds.extend(r_marker.position);
       if (data.resource_type == 'police_station') {
-        var police_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon,
-          title: 'hello'
-        });
-        var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
-        police_marker.setMap(null);
-        bounds.extend(police_marker.position);
-
-        $('.checkbox').on('click', function(){
-
-          if ($('#sf-police').is(':checked') == true) {
-             police_marker.setMap(map);
-             // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             // map.setZoom(12); 
-          } else {
-
-            police_marker.setMap(null);
-          }
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(police_marker, 'click', function() {
-            infowindow.open(map,police_marker);
-          });
-        });
-        
+        var variable = 'sf-police'
       } else if (data.resource_type == 'fire_station'){
-        var fire_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon2,
-          title: 'hello'
-        });
-        var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
-        fire_marker.setMap(null);
-        bounds.extend(fire_marker.position);
-
-
-        $('.checkbox').on('click', function(){
-
-          if ($('#sf-fire').is(':checked') == true) {
-             fire_marker.setMap(map);
-             // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-             // map.setZoom(12); 
-          } else {
-
-            fire_marker.setMap(null);
-          }
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(fire_marker, 'click', function() {
-            infowindow.open(map,fire_marker);
-          });
-        });
-        
+        var variable = 'sf-fire'
       } else if (data.resource_type == 'hospital') {
-        var hosp_marker = new google.maps.Marker({
-          position: new google.maps.LatLng(data.lat, data.lng),
-          map: map,
-          icon: icon3,
-          title: 'hello'
+        var variable = 'sf-hosp'
+      } else {
+        return;
+      }
+      $('.checkbox').on('click', function(){
+        if ($('#'+variable).is(':checked') == true) {
+           r_marker.setMap(map);
+        } else {
+          r_marker.setMap(null);
+        }
+        var infowindow = new google.maps.InfoWindow({
+            content: contentInfo
         });
-        var contentInfo = ("<strong>Name:</strong> "+data.name+"</br>"+"<strong>Address:</strong> "+" "+data.address+"</br>"+"<strong>Phone Number:</strong> "+data.phone_number+"</br>"+"<strong>Website:</strong> <a target='_blank' href="+data.website+">"+data.website+"</a>")
-        hosp_marker.setMap(null);
-
-        $('.checkbox').on('click', function(){
-
-          if ($('#sf-hosp').is(':checked') == true) {
-             hosp_marker.setMap(map);
-            // map.panTo(new google.maps.LatLng(37.769884, -122.459793));
-            // map.setZoom(12); 
-          } else {
-
-            hosp_marker.setMap(null);
-          }
-          var infowindow = new google.maps.InfoWindow({
-              content: contentInfo
-          });
-          google.maps.event.addListener(hosp_marker, 'click', function() {
-            infowindow.open(map,hosp_marker);
-          });
+        google.maps.event.addListener(r_marker, 'click', function() {
+          infowindow.open(map,r_marker);
         });
-
-      } 
+      });
       
     })
   })

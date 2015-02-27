@@ -9,6 +9,9 @@
             = f.label :name
             = f.text_field :name, value: current_user.name, id: 'name_field', :required => true
             %br
+            = f.label(:last_name, 'Last Name')
+            = f.text_field :last_name, value: current_user.name, id: 'last_name_field', :required => true
+            %br
             = f.label :email
             = f.email_field :email, value: current_user.email, id: 'email_field'
             %br

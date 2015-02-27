@@ -1,11 +1,12 @@
 ActiveAdmin.register User do
   before_filter :left_sidebar!
   scope_to :current_admin_user, :unless => proc{ current_admin_user.super? }
-  permit_params :email, :password, :password_confirmation, :phone, :name, :zip, :address, :nert, :cert, :cpr, :safe, :firstaid, :dumptruck, :backhoe, :forklift, :fuel, :generator, :saw, :jackhammer, :emergency, :drill, :hammer, :survival_kit, :shovel, :engineer, :contractor, :church, :school, :underground, :overnight, :oxygen, :wheelchair, :defibrillation, :other, :firstresponder, :inspector, :commercial, :electrician, :carpenter, :operator, :plumber, :kitchen, :bulldozer, :excavator, :frontloader, :reclaimer, :trencher, :tractor, :goggles, :axe, :backhoe_q, :bulldozer_q, :dumptruck_q, :excavator_q, :forklift_q, :frontloader_q, :jackhammer_q, :reclaimer_q, :tractor_q, :trencher_q, :axe_q, :drill_q, :fuel_q, :goggles_q, :hammer_q, :shovel_q, :defibrillation_q, :emergency_q, :oxygen_q, :wheelchair_q, :generator_q, :kitchen_q, :overnight_q, :underground_q, :flashlight_q, :individual, :business, :ngo, :gov, :faith, :closed, :open, :rescue, :flashlight, :license_number, :certification_number, :duns_number, :volunteer, :display, :emergency_contact, :latitude, :longitude, :license2_number, :certification2_number, :display2, :display3
+  permit_params :email, :password, :password_confirmation, :phone, :name, :zip, :address, :nert, :cert, :cpr, :safe, :firstaid, :dumptruck, :backhoe, :forklift, :fuel, :generator, :saw, :jackhammer, :emergency, :drill, :hammer, :survival_kit, :shovel, :engineer, :contractor, :church, :school, :underground, :overnight, :oxygen, :wheelchair, :defibrillation, :other, :firstresponder, :inspector, :commercial, :electrician, :carpenter, :operator, :plumber, :kitchen, :bulldozer, :excavator, :frontloader, :reclaimer, :trencher, :tractor, :goggles, :axe, :backhoe_q, :bulldozer_q, :dumptruck_q, :excavator_q, :forklift_q, :frontloader_q, :jackhammer_q, :reclaimer_q, :tractor_q, :trencher_q, :axe_q, :drill_q, :fuel_q, :goggles_q, :hammer_q, :shovel_q, :defibrillation_q, :emergency_q, :oxygen_q, :wheelchair_q, :generator_q, :kitchen_q, :overnight_q, :underground_q, :flashlight_q, :individual, :business, :ngo, :gov, :faith, :closed, :open, :rescue, :flashlight, :license_number, :certification_number, :duns_number, :volunteer, :display, :emergency_contact, :latitude, :longitude, :license2_number, :certification2_number, :display2, :display3, :last_name
 
   form do |f|
     f.inputs "User Details" do
       f.input :name
+      f.input :last_name
       f.input :email, :label => "Email Address"
       if f.object.id.nil?
         f.input :password,            :label => "Password"
@@ -14,10 +15,9 @@ ActiveAdmin.register User do
       f.input :display
       f.input :display2
       f.input :display3
-      f.input :phone
-      f.input :name
-      f.input :zip
       f.input :address
+      f.input :zip
+      f.input :phone
       f.input :nert
       f.input :cert
       f.input :cpr
@@ -113,6 +113,7 @@ ActiveAdmin.register User do
     selectable_column
     column :email
     column :name
+    column :last_name
     column :display
     column :display2
     column :display3

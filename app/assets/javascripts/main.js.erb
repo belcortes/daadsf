@@ -100,6 +100,15 @@ function maps() {
     trafficLayer.setMap(map);
 
     // sea_level_rise.setMap(map);
+
+    $('#traffic').on('click', function(){
+      $(this).toggleClass('active');
+      if($(this).attr('class') == 'active'){
+        map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+      } else {
+        map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+      }
+    })
         
     function checkbox_toggle() {
       $('.checkbox').on('click', function(){

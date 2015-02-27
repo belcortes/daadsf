@@ -26,6 +26,10 @@ a {
   width: 400px;
   background: red;
 }
+#google_translate_element {
+  position: relative;
+  bottom: 6px;
+}
 /*.news-list {
   display: inline !important;
 }*/

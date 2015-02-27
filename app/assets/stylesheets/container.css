@@ -79,25 +79,28 @@ label {
   display: none;
 }
 #name_field {
-  margin-left: 24px;
+  margin-left: 32px;
 }
 #phone_field {
-  margin-left: 20px;
+  margin-left: 26px;
 }
 #address_field {
-  margin-left: 8px;
+  margin-left: 13px;
+}
+#user_address2 {
+  margin-left: 5px;
 }
 #email_field {
-  margin-left: 25px;
+  margin-left: 32px;
 }
 #zip_field {
-  margin-left: 43px;
+  margin-left: 46px;
 }
 #city_field {
-  margin-left: 37px;
+  margin-left: 42px;
 }
 #_option_value__NY__NY__option___option_value__CA__CA__option_ {
-  margin-left: 29px;
+  margin-left: 35px;
 }
 select {
   width: 50px;

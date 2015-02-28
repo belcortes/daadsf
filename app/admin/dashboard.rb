@@ -48,6 +48,15 @@ ActiveAdmin.register_page "Dashboard" do
 	      end
 	    end
 	  end
+	  column do
+	    panel "Recent Images" do
+	      # ul do
+        Email.all.map do |post|
+          li image_tag("https://s3-us-west-1.amazonaws.com/sfdaad-production/emails/items/000/000/0#{post.item.instance.id}/original/#{post.item_file_name}" )
+        end
+	      # end
+	    end
+	  end
 	end
 	
   end # content

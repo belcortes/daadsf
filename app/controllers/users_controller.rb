@@ -62,14 +62,15 @@ class UsersController < ApplicationController
       # format.csv {render text: @user.as_csv}
       # format.xls
     end
-    # p params[:name]
-    # logger.debug params.inspect
-    # render :user => 'form'
   end
   def residential
-    # p params[:name]
-    # logger.debug params.inspect
-    # render :user => 'form'
+  end
+  def business
+    respond_to do |format|
+      format.html { render :layout => 'business', :only => [:business] }
+      # format.csv {render text: @user.as_csv}
+      # format.xls
+    end
   end
   # def process
   #   CSV.open "form.csv", "a+" do |csv|

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Damage Assessment - Business</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+  </head>
+  <body class='helvetica'>
+    <div class='top_bar'>
+      <div id='logo_container'>
+        <%=image_tag asset_path('appa_a_white.png'), :id => 'logo_img' %>
+        <span id='appa_text'>Damage Assessment - Business</span>
+      </div>
+    </div>
+
+    <div class='center'>
+      <%= form_tag '/form' do %>
+        <div class='upper_middle'>  
+          <h4 class='underline'>Respondent Information</h4>
+          <div>  
+            <div class='left_form'>
+              <p>Date:</p>
+              <%= date_field_tag "date", nil, :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>Name:</p>
+              <%= text_field_tag "name", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p>Agency:</p>
+              <%= text_field_tag "agency", nil, :class => 'input' %>
+            </div>
+          </div>
+          <div>  
+            <div class='right_form'>
+              <p>Phone:</p>
+              <%= telephone_field_tag "phone", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p>Fax Number:</p>
+              <%= telephone_field_tag "phone", nil, :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>Address:</p>
+              <%= email_field_tag "email", nil, :class => 'input' %>
+            </div>
+          </div>
+          <div>
+            <div class='right_form'>
+              <p>City:</p>
+              <%= text_field_tag "city", 'San Francisco', :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p>State:</p>
+              <%= text_field_tag "state", 'CA', :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>Zipcode:</p>
+              <%= text_field_tag "zip", nil, :class => 'input' %>
+            </div>
+          </div>
+        </div>
+        
+        <br>
+
+        <div class='upper_middle'>  
+          <h4 class='underline'>Business Information</h4>
+          <div>  
+            <div class='left_form'>
+              <p>Business Name:</p>
+              <%= text_field_tag "business_name", nil, :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p class='two_line_input'>Permanent Mailing Address:</p>
+              <%= text_field_tag "business_permanent_mail_address", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Permanent Phone Number:</p>
+              <%= text_field_tag "permanent_phone_number", nil, :class => 'input' %>
+            </div>
+          </div>
+          <div>  
+            <div class='right_form'>
+              <p class='two_line_input'>Current Mailing Address:</p>
+              <%= text_field_tag "phone", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Current Phone Number:</p>
+              <%= text_field_tag "phone", nil, :class => 'input' %>
+            </div>
+          </div>
+        </div>
+        
+        <br>
+
+        <div class='upper_middle'>  
+          <h4 class='underline'>Property Information</h4>
+          <div>  
+            <div class='left_form'>
+              <p class='two_line_input'>Damaged Property Location:</p>
+              <%= text_field_tag "damaged_property_location", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Is business insured?</p>
+              <%= radio_button_tag 'insured', 'yes' %> Yes
+              <br>
+              <%= radio_button_tag 'insured', 'no' %> No
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Is the business (choose one):</p>
+              <%= radio_button_tag 'insured', 'yes' %> Home-based
+              <br>
+              <%= radio_button_tag 'insured', 'no' %> Stand-alone
+            </div>
+          </div>
+
+          <div>
+            <div style='width: 100%; text-align: center;' class='left_form'>
+              <p class='two_line_input, form-label'>Income Level of Residents:</p>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Urban</div>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Rural</div>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Owned</div>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Rented</div>
+            </div>
+          </div>
+
+          <div>  
+            <div class='left_form'>
+              <p class='form-label'>If property is rented:</p>
+              <p>Name of Owner:</p>
+              <%= text_field_tag "owner", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p>Address:</p>
+              <%= text_field_tag "owner-address", nil, :class => 'input' %>
+            </div>
+            <div class='left_form'>
+              <p>Phone Number:</p>
+              <%= text_field_tag "owner-phone", nil, :class => 'input' %>
+            </div>
+            <br>
+          </div>
+
+
+        </div>
+
+        <br>
+
+        <div class='upper_middle'>  
+          <h4 class='underline'>Damage Assessment</h4>
+          <div>  
+            <div style='width: 100%; text-align: center;' class='left_form'>
+              <p class='two_line_input, form-label'>Income Level of Residents:</p>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Destroyed</div>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Major Damage</div>
+              <div style='width: 150px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Minor Damage</div>
+              <div style='width: 175px;' class='left_form'><%= radio_button_tag 'gender', 'male'%> Affected Habitable</div>
+            </div>
+          </div>
+          <div>
+            <div class='left_form'>
+              <p class='two_line_input'>Is business insured?</p>
+              <%= radio_button_tag 'insured', 'yes' %> Yes
+              <br>
+              <%= radio_button_tag 'insured', 'no' %> No
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Does business have flood insurance?</p>
+              <%= radio_button_tag 'flood-insured', 'yes' %> Yes
+              <br>
+              <%= radio_button_tag 'flood-insured', 'no' %> No
+            </div> 
+            <div class='left_form'>
+              <p class='two_line_input'>Dollar damage of business:</p>
+              <%= text_field_tag "owner", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Dollar estimate of insurance recovery:</p>
+              <%= text_field_tag "owner-address", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Estimated loss of sales:</p>
+              <%= text_field_tag "owner-address", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Dollar damage to inventory:</p>
+              <%= text_field_tag "owner-phone", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Dollar estimate of insurance recovery for inventory:</p>
+              <%= text_field_tag "owner-phone", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Dollar damage to equipment:</p>
+              <%= text_field_tag "owner-phone", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Dollar estimate of insurance recovery for equipment:</p>
+              <%= text_field_tag "owner-phone", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <div class='left_form'>
+              <p class='two_line_input'>Did the business experience indirect damage (i.e., utility outage, roads blocked so customers could not reach business, etc.)?</p>
+              <%= radio_button_tag 'indirect-damage', 'yes' %> Yes
+              <br>
+              <%= radio_button_tag 'indirect-damage', 'no' %> No
+            </div> 
+            <div class='left_form'>
+              <p class='two_line_input'>Estimated dollar value of indirect damage:</p>
+              <%= text_field_tag "owner-phone", nil, :class => 'input', :placeholder=>'$' %>
+            </div>
+            <br>
+          </div>
+        </div>
+
+        <div class='middle'>  
+          <h4 class='underline'>Insurance Information</h4>
+          <div class='left_form'>
+            <p class='two_line_input'>Name of insurance company</p>
+            <%= text_field_tag "insurance-company", nil, :class => 'input' %>
+          </div>
+          <div class='left_form'>
+            <p>Insurance Agent:</p>
+            <%= text_field_tag "insurance-agent", nil, :class => 'input' %>
+          </div>
+          <div class='left_form'>
+            <p>Phone Number:</p>
+            <%= telephone_field_tag "insurance-phone", nil, :class => 'input' %>
+          </div>
+        </div>
+
+        <div class='middle'>  
+          <h4 class='underline'>Other Information</h4>
+          <div style='width: 100%; text-align: center;' class='left_form, form-label'>
+            <p class='two_line_input'>Type of Business (check one):</p>
+            <div class='left_form'><%= radio_button_tag 'gender', 'male'%> Manufacturing</div>
+            <div class='left_form'><%= radio_button_tag 'gender', 'male'%> Service</div>
+            <div class='left_form'><%= radio_button_tag 'gender', 'male'%> Retail</div>
+          </div>
+          <div>
+            <p class='two_line_input, form-label'>Number of:</p>
+            <div class='left_form'>
+              <p>Manufacturing jobs</p>
+              <%= text_field_tag "under21", nil, :class => 'input'%>
+            </div>
+            <div class='left_form'>
+              <p>Retail/service/clerical jobs</p>
+              <%= text_field_tag "2164", nil, :class => 'input'%>
+            </div>
+            <div class='left_form'>
+              <p>Professional jobs</p>
+              <%= text_field_tag "65", nil, :class => 'input'%>
+            </div>
+          </div>
+
+          <div style='width: 60%; margin: 0 auto;'>
+            <p class='two_line_input, form-label'>Number of people unemployed for:</p>
+            <div class='left_form'>
+              <p>1-7 days</p>
+              <%= text_field_tag "under21", nil, :class => 'input'%>
+            </div>
+            <div class='left_form'>
+              <p>1-4 weeks</p>
+              <%= text_field_tag "2164", nil, :class => 'input'%>
+            </div>
+            <div class='left_form'>
+              <p>Over 4 weeks</p>
+              <%= text_field_tag "65", nil, :class => 'input'%>
+            </div>
+            <div class='left_form'>
+              <p>Permanent</p>
+              <%= text_field_tag "permanent_unemployed", nil, :class => 'input'%>
+            </div>
+          </div>
+
+          <br>
+
+          <div class='left_form'>
+            <p class='two_line_input'>Will this business be repaired or rebuilt?</p>
+            <%= radio_button_tag 'residence', 'primary' %> Yes
+            <br>
+            <%= radio_button_tag 'residence', 'secondary' %> No
+          </div>
+           <div class='left_form'>
+            <p class='two_line_input'>Will this business be repaired/rebuilt in same community?</p>
+            <%= radio_button_tag 'residence-repair', 'yes' %> Yes
+            <br>
+            <%= radio_button_tag 'residence-repair', 'no' %> No
+          </div>
+        </div>
+
+        <br><br>
+         <!-- <%= submit_tag "Submit" %> -->
+         <%= link_to 'Submit', '#', :class => 'map-buttons'%>
+        <!-- <input type="submit" value="Submit"> -->
+        <br><br>
+      <% end %>
+
+    </div>
+  </body>
+</html>

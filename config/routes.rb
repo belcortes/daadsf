@@ -18,6 +18,7 @@ CEAD::Application.routes.draw do
   # get '/form', to: 'users#form'
   match '/form', to: 'users#form', via: [:get, :post]
   match '/form-residential', to: 'users#residential', via: [:get, :post]
+  match '/form-business', to: 'users#business', via: [:get, :post]
   post '/process' => 'users#process'
   get '/retro', to: 'buildings#index', :defaults => { :format => 'json' }
   get '/resource', to: 'resources#show', :defaults => { :format => 'json' }

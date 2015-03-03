@@ -42,6 +42,10 @@
           new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         }
       %script{:src => "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit", :type => "text/javascript"}
+    %li.login#residential
+      = link_to "Residential Form", '/form-residential'
+    %li.login#residential
+      = link_to "Business Form", '/form-business'
       
 = render "home/login_modal"
 = render "home/sign_up_modal"

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Damage Assessment - Residential</title>
+    <title>Damage Assessment - Business</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
   </head>
   <body class='helvetica'>
     <div class='top_bar'>
       <div id='logo_container'>
         <%=image_tag asset_path('appa_a_white.png'), :id => 'logo_img' %>
-        <span id='appa_text'>Damage Assessment - Residential</span>
+        <span id='appa_text'>Damage Assessment - Business</span>
       </div>
     </div>
 
@@ -17,10 +17,10 @@
 
       
         <div class='upper_middle'>  
-          <h4 class='underline'>Respondent Information</h4>
+          <h4 class='underline'>Damage Assessment</h4>
           <div>  
             <div class='left_form'>
-              <p>Date:</p>
+              <p>hello</p>
               <%= date_field_tag "date", nil, :class => 'input' %>
             </div>
             <div class='right_form'>
@@ -161,7 +161,7 @@
             <div class='left_form'>
               <p class='form-label'>If property is rented:</p>
               <p>Name of Owner:</p>
-              <%= text_field_tag "owner", nil, :class => '`input' %>
+              <%= text_field_tag "owner", nil, :class => 'input' %>
             </div>
             <div class='left_form'>
               <p>Address:</p>
@@ -266,8 +266,7 @@
 
 
         <br><br>
-         <!-- <%= submit_tag "Submit" %> -->
-         <%= link_to 'Submit', '#', :class => 'map-buttons'%>
+         <%= link_to 'Submit', '#'%>
         <br><br>
       <% end %>
 

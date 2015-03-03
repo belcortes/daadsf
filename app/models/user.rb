@@ -31,13 +31,26 @@ class User < ActiveRecord::Base
 
 
   def self.as_csv
-    headers = ['email','phone','name','address','address2','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe', 'rescue', 'flashlight'] 
+    headers = ['email','phone','name','address','address2','zip','nert','cert','cpr','safe','firstaid','dumptruck','backhoe','forklift','fuel','generator','saw','jackhammer','emergency','drill','hammer','shovel','emergency_contact','engineer','contractor','underground','overnight','oxygen','wheelchair','defibrillation','other','latitude','longitude','firstresponder','inspector','commercial','electrician','carpenter','operator','plumber','kitchen','bulldozer','excavator','frontloader','reclaimer','trencher','tractor','goggles','axe', 'rescue', 'flashlight'] 
     CSV.generate do |csv|
       csv << headers
       all.each do |item|
         csv << item.attributes.values_at(*headers)
       end
     end
+  end
+
+  def self.form_csv
+    CSV.open "form.csv", "a+" do |csv|
+      csv << [status,first_name,last_name,phone_number,email,address,city,state,zip]
+    end
+    # headers = ['name','last_name','address','zip','city','state','phone_number','email']
+    # CSV.generate do |csv|
+    #   csv << headers
+    #   all.each do |item|
+    #     csv << item.attributes.values_at(*headers)
+    #   end
+    # end
   end
 
   def self.from_omniauth(auth)

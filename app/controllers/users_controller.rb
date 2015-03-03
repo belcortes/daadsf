@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # layout "form", :only => [:form]
+  layout "residential", :only => [:residential]
 
   def print
     @user = User.where(zip: params[:zip])
@@ -53,5 +55,28 @@ class UsersController < ApplicationController
   def resources
     @users = User.all
   end
+
+  def form
+    respond_to do |format|
+      format.html { render :layout => 'form', :only => [:form] }
+      # format.csv {render text: @user.as_csv}
+      # format.xls
+    end
+    # p params[:name]
+    # logger.debug params.inspect
+    # render :user => 'form'
+  end
+  def residential
+    # p params[:name]
+    # logger.debug params.inspect
+    # render :user => 'form'
+  end
+  # def process
+  #   CSV.open "form.csv", "a+" do |csv|
+  #     csv << [params[:status],params[:first_name],params[:last_name],params[:phone_number],params[:email],params[:address],params[:city],params[:state],params[:zip]]
+  #   end
+  #   # logger.debug params.inspect
+  #   # render :user => 'form'
+  # end
   
 end

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Damage Assessment - Residential</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+  </head>
+  <body class='helvetica'>
+    <div class='top_bar'>
+      <div id='logo_container'>
+        <%=image_tag asset_path('appa_a_white.png'), :id => 'logo_img' %>
+        <!-- <img id='logo_img' src='"/images/appa_a_white.png'> -->
+        <!-- <span id='appa_text'>DAAD Data Form</span> -->
+      </div>
+    </div>
+    <!-- <h2 class='center'>DAAD Data Form</h2> -->
+
+    <div class='center'>
+      <%= form_tag '/form' do %>
+
+      
+        <div class='upper_middle'>  
+          <h4 class='underline'>Status</h4>
+          <p>As which entity are you filling out this form?</p>
+          <div> 
+            <div class='radio_div'>
+              <input type="radio" name="status" value="individual"><span class='radio_text'>An  Individual</span>
+            </div>
+            <div class='radio_div'>
+              <input type="radio" name="status" value="ngo"><span class='radio_text'>A Non- governmental Organization</span>
+            </div>
+          </div>
+          <div> 
+            <div class='radio_div'>
+              <input type="radio" name="status" value="business"><span class='radio_text'>A Business</span>
+            </div>
+            <div class='radio_div'>
+              <input type="radio" name="status" value="government"><span class='radio_text'>A Government Representative</span>
+            </div>
+            <div class='radio_div'>
+              <input type="radio" name="status" value="faith"><span class='radio_text'>A Faith Based Organization</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class='middle'>  
+          <h4 class='underline'>Personal Information</h4>
+          <div>  
+            <div class='left_form'>
+              <p>First Name:</p>
+              <!-- <%= label_tag "First Name:" %> -->
+              <%= text_field_tag "name", nil, :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>Last Name:</p>
+              <!-- <%= label_tag "Last Name:" %> -->
+              <%= text_field_tag "last_name", nil, :class => 'input' %>
+            </div>
+          </div>
+          <div>
+            <div class='left_form'>
+              <p>Phone Number:</p>
+              <%= telephone_field_tag "phone", nil, :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>Email:</p>
+              <%= email_field_tag "email", nil, :class => 'input' %>
+            </div>
+          </div>
+        </div>
+        <br>
+        
+        <div class='middle'>
+          <h4 class='underline'>Address</h4>
+          <div>  
+            <div class='left_form'>
+              <p>Address:</p>
+              <%= text_field_tag "address", nil, :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>City:</p>
+              <%= text_field_tag "city", 'San Francisco', :class => 'input' %>
+            </div>
+          </div>
+          <div>
+            <div class='left_form'>
+              <p>State:</p>
+              <%= text_field_tag "state", 'CA', :class => 'input' %>
+            </div>
+            <div class='right_form'>
+              <p>Zipcode:</p>
+              <%= text_field_tag "zip", nil, :class => 'input' %>
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+         <!-- <%= submit_tag "Submit" %> -->
+         <%= link_to "CSV", process_path(format: "csv"), class: 'map-buttons2' %>
+        <!-- <input type="submit" value="Submit"> -->
+        <br><br>
+      <% end %>
+
+    </div>
+  </body>
+</html>

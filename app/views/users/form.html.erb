@@ -1,0 +1,90 @@
+<div class='top_bar'>
+  <div id='logo_container'>
+    <img id='logo_img' src='./images/appa_a_white.png'>
+    <span id='appa_text'>APPALLICIOUS</span>
+  </div>
+</div>
+<h2 class='center'>DAAD Data Form</h2>
+
+<div class='center'>
+  <%= form_tag '/form' do %>
+
+  
+    <div class='upper_middle'>  
+      <h4 class='underline'>Status</h4>
+      <p>As which entity are you filling out this form?</p>
+      <div> 
+        <div class='radio_div'>
+          <input type="radio" name="status" value="individual"><span class='radio_text'>An  Individual</span>
+        </div>
+        <div class='radio_div'>
+          <input type="radio" name="status" value="ngo"><span class='radio_text'>A Non- governmental Organization</span>
+        </div>
+      </div>
+      <div> 
+        <div class='radio_div'>
+          <input type="radio" name="status" value="business"><span class='radio_text'>A Business</span>
+        </div>
+        <div class='radio_div'>
+          <input type="radio" name="status" value="government"><span class='radio_text'>A   Government Representative</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class='middle'>  
+      <h4 class='underline'>Personal Information</h4>
+      <div>  
+        <div class='left_form'>
+          <%= label_tag "First Name" %>
+          <%= text_field_tag "name" %>
+          <!-- <p class='form_title'>First Name:</p> -->
+          <input type="text" name="name" class='input'>
+        </div>
+        <div class='right_form'>
+          <p>Last Name:</p>
+          <input type="text" name="name" class='input'>
+        </div>
+      </div>
+      <div>
+        <div class='left_form'>
+          <p>Phone Number:</p>
+          <input type="text" name="phone_number" class='input'>
+        </div>
+        <div class='right_form'>
+          <p>Email:</p>
+          <input type="text" name="email" class='input'>
+        </div>
+      </div>
+    </div>
+    <br>
+    
+    <div class='middle'>
+      <h4 class='underline'>Address</h4>
+      <div>  
+        <div class='left_form'>
+          <p>Address:</p>
+          <input type="text" name="address" class='input'>
+        </div>
+        <div class='right_form'>
+          <p>City:</p>
+          <input type="text" name="city" value="San Francisco" class='input'>
+        </div>
+      </div>
+      <div>
+        <div class='left_form'>
+          <p>State:</p>
+          <input type="text" name="state" value="California" class='input'>
+        </div>
+        <div class='right_form'>
+          <p>Zipcode:</p>
+          <input type="text" name="zipcode" class='input'>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+    <input type="submit" value="Submit">
+    <br><br>
+  <% end %>
+
+</div>

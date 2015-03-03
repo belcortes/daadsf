@@ -15,6 +15,10 @@ CEAD::Application.routes.draw do
   get '/cooling', to: 'cooling_centers#show', :defaults => { :format => 'json' }
   get '/publish', to: 'emails#published_images', :defaults => { :format => 'json' }
   get '/users', to: 'users#show', :defaults => { :format => 'json' }
+  # get '/form', to: 'users#form'
+  match '/form', to: 'users#form', via: [:get, :post]
+  match '/form-residential', to: 'users#residential', via: [:get, :post]
+  post '/process' => 'users#process'
   get '/retro', to: 'buildings#index', :defaults => { :format => 'json' }
   get '/resource', to: 'resources#show', :defaults => { :format => 'json' }
   get '/zipcode_results', to: 'zipcodes#search', :defaults => { :format => 'json' }

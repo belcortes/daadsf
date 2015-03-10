@@ -38,7 +38,10 @@ ActiveAdmin.register Incident, as: 'Asset' do
       #   f.input :tags
       # end
     end
-    f.actions
+    f.actions do
+      f.action :submit, label: 'Create Asset'
+    end
+    # f.actions
   end
 
   controller do
@@ -47,9 +50,9 @@ ActiveAdmin.register Incident, as: 'Asset' do
       @incident.admin_user = current_admin_user
       @incident.r_type = 'asset'
       if @incident.save
-        redirect_to admin_incidents_path
+        redirect_to admin_assets_path
       else
-        render new_admin_incident_path
+        render new_admin_asset_path
       end
     end
   end

@@ -68,9 +68,9 @@ ActiveAdmin.register AdminUser do
         p 'we saved bitch!'
         p @user
         p @admin
-        redirect_to admin_users_path
+        redirect_to admin_admin_users_path
       else
-        render new_admin_incident_path
+        render new_admin_admin_user_path
       end
     end
   end

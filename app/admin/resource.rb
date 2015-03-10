@@ -39,7 +39,10 @@ ActiveAdmin.register Incident, as: 'Resource' do
       #   f.input :tags
       # end
     end
-    f.actions
+    f.actions do
+      f.action :submit, label: 'Create Resource'
+    end
+    # f.actions
   end
 
   controller do
@@ -48,9 +51,9 @@ ActiveAdmin.register Incident, as: 'Resource' do
       @incident.admin_user = current_admin_user
       @incident.r_type = 'resource'
       if @incident.save
-        redirect_to admin_incidents_path
+        redirect_to admin_resources_path
       else
-        render new_admin_incident_path
+        render new_admin_resource_path
       end
     end
   end

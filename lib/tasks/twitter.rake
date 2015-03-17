@@ -11,7 +11,7 @@ namespace :twitter do
       config.access_token_secret = 'LicGYPVWd43oMvAt5CBacrZfYgtgp06Xzq7LUNKq0GJWG'
     end 
 
-    @client.search('from:SF_emergency OR to:SF_emergency OR from:Cal_OES OR to:Cal_OES OR #emergency OR #SF_emergency OR #disaster OR #sfdisaster OR #climate OR #sanfrancisco', :geocode => '37.781157,-122.398720,8mi').take(150).each do |t|
+    @client.search('from:SF_emergency OR to:SF_emergency OR from:Cal_OES OR to:Cal_OES OR #emergency OR #SF_emergency OR #disaster OR #sfdisaster OR #climate', :geocode => '37.781157,-122.398720,8mi').take(150).each do |t|
       Tweet.find_or_create_by_text_and_handle(text: t.text, handle: t.user.screen_name) do |c|
         c.name = t.user.name
         c.location = t.user.location

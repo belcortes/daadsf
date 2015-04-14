@@ -102,6 +102,18 @@ function maps() {
     var ft_layer = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/6_ft_layer/doc.kml'
     });
+    var wildfire = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/berk_wildfire_haz_color.kml'
+    });
+    var eb_liquifaction = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/east_bay_liquifaction.kml'
+    });
+    var r_fault = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/richmond_faults.kml'
+    });
+    var o_fault = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/color_richmond_faults.kml'
+    });
     // var sea_level_rise = new google.maps.KmlLayer({
     //   url: 'https://dl.dropboxusercontent.com/u/22757148/1ft_slr.kml'
     // });
@@ -146,7 +158,7 @@ function maps() {
         $('.container').hide();
         $('.container2').hide();
         if ($('#'+check_id).is(':checked') == false) {
-          $('.theImg').remove()
+          // $('.theImg').remove()
           switch (check_id) {
             case 'zip-check':
               sf_zipcodes.setMap(null);
@@ -191,11 +203,22 @@ function maps() {
             case '6ft':
               ft_layer.setMap(null);
               break;
+            case 'wildfire':
+              wildfire.setMap(null);
+              break;
+            case 'eb_liquifaction':
+              eb_liquifaction.setMap(null);
+              break;
+            case 'faults':
+              o_fault.setMap(null);
+              r_fault.setMap(null);
+              break;
+
           }
         } else {
-          if (no_image != 'Resources'){
-            $('#page-body').append("<img class='theImg' id=leg-"+check_id+" src='/images/"+check_id+".png' />");
-          }
+          // if (no_image != 'Resources'){
+          //   $('#page-body').append("<img class='theImg' id=leg-"+check_id+" src='/images/"+check_id+".png' />");
+          // }
           switch (check_id) {
             case 'zip-check':
               sf_zipcodes.setMap(map);
@@ -254,6 +277,19 @@ function maps() {
             case '6ft':
               ft_layer.setMap(map);
               ft_layer.set('preserveViewport', true);
+              break;
+            case 'wildfire':
+              wildfire.setMap(map);
+              // wildfire.set('preserveViewport', true);
+              break;
+            case 'eb_liquifaction':
+              eb_liquifaction.setMap(map);
+              // wildfire.set('preserveViewport', true);
+              break;
+            case 'faults':
+              o_fault.setMap(map);
+              r_fault.setMap(map);
+              // wildfire.set('preserveViewport', true);
               break;
           }
         }

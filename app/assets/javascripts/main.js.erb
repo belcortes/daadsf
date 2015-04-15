@@ -114,6 +114,9 @@ function maps() {
     var o_fault = new google.maps.KmlLayer({
       url: 'https://dl.dropboxusercontent.com/u/22757148/color_oakland_east_faults.kml'
     });
+    var geo_liq = new google.maps.KmlLayer({
+      url: 'https://dl.dropboxusercontent.com/u/22757148/cal_geo_liquifaction_berkeley.kml'
+    });
     // var sea_level_rise = new google.maps.KmlLayer({
     //   url: 'https://dl.dropboxusercontent.com/u/22757148/1ft_slr.kml'
     // });
@@ -213,6 +216,9 @@ function maps() {
               o_fault.setMap(null);
               r_fault.setMap(null);
               break;
+            case 'geo_liq':
+              geo_liq.setMap(null);
+              break;
 
           }
         } else {
@@ -289,6 +295,10 @@ function maps() {
             case 'faults':
               o_fault.setMap(map);
               r_fault.setMap(map);
+              // wildfire.set('preserveViewport', true);
+              break;
+            case 'geo_liq':
+              geo_liq.setMap(map);
               // wildfire.set('preserveViewport', true);
               break;
           }

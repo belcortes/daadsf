@@ -1095,7 +1095,8 @@ $(function() {
   boolean_quantities()
   // resiliency_output()
   $('#dismiss').on('click', function(){
-    $('#landing').hide()
+    $('#landing').hide();
+    $('#page-body').css("position", "initial")
   })
 
   $('.resource_links').on('click', function(){

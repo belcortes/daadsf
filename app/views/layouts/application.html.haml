@@ -84,21 +84,8 @@
         %input.checkbox#density-check{type: "checkbox"} Population Density
       %li
         %input.checkbox#super-check{type: "checkbox"} Supervisor Districts
-      - if current_user && current_user.admin?
-        %li
-          %input.checkbox#incidents{type: "checkbox"} Incidents
-        %li
-          %input.checkbox#assets{type: "checkbox"} Assets
-        %li
-          %input.checkbox#resources{type: "checkbox"} Resources
-      %li
-        %input.checkbox#wildfire{type: "checkbox"} Berkley Wildfire Risk
-      %li
-        %input.checkbox#faults{type: "checkbox"} Berkley Faults
-      %li
-        %input.checkbox#eb_liquifaction{type: "checkbox"} Berkley Liquifaction Potential
-      %li
-        %input.checkbox#geo_liq{type: "checkbox"} Cal Geo Liquifaction
+      
+      
   %a(href='#')
     .map-buttons#resiliency Resiliency
   / %a(href='#')
@@ -132,9 +119,7 @@
         %input.checkbox#pickup{type: "checkbox"} Public Transport Evacuation Locations
       %li
         %input.checkbox#twitter{type: "checkbox"} Twitter Feed
-      - if current_user && current_user.admin?
-        %li
-          %input.checkbox#photo{type: "checkbox"} Photos
+      
 
   %a(href='#')
     .map-buttons#community Community Resources
@@ -155,6 +140,14 @@
         %input.checkbox#flood_high{type: "checkbox"} Bay Area Flood Risk
       %li
         %input.checkbox#6ft{type: "checkbox"} 6 Ft Sea Level Rise
+      %li
+        %input.checkbox#wildfire{type: "checkbox"} Berkeley Wildfire Risk
+      %li
+        %input.checkbox#faults{type: "checkbox"} Berkeley Faults
+      %li
+        %input.checkbox#eb_liquifaction{type: "checkbox"} Berkeley Liquifaction Potential
+      %li
+        %input.checkbox#geo_liq{type: "checkbox"} Cal Geo Liquifaction
       
   .dropdown
     %a.dropdown-toggle.map-buttons#sf-er{"data-toggle" => "dropdown"}(href='#')
@@ -171,6 +164,15 @@
         %input.checkbox#sandbag{type: "checkbox"} Sandbag Pickup Locations
       %li
         %input.checkbox#evac_routes{type: "checkbox"} Bay Area Evacuation Routes
+      - if current_user && current_user.admin?
+        %li
+          %input.checkbox#incidents{type: "checkbox"} Incidents
+        %li
+          %input.checkbox#assets{type: "checkbox"} Assets
+        %li
+          %input.checkbox#resources{type: "checkbox"} Resources
+        %li
+          %input.checkbox#photo{type: "checkbox"} Photos
 
   %a(href='http://appallicious.com/' target='_blank')
     =image_tag asset_path("appalogo.jpg"), :id => 'appalogo'

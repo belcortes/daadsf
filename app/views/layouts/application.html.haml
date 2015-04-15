@@ -7,6 +7,24 @@
 
       
 #page-body
+  
+  %section#landing.landing
+    .w
+      %a.landing-dismiss.icon-before.icon-dismiss{:href => "#"}
+        =image_tag asset_path("dismiss.png"), id: 'dismiss'
+      %h1.landing-title Disaster Assessment and Assistance Dashboard
+      %h3.sf San Francisco 
+      %ul
+        %li.ppr
+          %img.block{:alt => "notebook icon", :src => "http://appallicious.com/wp-content/uploads/2014/11/notebook.png"}/
+          %span.word.block PLAN
+        %li.ppr{:style => "margin: 0 250px;"}
+          %img.block{:alt => "backpack icon", :src => "http://appallicious.com/wp-content/uploads/2014/11/backpack.png"}/
+          %span.word.block PREPARE
+        %li.ppr
+          %img.block{:alt => "bandaid icon", :src => "http://appallicious.com/wp-content/uploads/2014/11/bandaid.png"}/
+          %span.word.block RECOVER
+
   #map 
 
   = yield
